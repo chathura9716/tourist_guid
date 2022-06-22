@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Special Offers</title>
+		<title>places</title>
 		<meta charset="utf-8">
 		<meta name="format-detection" content="telephone=no" />
 		<link rel="icon" href="images/favicon.ico">
@@ -34,6 +34,7 @@
 	</head>
 	<body>
 <!--==============================header=================================-->
+
 		<header>
 			<div class="container_12">
 				<div class="grid_12">
@@ -63,34 +64,20 @@
 		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
 			<div class="container_12">
 				<div class="grid_8">
-					<h3>Special offers</h3>
+					<h3>Places for visit</h3>
+					@foreach ($places as $place)
 					<div class="block2">
-						<img src="images/page3_img1.jpg" alt="" class="img_inner fleft">
+						<img src="{{asset('thumbnails/'.$place->thumbnail)}}" alt="" class="card-img-top img-fluid">
 						<div class="extra_wrapper">
-							<div class="text1 col1"><a href="#">Barcelona</a></div>
-							<p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel
-							<br>
+							<div class="text1 col1"><a href="#">{{$place->place_name}}</a></div>
+							<p>{{$place->description}}</p>
 							<a href="#" class="link1">LEARN MORE</a>
+							<br>
 						</div>
 					</div>
-					<div class="block2">
-						<img src="images/page3_img2.jpg" alt="" class="img_inner fleft">
-						<div class="extra_wrapper">
-							<div class="text1 col1"><a href="#">Moscow</a></div>
-							<p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel
-							<br>
-							<a href="#" class="link1">LEARN MORE</a>
-						</div>
-					</div>
-					<div class="block2">
-						<img src="images/page3_img3.jpg" alt="" class="img_inner fleft">
-						<div class="extra_wrapper">
-							<div class="text1 col1"><a href="#">Thailand</a></div>
-							<p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel
-							<br>
-							<a href="#" class="link1">LEARN MORE</a>
-						</div>
-					</div>
+					@endforeach
+					
+					
 				</div>
 				<div class="grid_3 prefix_1">
 					<h5>CHOOse the country</h5>

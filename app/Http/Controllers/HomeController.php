@@ -33,10 +33,7 @@ class HomeController extends Controller
     {
         return view('contact');
     }
-    public function places()
-    {
-        return view('places');
-    }
+ 
     public function Blog()
     {
     

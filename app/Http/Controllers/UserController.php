@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 use App\Models\User;
+use App\Models\Post;
+use App\Models\Place;
 
 use Illuminate\Http\Request;
 
@@ -19,13 +21,21 @@ class UserController extends Controller
     public function dashboard()
     {
         //return view('welcome');
+
+       
+            $users = User::all();
+            $posts = Post::all();
+            $places = Place::all();
+          
+    
         
             $role=Auth::user()->role;
            
           
-
+                    
                     if($role=='admin'){
-                        return view('admin.dashboard');
+                        
+                        return view('admin.dashboard',compact('users','posts','places'));
                     }
                     elseif($role=='user'){
                         return view('user.tourist.dashboard');
@@ -56,6 +66,7 @@ class UserController extends Controller
             $role=Auth::user()->role;
     
             if($role=='admin'){
+                
                 return view('admin.adminprofile');
             }
             elseif($role=='user'){
@@ -130,13 +141,20 @@ class UserController extends Controller
         }
      
     }
-   
+  
     public function edit($userId){
         
         $user = User::findOrFail($userId);
         return view('user.edit',compact('user'));
 
     }
+    // public function delete($userId){
+        
+    //     $user = User::find($userId)->delete($user);
+    //     return redirect()->route('admin.dashboard');
+
+    // }
+    
     
     public function update($userId,Request $request){
         //dd($request ->all());

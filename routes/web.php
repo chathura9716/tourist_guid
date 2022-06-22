@@ -27,7 +27,7 @@ Route::get('/', [WelcomeController::class ,'welcome'])->name('welcome');
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'About'])->name('about');
 Route::get('/blog', [App\Http\Controllers\HomeController::class, 'Blog'])->name('blog');
 Route::get('/contact', [App\Http\Controllers\HomeController::class, 'Contact'])->name('contact');
-Route::get('/places', [App\Http\Controllers\HomeController::class, 'Places'])->name('places');
+Route::get('/places', [App\Http\Controllers\PlaceController::class, 'welcomeplace'])->name('places');
 //posts
 Route::get('/posts/{postId}/show', [PostController::class, 'show'])->name('posts.show');
 Route::group(['middleware'=>'auth'], function(){
@@ -57,7 +57,9 @@ Route::group(['middleware'=>'auth'], function(){
 
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/dashboard', [App\Http\Controllers\UserController::class, 'dashboard'])->name('dashboard');
+   
     Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+   // Route::get('/delete/{id}', [UserController::class, 'delete'])->name('delete');
     Route::post('/users/{id}/update', [UserController::class, 'update'])->name('user.update');
     Route::post('/users/create', [UserController::class, 'createUser'])->name('user.create');
     Route::get('/addhotel', [UserController::class, 'addhotel'])->name('admin.addhotel');

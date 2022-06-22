@@ -72,4 +72,96 @@ admindash>>
     </div>
   </div>
 </section>
+<h1>Places Table</h1>
+<table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($places as $place)
+                <tr>
+                    <th scope="row">{{$place->id}}</th>
+                    <td>{{$place->place_name}}</td>
+                    <td>{{$place->description}}</td>
+                    <td>
+                        
+                        <a href="" class="btn btn-sm btn-primary">Edit</a>
+                        <a href="" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+                @endforeach
+                
+            </tbody>
+        </table>
+        <br><br>
+<h1>Admin's Blogs</h1>
+<table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($posts as $post)
+                <tr>
+                    <th scope="row">{{$post->id}}</th>
+                    <td>{{$post->title}}</td>
+                    <td>{{$post->description}}</td>
+                    <td>
+                        
+                        <a href="{{Route('posts.edit',$post->id)}}" class="btn btn-sm btn-primary">Edit</a>
+                        <a href="{{Route('posts.delete',$post->id)}}" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+                @endforeach
+                
+            </tbody>
+        </table>
+        <br><br>
+<h1>User Table</h1>
+
+   
+
+    <div class="col-sm-12">
+        @if(session()->get('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
+        @endif
+    </div>
+    <table id="customers">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Date of birth</th>
+            <th>Nic</th>
+            <th>Mobile</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+        @foreach ($users as $user)
+          <th scope="row">{{$user->fname}}</th>
+                    <td>{{$user->email}}</td>
+                    <td>{{$user->dob}}</td>
+                    <td>{{$user->nic}}</td>
+                    <td>{{$user->contact}}</td>
+                    <td>
+                        
+                        <a href="{{Route('user.edit',$user->id)}}" class="btn btn-sm btn-primary">Edit</a>
+                        <a href="" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+        </tr>
+  
+        @endforeach
+
+    </table>
+    <br>
 @endsection

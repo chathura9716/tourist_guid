@@ -40,6 +40,14 @@ class PlaceController extends Controller
             }
             return  redirect(route('dashboard'))->with('status','Place created successfully!');
     }
+     
+    public function welcomeplace(){
+        $places = Place::all();
+        // $latest_posts= Place::orderBy('created_at','DESC')->limit(1)->get();
+       
+            return view('places',compact('places'));
+
+    }
 
     public function show($placeId){
 
@@ -49,7 +57,7 @@ class PlaceController extends Controller
 
     public function edit($placeId){
         $post = Post::findOrFail($placeId);
-        return view('posts.edit',compact('post'));
+        return view('place.edit',compact('place'));
     } 
 
     public function update($placeId,Request $request){
