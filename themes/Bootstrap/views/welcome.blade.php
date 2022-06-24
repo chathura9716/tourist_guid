@@ -95,31 +95,34 @@
 				<div data-src="images/slide.jpg">
 					<div class="caption fadeIn">
 						<h2>LONDON</h2>
-						<div class="price">
+						<!-- <div class="price">
 							FROM
 							<span>$1000</span>
-						</div>
-						<a href="#">LEARN MORE</a>
+						</div> -->
+						<a href="{{ route('register') }}">START YOUR JOURNEY</a><br>
+						<a href="{{ route('login') }}">LOG IN HERE</a>
 					</div>
 				</div>
 				<div data-src="images/slide1.jpg">
 					<div class="caption fadeIn">
 						<h2>Maldives</h2>
-						<div class="price">
+						<!-- <div class="price">
 							FROM
 							<span>$2000</span>
-						</div>
-						<a href="#">LEARN MORE</a>
+						</div> -->
+						<a href="{{ route('register') }}">START YOUR JOURNEY</a><br>
+						<a href="{{ route('login') }}">LOG IN HERE</a>
 					</div>
 				</div>
 				<div data-src="images/slide2.jpg">
 					<div class="caption fadeIn">
 						<h2>Venice</h2>
-						<div class="price">
+						<!-- <div class="price">
 							FROM
 							<span>$1600</span>
-						</div>
-						<a href="#">LEARN MORE</a>
+						</div> -->
+						<a href="{{ route('register') }}">START YOUR JOURNEY</a><br>
+						<a href="{{ route('login') }}">LOG IN HERE</a>
 					</div>
 				</div>
 			</div>

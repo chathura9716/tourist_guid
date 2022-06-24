@@ -24,7 +24,7 @@ class UserController extends Controller
 
        
             $users = User::all();
-            $posts = Post::all();
+            $posts = Post::where('user_id',Auth::user()->id)->get();
             $places = Place::all();
           
     
@@ -37,9 +37,10 @@ class UserController extends Controller
                         
                         return view('admin.dashboard',compact('users','posts','places'));
                     }
-                    elseif($role=='user'){
-                        return view('user.tourist.dashboard');
-                    }elseif($role=='Hotel Agency'){
+                    // elseif($role=='user'){
+                    //     return view('user.tourist.dashboard',compact('posts'));
+                    // }
+                    elseif($role=='Hotel Agency'){
                         return view('user.hotel.dashboard');
 
                     }elseif($role=='Travel Agency'){
@@ -148,12 +149,10 @@ class UserController extends Controller
         return view('user.edit',compact('user'));
 
     }
-    // public function delete($userId){
-        
-    //     $user = User::find($userId)->delete($user);
-    //     return redirect()->route('admin.dashboard');
-
-    // }
+    public function delete($userId){
+        User::FindOrFail($userId)->delete();
+        return redirect(route('dashboard'));
+    }
     
     
     public function update($userId,Request $request){
@@ -175,7 +174,7 @@ class UserController extends Controller
             'role'=>$request->role,
         ]);
 
-        return redirect(route('dashboard'))->with('status','Hotel Argency Added!');
+        return redirect(route('dashboard'))->with('status','User Added!');
     }
 }
 

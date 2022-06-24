@@ -23,7 +23,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Description</label>
-                            <textarea name="description"  class="form-control" id="exampleInputPassword1"  placeholder="Enter post description" rows="10" required ></textarea >
+                            <textarea name="description" value="{{ old('description') }}"  class="form-control" id="exampleInputPassword1"  placeholder="Enter post description" rows="10" required ></textarea >
                         </div>
                    
                         <button type="submit" class="btn btn-primary">Update</button>

@@ -34,6 +34,7 @@ class PostController extends Controller
         $request->thumbnail->move(public_path('thumbnails'),$imageName );
         
         post::create([
+            'tourist_id'=>auth()-tourist()->id,
             'user_id'=>auth()->user()->id,
             'title' => $request->title,
             'description'=>$request->description,
@@ -65,6 +66,6 @@ class PostController extends Controller
 
     public function delete($postId){
         Post::FindOrFail($postId)->delete();
-        return redirect(route('posts.all'));
+        return redirect(route('dashboard'));
     }
 }

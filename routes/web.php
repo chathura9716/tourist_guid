@@ -6,6 +6,8 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PlaceController;
+use App\Http\Controllers\TouristController;
+use App\Http\Controllers\TouristregisterController;
 use App\Http\Controllers\Admin\DashboardController;
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +23,9 @@ use App\Http\Controllers\Admin\DashboardController;
 
 Auth::routes();
 Route::get('/', [WelcomeController::class ,'welcome'])->name('welcome');
-
+//tourist
+ Route::get('/create_tourist', [App\Http\Controllers\TouristController::class, 'createTourist'])->name('create_tourist');
+ 
 
 
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'About'])->name('about');
@@ -57,8 +61,9 @@ Route::group(['middleware'=>'auth'], function(){
 
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/dashboard', [App\Http\Controllers\UserController::class, 'dashboard'])->name('dashboard');
-   
+  
     Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+    Route::get('/users/{userId}/delete', [UserController::class, 'delete'])->name('user.delete');
    // Route::get('/delete/{id}', [UserController::class, 'delete'])->name('delete');
     Route::post('/users/{id}/update', [UserController::class, 'update'])->name('user.update');
     Route::post('/users/create', [UserController::class, 'createUser'])->name('user.create');
@@ -69,6 +74,9 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/addplaces', [App\Http\Controllers\Admin\DashboardController::class, 'addplacesview'])->name('admin.addplaces');
    
     Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profile');
+
+    // Route::get('/tourist_dashboard', [App\Http\Controllers\TouristController::class, 'dashboardTourist'])->name('tourist_dashboard');
+    // Route::post('/create', [App\Http\Controllers\TouristregisterController::class, 'create'])->name('create');
 });
    
 //admin

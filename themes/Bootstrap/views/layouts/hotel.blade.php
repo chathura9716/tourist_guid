@@ -101,11 +101,12 @@
             </li> -->
 	        	<!-- <li class="nav-item"><a class ="nav-link" href="{{route('posts.all')}}">All Blogs</a></li>
 	        	<li class="nav-item"> <a class ="nav-link" href="{{route('addpost')}}">Add Blog</a></li> -->
+            <li class="nav-item"> <a class ="nav-link" href="{{route('places')}}">Places</a></li>
 
             <li class="nav-item"> <a class ="nav-link" href="{{route('admin.addtravel')}}">Booking Request</a></li>
 
 
-	          <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+	          <li class="nav-item"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
 	        </ul>
             <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
@@ -131,7 +132,7 @@
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('profile') }}">
                                       
-                                        {{ __('profile') }}
+                                        {{ __('Profile') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
