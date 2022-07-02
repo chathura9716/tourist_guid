@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 use App\Models\Tourist;
+use App\Models\Post;
 
 class TouristregisterController extends Controller
 {
@@ -23,7 +25,7 @@ class TouristregisterController extends Controller
             'origin' => ['required', 'string', 'max:255'],
             'passport_no' => ['required', 'string', 'max:255'],
 
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:tourist'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -38,7 +40,7 @@ class TouristregisterController extends Controller
     {
         $posts = Post::where('tourist_id',Auth::tourist()->id)->get();
         
-     Tourist::create([
+        Tourist::create([
           
 
             'user_name'=>$request->user_name,
@@ -53,5 +55,18 @@ class TouristregisterController extends Controller
         ]);
         return redirect(route('tourist_dashboard',compact('posts')));
          
+    }
+    function check(Request $request){
+        $request->validate([
+            'email'=>'required|email|exists:tourists,email',
+            'password'=>['required', 'string', 'min:8', 'confirmed'],
+
+        ]);
+        $success =$request->only('email','password');
+        if(Auth::attempt($success)){
+            return redirect()->route('tourist.tourist_dashboard');
+        }else{
+            return redirect()->route('tourist.login');
+        }
     }
 }

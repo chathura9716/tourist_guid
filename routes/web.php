@@ -23,11 +23,10 @@ use App\Http\Controllers\Admin\DashboardController;
 
 Auth::routes();
 Route::get('/', [WelcomeController::class ,'welcome'])->name('welcome');
-//tourist
- Route::get('/create_tourist', [App\Http\Controllers\TouristController::class, 'createTourist'])->name('create_tourist');
- 
+//tourist register
 
 
+//guest views
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'About'])->name('about');
 Route::get('/blog', [App\Http\Controllers\HomeController::class, 'Blog'])->name('blog');
 Route::get('/contact', [App\Http\Controllers\HomeController::class, 'Contact'])->name('contact');
@@ -49,14 +48,14 @@ Route::get('/addplace', [App\Http\Controllers\HomeController::class, 'Addplace']
 //Route::get('/place/{placeId}/show', [PlaceController::class, 'show'])->name('posts.show');
 Route::group(['middleware'=>'auth'], function(){
     Route::post('/place/store', [PlaceController::class, 'store'])->name('place.store');
-    // Route::get('/posts/all', [HomeController::class, 'allPosts'])->name('posts.all');
-    // Route::get('/posts/{postId}/edit', [PostController::class, 'edit'])->name('posts.edit');
-    // Route::post('/posts/{postId}/update', [PostController::class, 'update'])->name('posts.update');
-    // Route::get('/posts/{postId}/delete', [PostController::class, 'delete'])->name('posts.delete');
+    Route::get('/place/{placeId}/show', [PlaceController::class, 'show'])->name('place.show');
+    Route::get('/place/{placeId}/edit', [PlaceController::class, 'edit'])->name('place.edit');
+    Route::post('/place/{placeId}/update', [PlaceController::class, 'update'])->name('place.update');
+    Route::get('/place/{placeId}/delete', [PlaceController::class, 'delete'])->name('place.delete');
     
 
 });
-//user
+//admin users
 
 
 Route::group(['middleware'=>'auth'], function(){
@@ -64,27 +63,31 @@ Route::group(['middleware'=>'auth'], function(){
   
     Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
     Route::get('/users/{userId}/delete', [UserController::class, 'delete'])->name('user.delete');
-   // Route::get('/delete/{id}', [UserController::class, 'delete'])->name('delete');
     Route::post('/users/{id}/update', [UserController::class, 'update'])->name('user.update');
     Route::post('/users/create', [UserController::class, 'createUser'])->name('user.create');
+    //views
     Route::get('/addhotel', [UserController::class, 'addhotel'])->name('admin.addhotel');
     Route::get('/addtravel', [UserController::class, 'addtravel'])->name('admin.addtravel');
-    Route::get('/adddriver', [UserController::class, 'adddriver'])->name('user.travel.adddriver');
     Route::get('/hotel', [UserController::class, 'hotel'])->name('user.hotel.addhotel');
     Route::get('/addplaces', [App\Http\Controllers\Admin\DashboardController::class, 'addplacesview'])->name('admin.addplaces');
    
     Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profile');
 
     // Route::get('/tourist_dashboard', [App\Http\Controllers\TouristController::class, 'dashboardTourist'])->name('tourist_dashboard');
-    // Route::post('/create', [App\Http\Controllers\TouristregisterController::class, 'create'])->name('create');
 });
    
-//admin
-// Route::group(['middleware'=>['admin','auth']], function(){
-//     Route::get('/profile', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('profile');
-//     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-//     Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
-//     Route::post('/users/{id}/update', [UserController::class, 'update'])->name('user.update');
-// });
+//tourist
+
+  
+        Route::get('/create_tourist', [App\Http\Controllers\TouristController::class, 'createTourist'])->name('create_tourist');
+        //Route::get('/loginTourist', [App\Http\Controllers\TouristController::class, 'loginTourist'])->name('loginTourist');
+    
+        Route::post('/create', [App\Http\Controllers\TouristregisterController::class, 'create'])->name('create');
+        Route::post('/check', [App\Http\Controllers\TouristregisterController::class, 'check'])->name('check');
+
+        Route::get('/tourist_dashboard', [App\Http\Controllers\TouristController::class, 'dashboardTourist'])->name('tourist_dashboard');
+
+
+   
 
 

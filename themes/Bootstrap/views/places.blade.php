@@ -71,7 +71,7 @@
 						<div class="extra_wrapper">
 							<div class="text1 col1"><a href="#">{{$place->place_name}}</a></div>
 							<p>{{$place->description}}</p>
-							<a href="#" class="link1">LEARN MORE</a>
+							<a href="{{Route('place.show',$place->id)}}" class="link1">LEARN MORE</a>
 							<br>
 						</div>
 					</div>

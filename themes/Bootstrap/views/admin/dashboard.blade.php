@@ -207,8 +207,8 @@ text-decoration:none;
                     <td>{{$place->description}}</td>
                     <td>
                         
-                        <a href="" class="btn btn-sm btn-primary">Edit</a>
-                        <a href="" class="btn btn-sm btn-danger">Delete</a>
+                        <a href="{{Route('place.edit',$place->id)}}" class="btn btn-sm btn-primary">Edit</a>
+                        <a href="{{Route('place.delete',$place->id)}}" class="btn btn-sm btn-danger">Delete</a>
                     </td>
                 </tr>
                 @endforeach
@@ -271,9 +271,9 @@ text-decoration:none;
                                 <th><span>Name</span></th>
                                 <th><span>Email</span></th>
                                 
-                                <th><span>Date of birth</th>
-                                <th><span>Nic</th>
-                                <th><span>Mobile</th>
+                                <th><span>City</th>
+                                <th><span>Address</th>
+                                <th><span>Charges</th>
                                 <th class="text-center"><span>Status</span></th>
                                 <th>Action</th>
                       
@@ -289,15 +289,15 @@ text-decoration:none;
  
                                     <td>
                                         <img src="images/profile.jpg" alt="">
-                                        <a href="#" class="user-link">{{$user->fname}}</a>
+                                        <a href="#" class="user-link">{{$user->name}}</a>
                                         <span class="user-subhead">{{$user->role}}</span>
                                     </td>
                                     <td>{{$user->email}}</td>
-                                    <td>{{$user->dob}}</td>
-                                    <td>{{$user->nic}}</td>
-                                    <td>{{$user->contact}}</td>
+                                    <td>{{$user->city}}</td>
+                                    <td>{{$user->address}}</td>
+                                    <td>Rs.{{$user->charges}}</td>
                                     <td class="text-center">
-                                        <span class="label label-danger">inactive</span>
+                                        <span class="label label-danger">{{$user->availability}}</span>
                                     </td>
                                   
                                 

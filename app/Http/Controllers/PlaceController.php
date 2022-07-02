@@ -51,23 +51,23 @@ class PlaceController extends Controller
 
     public function show($placeId){
 
-        $post = Post::findOrFail($placeId);
-        return view('posts.show',compact('post'));
+        $place = Place::findOrFail($placeId);
+        return view('place.view',compact('place'));
     }
 
     public function edit($placeId){
-        $post = Post::findOrFail($placeId);
+        $place = Place::findOrFail($placeId);
         return view('place.edit',compact('place'));
     } 
 
     public function update($placeId,Request $request){
         //dd($request ->all());
-        Post::findOrFail($placeId)->update($request ->all());
-        return redirect(route('posts.all'))->with('status','Post updated!');
+        Place::findOrFail($placeId)->update($request ->all());
+        return redirect(route('place.view'))->with('status','Post updated!');
     }
 
     public function delete($placeId){
-        Post::FindOrFail($placeId)->delete();
-        return redirect(route('posts.all'));
+        Place::FindOrFail($placeId)->delete();
+        return redirect(route('dashboard'));
     }
 }

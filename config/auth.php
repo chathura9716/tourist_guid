@@ -17,6 +17,10 @@ return [
         'guard' => 'web',
         'passwords' => 'users',
     ],
+    'tourist' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\Tourist::class,
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -40,6 +44,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'tourist' => [
+            'driver' => 'session',
+            'provider' => 'tourists',
+        ],
+    
     ],
 
     /*
@@ -63,6 +72,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'tourists' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Tourist::class,
         ],
 
         // 'users' => [
@@ -92,6 +105,10 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
+        ],
+        'tourists' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Tourist::class,
         ],
     ],
 

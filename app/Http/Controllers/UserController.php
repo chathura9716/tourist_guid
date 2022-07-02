@@ -102,19 +102,19 @@ class UserController extends Controller
         
     }
     
-    public function adddriver(){
-        {
-            $role=Auth::user()->role;
+    // public function adddriver(){
+    //     {
+    //         $role=Auth::user()->role;
     
-            if($role=='Travel Agency'){
-                return view('user.travel.adddriver');
-            }
-            else{
-                return view('user.dashboard');
-            }
-        }
+    //         if($role=='Travel Agency'){
+    //             return view('user.travel.adddriver');
+    //         }
+    //         else{
+    //             return view('user.dashboard');
+    //         }
+    //     }
      
-    }
+    // }
     //Add travel view
     public function addtravel(){
         {
@@ -163,15 +163,17 @@ class UserController extends Controller
     public function createUser(Request $request)
     {
          User::create([
-            'fname' => $request->fname,
-            'lname' => $request->lname,
-            'dob'   => $request->dob,
-            'nic'   => $request->nic,
-            'contact'=> $request->contact,
+            'name' => $request->name,
+            'type' => $request->type,
+            'address'   => $request->address,
+            'city'   => $request->city,
+            'avalability'=> $request->avalability,
+            'charges'=> $request->charges,
             'email' => $request->email,
            
             'password' => Hash::make($request->password),
             'role'=>$request->role,
+          
         ]);
 
         return redirect(route('dashboard'))->with('status','User Added!');

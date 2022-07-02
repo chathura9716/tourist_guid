@@ -16,11 +16,12 @@ class AdminSeeder extends Seeder
     public function run()
     {
         User::create([
-            'fname' => 'Admin',
-            'lname' => '1',
-            'dob' => '1997/05/16',
-            'nic' => '971370537V',
-            'contact' => '078635421',
+            'name' => 'Admin',
+            'type' => '',
+            'address' => '157/F,hdga,kadg',
+            'city' => 'Colombo',
+            'availability' => 'null',
+            'charges'=>2,
             'email' => 'admin@gmail.com',
             'password' =>bcrypt(12345678),
             'role' => 'admin'

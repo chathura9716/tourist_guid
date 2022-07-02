@@ -18,5 +18,8 @@ class TouristController extends Controller
     public function createTourist(){
         return view('user.tourist.register');
     }
+    public function loginTourist(){
+        return view('user.tourist.login');
+    }
 
 }
