@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.frontend')
 @section('content')
 <style>
   body{
