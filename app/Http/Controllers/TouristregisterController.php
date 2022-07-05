@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth,Guest;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -13,60 +13,68 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Models\Tourist;
 use App\Models\Post;
 
+use Session;
+
 class TouristregisterController extends Controller
 {
-    use RegistersUsers;
-    protected function validator(array $data)
+   
+    function create(Request $request)
     {
-        return Validator::make($data, [
-            'user_name' => ['required', 'string', 'max:255'],
-            'age' => ['required', 'string', 'max:255'],
-            'gender' => ['required', 'string', 'max:255'],
-            'origin' => ['required', 'string', 'max:255'],
-            'passport_no' => ['required', 'string', 'max:255'],
-
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:tourist'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        $request ->validate([
+            'user_name'=>'required',
+            'age'=>'required',
+            'gender'=>'required',
+            'origin'=>'required',
+            'passport_no'=>'required',
+            'email'=>'required|email|unique:tourists',
+            'password'=>'required',
         ]);
-    }
+        $tourist =new Tourist();
+        $tourist -> user_name = $request ->user_name;
+        $tourist -> age = $request ->age;
+        $tourist -> gender = $request ->gender;
+        $tourist -> origin = $request ->origin;
+        $tourist -> passport_no = $request ->passport_no;
+        $tourist -> email = $request ->email;
+        $tourist -> password = Hash::make($request->password);
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Models\User
-     */
-    protected function create(Request $request)
-    {
-        $posts = Post::where('tourist_id',Auth::tourist()->id)->get();
-        
-        Tourist::create([
+        $res = $tourist ->save();
+
+        if($res){
+            return redirect()->back()->with('success','You are now registered');
+        }else{
+            return redirect()->back()->with('fail','Fail to register');
+
+        }
+
+ 
           
 
-            'user_name'=>$request->user_name,
-            'age'=>$request->age,
-            'gender'=>$request->gender,
-            'origin'=>$request->origin,
-            'passport_no'=>$request->passport_no,
-            'email'=>$request->email,
-            
-            'password'=> Hash::make($request->password),
-            
-        ]);
-        return redirect(route('tourist_dashboard',compact('posts')));
+       
+        return redirect(route('tourist_dashboard'));
          
     }
-    function check(Request $request){
-        $request->validate([
-            'email'=>'required|email|exists:tourists,email',
-            'password'=>['required', 'string', 'min:8', 'confirmed'],
-
+    function lTourist(Request $request){
+        $request ->validate([
+           
+            'email'=>'required|email',
+            'password'=>'required',
         ]);
-        $success =$request->only('email','password');
-        if(Auth::attempt($success)){
-            return redirect()->route('tourist.tourist_dashboard');
+        
+ 
+        $tourist =Tourist::where('email', '=',$request->email)->first();
+
+        if($tourist){
+            if(Hash::check($request->password,$tourist->password)){
+                $request ->session()->put('loginId',$tourist->id);
+               
+                return redirect()->route('tourist_dashboard');
+            }else{
+                return back()->with('fail','this password not correct.');
+            }
+          
         }else{
-            return redirect()->route('tourist.login');
+            return back()->with('fail','this email not registerd.');
         }
     }
 }

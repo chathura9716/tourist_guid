@@ -32,7 +32,7 @@
 				<img src="images/travel.jpg" alt="">
 			</div>
 			<div class="form-inner">
-            <form method="POST" action="{{ route('create') }}">
+            <form method="POST" action="{{ route('register') }}">
                         @csrf
 					<div class="form-header">
 						<h3>Sign up</h3>

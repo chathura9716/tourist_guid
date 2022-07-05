@@ -27,7 +27,18 @@
 				<img src="images/registration-form-8" alt="">
 			</div>
 			<div class="form-inner">
-            <form method="POST" action="{{ route('check') }}">
+            <form method="POST" action="{{ route('lTourist') }}">
+			@if(Session::get('success'))
+                <div class="alert alert-success">
+                    {{Session::get('success')}}
+                    </div>
+                @endif
+              
+                @if(Session::get('fail'))
+                <div class="alert alert-danger">
+                    {{Session::get('fail')}}
+                    </div>
+                @endif
                         @csrf
 					<div class="form-header">
 						<h3>Log in</h3>
@@ -39,10 +50,14 @@
 					<div class="form-group">
 						<label for="">E-mail:</label>
 						<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" data-validation="email">
+						<span class="text-danger">@error('email'){{$message}} @enderror</span>
+
 					</div>
 					<div class="form-group" >
 						<label for="">Password:</label>
-						<input  id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" data-validation-length="min8">
+						<input  id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="password" data-validation-length="min8">
+						<span class="text-danger">@error('password'){{$message}} @enderror</span>
+
 					</div>
                     <div class="row mb-3">
                             <div class="col-md-6 offset-md-4">

@@ -99,8 +99,8 @@
 							FROM
 							<span>$1000</span>
 						</div> -->
-						<a href="{{ route('register') }}">START YOUR JOURNEY</a><br>
-						<a href="{{ route('login') }}">LOG IN HERE</a>
+						<a href="{{ route('create_tourist') }}">START YOUR JOURNEY</a><br>
+						<a href="{{ route('loginTourist') }}">LOG IN HERE</a>
 					</div>
 				</div>
 				<div data-src="images/slide1.jpg">
@@ -110,8 +110,8 @@
 							FROM
 							<span>$2000</span>
 						</div> -->
-						<a href="{{ route('register') }}">START YOUR JOURNEY</a><br>
-						<a href="{{ route('login') }}">LOG IN HERE</a>
+						<a href="{{ route('create_tourist') }}">START YOUR JOURNEY</a><br>
+						<a href="{{ route('loginTourist') }}">LOG IN HERE</a>
 					</div>
 				</div>
 				<div data-src="images/slide2.jpg">
@@ -121,8 +121,8 @@
 							FROM
 							<span>$1600</span>
 						</div> -->
-						<a href="{{ route('register') }}">START YOUR JOURNEY</a><br>
-						<a href="{{ route('login') }}">LOG IN HERE</a>
+						<a href="{{ route('create_tourist') }}">START YOUR JOURNEY</a><br>
+						<a href="{{ route('loginTourist') }}">LOG IN HERE</a>
 					</div>
 				</div>
 			</div>

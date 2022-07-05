@@ -33,6 +33,17 @@
 			</div>
 			<div class="form-inner">
             <form method="POST" action="{{ route('create') }}">
+			@if(Session::get('success'))
+                <div class="alert alert-success">
+                    {{Session::get('success')}}
+                    </div>
+                @endif
+              
+                @if(Session::get('fail'))
+                <div class="alert alert-danger">
+                    {{Session::get('fail')}}
+                    </div>
+                @endif
                         @csrf
 					<div class="form-header">
 						<h3>Sign up</h3>
@@ -41,35 +52,50 @@
 					<div class="form-group">
 						<label for="">User Name:</label>
 						<input id="user_name" type="text" class="form-control @error('user_name') is-invalid @enderror" name="user_name" value="{{ old('user_name') }}" required autocomplete="user_name" autofocusdata-validation-length="3-12">
+						<span class="text-danger">@error('user_name'){{$message}} @enderror</span>
 					</div>
                     <div class="form-group">
 						<label for="">Age :</label>
 						<input input id="age" type="text" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}" required autocomplete="age" autofocus data-validation-length="3-12">
+						<span class="text-danger">@error('age'){{$message}} @enderror</span>
+
 					</div>
                     <div class="form-group">
 						<label for="">Gender :</label>
 						<input input id="gender" type="text" class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" required autocomplete="gender" autofocus data-validation-length="3-12">
+						<span class="text-danger">@error('gender'){{$message}} @enderror</span>
+
 					</div>
 				
                     <div class="form-group">
 						<label for="">Origin:</label>
 						<input id="origin" type="text" class="form-control @error('origin') is-invalid @enderror" name="origin" value="{{ old('origin') }}" required autocomplete="origin" autofocus data-validation-length="3-12">
+						<span class="text-danger">@error('origin'){{$message}} @enderror</span>
+
 					</div>
                     <div class="form-group">
 						<label for="">Passport No:</label>
 						<input  id="passport_no" type="text" class="form-control @error('passport_no') is-invalid @enderror" name="passport_no" value="{{ old('passport_no') }}" required autocomplete="passport_no" autofocus data-validation-length="3-12">
+						<span class="text-danger">@error('passport_no'){{$message}} @enderror</span>
+
 					</div>
 					<div class="form-group">
 						<label for="">E-mail:</label>
 						<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" data-validation="email">
+						<span class="text-danger">@error('email'){{$message}} @enderror</span>
+
 					</div>
 					<div class="form-group" >
 						<label for="">Password:</label>
 						<input  id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" data-validation-length="min8">
+						<span class="text-danger">@error('password'){{$message}} @enderror</span>
+
 					</div>
-                    <div class="form-group" >
+					<div class="form-group" >
 						<label for="">Confirm Password:</label>
-						<input  input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" data-validation-length="min8">
+						<input  input id="cpassword" type="password" class="form-control" name="cpassword"  data-validation-length="min8">
+						<span class="text-danger">@error('cpassword'){{$message}} @enderror</span>
+
 					</div>
 					<button>create my account</button>
 					<div class="socials">

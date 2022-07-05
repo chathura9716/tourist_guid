@@ -1,6 +1,7 @@
-@extends('layouts.admin')
+@extends('layouts.user')
 @section('content')
-user profile>>
+tourist profile>>
+<br>
 <style>
   @import "https://fonts.googleapis.com/css?family=Open+Sans:300,400";
 body,
@@ -137,7 +138,7 @@ body {
         left: -253px;
     }
     100% {
-        transform: rotate(-30deg);
+        transform: rotate(-50deg);
         top: -24px;
         left: -78px;
     }
@@ -148,22 +149,22 @@ body {
     <div class="card">
         <div class="firstinfo"><img src="https://bootdey.com/img/Content/avatar/avatar6.png" />
             <div class="profileinfo">
-                <h1>{{auth()->user()->fname}} {{auth()->user()->lname}} </h1>
+                <h1> {{$data->user_name}}</h1>
                 <div >
                     <h6>Email</h6>
-                    <p class="text-muted">{{auth()->user()->email}}</p>
+                    <p class="text-muted">{{$data->email}}</p>
                   </div>
                   <div >
-                    <h6>Phone</h6>
-                    <p class="text-muted">{{auth()->user()->contact}}</p>
+                    <h6>Origin</h6>
+                    <p class="text-muted">{{$data->origin}}</p>
                   </div>
                   <div >
-                    <h6>Date Of Birth</h6>
-                    <p class="text-muted">{{auth()->user()->dob}}</p>
+                    <h6>Passport no</h6>
+                    <p class="text-muted">{{$data->passport_no}}</p>
                   </div>
                   <div >
-                    <h6>NIC</h6>
-                    <p class="text-muted">{{auth()->user()->nic}}</p>
+                    <h6></h6>
+                    <p class="text-muted"></p>
                  
                 </div>
             </div>

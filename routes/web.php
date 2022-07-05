@@ -77,17 +77,18 @@ Route::group(['middleware'=>'auth'], function(){
 });
    
 //tourist
-
   
-        Route::get('/create_tourist', [App\Http\Controllers\TouristController::class, 'createTourist'])->name('create_tourist');
-        //Route::get('/loginTourist', [App\Http\Controllers\TouristController::class, 'loginTourist'])->name('loginTourist');
+Route::get('/create_tourist', [App\Http\Controllers\TouristController::class, 'createTourist'])->name('create_tourist');
+Route::get('/loginTourist', [App\Http\Controllers\TouristController::class, 'loginTourist'])->name('loginTourist');
+Route::group(['middleware'=>'guest:tourist'], function(){
+
     
         Route::post('/create', [App\Http\Controllers\TouristregisterController::class, 'create'])->name('create');
-        Route::post('/check', [App\Http\Controllers\TouristregisterController::class, 'check'])->name('check');
+        Route::post('/lTourist', [App\Http\Controllers\TouristregisterController::class, 'lTourist'])->name('lTourist');
 
         Route::get('/tourist_dashboard', [App\Http\Controllers\TouristController::class, 'dashboardTourist'])->name('tourist_dashboard');
-
+        Route::get('/touristProfile', [App\Http\Controllers\TouristController::class, 'touristProfile'])->name('touristProfile');
 
    
-
+});
 
