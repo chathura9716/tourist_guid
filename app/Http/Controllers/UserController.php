@@ -176,7 +176,7 @@ class UserController extends Controller
           
         ]);
 
-        return redirect(route('dashboard'))->with('status','User Added!');
+        return redirect(route('dashboard'))->with('success','User Added!');
     }
 }
 

@@ -27,6 +27,7 @@ Route::get('/', [WelcomeController::class ,'welcome'])->name('welcome');
 
 
 //guest views
+Route::get('/loginpage', [App\Http\Controllers\HomeController::class, 'loginpage'])->name('loginpage');
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'About'])->name('about');
 Route::get('/blog', [App\Http\Controllers\HomeController::class, 'Blog'])->name('blog');
 Route::get('/contact', [App\Http\Controllers\HomeController::class, 'Contact'])->name('contact');

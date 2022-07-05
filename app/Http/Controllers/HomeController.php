@@ -54,4 +54,9 @@ class HomeController extends Controller
         $posts = Post::where('user_id',Auth::user()->id)->get();
         return view('posts.all-posts',compact('posts'));
     }
+
+    public function loginpage()
+    {
+        return view('loginpages');
+    }
 }
