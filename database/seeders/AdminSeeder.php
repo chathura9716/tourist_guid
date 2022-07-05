@@ -20,7 +20,7 @@ class AdminSeeder extends Seeder
             'type' => '',
             'address' => '157/F,hdga,kadg',
             'city' => 'Colombo',
-            'availability' => 'null',
+            'availability' => 'yes',
             'charges'=>2,
             'email' => 'admin@gmail.com',
             'password' =>bcrypt(12345678),

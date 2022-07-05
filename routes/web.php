@@ -34,13 +34,15 @@ Route::get('/contact', [App\Http\Controllers\HomeController::class, 'Contact'])-
 Route::get('/places', [App\Http\Controllers\PlaceController::class, 'welcomeplace'])->name('places');
 //posts
 Route::get('/posts/{postId}/show', [PostController::class, 'show'])->name('posts.show');
+
+Route::post('/posts/store', [PostController::class, 'store'])->name('posts.store');
+Route::get('/posts/all', [HomeController::class, 'allPosts'])->name('posts.all');
+Route::get('/posts/{postId}/edit', [PostController::class, 'edit'])->name('posts.edit');
+Route::post('/posts/{postId}/update', [PostController::class, 'update'])->name('posts.update');
+Route::get('/posts/{postId}/delete', [PostController::class, 'delete'])->name('posts.delete');
+Route::get('/addpost', [App\Http\Controllers\PostController::class, 'Addpost'])->name('addpost');
 Route::group(['middleware'=>'auth'], function(){
-    Route::post('/posts/store', [PostController::class, 'store'])->name('posts.store');
-    Route::get('/posts/all', [HomeController::class, 'allPosts'])->name('posts.all');
-    Route::get('/posts/{postId}/edit', [PostController::class, 'edit'])->name('posts.edit');
-    Route::post('/posts/{postId}/update', [PostController::class, 'update'])->name('posts.update');
-    Route::get('/posts/{postId}/delete', [PostController::class, 'delete'])->name('posts.delete');
-    Route::get('/addpost', [App\Http\Controllers\PostController::class, 'Addpost'])->name('addpost');
+
     
 
 });
@@ -88,8 +90,12 @@ Route::group(['middleware'=>'guest:tourist'], function(){
         Route::post('/lTourist', [App\Http\Controllers\TouristregisterController::class, 'lTourist'])->name('lTourist');
 
         Route::get('/tourist_dashboard', [App\Http\Controllers\TouristController::class, 'dashboardTourist'])->name('tourist_dashboard');
+        Route::get('/touristWelcome', [App\Http\Controllers\TouristController::class, 'touristWelcome'])->name('touristWelcome');
         Route::get('/touristProfile', [App\Http\Controllers\TouristController::class, 'touristProfile'])->name('touristProfile');
+        Route::get('/touristBlog', [App\Http\Controllers\TouristController::class, 'touristBlog'])->name('touristBlog');
+        Route::get('/touristContact', [App\Http\Controllers\TouristController::class, 'touristContact'])->name('touristContact');
+        Route::get('/touristPlaces', [App\Http\Controllers\TouristController::class, 'touristPlace'])->name('touristPlace');
 
-   
+    
 });
 

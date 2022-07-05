@@ -10,13 +10,13 @@ class Tourist extends Model
     use HasFactory;
 
     protected $fillable = [
+
         'user_name',
         'age',
         'gender',
         'origin',
         'passport_no',
         'email',
-        
         'password',
         
     ];

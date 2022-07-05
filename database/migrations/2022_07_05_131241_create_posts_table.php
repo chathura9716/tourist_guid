@@ -14,15 +14,25 @@ return new class extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->increments('id');
+            $table->unsignedBigInteger('tourist_id')->nullable();;
+            $table->unsignedBigInteger('user_id')->nullable();;           
             $table->string('title');
             $table->text('description');
             $table->string('thumbnail');
 
-            $table->timestamps();
+            $table->foreign('tourist_id')
+            ->references('id')
+            ->on('tourists')
+            ->onDelete('cascade');
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade');
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->timestamps();
+           
+            
         });
     }
 

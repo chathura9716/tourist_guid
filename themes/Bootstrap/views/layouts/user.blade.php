@@ -81,7 +81,7 @@
     <div class="container">
 			<div class="row justify-content-between">
 				<div class="col">
-					<a class="navbar-brand" href="{{ url('/') }}">Tourist <span>Guid</span></a>
+					<a class="navbar-brand" href="{{ route('touristWelcome') }}">Tourist <span>Guid</span></a>
 				</div>
               
                    
@@ -118,7 +118,7 @@
         </form>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav mr-auto">
-	        	<li class="nav-item active"><a href="{{ url('/') }}" class="nav-link">Home</a></li>
+	        	<li class="nav-item active"><a href="{{ route('touristWelcome') }}" class="nav-link">Home</a></li>
             <li class="nav-item"><a class ="nav-link" href="{{route('tourist_dashboard')}}">Dashboard</a></li>
 	        	<!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Page</a>
@@ -129,11 +129,11 @@
                 <a class="dropdown-item" href="#">Page 4</a>
               </div>
             </li> -->
-            <li class="nav-item"><a class ="nav-link" href="{{route('places')}}">Places</a></li>
+            <li class="nav-item"><a class ="nav-link" href="{{route('touristPlace')}}">Places</a></li>
 	     
            
 
-	          <li class="nav-item"><a href="{{route('contact')}}"class="nav-link">Contact</a></li>
+	          <li class="nav-item"><a href="{{route('touristContact')}}"class="nav-link">Contact</a></li>
 	        </ul>
             <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->

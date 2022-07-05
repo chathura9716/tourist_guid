@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Tourist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Session;
 
 class PostController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('guest');
     }
     public function Addpost()
     {
@@ -32,9 +35,9 @@ class PostController extends Controller
         $imageName = time() . ".".$request ->thumbnail->extension();
 //save image in public folder
         $request->thumbnail->move(public_path('thumbnails'),$imageName );
-        
+
         post::create([
-            
+            'tourist_id'=>Session::get ('loginId'),
             'user_id'=>auth()->user()->id,
             'title' => $request->title,
             'description'=>$request->description,
