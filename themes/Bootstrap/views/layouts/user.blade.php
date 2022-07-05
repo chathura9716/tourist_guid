@@ -119,7 +119,7 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav mr-auto">
 	        	<li class="nav-item active"><a href="{{ url('/') }}" class="nav-link">Home</a></li>
-            <li class="nav-item"><a class ="nav-link" href="{{route('dashboard')}}">Dashboard</a></li>
+            <li class="nav-item"><a class ="nav-link" href="{{route('tourist_dashboard')}}">Dashboard</a></li>
 	        	<!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Page</a>
               <div class="dropdown-menu" aria-labelledby="dropdown04">
