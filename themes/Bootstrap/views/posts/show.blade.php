@@ -278,7 +278,7 @@ Template sidebar
                     <h3>{{$post->title}}</h3>
                     <ul class="post-meta list-inline">
                         <li class="list-inline-item">
-                            <i class="fa fa-user-circle-o"></i> <a href="#">{{$post->user->fname}}</a>
+                            <i class="fa fa-user-circle-o"></i> <a href="#">{{$post->user->name}}</a>
                         </li>
                         <li class="list-inline-item">
                             <i class="fa fa-calendar-o"></i> <a href="#"> {{ date('Y-m-d',strtotime($post->created_at))}}</a>
