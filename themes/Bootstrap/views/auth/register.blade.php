@@ -32,33 +32,32 @@
 				<img src="images/travel.jpg" alt="">
 			</div>
 			<div class="form-inner">
-            <form method="POST" action="{{ route('register') }}">
+            <form method="POST" action="{{ route('create') }}">
                         @csrf
 					<div class="form-header">
 						<h3>Sign up</h3>
 						<img src="images/sign-up.png" alt="" class="sign-up-icon">
 					</div>
 					<div class="form-group">
-						<label for="">First Name:</label>
-						<input id="fname" type="text" class="form-control @error('fname') is-invalid @enderror" name="fname" value="{{ old('fname') }}" required autocomplete="fname" autofocusdata-validation-length="3-12">
+						<label for="">User Name:</label>
+						<input id="user_name" type="text" class="form-control @error('user_name') is-invalid @enderror" name="user_name" value="{{ old('user_name') }}" required autocomplete="user_name" autofocusdata-validation-length="3-12">
 					</div>
                     <div class="form-group">
-						<label for="">Last Name:</label>
-						<input input id="lname" type="text" class="form-control @error('lname') is-invalid @enderror" name="lname" value="{{ old('lname') }}" required autocomplete="lname" autofocus data-validation-length="3-12">
-					</div>
-					<div class="form-group">
-						<strong>Date of birth:</strong>
-						<label class="tmDatepicker">
-							<input id="dob" type="text"  name="dob" placeHolder='2022/01/01' value="{{ old('dob') }}" >
-						</label>
+						<label for="">Age :</label>
+						<input input id="age" type="text" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}" required autocomplete="age" autofocus data-validation-length="3-12">
 					</div>
                     <div class="form-group">
-						<label for="">Nic:</label>
-						<input id="nic" type="text" class="form-control @error('nic') is-invalid @enderror" name="nic" value="{{ old('nic') }}" required autocomplete="nic" autofocus data-validation-length="3-12">
+						<label for="">Gender :</label>
+						<input input id="gender" type="text" class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" required autocomplete="gender" autofocus data-validation-length="3-12">
+					</div>
+				
+                    <div class="form-group">
+						<label for="">Origin:</label>
+						<input id="origin" type="text" class="form-control @error('origin') is-invalid @enderror" name="origin" value="{{ old('origin') }}" required autocomplete="origin" autofocus data-validation-length="3-12">
 					</div>
                     <div class="form-group">
-						<label for="">Contact:</label>
-						<input  id="contact" type="text" class="form-control @error('contact') is-invalid @enderror" name="contact" value="{{ old('contact') }}" required autocomplete="contact" autofocus data-validation-length="3-12">
+						<label for="">Passport No:</label>
+						<input  id="passport_no" type="text" class="form-control @error('passport_no') is-invalid @enderror" name="passport_no" value="{{ old('passport_no') }}" required autocomplete="passport_no" autofocus data-validation-length="3-12">
 					</div>
 					<div class="form-group">
 						<label for="">E-mail:</label>

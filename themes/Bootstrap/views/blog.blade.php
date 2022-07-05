@@ -76,7 +76,7 @@
                         <time datetime="2014-10-01">{{ date('Y-m-d',strtotime($latest->created_at))}}<span></span></time>
                         <div class="extra_wrapper">
                           <div class="text1 col1"><a href="#">{{$latest->title}}</a></div>Posted by
-                          <a href="#">{{$latest->user->fname}}</a>
+                          <a href="#">{{$latest->user->name}}</a>
                         </div>
                         <div class="clear"></div>
                         <img src="" alt="" class="img_inner">
@@ -90,7 +90,7 @@
                         <time datetime="2014-10-01">17<span>Feb</span></time>
                         <div class="extra_wrapper">
                           <div class="text1 col1"><a href="#">{{$post->title}}</a></div>Posted by
-                          <a href="#">{{$post->user->fname}} </a>
+                          <a href="#">{{$post->user->name}} </a>
                         </div>
                         <div class="clear"></div>
                         <img  src="{{asset('thumbnails/'.$post->thumbnail)}}" alt="" class="img_inner">

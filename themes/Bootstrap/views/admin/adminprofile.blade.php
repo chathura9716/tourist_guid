@@ -148,21 +148,21 @@ body {
     <div class="card">
         <div class="firstinfo"><img src="https://bootdey.com/img/Content/avatar/avatar6.png" />
             <div class="profileinfo">
-                <h1>{{auth()->user()->fname}} {{auth()->user()->lname}} </h1>
+                <h1>{{auth()->user()->fname}} {{auth()->user()->name}} </h1>
                 <div >
                     <h6>Email</h6>
                     <p class="text-muted">{{auth()->user()->email}}</p>
                   </div>
                   <div >
-                    <h6>Phone</h6>
-                    <p class="text-muted">{{auth()->user()->contact}}</p>
+                    <h6>Address</h6>
+                    <p class="text-muted">{{auth()->user()->address}}</p>
                   </div>
                   <div >
-                    <h6>Date Of Birth</h6>
-                    <p class="text-muted">{{auth()->user()->dob}}</p>
+                    <h6>City</h6>
+                    <p class="text-muted">{{auth()->user()->city}}</p>
                   </div>
                   <div >
-                    <h6>NIC</h6>
+                    <h6></h6>
                     <p class="text-muted">{{auth()->user()->nic}}</p>
                  
                 </div>
