@@ -192,13 +192,18 @@ text-decoration:none;
 <br><br>
 
 <div class="container py-5 h-100">
-<h1>My Blogs</h1>
+<h1>My Booking Requests</h1>
 <table class="table">
             <thead class="thead-dark">
                 <tr>
                 <th scope="col">#</th>
-                <th scope="col">Title</th>
-                <th scope="col">Description</th>
+                <th scope="col">Hotel Name</th>
+                <th scope="col">Hotel Price</th>
+                <th scope="col">Hotel Status</th>
+                <th scope="col">Driver Name </th>
+                <th scope="col">Vehical rent price</th>
+                <th scope="col">Driver Status </th>
+                <th scope="col">Total Price </th>
                 <th scope="col">Action</th>
                 </tr>
             </thead>

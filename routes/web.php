@@ -20,10 +20,11 @@ use App\Http\Controllers\Admin\DashboardController;
 |
 */
 
-
+//auth routes this is for admin routes
 Auth::routes();
+
 Route::get('/', [WelcomeController::class ,'welcome'])->name('welcome');
-//tourist register
+
 
 
 //guest views
@@ -35,20 +36,22 @@ Route::get('/places', [App\Http\Controllers\PlaceController::class, 'welcomeplac
 //posts
 Route::get('/posts/{postId}/show', [PostController::class, 'show'])->name('posts.show');
 
+//only post can be added by admins(admin hotel and travel) so this crud operations only for admins
+Route::group(['middleware'=>'auth'], function(){
+
+    
 Route::post('/posts/store', [PostController::class, 'store'])->name('posts.store');
 Route::get('/posts/all', [HomeController::class, 'allPosts'])->name('posts.all');
 Route::get('/posts/{postId}/edit', [PostController::class, 'edit'])->name('posts.edit');
 Route::post('/posts/{postId}/update', [PostController::class, 'update'])->name('posts.update');
 Route::get('/posts/{postId}/delete', [PostController::class, 'delete'])->name('posts.delete');
 Route::get('/addpost', [App\Http\Controllers\PostController::class, 'Addpost'])->name('addpost');
-Route::group(['middleware'=>'auth'], function(){
-
-    
 
 });
-//place
+//places add crud
+
 Route::get('/addplace', [App\Http\Controllers\HomeController::class, 'Addplace'])->name('addplace');
-//Route::get('/place/{placeId}/show', [PlaceController::class, 'show'])->name('posts.show');
+//this is only for Admin
 Route::group(['middleware'=>'auth'], function(){
     Route::post('/place/store', [PlaceController::class, 'store'])->name('place.store');
     Route::get('/place/{placeId}/show', [PlaceController::class, 'show'])->name('place.show');
@@ -58,7 +61,7 @@ Route::group(['middleware'=>'auth'], function(){
     
 
 });
-//admin users
+//admin users pages
 
 
 Route::group(['middleware'=>'auth'], function(){
@@ -76,10 +79,9 @@ Route::group(['middleware'=>'auth'], function(){
    
     Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profile');
 
-    // Route::get('/tourist_dashboard', [App\Http\Controllers\TouristController::class, 'dashboardTourist'])->name('tourist_dashboard');
 });
    
-//tourist
+//tourist auth routes
   
 Route::get('/create_tourist', [App\Http\Controllers\TouristController::class, 'createTourist'])->name('create_tourist');
 Route::get('/loginTourist', [App\Http\Controllers\TouristController::class, 'loginTourist'])->name('loginTourist');

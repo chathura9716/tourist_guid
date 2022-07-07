@@ -15,16 +15,13 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('tourist_id')->nullable();;
-            $table->unsignedBigInteger('user_id')->nullable();;           
+            
+            $table->unsignedBigInteger('user_id')->nullable();       
             $table->string('title');
             $table->text('description');
             $table->string('thumbnail');
 
-            $table->foreign('tourist_id')
-            ->references('id')
-            ->on('tourists')
-            ->onDelete('cascade');
+           
             $table->foreign('user_id')
             ->references('id')
             ->on('users')
