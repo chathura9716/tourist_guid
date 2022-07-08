@@ -1,12 +1,12 @@
-@extends('layouts.hotel')
+@extends('layouts.admin')
 
 @section('content')
-Add hotel
+edit Hotel
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('New hotel') }}</div>
+                <div class="card-header">{{ __('New Hotel') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -15,16 +15,16 @@ Add hotel
                         </div>
                     @endif
 
-                    <form method="post" action="{{route('hotel.store')}}" enctype="multipart/form-data">
+                    <form method="post" action="{{route('hotel.edit',$hotel->id)}}" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <label class="form-label" >hotel Name</label>
-                            <input  name="hotel_name" type="text" class="form-control"  placeholder="Enter hotel Name" required >
+                            <label class="form-label" >Hotel Name</label>
+                            <input  name="hotel_name" type="text" class="form-control"  placeholder="Enter Place Name" required >
                             
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" >type of hotel </label>
-                            <input  name="type" type="text" class="form-control"  placeholder="Enter hotel type" required >
+                            <label class="form-label" >typw of Hotel </label>
+                            <input  name="type" type="text" class="form-control"  placeholder="Enter Place type" required >
                             
                         </div>
                         <div class="mb-3">
@@ -44,7 +44,7 @@ Add hotel
                         <div class="form-group">
                             <input class="form-control" name="thumbnail" type="file">
                         </div>
-                        <button type="submit" class="btn btn-primary">Add</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </form>
 
                    

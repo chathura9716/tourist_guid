@@ -11,6 +11,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Models\User;
 use App\Models\Post;
 use App\Models\Place;
+use App\Models\Hotel;
+
 
 use Illuminate\Http\Request;
 
@@ -26,6 +28,7 @@ class UserController extends Controller
             $users = User::all();
             $posts = Post::where('user_id',Auth::user()->id)->get();
             $places = Place::all();
+            $hotels = Hotel::where('user_id',Auth::user()->id)->get();;
           
     
         
@@ -41,7 +44,7 @@ class UserController extends Controller
                     //     return view('user.tourist.dashboard',compact('posts'));
                     // }
                     elseif($role=='Hotel Agency'){
-                        return view('user.hotel.dashboard');
+                        return view('user.hotel.dashboard',compact('hotels','posts'));
 
                     }elseif($role=='Travel Agency'){
                         return view('user.travel.dashboard');
@@ -122,19 +125,6 @@ class UserController extends Controller
     
             if($role=='admin'){
                 return view('admin.addtravel');
-            }
-            else{
-                return view('user.dashboard');
-            }
-        }
-     
-    }
-    public function hotel(){
-        {
-            $role=Auth::user()->role;
-    
-            if($role=='Hotel Agency'){
-                return view('user.hotel.addhotel');
             }
             else{
                 return view('user.dashboard');

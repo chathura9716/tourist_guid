@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\TouristController;
+use App\Http\Controllers\HotelController;
 use App\Http\Controllers\TouristregisterController;
 use App\Http\Controllers\Admin\DashboardController;
 /*
@@ -33,7 +34,9 @@ Route::get('/about', [App\Http\Controllers\HomeController::class, 'About'])->nam
 Route::get('/blog', [App\Http\Controllers\HomeController::class, 'Blog'])->name('blog');
 Route::get('/contact', [App\Http\Controllers\HomeController::class, 'Contact'])->name('contact');
 Route::get('/places', [App\Http\Controllers\PlaceController::class, 'welcomeplace'])->name('places');
+Route::get('/hotels', [App\Http\Controllers\HotelController::class, 'welcomehotel'])->name('hotel');
 Route::get('/place/{placeId}/show', [PlaceController::class, 'show'])->name('place.show');
+Route::get('/hotel/{hotelId}/show', [HotelController::class, 'show'])->name('hotel.show');
 
 //posts
 Route::get('/posts/{postId}/show', [PostController::class, 'show'])->name('posts.show');
@@ -49,6 +52,12 @@ Route::post('/posts/{postId}/update', [PostController::class, 'update'])->name('
 Route::get('/posts/{postId}/delete', [PostController::class, 'delete'])->name('posts.delete');
 Route::get('/addpost', [App\Http\Controllers\PostController::class, 'Addpost'])->name('addpost');
 
+//add hotels
+Route::post('/hotel/store', [HotelController::class, 'store'])->name('hotel.store');
+Route::get('/hotel/{hotelId}/edit', [HotelController::class, 'edit'])->name('hotel.edit');
+Route::post('/hotel/{hotelId}/update', [HotelController::class, 'update'])->name('hotel.update');
+Route::get('/hotel/{hotelId}/delete', [HotelController::class, 'delete'])->name('hotel.delete');
+Route::get('/addhotelview', [App\Http\Controllers\HotelController::class, 'Addhotelview'])->name('addhotel');
 });
 //places add crud
 
@@ -75,9 +84,6 @@ Route::group(['middleware'=>'auth'], function(){
     //views
     Route::get('/addhotel', [UserController::class, 'addhotel'])->name('admin.addhotel');
     Route::get('/addtravel', [UserController::class, 'addtravel'])->name('admin.addtravel');
-    Route::get('/hotel', [UserController::class, 'hotel'])->name('user.hotel.addhotel');
-    
-   
     Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profile');
 
 });
