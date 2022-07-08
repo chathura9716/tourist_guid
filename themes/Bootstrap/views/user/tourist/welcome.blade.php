@@ -69,17 +69,14 @@
 			<div class="container_12">
 				<div class="grid_12">
 					<div class="menu_block">
-					<nav class="horizontal-nav full-width horizontalNav-notprocessed">
+						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 							<ul class="sf-menu">
-                <li class="current"><a href="{{route('touristWelcome')}}">Home</a></li>
-								<li><a href="{{route('tourist_dashboard')}}">Dashboard</a></li>
-								<li><a href="{{route('touristPlace')}}">Places</a></li>
-								<li><a href="{{route('touristBlog')}}">BLOG</a></li>
-								<li><a href="{{route('touristContact')}}">CONTACTS</a></li>
-                                
+								<li class="current"><a href="{{route('welcome')}}">Home</a></li>
+                				<li><a href="{{route('dashboard')}}">Dashboard</a></li>
+                				<li><a href="{{route('places')}}">Places</a></li>
+								<li><a href="{{route('blog')}}">BLOG</a></li>
+               					<li><a href="{{route('contact')}}">CONTACTS</a></li>
 							</ul>
-                            
-
 						</nav>
 						<div class="clear"></div>
 					</div>
@@ -166,47 +163,58 @@
 				<div class="clear"></div>
 				<div class="grid_6">
 					<h3>Booking Form</h3>
-					<form id="bookingForm">
+					<form method="POST" action="{{ route('bookhotel') }}"id="bookingForm">
+						@csrf
 						<div class="fl1">
 							<div class="tmInput">
-								<input name="Name" placeHolder="Name:" type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
+								<input name="tourist_name" placeHolder="Name:" type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
 							</div>
 							<div class="tmInput">
-								<input name="Country" placeHolder="Country:" type="text" data-constraints="@NotEmpty @Required">
+								<input name="country" placeHolder="Country:" type="text" data-constraints="@NotEmpty @Required">
 							</div>
 						</div>
 						<div class="fl1">
 							<div class="tmInput">
-								<input name="Email" placeHolder="Email:" type="text" data-constraints="@NotEmpty @Required @Email">
+								<input name="email" placeHolder="Email:" type="text" data-constraints="@NotEmpty @Required @Email">
 							</div>
-							<div class="tmInput mr0">
-								<input name="Hotel" placeHolder="Hotel:" type="text" data-constraints="@NotEmpty @Required">
-							</div>
+							
 						</div>
+						<div class="fl1 fl2">
+							<em>Select Hotel</em>
+							<select name="hotel" class="tmSelect2" data-class="tmSelect tmSelect2" data-constraints="">
+								@foreach ($hotel as $hotel )
+								<option>{{$hotel->hotel_name}}</option>
+								@endforeach
+								
+							</select>
+							<div class="clear"></div>
+							
+						</div>
+						<br>
 						<div class="clear"></div>
 						<strong>Check-in</strong>
 						<label class="tmDatepicker">
-							<input type="text" name="Check-in" placeHolder='10/05/2014' data-constraints="@NotEmpty @Required @Date">
+							<input type="text" name="checkin" placeHolder='10/05/2014' data-constraints="@NotEmpty @Required @Date">
 						</label>
 						<div class="clear"></div>
 						<strong>Check-out</strong>
 						<label class="tmDatepicker">
-							<input type="text" name="Check-out" placeHolder='20/05/2014' data-constraints="@NotEmpty @Required @Date">
+							<input type="text" name="checkout" placeHolder='20/05/2014' data-constraints="@NotEmpty @Required @Date">
 						</label>
 						<div class="clear"></div>
 						<div class="tmRadio">
 							<p>Comfort</p>
-							<input name="Comfort" type="radio" id="tmRadio0" data-constraints='@RadioGroupChecked(name="Comfort", groups=[RadioGroup])' checked/>
+							<input name="comfort" value="Cheap" type="radio" id="tmRadio0" data-constraints='@RadioGroupChecked(name="comfort", groups=[RadioGroup])' checked/>
 							<span>Cheap</span>
-							<input name="Comfort" type="radio" id="tmRadio1" data-constraints='@RadioGroupChecked(name="Comfort", groups=[RadioGroup])' />
+							<input name="comfort" value="Standart"type="radio" id="tmRadio1" data-constraints='@RadioGroupChecked(name="comfort", groups=[RadioGroup])' />
 							<span>Standart</span>
-							<input name="Comfort" type="radio" id="tmRadio2" data-constraints='@RadioGroupChecked(name="Comfort", groups=[RadioGroup])' />
+							<input name="comfort" value="Lux" type="radio" id="tmRadio2" data-constraints='@RadioGroupChecked(name="comfort", groups=[RadioGroup])' />
 							<span>Lux</span>
 						</div>
 						<div class="clear"></div>
 						<div class="fl1 fl2">
 							<em>Adults</em>
-							<select name="Adults" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
+							<select name="adults" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
 								<option>1</option>
 								<option>1</option>
 								<option>2</option>
@@ -214,7 +222,7 @@
 							</select>
 							<div class="clear"></div>
 							<em>Rooms</em>
-							<select name="Rooms" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
+							<select name="rooms" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
 								<option>1</option>
 								<option>1</option>
 								<option>2</option>
@@ -223,7 +231,7 @@
 						</div>
 						<div class="fl1 fl2">
 							<em>Children</em>
-							<select name="Children" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
+							<select name="childrens" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
 								<option>0</option>
 								<option>0</option>
 								<option>1</option>
@@ -232,9 +240,9 @@
 						</div>
 						<div class="clear"></div>
 						<div class="tmTextarea">
-							<textarea name="Message" placeHolder="Message" data-constraints='@NotEmpty @Required @Length(min=20,max=999999)'></textarea>
+							<textarea name="message" placeHolder="Message" data-constraints='@NotEmpty @Required @Length(min=3,max=999)'></textarea>
 						</div>
-						<a href="#" class="btn" data-type="submit">Submit</a>
+						<button>submit</button>
 					</form>
 				</div>
 				<div class="grid_5 prefix_1">

@@ -18,9 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('type')->nullable();
             $table->string('address');
-            $table->string('city');
-            $table->string('availability')->nullable();
-            $table->float('charges')->nullable();;
+           
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

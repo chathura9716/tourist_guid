@@ -15,7 +15,7 @@ Travel Agency dashboard>>
               <p>Web Designer</p>
               <p class="mb-2 ">
               
-              <a href="{{Route('user.travel.adddriver')}}" class="btn btn-sm btn-primary">Add Drivers</a>
+              <a href="" class="btn btn-sm btn-primary">Add Drivers</a>
               
               </P>
             </div>

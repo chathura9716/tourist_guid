@@ -10,6 +10,7 @@ use App\Http\Controllers\TouristController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\TouristregisterController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\HotelBookingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -104,7 +105,9 @@ Route::group(['middleware'=>'guest:tourist'], function(){
         Route::get('/touristBlog', [App\Http\Controllers\TouristController::class, 'touristBlog'])->name('touristBlog');
         Route::get('/touristContact', [App\Http\Controllers\TouristController::class, 'touristContact'])->name('touristContact');
         Route::get('/touristPlaces', [App\Http\Controllers\TouristController::class, 'touristPlace'])->name('touristPlace');
-
+//bookig hotel
+        Route::post('/bookhotel', [App\Http\Controllers\HotelBookingController::class, 'store'])->name('bookhotel');
+        Route::get('/bookhotel/{bookingId}/delete', [HotelBookingController::class, 'delete'])->name('bookhotel.delete');
     
 });
 
