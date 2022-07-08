@@ -33,6 +33,8 @@ Route::get('/about', [App\Http\Controllers\HomeController::class, 'About'])->nam
 Route::get('/blog', [App\Http\Controllers\HomeController::class, 'Blog'])->name('blog');
 Route::get('/contact', [App\Http\Controllers\HomeController::class, 'Contact'])->name('contact');
 Route::get('/places', [App\Http\Controllers\PlaceController::class, 'welcomeplace'])->name('places');
+Route::get('/place/{placeId}/show', [PlaceController::class, 'show'])->name('place.show');
+
 //posts
 Route::get('/posts/{postId}/show', [PostController::class, 'show'])->name('posts.show');
 
@@ -54,11 +56,10 @@ Route::get('/addplace', [App\Http\Controllers\HomeController::class, 'Addplace']
 //this is only for Admin
 Route::group(['middleware'=>'auth'], function(){
     Route::post('/place/store', [PlaceController::class, 'store'])->name('place.store');
-    Route::get('/place/{placeId}/show', [PlaceController::class, 'show'])->name('place.show');
     Route::get('/place/{placeId}/edit', [PlaceController::class, 'edit'])->name('place.edit');
     Route::post('/place/{placeId}/update', [PlaceController::class, 'update'])->name('place.update');
     Route::get('/place/{placeId}/delete', [PlaceController::class, 'delete'])->name('place.delete');
-    
+    Route::get('/addplaces', [App\Http\Controllers\Admin\DashboardController::class, 'addplacesview'])->name('admin.addplaces');
 
 });
 //admin users pages
@@ -75,7 +76,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/addhotel', [UserController::class, 'addhotel'])->name('admin.addhotel');
     Route::get('/addtravel', [UserController::class, 'addtravel'])->name('admin.addtravel');
     Route::get('/hotel', [UserController::class, 'hotel'])->name('user.hotel.addhotel');
-    Route::get('/addplaces', [App\Http\Controllers\Admin\DashboardController::class, 'addplacesview'])->name('admin.addplaces');
+    
    
     Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profile');
 
