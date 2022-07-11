@@ -143,9 +143,9 @@ text-decoration:none;
         <a href="{{Route('admin.addhotel')}}" >
             <div class="card bg-c-green order-card">
                 <div class="card-block">
-                    <h6 class="m-b-20"> ADD HOTEL </h6>
+                    <h6 class="m-b-20"> ADD HOTEL AGENCY </h6>
                     <h2 class="text-right"><i class="fa fa-h-square f-left"></i><span>486</span></h2>
-                    <p class="m-b-0">add new hotels<span class="f-right">351</span>
+                    <p class="m-b-0">add new agency<span class="f-right">351</span>
                    </p>
                 </div>
             </div>
@@ -156,9 +156,9 @@ text-decoration:none;
         <a href="{{Route('admin.addtravel')}}">
             <div class="card bg-c-yellow order-card">
                 <div class="card-block">
-                    <h6 class="m-b-20">ADD DRIVERS</h6>
+                    <h6 class="m-b-20">ADD TRAVEL AGENCY</h6>
                     <h2 class="text-right"><i class="fa fa-taxi f-left"></i><span>535</span></h2>
-                    <p class="m-b-0">add new drivers here<span class="f-right">351</span>  
+                    <p class="m-b-0">add new agency here<span class="f-right">351</span>  
                   </p>
                 </div>
             </div>
@@ -291,8 +291,8 @@ text-decoration:none;
  
                                     <td>
                                         <img src="images/profile.jpg" alt="">
-                                        <a href="#" class="user-link">{{$user->name}}</a>
-                                        <span class="user-subhead">{{$user->role}}</span>
+                                      
+                                        <span class="user-subhead">{{$user->name}}</span>
                                     </td>
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->city}}</td>

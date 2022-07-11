@@ -157,15 +157,7 @@ body {
                     <h6>Address</h6>
                     <p class="text-muted">{{auth()->user()->address}}</p>
                   </div>
-                  <div >
-                    <h6>City</h6>
-                    <p class="text-muted">{{auth()->user()->city}}</p>
-                  </div>
-                  <div >
-                    <h6></h6>
-                    <p class="text-muted">{{auth()->user()->nic}}</p>
-                 
-                </div>
+             
             </div>
         </div>
     </div>

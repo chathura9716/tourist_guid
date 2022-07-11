@@ -62,11 +62,16 @@
 					</div>
                     <div class="form-group">
 						<label for="">Gender :</label>
-						<input input id="gender" type="text" class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" required autocomplete="gender" autofocus data-validation-length="3-12">
+						<select name="gender"  data-class="tmSelect tmSelect2" data-constraints="">
+								<option>Male</option>
+								<option>Female</option>
+								<option>Other</option>
+								
+							</select>
 						<span class="text-danger">@error('gender'){{$message}} @enderror</span>
 
 					</div>
-				
+				<br>
                     <div class="form-group">
 						<label for="">Origin:</label>
 						<input id="origin" type="text" class="form-control @error('origin') is-invalid @enderror" name="origin" value="{{ old('origin') }}" required autocomplete="origin" autofocus data-validation-length="3-12">
@@ -98,7 +103,11 @@
 
 					</div>
 					<button>create my account</button>
+					
+
 					<div class="socials">
+				
+					<a href="{{ route('loginTourist') }}"><p>Log in here</p></a>
 						<p>Sign up with social platforms</p>
 						<a href="" class="socials-icon">
 							<i class="zmdi zmdi-facebook"></i>

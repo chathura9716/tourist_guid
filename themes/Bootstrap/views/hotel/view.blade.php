@@ -280,9 +280,7 @@ Template sidebar
                         <li class="list-inline-item">
                             <i class="fa fa-user-circle-o"></i> <a href="#">{{$hotel->user->name}}</a>
                         </li>
-                        <li class="list-inline-item">
-                            <i class="fa fa-calendar-o"></i> <a href="#"> {{ date('Y-m-d',strtotime($hotel->created_at))}}</a>
-                        </li>
+                      
                       
                     </ul>
                   

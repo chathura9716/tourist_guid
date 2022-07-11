@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>places</title>
+		<title>Hotels</title>
 		<meta charset="utf-8">
 		<meta name="format-detection" content="telephone=no" />
 		<link rel="icon" href="images/favicon.ico">
@@ -45,7 +45,7 @@
                             <li><a href="{{route('dashboard')}}">Dashboard</a></li>
 								<li><a href="{{route('places')}}">Places</a></li>
 								<li><a href="{{route('blog')}}">BLOG</a></li>
-								<li><a href="{{route('contact')}}">CONTACTS</a></li>
+								<li><a href="{{route('hotel')}}">Hotels</a></li>
 							</ul>
 						</nav>
 						<div class="clear"></div>
@@ -64,7 +64,7 @@
 		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
 			<div class="container_12">
 				<div class="grid_8">
-					<h3>Places for visit</h3>
+					<h3>Hotels for Stay</h3>
 					@foreach ($hotels as $hotel)
 					<div class="block2">
 						<img src="{{asset('thumbnails/'.$hotel->thumbnail)}}" alt="" class="card-img-top img-fluid">
@@ -73,7 +73,7 @@
                             <div class="text1 col1"><a href="#">{{$hotel->type}}</a></div>
                             <div class="text1 col1"><a href="#">{{$hotel->city}} {{$hotel->province}}</a></div>
 							<p>{{$hotel->description}}</p>
-							<a href="{{Route('place.show',$place->id)}}" class="link1">LEARN MORE</a>
+							<a href="{{Route('hotel.show',$hotel->id)}}" class="link1">LEARN MORE</a>
 							<br>
 						</div>
 					</div>

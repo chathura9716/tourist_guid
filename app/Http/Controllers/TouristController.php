@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 use App\Models\Tourist;
 use App\Models\Place;
+use App\Models\Hotel;
+use App\Models\Booking;
+
 use Illuminate\Support\Facades\Hash;
 use Session;
 
@@ -15,12 +18,14 @@ class TouristController extends Controller
     
     public function dashboardTourist(){
         //$posts = Post::where('user_id',Auth::user()->id)->get();
+
+        $bookinghotel=Booking::where('tourist_id', '=',Session::get ('loginId'))->get()->all();
         $data =array();
         if(Session::has ('loginId')){
             $data =Tourist::where('id', '=',Session::get ('loginId'))->first();
 
         }
-        return view('user.tourist.dashboard',compact('data'));
+        return view('user.tourist.dashboard',compact('data','bookinghotel'));
     }
     public function createTourist(){
         return view('user.tourist.register');
@@ -29,7 +34,8 @@ class TouristController extends Controller
         return view('user.tourist.login');
     }
     public function touristWelcome(){
-        return view('user.tourist.welcome');
+        $hotel =Hotel::all();
+        return view('user.tourist.welcome',compact('hotel'));
     }
     public function touristPlace(){
         $places = Place::all();
@@ -48,9 +54,9 @@ class TouristController extends Controller
         $data =array();
         if(Session::has ('loginId')){
             $data =Tourist::where('id', '=',Session::get ('loginId'))->first();
-
+            return view('user.tourist.profile',compact('data'));
         }
-        return view('user.tourist.profile',compact('data'));
+       
     }
 
 }

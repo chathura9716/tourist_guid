@@ -40,18 +40,12 @@ class UserController extends Controller
                         
                         return view('admin.dashboard',compact('users','posts','places'));
                     }
-                    // elseif($role=='user'){
-                    //     return view('user.tourist.dashboard',compact('posts'));
-                    // }
+                 
                     elseif($role=='Hotel Agency'){
                         return view('user.hotel.dashboard',compact('hotels','posts'));
 
                     }elseif($role=='Travel Agency'){
                         return view('user.travel.dashboard');
-        
-                    }elseif($role=='Driver'){
-                        return view('user.driver.dashboard');
-        
                     }
                     else{
                         return view('welcome');
@@ -74,18 +68,19 @@ class UserController extends Controller
                 return view('admin.adminprofile');
             }
             elseif($role=='user'){
+
                 return view('user.tourist.profile');
+
             }elseif($role=='Hotel Agency'){
+
                 return view('user.hotel.profile');
 
             }elseif($role=='Travel Agency'){
+
                 return view('user.travel.profile');
 
             }
-            elseif($role=='Driver'){
-                return view('user.driver.profile');
-
-            }
+           
         }
      
     }
@@ -105,19 +100,20 @@ class UserController extends Controller
         
     }
     
-    // public function adddriver(){
-    //     {
-    //         $role=Auth::user()->role;
+    public function adddriver(){
+        {
+            $role=Auth::user()->role;
     
-    //         if($role=='Travel Agency'){
-    //             return view('user.travel.adddriver');
-    //         }
-    //         else{
-    //             return view('user.dashboard');
-    //         }
-    //     }
+            if($role=='Travel Agency'){
+                return view('user.travel.adddriver');
+            }
+            else{
+                return view('user.dashboard');
+            }
+        }
      
-    // }
+    }
+    
     //Add travel view
     public function addtravel(){
         {

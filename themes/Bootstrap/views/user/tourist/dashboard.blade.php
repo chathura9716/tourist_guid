@@ -128,58 +128,18 @@ text-decoration:none;
 
     <div class="row">
     <div class="col-md-4 col-xl-3">
-        <a href="{{Route('addpost')}}" >
+        <a href="{{Route('touristWelcome')}}" >
             <div class="card bg-c-blue order-card">
                 <div class="card-block">
-                    <h6 class="m-b-20">Add Blogs</h6>
+                    <h6 class="m-b-20">Book Hotel</h6>
                     <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>486</span></h2>
-                    <p class="m-b-0">Add new Blogs<span class="f-right">351</span></p>
+                    <p class="m-b-0">Book your hotel in here<span class="f-right">351</span></p>
                 </div>
             </div>
             </a>
         </div>
         
-        <div class="col-md-4 col-xl-3">
-        <a href="" >
-            <div class="card bg-c-green order-card">
-                <div class="card-block">
-                    <h6 class="m-b-20"> ADD HOTEL </h6>
-                    <h2 class="text-right"><i class="fa fa-h-square f-left"></i><span>486</span></h2>
-                    <p class="m-b-0">Completed Orders<span class="f-right">351</span>
-                   </p>
-                </div>
-            </div>
-            </a>
-        </div>
         
-        <div class="col-md-4 col-xl-3">
-        <a href="">
-            <div class="card bg-c-yellow order-card">
-                <div class="card-block">
-                    <h6 class="m-b-20">ADD TRAVEL AGENCY</h6>
-                    <h2 class="text-right"><i class="fa fa-taxi f-left"></i><span>535</span></h2>
-                    <p class="m-b-0">ahbdahdba<span class="f-right">351</span>  
-                  </p>
-                </div>
-            </div>
-            </a>
-            
-        </div>
-        
-        <div class="col-md-4 col-xl-3">
-        <a href="" >
-            <div class="card bg-c-pink order-card">
-               
-                <div class="card-block">
-                    <h6 class="m-b-20">ADD PLACES</h6>
-                    <h2 class="text-right"><i class="fa fa-map-marker f-left"></i><span>486</span></h2>
-                    <p class="m-b-0">Completed Orders<span class="f-right">351</span>
-                    </p>
-                </div>
-                
-            </div>
-</a>
-        </div>
 	</div>
 </div>
 </div>
@@ -198,18 +158,33 @@ text-decoration:none;
                 <tr>
                 <th scope="col">#</th>
                 <th scope="col">Hotel Name</th>
-                <th scope="col">Hotel Price</th>
+                <th scope="col">Hotel check In</th>
+                <th scope="col">Hotel check Out</th>
+                <th scope="col">Comfort</th>
+
                 <th scope="col">Hotel Status</th>
-                <th scope="col">Driver Name </th>
-                <th scope="col">Vehical rent price</th>
-                <th scope="col">Driver Status </th>
-                <th scope="col">Total Price </th>
+
                 <th scope="col">Action</th>
+                
+              
                 </tr>
             </thead>
             <tbody>
-               
-                
+            @foreach ($bookinghotel as $book)
+            <tr>
+                <td scope="col">{{$book->tourist_id}}</td>
+                <td scope="col">{{$book->hotel}}</td>
+                <td scope="col">{{$book->checkin}}</td>
+                <td scope="col">{{$book->checkout}}</td>
+                <td scope="col">{{$book->comfort}}</td>
+
+
+                <td scope="col">
+                <a href="{{Route('bookhotel.delete',$book->id)}}" class="btn btn-sm btn-danger">Delete</a>
+
+                </td>
+            </tr>
+            @endforeach 
             </tbody>
         </table>
         </div>

@@ -106,7 +106,7 @@ hotel layout
             <li class="nav-item"> <a class ="nav-link" href="{{route('admin.addtravel')}}">Booking Request</a></li>
 
 
-	          <li class="nav-item"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
+	          <li class="nav-item"><a href="{{route('hotel')}}" class="nav-link">Hotels</a></li>
 	        </ul>
             <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
