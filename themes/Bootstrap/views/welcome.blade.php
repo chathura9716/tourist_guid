@@ -71,11 +71,11 @@
 					<div class="menu_block">
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 							<ul class="sf-menu">
-								<li class="current"><a href="{{route('welcome')}}">Home</a></li>
-                <li><a href="{{route('dashboard')}}">Dashboard</a></li>
-                <li><a href="{{route('places')}}">Places</a></li>
+								<li ><a href="{{route('welcome')}}">Home</a></li>
+								<li><a href="{{route('dashboard')}}">Dashboard</a></li> 
+								<li><a href="{{route('places')}}">Places</a></li>
 								<li><a href="{{route('blog')}}">BLOG</a></li>
-                <li><a href="{{route('contact')}}">CONTACTS</a></li>
+                			<li><a href="{{route('contact')}}">CONTACTS</a></li>
 							</ul>
 						</nav>
 						<div class="clear"></div>
@@ -100,7 +100,7 @@
 							<span>$1000</span>
 						</div> -->
 						<a href="{{ route('create_tourist') }}">START YOUR JOURNEY</a><br>
-						<a href="{{ route('loginpage') }}">LOG IN HERE</a>
+						<a href="{{ route('login') }}">LOG IN HERE</a>
 					</div>
 				</div>
 				<div data-src="images/slide1.jpg">
@@ -111,7 +111,7 @@
 							<span>$2000</span>
 						</div> -->
 						<a href="{{ route('create_tourist') }}">START YOUR JOURNEY</a><br>
-						<a href="{{ route('loginpage') }}">LOG IN HERE</a>
+						<a href="{{ route('login') }}">LOG IN HERE</a>
 					</div>
 				</div>
 				<div data-src="images/slide2.jpg">
@@ -122,7 +122,7 @@
 							<span>$1600</span>
 						</div> -->
 						<a href="{{ route('create_tourist') }}">START YOUR JOURNEY</a><br>
-						<a href="{{ route('loginpage') }}">LOG IN HERE</a>
+						<a href="{{ route('login') }}">LOG IN HERE</a>
 					</div>
 				</div>
 			</div>

@@ -43,9 +43,9 @@
 							<ul class="sf-menu">
 							<li ><a href="{{route('welcome')}}">Home</a></li>
                             <li><a href="{{route('dashboard')}}">Dashboard</a></li>
-								<li class="current"><a href="{{route('places')}}">Places</a></li>
-								<li><a href="{{route('blog')}}">BLOG</a></li>
-								<li><a href="{{route('contact')}}">CONTACTS</a></li>
+							<li class="current"><a href="{{route('places')}}">Places</a></li>
+							<li><a href="{{route('blog')}}">BLOG</a></li>
+							<li><a href="{{route('contact')}}">CONTACTS</a></li>
 							</ul>
 						</nav>
 						<div class="clear"></div>
@@ -94,8 +94,21 @@
 						<li><a href="#">kalutara</a></li>
 						<li><a href="#">Kandy</a></li>
 						<li><a href="#">Kegalle</a></li>
+                        <li><a href="#">Kilinochchi</a></li>
+						<li><a href="#">Kurunegala</a></li>
+						<li><a href="#">Mannar</a></li>
+						<li><a href="#">Matale</a></li>
+						<li><a href="#">Matare</a></li>
+                        <li><a href="#">Monaragala</a></li>
+                        <li><a href="#">Mullaitivu</a></li>
+                        <li><a href="#">Nuwara Eliya</a></li>
+                        <li><a href="#">Polannaruwa</a></li>
+                        <li><a href="#">Puttalam</a></li>
+                        <li><a href="#">Ratnapura</a></li>
+                        <li><a href="#">Trincomalee</a></li>
+                        <li><a href="#">Vavuniya</a></li>
 					</ul>
-					<a href="/ViewAllPlaces" class="link1">VIEW All<span class="low">ll</span></a>
+					
 				</div>
 			</div>
 		</div>
