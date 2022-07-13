@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Session;
 use App\Models\Booking;
 use Illuminate\Support\Facades\Validator;
+use DB;
 
 class HotelBookingController extends Controller
 {
@@ -14,7 +15,8 @@ class HotelBookingController extends Controller
         $validator = Validator::make($request ->all(),[
             'tourist_name' => 'required',
             'email' => 'required',
-            'hotel' =>'required',
+            'hotel_id' =>'required',
+            //'agent_id' => 'required',
             'checkin' =>'required',
             'checkout'=>'required',
 
@@ -22,15 +24,16 @@ class HotelBookingController extends Controller
         if($validator->fails()){
             return back()->with('status','Something is wrong!');
         }else{
-           
            $id= Session::get ('loginId');
                 Booking::create([
+                  
                     'tourist_id'=>$id,
                     'tourist_name' => $request->tourist_name,
                     'country' => $request ->country,
                     'email' => $request ->email,
-                    'hotel' => $request ->hotel,
-
+                   
+                    'hotel_id' =>$request ->hotel_id,
+                   // 'agent_id'->$request->agent_id,
                     'checkin'=>$request->checkin,
                     'checkout' =>$request->checkout,
                     'comfort' => $request ->comfort,
@@ -45,6 +48,18 @@ class HotelBookingController extends Controller
                 ]);
             }
             return  redirect(route('tourist_dashboard'))->with('status','booking request send successfully!');
+    }
+    public function accept($bookingId){
+        $book = Booking::findOrFail($bookingId);
+        $book ->action = "Accepted";
+        $book->save();
+        return redirect()->back();
+    }
+    public function cancel($bookingId){
+        $book = Booking::findOrFail($bookingId);
+        $book ->action = "Canceled";
+        $book->save();
+        return redirect()->back();
     }
     
     public function delete($bookingId){

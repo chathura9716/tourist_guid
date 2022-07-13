@@ -13,7 +13,7 @@ class HotelController extends Controller
         $validator = Validator::make($request ->all(),[
             'hotel_name' => 'required',
             'type' => 'required',
-            'province'=>'required',
+            'address'=>'required',
             'city' => 'required',
 
             'description' =>'required',
@@ -32,7 +32,7 @@ class HotelController extends Controller
                     'user_id'=>auth()->user()->id,
                     'hotel_name' => $request->hotel_name,
                     'type' => $request ->type,
-                    'province' => $request ->province,
+                    'address' => $request ->address,
                     'city' => $request ->city,
 
                     'description'=>$request->description,
@@ -70,7 +70,7 @@ class HotelController extends Controller
     public function update($hotelId,Request $request){
         //dd($request ->all());
         Hotel::findOrFail($hotelId)->update($request ->all());
-        return redirect(route('hotel.view'))->with('status','hotel updated!');
+        return redirect(route('dashboard'))->with('status','hotel updated!');
     }
 
     public function delete($hotelId){

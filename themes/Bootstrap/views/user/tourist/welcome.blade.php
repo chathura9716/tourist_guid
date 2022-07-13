@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>About</title>
+		<title>welcome</title>
 		<meta charset="utf-8">
 		<meta name="format-detection" content="telephone=no" />
 		<link rel="icon" href="images/favicon.ico">
@@ -71,8 +71,8 @@
 					<div class="menu_block">
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 							<ul class="sf-menu">
-								<li class="current"><a href="{{route('welcome')}}">Home</a></li>
-                				<li><a href="{{route('dashboard')}}">Dashboard</a></li>
+								<li class="current"><a href="{{route('touristWelcome')}}">Home</a></li>
+                				<li><a href="{{route('tourist_dashboard')}}">Dashboard</a></li>
                 				<li><a href="{{route('places')}}">Places</a></li>
 								<li><a href="{{route('blog')}}">BLOG</a></li>
                					<li><a href="{{route('contact')}}">CONTACTS</a></li>
@@ -181,13 +181,16 @@
 						</div>
 						<div class="fl1 fl2">
 							<em>Select Hotel</em>
-							<select name="hotel" class="tmSelect2" data-class="tmSelect tmSelect2" data-constraints="">
-								@foreach ($hotel as $hotel )
-								<option>{{$hotel->hotel_name}}</option>
-								@endforeach
+
+							<select name="hotel_id" class="tmSelect2" data-class="tmSelect tmSelect2" data-constraints="">
+							@foreach ($hotel as $hotel )
+								<option value="{{$hotel->id}}">{{$hotel->hotel_name}}</option>
+							
+							@endforeach
 								
 							</select>
-							<div class="clear"></div>
+						
+							
 							
 						</div>
 						<br>

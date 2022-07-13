@@ -15,7 +15,7 @@ Add places
                         </div>
                     @endif
 
-                    <form method="post" action="{{route('place.edit',$place->id)}}" enctype="multipart/form-data">
+                    <form method="post" action="{{route('place.update',$place->id)}}" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label class="form-label" >Place Name</label>

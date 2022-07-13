@@ -173,10 +173,11 @@ text-decoration:none;
             @foreach ($bookinghotel as $book)
             <tr>
                 <td scope="col">{{$book->tourist_id}}</td>
-                <td scope="col">{{$book->hotel}}</td>
+                <td scope="col">{{$book->hotel->hotel_name}}</td>
                 <td scope="col">{{$book->checkin}}</td>
                 <td scope="col">{{$book->checkout}}</td>
                 <td scope="col">{{$book->comfort}}</td>
+                <td scope="col">{{$book->action}}</td>
 
 
                 <td scope="col">

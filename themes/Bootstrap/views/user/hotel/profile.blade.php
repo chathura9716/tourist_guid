@@ -1,76 +1,176 @@
 @extends('layouts.hotel')
 @section('content')
-hotel profile>>
-<section class="vh-100" style="background-color: #f4f5f7;">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col col-lg-6 mb-4 mb-lg-0">
-        <div class="card mb-3" style="border-radius: .5rem;">
-          <div class="row g-0">
-            <div class="col-md-4 gradient-custom text-center text-white"
-              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                alt="Avatar" class="img-fluid my-5" style="width: 180px;" />
-                <h5>{{auth()->user()->fname}} {{auth()->user()->lname}} </h5>
-              <p>Web Designer</p>
-              <div class="social-media">
-		    		    <p class="mb-0 d-flex">
-              
-              <a href="{{Route('user.edit',auth()->user()->id)}}" class="btn btn-sm btn-primary">Edit</a>
-              </P>
-                </div>
-            </div>
-            <div class="col-md-5">
-              <div class="card-body p-5">
-                <h6>Information</h6>
-                <hr class="mt-2 mb-4">
-                <div class="row pt-1">
-                  <div class="col-10 mb-7">
+
+<style>
+  @import "https://fonts.googleapis.com/css?family=Open+Sans:300,400";
+body,
+.badgescard,
+.firstinfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    min-height: 100%;
+    background: #00bcd4;
+    font-size: 16px;
+    overflow: hidden;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+.content {
+    position: relative;
+    animation: animatop 0.9s cubic-bezier(0.425, 1.14, 0.47, 1.125) forwards;
+}
+
+.card {
+    width: 1000px;
+    min-height: 100px;
+    padding: 20px;
+    border-radius: 3px;
+    background-color: white;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.card:after {
+    content: '';
+    display: block;
+    width: 250px;
+    height: 300px;
+    background: cadetblue;
+    position: absolute;
+    animation: rotatemagic 0.75s cubic-bezier(0.425, 1.04, 0.47, 1.105) 1s both;
+}
+
+.badgescard {
+    padding: 10px 20px;
+    border-radius: 3px;
+    background-color: #00bcd4;
+    color:#fff;
+    width: 980px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    z-index: -1;
+    left: 10px;
+    bottom: 10px;
+    animation: animainfos 0.5s cubic-bezier(0.425, 1.04, 0.47, 1.105) 0.75s forwards;
+}
+
+.badgescard span {
+    font-size: 1.6em;
+    margin: 0px 6px;
+    opacity: 0.6;
+}
+
+.firstinfo {
+    flex-direction: row;
+    z-index: 2;
+    position: relative;
+}
+
+.firstinfo img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+}
+
+.firstinfo .profileinfo {
+    padding: 0px 20px;
+}
+
+.firstinfo .profileinfo h1 {
+    font-size: 1.8em;
+}
+
+.firstinfo .profileinfo h3 {
+    font-size: 1.2em;
+    color: #00bcd4;
+    font-style: italic;
+}
+
+.firstinfo .profileinfo p.bio {
+    padding: 10px 0px;
+    color: #5A5A5A;
+    line-height: 1.2;
+    font-style: initial;
+}
+
+@keyframes animatop {
+    0% {
+        opacity: 0;
+        bottom: -500px;
+    }
+    100% {
+        opacity: 1;
+        bottom: 0px;
+    }
+}
+
+@keyframes animainfos {
+    0% {
+        bottom: 10px;
+    }
+    100% {
+        bottom: -42px;
+    }
+}
+
+@keyframes rotatemagic {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg);
+        top: -24px;
+        left: -253px;
+    }
+    100% {
+        transform: rotate(-50deg);
+        top: -24px;
+        left: -78px;
+    }
+}
+</style>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="content">
+    <div class="card">
+        <div class="firstinfo"><img src="https://bootdey.com/img/Content/avatar/avatar6.png" />
+            <div class="profileinfo">
+                <h1>{{auth()->user()->name}}  </h1>
+                <div >
                     <h6>Email</h6>
                     <p class="text-muted">{{auth()->user()->email}}</p>
                   </div>
-                  <div class="col-10 mb-7">
-                    <h6>Phone</h6>
-                    <p class="text-muted">{{auth()->user()->contact}}</p>
+                  <div >
+                    <h6>Address</h6>
+                    <p class="text-muted">{{auth()->user()->address}}</p>
                   </div>
-                  <div class="col-8 mb-3">
-                    <h6>Date Of Birth</h6>
-                    <p class="text-muted">{{auth()->user()->dob}}</p>
-                  </div>
-                  <div class="col-8 mb-3">
-                    <h6>NIC</h6>
-                    <p class="text-muted">{{auth()->user()->nic}}</p>
-                 
-                  </div>
-                </div>
-               
-         
-               
-                <h6>Projects</h6>
-                <hr class="mt-0 mb-4">
-                <div class="row pt-1">
-                  <div class="col-6 mb-3">
-                    <h6>Recent</h6>
-                    <p class="text-muted">Lorem ipsum</p>
-                  </div>
-                  <div class="col-6 mb-3">
-                    <h6>Most Viewed</h6>
-                    <p class="text-muted">Dolor sit amet</p>
-                  </div>
-                </div>
-                <div class="social-media">
-		    		    <p class="mb-0 d-flex">
-                  <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
-                  <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
-                  <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
-                </P>
-                </div>
-              </div>
+             
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-</section>
+    <div class="badgescard"> 
+        <span class="fa fa-facebook"></span>
+        <span class="fa fa-twitter"> </span>
+        <span class="fa fa-google-plus"></span>
+        <span class="fa fa-youtube"></span>
+        <span class="fa fa-dribble"></span>
+        <span class="fa fa-google"></span>
+        <span class="fa fa-android"> </span>
+    </div>
+</div>
+
 @endsection
+<br>

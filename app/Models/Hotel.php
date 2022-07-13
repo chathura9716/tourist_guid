@@ -12,7 +12,7 @@ class Hotel extends Model
     'user_id',
     'hotel_name',
     'type',
-    'province',
+    'address',
     'city',
     'description',
     'thumbnail'

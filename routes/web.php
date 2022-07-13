@@ -59,6 +59,10 @@ Route::get('/hotel/{hotelId}/edit', [HotelController::class, 'edit'])->name('hot
 Route::post('/hotel/{hotelId}/update', [HotelController::class, 'update'])->name('hotel.update');
 Route::get('/hotel/{hotelId}/delete', [HotelController::class, 'delete'])->name('hotel.delete');
 Route::get('/addhotelview', [App\Http\Controllers\HotelController::class, 'Addhotelview'])->name('addhotel');
+
+Route::get('/accepthotel/{bookingId}', [App\Http\Controllers\HotelBookingController::class, 'accept'])->name('accepthotel');
+Route::get('/cancelhotel/{bookingId}', [App\Http\Controllers\HotelBookingController::class, 'cancel'])->name('cancelhotel');
+
 });
 //places add crud
 

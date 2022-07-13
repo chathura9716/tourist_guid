@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('hotel_name');
             $table->string('type');
-            $table->string('province');
+            $table->string('address');
             $table->string('city');
             $table->text('description');
             $table->string('thumbnail');

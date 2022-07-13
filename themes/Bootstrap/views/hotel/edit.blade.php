@@ -15,7 +15,7 @@ edit Hotel
                         </div>
                     @endif
 
-                    <form method="post" action="{{route('hotel.edit',$hotel->id)}}" enctype="multipart/form-data">
+                    <form method="post" action="{{route('hotel.update',$hotel->id)}}" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label class="form-label" >Hotel Name</label>
@@ -23,13 +23,13 @@ edit Hotel
                             
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" >typw of Hotel </label>
+                            <label class="form-label" >type of Hotel </label>
                             <input  name="type" type="text" class="form-control"  placeholder="Enter Place type" required >
                             
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" >Province</label>
-                            <input  name="province" type="text" class="form-control"  placeholder="Enter province " required >
+                            <label class="form-label" >Address</label>
+                            <input  name="address" type="text" class="form-control"  placeholder="Enter address " required >
                             
                         </div>
                         <div class="mb-3">

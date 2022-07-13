@@ -196,6 +196,51 @@ text-decoration:none;
 
         
         <br><br>
+        <h1>Booking Requests</h1>
+<table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Hotel Name</th>
+                <th scope="col">Hotel check In</th>
+                <th scope="col">Hotel check Out</th>
+                <th scope="col">Comfort</th>
+
+                <th scope="col">Rooms</th>
+                <th scope="col">message</th>
+
+                <th scope="col">Status</th>
+                <th scope="col">action</th>
+                
+              
+                </tr>
+            </thead>
+            <tbody>
+            @foreach ($bookinghotel as $book)
+            <tr>
+                
+                <td scope="col">{{$book->tourist_name}}</td>
+                <td scope="col">{{$book->hotel->hotel_name}}</td>
+                <td scope="col">{{$book->checkin}}</td>
+                <td scope="col">{{$book->checkout}}</td>
+                <td scope="col">{{$book->comfort}}</td>
+                <td scope="col">{{$book->rooms}}</td>
+                <td scope="col">{{$book->message}}</td>
+                <td scope="col">{{$book->action}}
+                   
+                </td>
+
+
+                <td scope="col">
+                <a href="{{url('accepthotel',$book->id)}}" name="action"  class="btn btn-primary" type="button" value="">accept</a>
+                    <a href="{{url('cancelhotel',$book->id)}}" name="action"  class="btn btn-danger" type="button" value="">cancel</a>
+
+                </td>
+            </tr>
+            @endforeach 
+            </tbody>
+        </table>
+        </div>
 
 
         

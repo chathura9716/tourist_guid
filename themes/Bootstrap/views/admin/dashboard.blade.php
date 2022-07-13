@@ -272,11 +272,10 @@ text-decoration:none;
                                 <tr>
                                 <th><span>Name</span></th>
                                 <th><span>Email</span></th>
-                                
-                                <th><span>City</th>
+
                                 <th><span>Address</th>
-                                <th><span>Charges</th>
-                                <th class="text-center"><span>Status</span></th>
+                               
+
                                 <th>Action</th>
                       
                             
@@ -295,12 +294,9 @@ text-decoration:none;
                                         <span class="user-subhead">{{$user->name}}</span>
                                     </td>
                                     <td>{{$user->email}}</td>
-                                    <td>{{$user->city}}</td>
+                                   
                                     <td>{{$user->address}}</td>
-                                    <td>Rs.{{$user->charges}}</td>
-                                    <td class="text-center">
-                                        <span class="label label-danger">{{$user->availability}}</span>
-                                    </td>
+                                  
                                   
                                 
                                     <td style="width: 20%;">

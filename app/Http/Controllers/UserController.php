@@ -7,11 +7,12 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use DB;
 use App\Models\User;
 use App\Models\Post;
 use App\Models\Place;
 use App\Models\Hotel;
+use App\Models\Booking;
 
 
 use Illuminate\Http\Request;
@@ -28,8 +29,9 @@ class UserController extends Controller
             $users = User::all();
             $posts = Post::where('user_id',Auth::user()->id)->get();
             $places = Place::all();
-            $hotels = Hotel::where('user_id',Auth::user()->id)->get();;
-          
+            $hotels = Hotel::where('user_id',Auth::user()->id)->get();
+            
+            $bookinghotel=Booking::all();
     
         
             $role=Auth::user()->role;
@@ -42,7 +44,7 @@ class UserController extends Controller
                     }
                  
                     elseif($role=='Hotel Agency'){
-                        return view('user.hotel.dashboard',compact('hotels','posts'));
+                        return view('user.hotel.dashboard',compact('hotels','posts','bookinghotel'));
 
                     }elseif($role=='Travel Agency'){
                         return view('user.travel.dashboard');

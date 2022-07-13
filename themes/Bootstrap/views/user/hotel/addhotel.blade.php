@@ -29,7 +29,7 @@ Add hotel
                         </div>
                         <div class="mb-3">
                             <label class="form-label" >Address</label>
-                            <input  name="province" type="text" class="form-control"  placeholder="Enter province " required >
+                            <input  name="address" type="text" class="form-control"  placeholder="Enter address " required >
                             
                         </div>
                         <div class="mb-3">
