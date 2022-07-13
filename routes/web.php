@@ -35,6 +35,7 @@ Route::get('/about', [App\Http\Controllers\HomeController::class, 'About'])->nam
 Route::get('/blog', [App\Http\Controllers\HomeController::class, 'Blog'])->name('blog');
 Route::get('/contact', [App\Http\Controllers\HomeController::class, 'Contact'])->name('contact');
 Route::get('/places', [App\Http\Controllers\PlaceController::class, 'welcomeplace'])->name('places');
+Route::get('/ViewAllPlaces',[PlaceController::class,'ViewAllPlaces']);
 Route::get('/hotels', [App\Http\Controllers\HotelController::class, 'welcomehotel'])->name('hotel');
 Route::get('/place/{placeId}/show', [PlaceController::class, 'show'])->name('place.show');
 Route::get('/hotel/{hotelId}/show', [HotelController::class, 'show'])->name('hotel.show');

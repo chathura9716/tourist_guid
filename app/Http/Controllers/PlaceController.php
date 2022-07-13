@@ -48,6 +48,10 @@ class PlaceController extends Controller
             return view('places',compact('places'));
 
     }
+    public function ViewAllPlaces(){
+        $places=Place::all();
+        return view('ViewAllPlaces',compact('places'));
+    }
 
     public function show($placeId){
 
