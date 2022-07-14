@@ -1,9 +1,6 @@
-@extends('layouts.frontend')
-@section('content')
+
 <style>
-  body{
-    margin-top:20px;
-}
+
 /*
 Blog post entries
 */
@@ -269,13 +266,14 @@ Template sidebar
 <br>
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<div class="container pb50">
+<div class="container">
     <div class="row">
-        <div class="col-md-9 mb40">
+        <div >
+		<h3>{{$hotel->hotel_name}}</h3>
             <article>
                 <img src="{{asset('thumbnails/'.$hotel->thumbnail)}}" alt="" class="img-fluid mb30">
                 <div class="post-content">
-                    <h3>{{$hotel->hotel_name}}</h3>
+                    
                     <ul class="post-meta list-inline">
                         <li class="list-inline-item">
                             <i class="fa fa-user-circle-o"></i> <a href="#">{{$hotel->user->name}}</a>
@@ -285,10 +283,10 @@ Template sidebar
                     </ul>
                   
                     <p>{{$hotel->description}} </p>
-                    <h3>City</h3>
+                    <lable>City:</lable>
                     <p>{{$hotel->city}} </p>
-                    <h3>Province</h3>
-                    <p>{{$hotel->province}} </p>
+                    <lable>Address:</lable>
+                    <p>{{$hotel->address}} </p>
                     
                     <ul class="list-inline share-buttons">
                        
@@ -317,53 +315,321 @@ Template sidebar
             </article>
             <!-- post article-->
 
-        </div>
-        <div class="col-md-3 mb40">
-            
-            <!--/col-->
-            <div class="mb40">
-                <h4 class="sidebar-title">Categories</h4>
-                <ul class="list-unstyled categories">
-                    <li><a href="#">Rent</a></li>
-                    <li><a href="#">Sale</a></li>
-                    <li class="active"><a href="#">Apartment</a>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Office</a></li>
-                            <li><a href="#">Godown</a></li>
-                            <li><a href="#">Gerage</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Top Rating</a></li>
-                    <li><a href="#">Trending</a></li>
-                    <li><a href="#">Newest Properties</a></li>
-                </ul>
-            </div>
-            <!--/col-->
-            <div>
-                <h4 class="sidebar-title">Latest News</h4>
-                <ul class="list-unstyled">
-                    <li class="media">
-                        <img class="d-flex mr-3 img-fluid" width="64" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1"><a href="#">Lorem ipsum dolor sit amet</a></h5> April 05, 2017
-                        </div>
-                    </li>
-                    <li class="media my-4">
-                        <img class="d-flex mr-3 img-fluid" width="64" src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1"><a href="#">Lorem ipsum dolor sit amet</a></h5> Jan 05, 2017
-                        </div>
-                    </li>
-                    <li class="media">
-                        <img class="d-flex mr-3 img-fluid" width="64" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1"><a href="#">Lorem ipsum dolor sit amet</a></h5> March 15, 2017
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+      
 </div>
- 
-@endsection
+<div class="col-md-12 mb40">
+  
+           
+		
+	<link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel='stylesheet'>
+                                <link href='' rel='stylesheet'>
+                                <style>
+
+				.section {
+					position: relative;
+					height: 100vh;
+				}
+
+				.section .section-center {
+					position: absolute;
+					top: 50%;
+					left: 0;
+					right: 0;
+					-webkit-transform: translateY(-50%);
+					transform: translateY(-50%);
+				}
+
+				#booking {
+					font-family: 'Raleway', sans-serif;
+				}
+
+				.booking-form {
+					position: relative;
+					max-width: 642px;
+					width: 100%;
+					margin: auto;
+					padding: 40px;
+					overflow: hidden;
+					background-image: url('{{asset('thumbnails/'.$hotel->thumbnail)}}');
+					background-size: cover;
+					border-radius: 5px;
+					z-index: 20;
+				}
+
+				.booking-form::before {
+					content: '';
+					position: absolute;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					top: 0;
+					background: rgba(0, 0, 0, 0.7);
+					z-index: -1;
+				}
+
+				.booking-form .form-header {
+					text-align: center;
+					position: relative;
+					margin-bottom: 30px;
+				}
+
+				.booking-form .form-header h1 {
+					font-weight: 700;
+					text-transform: capitalize;
+					font-size: 42px;
+					margin: 0px;
+					color: #fff;
+				}
+
+				.booking-form .form-group {
+					position: relative;
+					margin-bottom: 30px;
+				}
+
+				.booking-form .form-control {
+					background-color: rgba(255, 255, 255, 0.2);
+					height: 60px;
+					padding: 0px 25px;
+					border: none;
+					border-radius: 40px;
+					color: #fff;
+					-webkit-box-shadow: 0px 0px 0px 2px transparent;
+					box-shadow: 0px 0px 0px 2px transparent;
+					-webkit-transition: 0.2s;
+					transition: 0.2s;
+				}
+
+				.booking-form .form-control::-webkit-input-placeholder {
+					color: rgba(255, 255, 255, 0.5);
+				}
+
+				.booking-form .form-control:-ms-input-placeholder {
+					color: rgba(255, 255, 255, 0.5);
+				}
+
+				.booking-form .form-control::placeholder {
+					color: rgba(255, 255, 255, 0.5);
+				}
+
+				.booking-form .form-control:focus {
+					-webkit-box-shadow: 0px 0px 0px 2px #ff8846;
+					box-shadow: 0px 0px 0px 2px #ff8846;
+				}
+
+				.booking-form input[type="date"].form-control {
+					padding-top: 16px;
+				}
+
+				.booking-form input[type="date"].form-control:invalid {
+					color: rgba(255, 255, 255, 0.5);
+				}
+
+				.booking-form input[type="date"].form-control+.form-label {
+					opacity: 1;
+					top: 10px;
+				}
+
+				.booking-form select.form-control {
+					-webkit-appearance: none;
+					-moz-appearance: none;
+					appearance: none;
+				}
+
+				.booking-form select.form-control:invalid {
+					color: rgba(255, 255, 255, 0.5);
+				}
+
+				.booking-form select.form-control+.select-arrow {
+					position: absolute;
+					right: 15px;
+					top: 50%;
+					-webkit-transform: translateY(-50%);
+					transform: translateY(-50%);
+					width: 32px;
+					line-height: 32px;
+					height: 32px;
+					text-align: center;
+					pointer-events: none;
+					color: rgba(255, 255, 255, 0.5);
+					font-size: 14px;
+				}
+
+				.booking-form select.form-control+.select-arrow:after {
+					content: '\279C';
+					display: block;
+					-webkit-transform: rotate(90deg);
+					transform: rotate(90deg);
+				}
+
+				.booking-form select.form-control option {
+					color: #000;
+				}
+
+				.booking-form .form-label {
+					position: absolute;
+					top: -10px;
+					left: 25px;
+					opacity: 0;
+					color: #ff8846;
+					font-size: 11px;
+					font-weight: 700;
+					text-transform: uppercase;
+					letter-spacing: 1.3px;
+					height: 15px;
+					line-height: 15px;
+					-webkit-transition: 0.2s all;
+					transition: 0.2s all;
+				}
+
+				.booking-form .form-group.input-not-empty .form-control {
+					padding-top: 16px;
+				}
+
+				.booking-form .form-group.input-not-empty .form-label {
+					opacity: 1;
+					top: 10px;
+				}
+
+				.booking-form .submit-btn {
+					color: #fff;
+					background-color: #e35e0a;
+					font-weight: 700;
+					height: 60px;
+					padding: 10px 30px;
+					width: 100%;
+					border-radius: 40px;
+					border: none;
+					text-transform: uppercase;
+					font-size: 16px;
+					letter-spacing: 1.3px;
+					-webkit-transition: 0.2s all;
+					transition: 0.2s all;
+				}
+
+				.booking-form .submit-btn:hover,
+				.booking-form .submit-btn:focus {
+					opacity: 0.9;
+				}</style>
+                                <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+                                <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+                                <script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js'></script>
+                                <script type='text/javascript'></script> 
+    <div id="booking" class="section">
+		
+			<div class="container">
+				<div class="">
+					<div class="booking-form">
+						<div class="form-header">
+							<h1>Make your reservation</h1>
+						</div>
+						<form method="POST" action="{{ route('bookhotel') }}"id="bookingForm">
+						@if(Session::get('success'))
+							<div class="alert alert-success">
+								{{Session::get('success')}}
+								</div>
+							@endif
+						
+							@if(Session::get('fail'))
+							<div class="alert alert-danger">
+								{{Session::get('fail')}}
+								</div>
+							@endif
+						@csrf
+						
+							<div class="form-group">
+								<input name="tourist_name" class="form-control" type="text" placeholder="Enter your name...">
+								<span class="form-label">Name</span>
+							</div>
+							<div class="form-group">
+								<input name="country"  class="form-control" type="text" placeholder="Country...">
+								<span class="form-label">Country</span>
+							</div>
+							
+								
+									<div class="form-group">
+										<input  name="email" class="form-control" type="email" placeholder="Enter your Email">
+										<span class="form-label">Email</span>
+									</div>
+							
+								<input  name="hotel_id" class="form-control" type="hidden" value="{{$hotel->id}}">
+								
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<input name="checkin" class="form-control" type="date" required>
+										<span class="form-label">Check In</span>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<input name="checkout" class="form-control" type="date" required>
+										<span class="form-label">Check out</span>
+									</div>
+								</div>
+							</div>
+							<div class="tmRadio">
+								<p>Comfort</p>
+								<input name="comfort" value="Cheap" type="radio" id="tmRadio0" data-constraints='@RadioGroupChecked(name="comfort", groups=[RadioGroup])' checked/>
+								<span>Cheap</span>
+								<input name="comfort" value="Standart"type="radio" id="tmRadio1" data-constraints='@RadioGroupChecked(name="comfort", groups=[RadioGroup])' />
+								<span>Standart</span>
+								<input name="comfort" value="Lux" type="radio" id="tmRadio2" data-constraints='@RadioGroupChecked(name="comfort", groups=[RadioGroup])' />
+								<span>Lux</span>
+							</div>
+							<div class="row">
+							<div class="col-md-4">
+									<div class="form-group">
+										<select name="adults" class="form-control" required>
+											<option value="" selected hidden>no of adults</option>
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+										</select>
+										<span class="select-arrow"></span>
+										<span class="form-label">Adults</span>
+									</div>
+							</div>
+
+								<div class="col-md-4">
+									<div class="form-group">
+										<select name="childrens" class="form-control" required>
+											<option value="" selected hidden>no of children</option>
+											<option>0</option>
+											<option>1</option>
+											<option>2</option>
+										</select>
+										<span class="select-arrow"></span>
+										<span class="form-label">Children</span>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<select name="rooms" class="form-control" required>
+											<option value="" selected hidden>no of rooms</option>
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+										</select>
+										<span class="select-arrow"></span>
+										<span class="form-label">Rooms</span>
+									</div>
+								</div>
+							</div>
+							
+							
+							<div class="form-group">
+								<textarea  name="message"  class="form-control"placeholder="send us message..."></textarea>
+								<span class="form-label">Message</span>
+							</div>
+							
+							<div class="form-btn">
+								<button class="submit-btn">Book Now</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> 
+</div>    
+   

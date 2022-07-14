@@ -73,9 +73,9 @@
 							<ul class="sf-menu">
 								<li class="current"><a href="{{route('touristWelcome')}}">Home</a></li>
                 				<li><a href="{{route('tourist_dashboard')}}">Dashboard</a></li>
-                				<li><a href="{{route('places')}}">Places</a></li>
-								<li><a href="{{route('blog')}}">BLOG</a></li>
-               					<li><a href="{{route('contact')}}">CONTACTS</a></li>
+                				<li><a href="{{route('touristPlace')}}">Places</a></li>
+								<li><a href="{{route('touristBlog')}}">BLOG</a></li>
+               					<li><a href="{{route('touristContact')}}">CONTACTS</a></li>
 							</ul>
 						</nav>
 						<div class="clear"></div>

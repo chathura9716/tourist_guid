@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Place;
+use App\Models\Hotel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use DB;
 
 class PlaceController extends Controller
 {
@@ -56,11 +58,16 @@ class PlaceController extends Controller
     public function show($placeId){
 
         $place = Place::findOrFail($placeId);
-        return view('place.view',compact('place'));
+
+        $hotel=DB::table('hotels')->where('hotels.city','=', $place->city)->get();
+                    
+     
+        return view('place.view',compact('place','hotel'));
     }
 
     public function edit($placeId){
         $place = Place::findOrFail($placeId);
+      
         return view('place.edit',compact('place'));
     } 
 

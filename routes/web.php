@@ -38,7 +38,9 @@ Route::get('/places', [App\Http\Controllers\PlaceController::class, 'welcomeplac
 Route::get('/ViewAllPlaces',[PlaceController::class,'ViewAllPlaces']);
 Route::get('/hotels', [App\Http\Controllers\HotelController::class, 'welcomehotel'])->name('hotel');
 Route::get('/place/{placeId}/show', [PlaceController::class, 'show'])->name('place.show');
-Route::get('/hotel/{hotelId}/show', [HotelController::class, 'show'])->name('hotel.show');
+
+
+
 
 //posts
 Route::get('/posts/{postId}/show', [PostController::class, 'show'])->name('posts.show');
@@ -59,6 +61,7 @@ Route::post('/hotel/store', [HotelController::class, 'store'])->name('hotel.stor
 Route::get('/hotel/{hotelId}/edit', [HotelController::class, 'edit'])->name('hotel.edit');
 Route::post('/hotel/{hotelId}/update', [HotelController::class, 'update'])->name('hotel.update');
 Route::get('/hotel/{hotelId}/delete', [HotelController::class, 'delete'])->name('hotel.delete');
+
 Route::get('/addhotelview', [App\Http\Controllers\HotelController::class, 'Addhotelview'])->name('addhotel');
 
 Route::get('/accepthotel/{bookingId}', [App\Http\Controllers\HotelBookingController::class, 'accept'])->name('accepthotel');
@@ -113,6 +116,6 @@ Route::group(['middleware'=>'guest:tourist'], function(){
 //bookig hotel
         Route::post('/bookhotel', [App\Http\Controllers\HotelBookingController::class, 'store'])->name('bookhotel');
         Route::get('/bookhotel/{bookingId}/delete', [HotelBookingController::class, 'delete'])->name('bookhotel.delete');
-    
+        Route::get('/hotel/{hotelId}/view', [HotelController::class, 'show'])->name('hotel.view');
 });
 

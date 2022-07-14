@@ -51,7 +51,7 @@
         <div class="container">
           <div class="row justify-content-between">
             <div class="col">
-              <a class="navbar-brand" href="{{ url('/') }}">Tourist <span>Guid</span></a>
+              <a class="navbar-brand" href="{{ url('touristWelcome') }}">Tourist <span>Guid</span></a>
             </div>
                   
                       
@@ -88,7 +88,7 @@
             </form>
             <div class="collapse navbar-collapse" id="ftco-nav">
               <ul class="navbar-nav mr-auto">
-                <li class="nav-item active"><a href="{{ url('/') }}" class="nav-link">Home</a></li>
+                <li class="nav-item active"><a href="{{ url('touristWelcome') }}" class="nav-link">Home</a></li>
                 
                 <!-- <li class="nav-item"><a class ="nav-link" href="{{route('dashboard')}}">Dashboard</a></li> -->
                 <!-- <li class="nav-item dropdown">
@@ -99,6 +99,7 @@
                     <a class="dropdown-item" href="#">Page 3</a>
                     <a class="dropdown-item" href="#">Page 4</a>
                   </div>
+                  
                 </li> -->
                 <li class="nav-item"><a class ="nav-link" href="{{route('blog')}}">Blogs</a></li>
                 <li class="nav-item"> <a class ="nav-link" href="{{route('about')}}">About</a></li>
