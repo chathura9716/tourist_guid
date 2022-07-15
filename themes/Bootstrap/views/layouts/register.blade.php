@@ -109,7 +109,7 @@ register layout
 
 
             <li class="nav-item"><a class ="nav-link" href="{{route('blog')}}">Blogs</a></li>
-                <li class="nav-item"> <a class ="nav-link" href="{{route('about')}}">About</a></li>
+                <li class="nav-item"> <a class ="nav-link" href="">About</a></li>
                 <li class="nav-item"><a href="{{route('contact')}}"class="nav-link">Contact</a></li>
 	        </ul>
            

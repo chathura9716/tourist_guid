@@ -21,11 +21,14 @@ class TouristController extends Controller
 
         $bookinghotel=Booking::where('tourist_id', '=',Session::get ('loginId'))->get()->all();
         $data =array();
+        
         if(Session::has ('loginId')){
             $data =Tourist::where('id', '=',Session::get ('loginId'))->first();
+            return view('user.tourist.dashboard',compact('data','bookinghotel'));
 
+        }else{
+            return redirect(route('dashboard'));
         }
-        return view('user.tourist.dashboard',compact('data','bookinghotel'));
     }
     public function createTourist(){
         return view('user.tourist.register');
@@ -34,8 +37,10 @@ class TouristController extends Controller
         return view('user.tourist.login');
     }
     public function touristWelcome(){
+        
+        $latest_place= Place::orderBy('created_at','DESC')->limit(3)->get();
         $hotel =Hotel::all();
-        return view('user.tourist.welcome',compact('hotel'));
+        return view('user.tourist.welcome',compact('hotel','latest_place'));
     }
     public function touristPlace(){
         $places = Place::all();

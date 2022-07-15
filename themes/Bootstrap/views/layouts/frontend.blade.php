@@ -102,7 +102,7 @@
                   
                 </li> -->
                 <li class="nav-item"><a class ="nav-link" href="{{route('blog')}}">Blogs</a></li>
-                <li class="nav-item"> <a class ="nav-link" href="{{route('about')}}">About</a></li>
+                <li class="nav-item"> <a class ="nav-link" href="{{ url('touristWelcome') }}">About</a></li>
                 <li class="nav-item"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
               </ul>
                

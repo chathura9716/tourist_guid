@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Post;
+use App\Models\Place;
 
 
 class WelcomeController extends Controller
@@ -12,10 +12,10 @@ class WelcomeController extends Controller
 
     
     public function welcome(){
-        $posts = Post::all();
-        $latest_posts= Post::orderBy('created_at','DESC')->limit(1)->get();
        
-            return view('welcome',compact('posts','latest_posts'));
+        $latest_place= Place::orderBy('created_at','DESC')->limit(3)->get();
+       
+            return view('welcome',compact('latest_place'));
 
     }
       

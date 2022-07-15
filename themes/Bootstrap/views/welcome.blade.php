@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>About</title>
+		<title>welcome</title>
 		<meta charset="utf-8">
 		<meta name="format-detection" content="telephone=no" />
 		<link rel="icon" href="images/favicon.ico">
@@ -92,9 +92,9 @@
 		</header>
 		<div class="slider_wrapper">
 			<div id="camera_wrap" class="">
-				<div data-src="images/slide.jpg">
+				<div data-src="images/sri-lanka-best-places-to-visit-galle.jpg">
 					<div class="caption fadeIn">
-						<h2>LONDON</h2>
+						<h2>GALLE</h2>
 						<!-- <div class="price">
 							FROM
 							<span>$1000</span>
@@ -103,9 +103,9 @@
 						<a href="{{ route('loginpage') }}">LOG IN HERE</a>
 					</div>
 				</div>
-				<div data-src="images/slide1.jpg">
+				<div data-src="images/sri-lanka-best-places-to-visit-hikkaduwa-beach.jpg">
 					<div class="caption fadeIn">
-						<h2>Maldives</h2>
+						<h2>Hikkaduwa</h2>
 						<!-- <div class="price">
 							FROM
 							<span>$2000</span>
@@ -114,9 +114,9 @@
 						<a href="{{ route('loginpage') }}">LOG IN HERE</a>
 					</div>
 				</div>
-				<div data-src="images/slide2.jpg">
+				<div data-src="images/sri-lanka-best-places-to-visit-sigiriya.jpg">
 					<div class="caption fadeIn">
-						<h2>Venice</h2>
+						<h2>Sigiriya</h2>
 						<!-- <div class="price">
 							FROM
 							<span>$1600</span>
@@ -128,38 +128,119 @@
 			</div>
 		</div>
 <!--==============================Content=================================-->
-		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
+<style>
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+.wrapper {
+  display: flex;
+  width: 90%;
+  justify-content: space-around;
+}
+
+.card {
+  width: 280px;
+  height: 360px;
+  border-radius: 15px;
+  padding: 1.5rem;
+  background: white;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  transition: 0.4s ease-out;
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+}
+.card:hover {
+  transform: translateY(20px);
+}
+.card:hover:before {
+  opacity: 1;
+}
+.card:hover .info {
+  opacity: 1;
+  transform: translateY(0px);
+}
+.card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  transition: 0.5s;
+  opacity: 0;
+}
+.card img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 15px;
+}
+.card .info {
+  position: relative;
+  z-index: 3;
+  color: white;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.5s;
+}
+.card .info h1 {
+  margin: 0px;
+}
+.card .info p {
+  letter-spacing: 1px;
+  font-size: 15px;
+  margin-top: 8px;
+}
+.card .info button {
+  padding: 0.6rem;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  background: white;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+.card .info button:hover {
+  background: dodgerblue;
+  color: white;
+}
+
+    </style>
+
+		<div class="content"><div class="ic"></div>
 			<div class="container_12">
+			@foreach ($latest_place as $place)
 				<div class="grid_4">
-					<div class="banner">
-						<img src="images/ban_img1.jpg" alt="">
-						<div class="label">
-							<div class="title">Barcelona</div>
-							<div class="price">FROM<span>$ 1000</span></div>
-							<a href="#">LEARN MORE</a>
+					<div class="wrapper">
+
+						<div class="card"><img src="{{asset('thumbnails/'.$place->thumbnail)}}" />
+							<div class="info">
+							<h1>{{$place->place_name}}</h1>
+							<p>{{$place->description}}</p>
+							
+							<button><a  href="{{Route('place.show',$place->id)}}" >See more</a></button>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="grid_4">
-					<div class="banner">
-						<img src="images/ban_img2.jpg" alt="">
-						<div class="label">
-							<div class="title">GOA</div>
-							<div class="price">FROM<span>$ 1.500</span></div>
-							<a href="#">LEARN MORE</a>
-						</div>
-					</div>
-				</div>
-				<div class="grid_4">
-					<div class="banner">
-						<img src="images/ban_img3.jpg" alt="">
-						<div class="label">
-							<div class="title">PARIS</div>
-							<div class="price">FROM<span>$ 1.600</span></div>
-							<a href="#">LEARN MORE</a>
-						</div>
-					</div>
-				</div>
+				@endforeach
+				
 				<div class="clear"></div>
 				<div class="grid_6">
 					<h3>Booking Form</h3>
