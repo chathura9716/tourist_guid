@@ -1,526 +1,126 @@
+@extends('layouts.hotel')
 
-<style>
+@section('content')
 
-/*
-Blog post entries
-*/
 
-.entry-card {
-    -webkit-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
-    -moz-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
-}
 
-.entry-content {
-    background-color: #fff;
-    padding: 36px 36px 36px 36px;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
-}
-
-.entry-content .entry-title a {
-    color: #333;
-}
-
-.entry-content .entry-title a:hover {
-    color: #4782d3;
-}
-
-.entry-content .entry-meta span {
-    font-size: 12px;
-}
-
-.entry-title {
-    font-size: .95rem;
-    font-weight: 500;
-    margin-bottom: 15px;
-}
-
-.entry-thumb {
-    display: block;
-    position: relative;
-    overflow: hidden;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-}
-
-.entry-thumb img {
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-}
-
-.entry-thumb .thumb-hover {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background: rgba(71, 130, 211, 0.85);
-    display: block;
-    top: 50%;
-    left: 50%;
-    color: #fff;
-    font-size: 40px;
-    line-height: 100px;
-    border-radius: 50%;
-    margin-top: -50px;
-    margin-left: -50px;
-    text-align: center;
-    transform: scale(0);
-    -webkit-transform: scale(0);
-    opacity: 0;
-    transition: all .3s ease-in-out;
-    -webkit-transition: all .3s ease-in-out;
-}
-
-.entry-thumb:hover .thumb-hover {
-    opacity: 1;
-    transform: scale(1);
-    -webkit-transform: scale(1);
-}
-
-.article-post {
-    border-bottom: 1px solid #eee;
-    padding-bottom: 70px;
-}
-
-.article-post .post-thumb {
-    display: block;
-    position: relative;
-    overflow: hidden;
-}
-
-.article-post .post-thumb .post-overlay {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    transition: all .3s;
-    -webkit-transition: all .3s;
-    opacity: 0;
-}
-
-.article-post .post-thumb .post-overlay span {
-    width: 100%;
-    display: block;
-    vertical-align: middle;
-    text-align: center;
-    transform: translateY(70%);
-    -webkit-transform: translateY(70%);
-    transition: all .3s;
-    -webkit-transition: all .3s;
-    height: 100%;
-    color: #fff;
-}
-
-.article-post .post-thumb:hover .post-overlay {
-    opacity: 1;
-}
-
-.article-post .post-thumb:hover .post-overlay span {
-    transform: translateY(50%);
-    -webkit-transform: translateY(50%);
-}
-
-.post-content .post-title {
-    font-weight: 500;
-}
-
-.post-meta {
-    padding-top: 15px;
-    margin-bottom: 20px;
-}
-
-.post-meta li:not(:last-child) {
-    margin-right: 10px;
-}
-
-.post-meta li a {
-    color: #999;
-    font-size: 13px;
-}
-
-.post-meta li a:hover {
-    color: #4782d3;
-}
-
-.post-meta li i {
-    margin-right: 5px;
-}
-
-.post-meta li:after {
-    margin-top: -5px;
-    content: "/";
-    margin-left: 10px;
-}
-
-.post-meta li:last-child:after {
-    display: none;
-}
-
-.post-masonry .masonry-title {
-    font-weight: 500;
-}
-
-.share-buttons li {
-    vertical-align: middle;
-}
-
-.share-buttons li a {
-    margin-right: 0px;
-}
-
-.post-content .fa {
-    color: #ddd;
-}
-
-.post-content a h2 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 0px;
-}
-
-.article-post .owl-carousel {
-    margin-bottom: 20px !important;
-}
-
-.post-masonry h4 {
-    text-transform: capitalize;
-    font-size: 1rem;
-    font-weight: 700;
-}
-.mb40 {
-    margin-bottom: 40px !important;
-}
-.mb30 {
-    margin-bottom: 30px !important;
-}
-.media-body h5 a {
-    color: #555;
-}
-.categories li a:before {
-    content: "\f0da";
-    font-family: 'FontAwesome';
-    margin-right: 5px;
-}
-/*
-Template sidebar
-*/
-
-.sidebar-title {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-}
-
-.categories li {
-    vertical-align: middle;
-}
-
-.categories li > ul {
-    padding-left: 15px;
-}
-
-.categories li > ul > li > a {
-    font-weight: 300;
-}
-
-.categories li a {
-    color: #999;
-    position: relative;
-    display: block;
-    padding: 5px 10px;
-    border-bottom: 1px solid #eee;
-}
-
-.categories li a:before {
-    content: "\f0da";
-    font-family: 'FontAwesome';
-    margin-right: 5px;
-}
-
-.categories li a:hover {
-    color: #444;
-    background-color: #f5f5f5;
-}
-
-.categories > li.active > a {
-    font-weight: 600;
-    color: #444;
-}
-
-.media-body h5 {
-    font-size: 15px;
-    letter-spacing: 0px;
-    line-height: 20px;
-    font-weight: 400;
-}
-
-.media-body h5 a {
-    color: #555;
-}
-
-.media-body h5 a:hover {
-    color: #4782d3;
-}
-</style>
-<br>
-
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<div class="container">
-    <div class="row">
-        <div >
-		<h3>{{$hotel->hotel_name}}</h3>
-            <article>
-                <img src="{{asset('thumbnails/'.$hotel->thumbnail)}}" alt="" class="img-fluid mb30">
-                <div class="post-content">
-                    
-                    <ul class="post-meta list-inline">
-                        <li class="list-inline-item">
-                            <i class="fa fa-user-circle-o"></i> <a href="#">{{$hotel->user->name}}</a>
-                        </li>
-                      
-                      
-                    </ul>
-                  
-                    <p>{{$hotel->description}} </p>
-                    <lable>City:</lable>
-                    <p>{{$hotel->city}} </p>
-                    <lable>Address:</lable>
-                    <p>{{$hotel->address}} </p>
-                    
-                    <ul class="list-inline share-buttons">
-                       
-                        <li class="list-inline-item">
-                            <a href="#" class="social-icon-sm si-dark si-colored-facebook si-gray-round">
-                                <i class="fa fa-facebook"></i>
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#" class="social-icon-sm si-dark si-colored-twitter si-gray-round">
-                                <i class="fa fa-twitter"></i>
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#" class="social-icon-sm si-dark si-colored-linkedin si-gray-round">
-                                <i class="fa fa-linkedin"></i>
-                                <i class="fa fa-linkedin"></i>
-                            </a>
-                        </li>
-                    </ul>
-            
-                  
-                </div>
-            </article>
-            <!-- post article-->
-
-      
-</div>
-<div class="col-md-12 mb40">
   
+    <meta name="generator" content="Nicepage 4.14.1, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+  </head>
+  <body class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-header" id="sec-0d38"><div class="u-clearfix u-sheet u-sheet-1"></div></header>
+    <section class="u-align-center u-clearfix u-image u-shading u-section-1" src="{{asset('thumbnails/'.$hotel->thumbnail)}}" data-image-width="1124" data-image-height="1500" id="sec-7fdc">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-text u-text-default u-title u-text-1">{{$hotel->hotel_name}}</h1>
+        <p class="u-large-text u-text u-text-variant u-text-2">{{$hotel->description}}</p>
+      </div>
+    </section>
+    <section class="u-clearfix u-image u-shading u-section-2" id="sec-4783">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1">
+                <div class="u-container-layout u-valign-top u-container-layout-1">
+                  <h2 class="u-custom-font u-font-playfair-display u-text u-text-black u-text-1">We are directly involved in the process</h2>
+                  <div class="u-border-6 u-border-grey-dark-1 u-line u-line-horizontal u-line-1"></div>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
+                <div class="u-container-layout u-valign-top u-container-layout-2">
+                  <p class="u-text u-text-black u-text-2">&nbsp; &nbsp;With 10 years industry experience, Ashley Maddison is the creative founder of AM Interior Studio and has experience within the residential and commercial sector. With a degree and diploma in Interior Design,
+                                    she has worked with Architects, builders and kitchen designers, designing and managing projects from boutique commercial office fitouts to high end luxury homes. <br>
+                    <br>&nbsp; &nbsp;AM Interior Studio provide
+                                    fully resolved interior and styling solutions and no matter the size of the project, in all stages of the design there is a high level of detail and functionality. 
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-grey-15 u-lightbox u-section-3" id="sec-3915">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-expanded-width u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+        
+            <div class="u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-2">
+              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2">
+                <h3 class="u-text u-text-default u-text-3">Sample Headline</h3>
+                <div class="u-border-4 u-border-palette-3-base u-expanded-width u-line u-line-horizontal u-line-2"></div>
+                <img src="{{asset('thumbnails/'.$hotel->thumbnail)}}" class="u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-default u-image-2" data-image-width="2000" data-image-height="1333" src="images/4.svg">
+                <p class="u-text u-text-default u-text-4">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                <a href="" class="u-btn u-button-style u-palette-3-base u-btn-2">learn more</a>
+              </div>
+            </div>
+            <div class="u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-3">
+              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
+                <h3 class="u-text u-text-default u-text-5">Sample Headline</h3>
+                <div class="u-border-4 u-border-palette-3-base u-expanded-width u-line u-line-horizontal u-line-3"></div>
+                <img alt="" class="u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-default u-image-3" data-image-width="2000" data-image-height="1333" src="images/4.svg">
+                <p class="u-text u-text-default u-text-6">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                <a href="" class="u-btn u-button-style u-palette-3-base u-btn-3">learn more</a>
+              </div>
+            </div>
+            
            
-		
-	<link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel='stylesheet'>
-                                <link href='' rel='stylesheet'>
-                                <style>
-
-				.section {
-					position: relative;
-					height: 100vh;
-				}
-
-				.section .section-center {
-					position: absolute;
-					top: 50%;
-					left: 0;
-					right: 0;
-					-webkit-transform: translateY(-50%);
-					transform: translateY(-50%);
-				}
-
-				#booking {
-					font-family: 'Raleway', sans-serif;
-				}
-
-				.booking-form {
-					position: relative;
-					max-width: 642px;
-					width: 100%;
-					margin: auto;
-					padding: 40px;
-					overflow: hidden;
-					background-image: url('{{asset('thumbnails/'.$hotel->thumbnail)}}');
-					background-size: cover;
-					border-radius: 5px;
-					z-index: 20;
-				}
-
-				.booking-form::before {
-					content: '';
-					position: absolute;
-					left: 0;
-					right: 0;
-					bottom: 0;
-					top: 0;
-					background: rgba(0, 0, 0, 0.7);
-					z-index: -1;
-				}
-
-				.booking-form .form-header {
-					text-align: center;
-					position: relative;
-					margin-bottom: 30px;
-				}
-
-				.booking-form .form-header h1 {
-					font-weight: 700;
-					text-transform: capitalize;
-					font-size: 42px;
-					margin: 0px;
-					color: #fff;
-				}
-
-				.booking-form .form-group {
-					position: relative;
-					margin-bottom: 30px;
-				}
-
-				.booking-form .form-control {
-					background-color: rgba(255, 255, 255, 0.2);
-					height: 60px;
-					padding: 0px 25px;
-					border: none;
-					border-radius: 40px;
-					color: #fff;
-					-webkit-box-shadow: 0px 0px 0px 2px transparent;
-					box-shadow: 0px 0px 0px 2px transparent;
-					-webkit-transition: 0.2s;
-					transition: 0.2s;
-				}
-
-				.booking-form .form-control::-webkit-input-placeholder {
-					color: rgba(255, 255, 255, 0.5);
-				}
-
-				.booking-form .form-control:-ms-input-placeholder {
-					color: rgba(255, 255, 255, 0.5);
-				}
-
-				.booking-form .form-control::placeholder {
-					color: rgba(255, 255, 255, 0.5);
-				}
-
-				.booking-form .form-control:focus {
-					-webkit-box-shadow: 0px 0px 0px 2px #ff8846;
-					box-shadow: 0px 0px 0px 2px #ff8846;
-				}
-
-				.booking-form input[type="date"].form-control {
-					padding-top: 16px;
-				}
-
-				.booking-form input[type="date"].form-control:invalid {
-					color: rgba(255, 255, 255, 0.5);
-				}
-
-				.booking-form input[type="date"].form-control+.form-label {
-					opacity: 1;
-					top: 10px;
-				}
-
-				.booking-form select.form-control {
-					-webkit-appearance: none;
-					-moz-appearance: none;
-					appearance: none;
-				}
-
-				.booking-form select.form-control:invalid {
-					color: rgba(255, 255, 255, 0.5);
-				}
-
-				.booking-form select.form-control+.select-arrow {
-					position: absolute;
-					right: 15px;
-					top: 50%;
-					-webkit-transform: translateY(-50%);
-					transform: translateY(-50%);
-					width: 32px;
-					line-height: 32px;
-					height: 32px;
-					text-align: center;
-					pointer-events: none;
-					color: rgba(255, 255, 255, 0.5);
-					font-size: 14px;
-				}
-
-				.booking-form select.form-control+.select-arrow:after {
-					content: '\279C';
-					display: block;
-					-webkit-transform: rotate(90deg);
-					transform: rotate(90deg);
-				}
-
-				.booking-form select.form-control option {
-					color: #000;
-				}
-
-				.booking-form .form-label {
-					position: absolute;
-					top: -10px;
-					left: 25px;
-					opacity: 0;
-					color: #ff8846;
-					font-size: 11px;
-					font-weight: 700;
-					text-transform: uppercase;
-					letter-spacing: 1.3px;
-					height: 15px;
-					line-height: 15px;
-					-webkit-transition: 0.2s all;
-					transition: 0.2s all;
-				}
-
-				.booking-form .form-group.input-not-empty .form-control {
-					padding-top: 16px;
-				}
-
-				.booking-form .form-group.input-not-empty .form-label {
-					opacity: 1;
-					top: 10px;
-				}
-
-				.booking-form .submit-btn {
-					color: #fff;
-					background-color: #e35e0a;
-					font-weight: 700;
-					height: 60px;
-					padding: 10px 30px;
-					width: 100%;
-					border-radius: 40px;
-					border: none;
-					text-transform: uppercase;
-					font-size: 16px;
-					letter-spacing: 1.3px;
-					-webkit-transition: 0.2s all;
-					transition: 0.2s all;
-				}
-
-				.booking-form .submit-btn:hover,
-				.booking-form .submit-btn:focus {
-					opacity: 0.9;
-				}</style>
-                                <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-                                <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
-                                <script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js'></script>
-                                <script type='text/javascript'></script> 
-    <div id="booking" class="section">
-		
-			<div class="container">
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-4" id="sec-f50c">
+      <div class="u-expanded u-grey-10 u-map">
+        <div class="embed-responsive">
+          <iframe class="embed-responsive-item" src="//maps.google.com/maps?output=embed&amp;q=Manhattan&amp;t=m" data-map="JTdCJTIycG9zaXRpb25UeXBlJTIyJTNBJTIybWFwLWFkZHJlc3MlMjIlMkMlMjJhZGRyZXNzJTIyJTNBJTIyTWFuaGF0dGFuJTIyJTJDJTIyem9vbSUyMiUzQW51bGwlMkMlMjJ0eXBlSWQlMjIlM0ElMjJyb2FkJTIyJTJDJTIybGFuZyUyMiUzQW51bGwlMkMlMjJhcGlLZXklMjIlM0FudWxsJTJDJTIybWFya2VycyUyMiUzQSU1QiU1RCU3RA=="></iframe>
+        </div>
+      </div>
+      <div class="u-align-left u-container-style u-group u-white u-group-1">
+        <div class="u-container-layout u-valign-middle u-container-layout-1">
+          <h2 class="u-text u-text-1">{{$hotel->address}}</h2>
+        
+          <p class="u-text u-text-3">1 212-736-3100</p>
+          <p class="u-text u-text-4">
+            
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-5" id="carousel_d79b">
+      <div class="u-expanded-height-lg u-expanded-height-md u-expanded-height-xl u-expanded-width-sm u-expanded-width-xs u-palette-1-base u-shape u-shape-rectangle u-shape-1"></div>
+      <div class="u-clearfix u-gutter-0 u-layout-wrap u-layout-wrap-1">
+        <div class="u-gutter-0 u-layout">
+          <div class="u-layout-row">
+            <div class="u-size-28">
+              <div class="u-layout-col">
+                <div class="u-align-left u-container-style u-image u-layout-cell u-left-cell u-size-60 u-image-1" data-image-width="150" data-image-height="102">
+                  <div class="u-container-layout u-container-layout-1"></div>
+                </div>
+              </div>
+            </div>
+            <div class="u-size-32">
+              	<div class="u-layout-row">
+                	<div class="u-container-style u-layout-cell u-right-cell u-size-60 u-layout-cell-2">
+                  		<div class="u-container-layout u-valign-top u-container-layout-2">
+                    		<h2 class="u-text u-text-default u-text-1">Make your reservation</h2>
+								<div class="u-expanded-width u-form u-form-1">
+								<div class="container">
 				<div class="">
 					<div class="booking-form">
 						<div class="form-header">
-							<h1>Make your reservation</h1>
+							
 						</div>
 						<form method="POST" action="{{ route('bookhotel') }}"id="bookingForm">
 						@if(Session::get('success'))
@@ -537,18 +137,21 @@ Template sidebar
 						@csrf
 						
 							<div class="form-group">
+							<span class="form-label">Name</span>
 								<input name="tourist_name" class="form-control" type="text" placeholder="Enter your name...">
-								<span class="form-label">Name</span>
+								
 							</div>
 							<div class="form-group">
+							<span class="form-label">Country</span>
 								<input name="country"  class="form-control" type="text" placeholder="Country...">
-								<span class="form-label">Country</span>
+							
 							</div>
 							
 								
 									<div class="form-group">
+									<span class="form-label">Email</span>
 										<input  name="email" class="form-control" type="email" placeholder="Enter your Email">
-										<span class="form-label">Email</span>
+									
 									</div>
 							
 								<input  name="hotel_id" class="form-control" type="hidden" value="{{$hotel->id}}">
@@ -556,14 +159,16 @@ Template sidebar
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
+									<span class="form-label">Check In</span>
 										<input name="checkin" class="form-control" type="date" required>
-										<span class="form-label">Check In</span>
+									
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
+									<span class="form-label">Check out</span>
 										<input name="checkout" class="form-control" type="date" required>
-										<span class="form-label">Check out</span>
+								
 									</div>
 								</div>
 							</div>
@@ -631,5 +236,73 @@ Template sidebar
 			</div>
 		</div>
 	</div> 
-</div>    
+</div>    		
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+					</div>
+				</div>
+			</div>
+			
+			
+    </section>
+
+			
+
+
+    <section class="u-align-center u-clearfix u-white u-section-6" id="sec-ca0a">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div id="carousel-5989" data-interval="5000" data-u-ride="carousel" class="u-carousel u-expanded-width-sm u-expanded-width-xs u-slider u-slider-1">
+          <ol class="u-absolute-hcenter u-carousel-indicators u-carousel-indicators-1">
+            <li data-u-target="#carousel-5989" class="u-active u-grey-30 u-shape-circle" data-u-slide-to="0" style="width: 10px; height: 10px;"></li>
+            <li data-u-target="#carousel-5989" class="u-grey-30 u-shape-circle" data-u-slide-to="1" style="width: 10px; height: 10px;"></li>
+          </ol>
+          <div class="u-carousel-inner" role="listbox">
+            <div class="u-active u-align-center u-carousel-item u-container-style u-slide">
+              <div class="u-container-layout u-valign-top u-container-layout-1">
+                <div alt="" class="u-image u-image-circle u-image-1" data-image-width="1280" data-image-height="716"></div>
+                <p class="u-large-text u-text u-text-variant u-text-1">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."</p>
+                <h4 class="u-text u-text-default u-text-2">Connor Quinn<br>
+                </h4>
+                <h6 class="u-text u-text-default u-text-3">President, CEO</h6>
+              </div>
+            </div>
+            <div class="u-align-center u-carousel-item u-container-style u-slide">
+              <div class="u-container-layout u-valign-top u-container-layout-2">
+                <div alt="" class="u-image u-image-circle u-image-2" data-image-width="1280" data-image-height="716"></div>
+                <p class="u-large-text u-text u-text-variant u-text-4">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."</p>
+                <h4 class="u-text u-text-default u-text-5"> Jack Alvarez<br>
+                </h4>
+                <h6 class="u-text u-text-default u-text-6">Sales Manager</h6>
+              </div>
+            </div>
+          </div>
+
+     
+    </section>
+    <section class="u-clearfix u-section-7" id="carousel_1ec7">
+      <div class="u-align-left u-clearfix u-sheet u-sheet-1"></div>
+    </section>
+    
+    
+    
+    
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="" target="_blank">
+        <span>Tourist Guid</span>
+      </a>
+      <p class="u-text">
+        <span></span>
+      </p>
+      <a class="u-link" href="" target="_blank">
+        <span></span>
+      </a>. 
+    </section>
+  
+</body></html>
+		
    
+@endsection

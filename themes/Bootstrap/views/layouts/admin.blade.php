@@ -121,15 +121,7 @@
 	        <ul class="navbar-nav mr-auto">
 	        	<li class="nav-item active"><a href="{{ url('/') }}" class="nav-link">Home</a></li>
             <li class="nav-item"><a class ="nav-link" href="{{route('dashboard')}}">Dashboard</a></li>
-	        	<!-- <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Page</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown04">
-              	<a class="dropdown-item" href="{{route('dashboard')}}">Dashboard</a>
-                <a class="dropdown-item" href="#">Page 2</a>
-                <a class="dropdown-item" href="#">Page 3</a>
-                <a class="dropdown-item" href="#">Page 4</a>
-              </div>
-            </li> -->
+	
             <li class="nav-item"><a class ="nav-link" href="{{route('places')}}">Places</a></li>
 	     
            

@@ -32,9 +32,15 @@ hotel layout
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('css/nicepage.css')}}" media="screen">
+    <link rel="stylesheet" href="{{ asset('css/Home.css')}}" media="screen">
+   
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
          <!-- Scripts -->
+          <script class="u-script" type="text/javascript" src="{{ asset('js/jquery2.js')}}" defer=""></script>
+          <script src="{{ asset('js/nicepage.js') }}" defer></script>
+
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="{{ asset('js/jquery.min.js')}}" defer></script>
         <script src="{{ asset('js/popper.js')}}" defer></script>

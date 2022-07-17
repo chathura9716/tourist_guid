@@ -92,7 +92,7 @@
 		</header>
 		<div class="slider_wrapper">
 			<div id="camera_wrap" class="">
-				<div data-src="images/sri-lanka-best-places-to-visit-galle.jpg">
+				<div data-src="images/galle.jpg">
 					<div class="caption fadeIn">
 						<h2>GALLE</h2>
 						<!-- <div class="price">
@@ -103,9 +103,9 @@
 						<a href="{{ route('loginpage') }}">LOG IN HERE</a>
 					</div>
 				</div>
-				<div data-src="images/sri-lanka-best-places-to-visit-hikkaduwa-beach.jpg">
+				<div data-src="images/ELLA.jpg">
 					<div class="caption fadeIn">
-						<h2>Hikkaduwa</h2>
+						<h2>Ella</h2>
 						<!-- <div class="price">
 							FROM
 							<span>$2000</span>
@@ -114,7 +114,7 @@
 						<a href="{{ route('loginpage') }}">LOG IN HERE</a>
 					</div>
 				</div>
-				<div data-src="images/sri-lanka-best-places-to-visit-sigiriya.jpg">
+				<div data-src="images/sigiriya.jpg">
 					<div class="caption fadeIn">
 						<h2>Sigiriya</h2>
 						<!-- <div class="price">
@@ -199,11 +199,13 @@
 }
 .card .info h1 {
   margin: 0px;
+  color: #ea82b8;
 }
 .card .info p {
   letter-spacing: 1px;
   font-size: 15px;
   margin-top: 8px;
+
 }
 .card .info button {
   padding: 0.6rem;
@@ -217,7 +219,7 @@
   transition: 0.4s ease;
 }
 .card .info button:hover {
-  background: dodgerblue;
+  background: #bf9728;
   color: white;
 }
 
