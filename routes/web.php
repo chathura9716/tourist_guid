@@ -31,7 +31,6 @@ Route::get('/', [WelcomeController::class ,'welcome'])->name('welcome');
 
 //guest views
 Route::get('/loginpage', [App\Http\Controllers\HomeController::class, 'loginpage'])->name('loginpage');
-//Route::get('/about', [App\Http\Controllers\HomeController::class, 'About'])->name('about');
 Route::get('/blog', [App\Http\Controllers\HomeController::class, 'Blog'])->name('blog');
 Route::get('/contact', [App\Http\Controllers\HomeController::class, 'Contact'])->name('contact');
 Route::get('/places', [App\Http\Controllers\PlaceController::class, 'welcomeplace'])->name('places');
@@ -70,7 +69,6 @@ Route::get('/cancelhotel/{bookingId}', [App\Http\Controllers\HotelBookingControl
 });
 //places add crud
 
-Route::get('/addplace', [App\Http\Controllers\HomeController::class, 'Addplace'])->name('addplace');
 //this is only for Admin
 Route::group(['middleware'=>'auth'], function(){
     Route::post('/place/store', [PlaceController::class, 'store'])->name('place.store');

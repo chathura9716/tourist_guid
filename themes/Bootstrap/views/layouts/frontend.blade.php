@@ -19,7 +19,7 @@
           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
-          <title>Tourist Guid</title>
+          <title>Tourist Guide</title>
 
 
   
@@ -47,7 +47,7 @@
 
   </head>
   <body>
-    <div id="app">
+      <div id="app">
         <div class="container">
           <div class="row justify-content-between">
             <div class="col">
@@ -110,6 +110,7 @@
             </div>
           </div>
         </nav>
+      </div>
         <!-- END nav -->
 
 
@@ -128,7 +129,7 @@
 
         
         
-      </div>
+      
   </body>
 
                     @yield ('content')

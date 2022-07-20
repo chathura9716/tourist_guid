@@ -46,10 +46,7 @@ class HomeController extends Controller
       
     }
 
-    public function Addplace()
-    {
-        return view('admin.addplace');
-    }
+  
     public function allPosts(){
         $posts = Post::where('user_id',Auth::user()->id)->get();
         return view('posts.all-posts',compact('posts'));
