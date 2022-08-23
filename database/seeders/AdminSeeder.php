@@ -43,7 +43,7 @@ class AdminSeeder extends Seeder
             'passport_no' => 'Sl1214253',
             'email' => 'lak@gmail.com',
             'password' =>bcrypt(12345678),
-            
+            //hhhhhhhhhhhhhhhhhhh
         ]);
         Hotel::create([
             'user_id' => '2',
