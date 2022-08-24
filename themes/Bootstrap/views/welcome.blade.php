@@ -72,10 +72,13 @@
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 							<ul class="sf-menu">
 								<li ><a href="{{route('welcome')}}">Home</a></li>
-								<li><a href="{{route('dashboard')}}">Dashboard</a></li> 
 								<li><a href="{{route('places')}}">Places</a></li>
 								<li><a href="{{route('blog')}}">BLOG</a></li>
-                			<li><a href="{{route('contact')}}">CONTACTS</a></li>
+								<li><a href="{{route('contact')}}">CONTACTS</a></li>
+								<li><a href="{{route('dashboard')}}">Register & Login</a></li> 
+								
+								
+                			
 							</ul>
 						</nav>
 						<div class="clear"></div>
@@ -243,8 +246,9 @@
 				</div>
 				@endforeach
 				
-				<div class="clear"></div>
-				<div class="grid_6">
+				<!-- <div class="clear"></div>
+				<div>
+					<div class="grid_6">
 					<h3>Booking Form</h3>
 					<form id="bookingForm">
 						<div class="fl1">
@@ -300,8 +304,8 @@
 								<option>2</option>
 								<option>3</option>
 							</select>
-						</div>
-						<div class="fl1 fl2">
+						</div> -->
+						<!-- <div class="fl1 fl2">
 							<em>Children</em>
 							<select name="Children" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
 								<option>0</option>
@@ -309,15 +313,15 @@
 								<option>1</option>
 								<option>2</option>
 							</select>
-						</div>
-						<div class="clear"></div>
+						</div> -->
+						<!-- <div class="clear"></div>
 						<div class="tmTextarea">
 							<textarea name="Message" placeHolder="Message" data-constraints='@NotEmpty @Required @Length(min=20,max=999999)'></textarea>
 						</div>
 						<a href="#" class="btn" data-type="submit">Submit</a>
-					</form>
-				</div>
-				<div class="grid_5 prefix_1">
+					</form> -->
+				<!-- </div> --> -->
+				<!-- <div class="grid_5 prefix_1">
 					<h3>Welcome</h3>
 					<img src="images/page1_img1.jpg" alt="" class="img_inner fleft">
 					<div class="extra_wrapper">
@@ -369,9 +373,9 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 <!--==============================footer=================================-->
-		<footer>
+		<!-- <footer>
 			<div class="container_12">
 				<div class="grid_12">
 					<div class="socials">
@@ -394,6 +398,10 @@
 			$(function() {
 				$('#bookingForm input, #bookingForm textarea').placeholder();
 			});
-		</script>
+		</script> -->
+
+
+		<!-- Footer -->
+		
 	</body>
 </html>
