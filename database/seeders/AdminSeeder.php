@@ -21,18 +21,27 @@ class AdminSeeder extends Seeder
             'name' => 'Admin',
             'type' => 'admin',
             'address' => '157/F,hdga,kadg',
-            
+
             'email' => 'admin@gmail.com',
-            'password' =>bcrypt(12345678),
+            'password' => bcrypt(12345678),
+            'role' => 'admin'
+        ]);
+        User::create([
+            'name' => 'Thushanthan',
+            'type' => 'admin',
+            'address' => '157/F,hdga,kadg',
+
+            'email' => 'thushanthan@gmail.com',
+            'password' => bcrypt(12345678),
             'role' => 'admin'
         ]);
         User::create([
             'name' => 'hotel agent1',
             'type' => 'agent',
             'address' => '157/F,hdga,kadg',
-            
+
             'email' => 'hotel1@gmail.com',
-            'password' =>bcrypt(12345678),
+            'password' => bcrypt(12345678),
             'role' => 'Hotel Agency'
         ]);
         Tourist::create([
@@ -42,8 +51,8 @@ class AdminSeeder extends Seeder
             'origin' => 'Sri lanka',
             'passport_no' => 'Sl1214253',
             'email' => 'lak@gmail.com',
-            'password' =>bcrypt(12345678),
-            
+            'password' => bcrypt(12345678),
+            //hhhhhhhhhhhhhhhhhhh
         ]);
         Hotel::create([
             'user_id' => '2',
@@ -52,8 +61,8 @@ class AdminSeeder extends Seeder
             'address' => 'Sri lanka',
             'city' => 'Kandy',
             'description' => 'xxfgcgvbmn,',
-            'thumbnail' =>'(12345678)',
-            
+            'thumbnail' => '(12345678)',
+
         ]);
         Hotel::create([
             'user_id' => '2',
@@ -62,8 +71,8 @@ class AdminSeeder extends Seeder
             'address' => 'Sri lanka',
             'city' => 'Kandy',
             'description' => 'xxfgcgvbmn,',
-            'thumbnail' =>'(12345678)',
-            
+            'thumbnail' => '(12345678)',
+
         ]);
     }
 }
