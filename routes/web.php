@@ -30,12 +30,12 @@ Route::get('/', [WelcomeController::class ,'welcome'])->name('welcome');
 
 
 //guest views
-Route::get('/loginpage', [App\Http\Controllers\HomeController::class, 'loginpage'])->name('loginpage');
-Route::get('/blog', [App\Http\Controllers\HomeController::class, 'Blog'])->name('blog');
-Route::get('/contact', [App\Http\Controllers\HomeController::class, 'Contact'])->name('contact');
+Route::get('/loginpage', [HomeController::class, 'loginpage'])->name('loginpage');
+Route::get('/blog', [HomeController::class, 'Blog'])->name('blog');
+Route::get('/contact', [HomeController::class, 'Contact'])->name('contact');
 Route::get('/places', [App\Http\Controllers\PlaceController::class, 'welcomeplace'])->name('places');
 Route::get('/ViewAllPlaces',[PlaceController::class,'ViewAllPlaces']);
-Route::get('/hotels', [App\Http\Controllers\HotelController::class, 'welcomehotel'])->name('hotel');
+Route::get('/hotels', [HotelController::class, 'welcomehotel'])->name('hotel');
 Route::get('/place/{placeId}/show', [PlaceController::class, 'show'])->name('place.show');
 
 
@@ -75,23 +75,24 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/place/{placeId}/edit', [PlaceController::class, 'edit'])->name('place.edit');
     Route::post('/place/{placeId}/update', [PlaceController::class, 'update'])->name('place.update');
     Route::get('/place/{placeId}/delete', [PlaceController::class, 'delete'])->name('place.delete');
-    Route::get('/addplaces', [App\Http\Controllers\Admin\DashboardController::class, 'addplacesview'])->name('admin.addplaces');
+    Route::get('/addplaces', [DashboardController::class, 'addplacesview'])->name('admin.addplaces');
 
 });
 //admin users pages
 
 
 Route::group(['middleware'=>'auth'], function(){
-    Route::get('/dashboard', [App\Http\Controllers\UserController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
   
     Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
     Route::get('/users/{userId}/delete', [UserController::class, 'delete'])->name('user.delete');
     Route::post('/users/{id}/update', [UserController::class, 'update'])->name('user.update');
     Route::post('/users/create', [UserController::class, 'createUser'])->name('user.create');
+
     //views
     Route::get('/addhotel', [UserController::class, 'addhotel'])->name('admin.addhotel');
     Route::get('/addtravel', [UserController::class, 'addtravel'])->name('admin.addtravel');
-    Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profile');
+    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
 
 });
    

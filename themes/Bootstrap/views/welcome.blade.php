@@ -76,7 +76,7 @@
 								<li><a href="{{route('places')}}">Places</a></li>
 								<li><a href="{{route('blog')}}">BLOG</a></li>
                 			<li><a href="{{route('contact')}}">CONTACTS</a></li>
-							</ul>
+\							</ul>
 						</nav>
 						<div class="clear"></div>
 					</div>
