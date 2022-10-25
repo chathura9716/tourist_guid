@@ -18,12 +18,12 @@ Add hotel
                     <form method="post" action="{{route('hotel.store')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <label class="form-label" >hotel Name</label>
+                            <label class="form-label" >Hotel Name</label>
                             <input  name="hotel_name" type="text" class="form-control"  placeholder="Enter hotel Name" required >
                             
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" >type of hotel </label>
+                            <label class="form-label" >Type of hotel </label>
                             <input  name="type" type="text" class="form-control"  placeholder="Enter hotel type" required >
                             
                         </div>

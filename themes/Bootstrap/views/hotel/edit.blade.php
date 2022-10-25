@@ -23,7 +23,7 @@ edit Hotel
                             
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" >type of Hotel </label>
+                            <label class="form-label" >Type of Hotel </label>
                             <input  name="type" type="text" class="form-control"  placeholder="Enter Place type" required >
                             
                         </div>
