@@ -74,6 +74,7 @@
 								<li ><a href="{{route('welcome')}}">Home</a></li>
 								<li><a href="{{route('places')}}">Places</a></li>
 								<li><a href="{{route('blog')}}">BLOG</a></li>
+								<li><a href="{{route('hotel')}}">HOTELS</a></li>
                 			<li><a href="{{route('contact')}}">CONTACTS</a></li>
 					</ul>
 						</nav>
@@ -242,7 +243,7 @@
 				</div>
 				@endforeach
 				
-				<!-- <div class="clear"></div>
+				<div class="clear"></div>
 				<div>
 					<div class="grid_6">
 					<h3>Booking Form</h3>
@@ -369,7 +370,7 @@
 					</div>
 				</div>
 			</div>
-		</div> -->
+		</div>
 
 <!--==============================footer=================================-->
 <footer>

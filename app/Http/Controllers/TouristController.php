@@ -18,13 +18,14 @@ class TouristController extends Controller
     
     public function dashboardTourist(){
         //$posts = Post::where('user_id',Auth::user()->id)->get();
-
+        $latest_place= Place::orderBy('created_at','DESC')->limit(3)->get();
         $bookinghotel=Booking::where('tourist_id', '=',Session::get ('loginId'))->get()->all();
         $data =array();
+        $hotel = Hotel::all();
         
         if(Session::has ('loginId')){
             $data =Tourist::where('id', '=',Session::get ('loginId'))->first();
-            return view('user.tourist.dashboard',compact('data','bookinghotel'));
+            return view('user.tourist.welcome',compact('latest_place','hotel'));
 
         }else{
             return redirect(route('dashboard'));

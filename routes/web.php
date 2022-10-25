@@ -112,9 +112,9 @@ Route::group(['middleware'=>'guest:tourist'], function(){
         Route::get('/touristBlog', [App\Http\Controllers\TouristController::class, 'touristBlog'])->name('touristBlog');
         Route::get('/touristContact', [App\Http\Controllers\TouristController::class, 'touristContact'])->name('touristContact');
         Route::get('/touristPlaces', [App\Http\Controllers\TouristController::class, 'touristPlace'])->name('touristPlace');
-//bookig hotel
+//booking hotel
         Route::post('/bookhotel', [App\Http\Controllers\HotelBookingController::class, 'store'])->name('bookhotel');
         Route::get('/bookhotel/{bookingId}/delete', [HotelBookingController::class, 'delete'])->name('bookhotel.delete');
-        Route::get('/hotel/{hotelId}/view', [HotelController::class, 'show'])->name('hotel.view');
+        Route::get('/hotel/{hotelId}/view', [HotelController::class, 'show'])->name('hotel.show');
 });
 

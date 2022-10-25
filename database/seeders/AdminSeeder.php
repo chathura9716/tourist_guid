@@ -69,7 +69,7 @@ class AdminSeeder extends Seeder
             'hotel_name' => 'Nice Hotel',
             'type' => '5 Star',
             'address' => 'Sri lanka',
-            'city' => 'Kandy',
+            'city' => 'sigiria',
             'description' => 'xxfgcgvbmn,',
             'thumbnail' => '(12345678)',
 
