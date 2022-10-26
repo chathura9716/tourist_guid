@@ -225,7 +225,7 @@
 
     </style>
 <br>
-		<div class="content"><div class="ic"></div>
+		<!-- <div class="content"><div class="ic"></div>
 			<div class="container_12">
 			@foreach ($latest_place as $place)
 				<div class="grid_4">
@@ -370,7 +370,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 <!--==============================footer=================================-->
 <footer>

@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Tourist;
 use App\Models\Hotel;
+use App\Models\Place;
 
 class AdminSeeder extends Seeder
 {
@@ -64,14 +65,14 @@ class AdminSeeder extends Seeder
             'thumbnail' => '(12345678)',
 
         ]);
-        Hotel::create([
+        Place::create([
             'user_id' => '2',
-            'hotel_name' => 'Nice Hotel',
-            'type' => '5 Star',
-            'address' => 'Sri lanka',
-            'city' => 'sigiria',
-            'description' => 'xxfgcgvbmn,',
-            'thumbnail' => '(12345678)',
+            'place_name' => 'Sigiriya',
+            'type' => 'hill',
+            'province' => 'centerl',
+            'city' => 'sigiriya',
+            'description' => 'xxfgcgvbmn',
+            'thumbnail' => '(thumbnails/1666684220)',
 
         ]);
     }

@@ -23,7 +23,7 @@ Add places
                             
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" >typw of place </label>
+                            <label class="form-label" >type of place </label>
                             <input  name="type" type="text" class="form-control"  placeholder="Enter Place type" required >
                             
                         </div>
