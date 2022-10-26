@@ -89,44 +89,59 @@
 					</h1>
 				</div>
 			</div>
-		</header>
+			</header>
 		<div class="slider_wrapper">
 			<div id="camera_wrap" class="">
-				<div data-src="images/slide.jpg">
-					<div class="caption fadeIn">
-						<h2>LONDON</h2>
+				<div data-src="images/galle.jpg">
+					<div class="caption fadeIn" >
+						<h2><b>Beautiful Beaches</b></h2>
 						<!-- <div class="price">
 							FROM
 							<span>$1000</span>
-						</div> -->
+						</div> 
 						<a href="{{ route('create_tourist') }}">START YOUR JOURNEY</a><br>
 						<a href="{{ route('loginpage') }}">LOG IN HERE</a>
+		-->
 					</div>
 				</div>
-				<div data-src="images/slide1.jpg">
+				<div data-src="images/HD-wallpaper-sigiriya-sri-lanka-national-rocks.jpg">
 					<div class="caption fadeIn">
-						<h2>Maldives</h2>
+						<h2><b>Historical Places</b></h2>
 						<!-- <div class="price">
 							FROM
-							<span>$2000</span>
-						</div> -->
+							<span>$2000</span>s
+						</div> 
 						<a href="{{ route('create_tourist') }}">START YOUR JOURNEY</a><br>
 						<a href="{{ route('loginpage') }}">LOG IN HERE</a>
+		-->
 					</div>
 				</div>
-				<div data-src="images/slide2.jpg">
+				<div data-src="images/nallur.jpg">
 					<div class="caption fadeIn">
-						<h2>Venice</h2>
+						<h2><b>Religious Places</b></h2>
 						<!-- <div class="price">
 							FROM
 							<span>$1600</span>
-						</div> -->
+						</div> 
 						<a href="{{ route('create_tourist') }}">START YOUR JOURNEY</a><br>
 						<a href="{{ route('loginpage') }}">LOG IN HERE</a>
+		-->
+					</div>					
+				</div>
+
+				<div data-src="images/sri-lanka-yala.jpeg">
+					<div class="caption fadeIn">
+						<h2><b>Adventures</b></h2>
+					</div>
+				</div>
+				<div data-src="images/ninearcjpg.jpg">
+					<div class="caption fadeIn">
+						<h2><b>Beauty of Up Country</b></h2>
 					</div>
 				</div>
 			</div>
 		</div>
+		
 <!--==============================Content=================================-->
 <style>
 
