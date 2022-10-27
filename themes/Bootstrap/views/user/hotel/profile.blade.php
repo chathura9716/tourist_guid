@@ -148,7 +148,10 @@ body {
     <div class="card">
         <div class="firstinfo"><img src="https://bootdey.com/img/Content/avatar/avatar6.png" />
             <div class="profileinfo">
-                <h1>{{auth()->user()->name}}  </h1>
+            <div >
+                    <h6>Name</h6>
+                    <p class="text-muted">{{auth()->user()->name}}</p>
+                  </div>
                 <div >
                     <h6>Email</h6>
                     <p class="text-muted">{{auth()->user()->email}}</p>
