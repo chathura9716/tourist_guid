@@ -66,7 +66,7 @@ class TouristregisterController extends Controller
           
 
        
-        return redirect(route('tourist_dashboard'));
+      
          
     }
     

@@ -194,5 +194,47 @@ class UserController extends Controller
 
         return redirect(route('dashboard'))->with('success','User Added!');
     }
+    // public function createHotelAgency(Request $request)
+    // {
+    //     $request ->validate([
+     
+    //         'reg_no'=>'required',
+    //         'agency_name'=>'required',
+    //         'contact'=>'required',
+    //         'location'=>'required',
+    //         'email'=>'required|email',
+    //         'password'=>'required',
+    //     ]);
+    //     $user =new User([
+    //         'email'=>$request->get('email'),
+    //         'password'=>Hash::make($request->get('password')),
+    //         'role'=>('tourist')
+    //     ]);
+    //     $user ->save();
+
+    //     $hagency =new Hagency([
+    //         'user_id'=>DB::table('users')->where('email',$request->get('email'))->value('id'),
+    //         'reg_no'=>$request->get('reg_no'),
+    //         'agency_name'=>$request->get('agency_name'),
+            
+    //         'contact'=>$request->get('contact'),
+    //         'location'=>$request->get('location'),
+            
+
+
+
+    //     ]);
+      
+
+    //     $res = $hagency ->save();
+
+    //     if($res){
+    //         return redirect()->back()->with('success','You are now registered');
+    //     }else{
+    //         return redirect()->back()->with('fail','Fail to register');
+
+    //     }
+    // }
+    
 }
 

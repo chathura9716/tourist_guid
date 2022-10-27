@@ -52,8 +52,5 @@ class HomeController extends Controller
         return view('posts.all-posts',compact('posts'));
     }
 
-    public function loginpage()
-    {
-        return view('loginpages');
-    }
+   
 }
