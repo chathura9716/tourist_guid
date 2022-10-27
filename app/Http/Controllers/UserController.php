@@ -56,9 +56,21 @@ class UserController extends Controller
                     }
                  
                     elseif($role=='Hotel Agency'){
-                        $hotel =array();
-                        $hotel=DB::table('hotels')->where('user_id',Auth::user()->id)->first();
-                        $bookinghotel=Booking::all();
+                       
+                        $bookinghotel=DB::table('hotels')
+                        ->join('bookings', 'hotels.id', '=', 'bookings.hotel_id')
+                        ->where('hotels.user_id','=',Auth::user()->id)
+                        ->get();
+                      
+                        
+                
+                    
+                     
+                        
+                        
+                        
+                       
+                        // $bookinghotel=Booking::all();
                         
                         return view('user.hotel.dashboard',compact('hotels','posts','bookinghotel'));
 

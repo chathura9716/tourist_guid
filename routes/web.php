@@ -44,7 +44,7 @@ Route::get('/place/{placeId}/show', [PlaceController::class, 'show'])->name('pla
 //posts
 Route::get('/posts/{postId}/show', [PostController::class, 'show'])->name('posts.show');
 
-Route::group(['middleware'=>'auth'], function(){
+
 
 
     
@@ -54,18 +54,19 @@ Route::get('/posts/{postId}/edit', [PostController::class, 'edit'])->name('posts
 Route::post('/posts/{postId}/update', [PostController::class, 'update'])->name('posts.update');
 Route::get('/posts/{postId}/delete', [PostController::class, 'delete'])->name('posts.delete');
 Route::get('/addpost', [App\Http\Controllers\PostController::class, 'Addpost'])->name('addpost');
-});
+
 //add hotels
-Route::group(['middleware'=>'auth'], function(){
+
 Route::post('/hotel/store', [HotelController::class, 'store'])->name('hotel.store');
 Route::get('/hotel/{hotelId}/edit', [HotelController::class, 'edit'])->name('hotel.edit');
 Route::post('/hotel/{hotelId}/update', [HotelController::class, 'update'])->name('hotel.update');
 Route::get('/hotel/{hotelId}/delete', [HotelController::class, 'delete'])->name('hotel.delete');
 Route::get('/addhotelview', [App\Http\Controllers\HotelController::class, 'Addhotelview'])->name('addhotel');
 
+
+
 Route::get('/accepthotel/{bookingId}', [App\Http\Controllers\HotelBookingController::class, 'accept'])->name('accepthotel');
 Route::get('/cancelhotel/{bookingId}', [App\Http\Controllers\HotelBookingController::class, 'cancel'])->name('cancelhotel');
-});
 
 //places add crud
 
@@ -81,7 +82,6 @@ Route::get('/cancelhotel/{bookingId}', [App\Http\Controllers\HotelBookingControl
 //admin users pages
 
 
-Route::group(['middleware'=>'auth'], function(){
     Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
   
     Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
@@ -94,7 +94,6 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/addtravel', [UserController::class, 'addtravel'])->name('admin.addtravel');
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
 
-});
    
 //tourist auth routes
   
