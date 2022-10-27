@@ -265,7 +265,7 @@
 				
 				<div class="clear"></div>
 				<div class="grid_6">
-					<h3>Booking Form</h3>
+					<h3>Booking Now</h3>
 					<form method="POST" action="{{ route('bookhotel') }}"id="bookingForm">
 						@csrf
 						<div class="fl1">

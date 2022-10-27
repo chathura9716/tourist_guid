@@ -42,6 +42,7 @@ class TouristregisterController extends Controller
             'user_id'=>DB::table('users')->where('email',$request->get('email'))->value('id'),
             'first_name'=>$request->get('first_name'),
             'last_name'=>$request->get('last_name'),
+            
             'age'=>$request->get('age'),
             'gender'=>$request->get('gender'),
             'origin'=>$request->get('origin'),
@@ -68,27 +69,5 @@ class TouristregisterController extends Controller
         return redirect(route('tourist_dashboard'));
          
     }
-    function lTourist(Request $request){
-        $request ->validate([
-           
-            'email'=>'required|email',
-            'password'=>'required',
-        ]);
-        
- 
-        $tourist =Tourist::where('email', '=',$request->email)->first();
-
-        if($tourist){
-            if(Hash::check($request->password,$tourist->password)){
-                $request ->session()->put('loginId',$tourist->id);
-               
-                return redirect()->route('tourist_dashboard');
-            }else{
-                return back()->with('fail','this password not correct.');
-            }
-          
-        }else{
-            return back()->with('fail','this email not registerd.');
-        }
-    }
+    
 }

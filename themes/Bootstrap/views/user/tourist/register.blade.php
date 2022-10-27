@@ -59,6 +59,7 @@
 						<input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="user_name" autofocusdata-validation-length="3-12">
 						<span class="text-danger">@error('last_name'){{$message}} @enderror</span>
 					</div>
+					
                     <div class="form-group">
 						<label for="">Age :</label>
 						<input input id="age" type="text" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}" required autocomplete="age" autofocus data-validation-length="3-12">
@@ -112,7 +113,7 @@
 
 					<div class="socials">
 				
-					<a href="{{ route('loginTourist') }}"><p>Log in here</p></a>
+					<a href="{{ route('login') }}"><p>Log in here</p></a>
 						<p>Sign up with social platforms</p>
 						<a href="" class="socials-icon">
 							<i class="zmdi zmdi-facebook"></i>
