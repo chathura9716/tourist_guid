@@ -153,10 +153,7 @@ body {
                     <h6>Email</h6>
                     <p class="text-muted">{{auth()->user()->email}}</p>
                   </div>
-                  <div >
-                    <h6>Address</h6>
-                    <p class="text-muted">{{auth()->user()->address}}</p>
-                  </div>
+                 
              
             </div>
         </div>

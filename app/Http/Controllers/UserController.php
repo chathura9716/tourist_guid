@@ -11,6 +11,7 @@ use DB;
 use App\Models\User;
 use App\Models\Post;
 use App\Models\Place;
+use App\Models\Tourist;
 use App\Models\Hotel;
 use App\Models\Booking;
 
@@ -31,7 +32,7 @@ class UserController extends Controller
             $places = Place::all();
             $hotels = Hotel::where('user_id',Auth::user()->id)->get();
             
-            $bookinghotel=Booking::all();
+       
     
         
             $role=Auth::user()->role;
@@ -42,8 +43,23 @@ class UserController extends Controller
                         
                         return view('admin.dashboard',compact('users','posts','places'));
                     }
+                    if($role=='tourist'){
+                        $data=array();
+                        $data = DB::table('tourists')->where('user_id',Auth::user()->id)->first();
+                        $posts = Post::where('user_id',Auth::user()->id)->get();
+                        $latest_place= Place::orderBy('created_at','DESC')->limit(3)->get();
+                        $bookinghotel=Booking::where('user_id',Auth::user()->id)->get();
+                    
+                        $hotel = Hotel::all();
+                        
+                        return view('user.tourist.dashboard',compact('bookinghotel','posts','data','hotel'));
+                    }
                  
                     elseif($role=='Hotel Agency'){
+                        $hotel =array();
+                        $hotel=DB::table('hotels')->where('user_id',Auth::user()->id)->first();
+                        $bookinghotel=Booking::all();
+                        
                         return view('user.hotel.dashboard',compact('hotels','posts','bookinghotel'));
 
                     }elseif($role=='Travel Agency'){
@@ -69,9 +85,13 @@ class UserController extends Controller
                 
                 return view('admin.adminprofile');
             }
-            elseif($role=='user'){
+            elseif($role=='tourist'){
+                $data=array();
+                $data = DB::table('tourists')->where('user_id',Auth::user()->id)->first();
+                        
 
-                return view('user.tourist.profile');
+             
+                return view('user.tourist.profile',compact('data'));
 
             }elseif($role=='Hotel Agency'){
 
@@ -82,6 +102,7 @@ class UserController extends Controller
                 return view('user.travel.profile');
 
             }
+            
            
         }
      
@@ -151,12 +172,7 @@ class UserController extends Controller
     public function createUser(Request $request)
     {
          User::create([
-            'name' => $request->name,
-            'type' => $request->type,
-            'address'   => $request->address,
-            'city'   => $request->city,
-            'avalability'=> $request->avalability,
-            'charges'=> $request->charges,
+          
             'email' => $request->email,
            
             'password' => Hash::make($request->password),

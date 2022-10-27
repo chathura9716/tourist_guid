@@ -15,14 +15,15 @@ return new class extends Migration
     {
         Schema::create('tourists', function (Blueprint $table) {
             $table->id(); 
-            $table->string('user_name');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('age');
             $table->string('gender');
             $table->string('origin');
             $table->string('passport_no');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+           
             $table->timestamps();
         });
         

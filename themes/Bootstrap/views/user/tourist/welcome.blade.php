@@ -70,12 +70,13 @@
 				<div class="grid_12">
 					<div class="menu_block">
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
-							<ul class="sf-menu">
-								<li class="current"><a href="{{route('touristWelcome')}}">Home</a></li>
-                				<li><a href="{{route('tourist_dashboard')}}">Dashboard</a></li>
-                				<li><a href="{{route('touristPlace')}}">Places</a></li>
+						<ul class="sf-menu">
+                                <li class="current"><a href="{{route('touristWelcome')}}">Home</a></li>
+								<li><a href="{{route('touristHotel')}}">Hotels</a></li>
+								<li><a href="{{route('touristPlace')}}">Places</a></li>
 								<li><a href="{{route('touristBlog')}}">BLOG</a></li>
-               					<li><a href="{{route('touristContact')}}">CONTACTS</a></li>
+								<li><a href="{{route('touristContact')}}">CONTACTS</a></li>
+                                
 							</ul>
 						</nav>
 						<div class="clear"></div>
@@ -95,6 +96,7 @@
 				<div data-src="images/galle.jpg">
 					<div class="caption fadeIn" >
 						<h2><b>Beautiful Beaches</b></h2>
+						<a href="{{ route('dashboard') }}">Dashboard</a><br>
 						<!-- <div class="price">
 							FROM
 							<span>$1000</span>
@@ -107,6 +109,7 @@
 				<div data-src="images/HD-wallpaper-sigiriya-sri-lanka-national-rocks.jpg">
 					<div class="caption fadeIn">
 						<h2><b>Historical Places</b></h2>
+						<a href="{{ route('dashboard') }}">Dashboard</a><br>
 						<!-- <div class="price">
 							FROM
 							<span>$2000</span>s
@@ -119,6 +122,7 @@
 				<div data-src="images/nallur.jpg">
 					<div class="caption fadeIn">
 						<h2><b>Religious Places</b></h2>
+						<a href="{{ route('dashboard') }}">Dashboard</a><br>
 						<!-- <div class="price">
 							FROM
 							<span>$1600</span>
@@ -132,11 +136,13 @@
 				<div data-src="images/sri-lanka-yala.jpeg">
 					<div class="caption fadeIn">
 						<h2><b>Adventures</b></h2>
+						<a href="{{ route('dashboard') }}">Dashboard</a><br>
 					</div>
 				</div>
 				<div data-src="images/ninearcjpg.jpg">
 					<div class="caption fadeIn">
 						<h2><b>Beauty of Up Country</b></h2>
+						<a href="{{ route('dashboard') }}">Dashboard</a><br>
 					</div>
 				</div>
 			</div>

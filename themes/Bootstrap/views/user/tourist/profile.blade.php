@@ -149,10 +149,10 @@ body {
     <div class="card">
         <div class="firstinfo"><img src="https://bootdey.com/img/Content/avatar/avatar6.png" />
             <div class="profileinfo">
-                <h1> {{$data->user_name}}</h1>
+                <h1> {{$data->first_name}} {{$data->last_name}}</h1>
                 <div >
                     <h6>Email</h6>
-                    <p class="text-muted">{{$data->email}}</p>
+                    <p class="text-muted">{{auth()->user()->email}}</p>
                   </div>
                   <div >
                     <h6>Origin</h6>

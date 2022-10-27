@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>places</title>
+		<title>Hotels</title>
 		<meta charset="utf-8">
 		<meta name="format-detection" content="telephone=no" />
 		<link rel="icon" href="images/favicon.ico">
@@ -40,13 +40,15 @@
 				<div class="grid_12">
 					<div class="menu_block">
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
-						<ul class="sf-menu">
-								<li ><a href="{{route('welcome')}}">Home</a></li>
-								<li><a href="{{route('places')}}">Places</a></li>
-								<li><a href="{{route('blog')}}">BLOG</a></li>
-								<li><a href="{{route('hotel')}}">HOTELS</a></li>
-                			<li><a href="{{route('contact')}}">CONTACTS</a></li>
-					</ul>
+                        <ul class="sf-menu">
+                                <li class="current"><a href="{{route('touristWelcome')}}">Home</a></li>
+								<li><a href="{{route('touristHotel')}}">Hotels</a></li>
+								<li><a href="{{route('touristPlace')}}">Places</a></li>
+								<li><a href="{{route('touristBlog')}}">BLOG</a></li>
+								<li><a href="{{route('touristContact')}}">CONTACTS</a></li>
+                                
+					    </ul>
+                           
 						</nav>
 						<div class="clear"></div>
 					</div>
@@ -64,14 +66,16 @@
 		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
 			<div class="container_12">
 				<div class="grid_8">
-					<h3>Places for visit</h3>
-					@foreach ($places as $place)
+					<h3>Hotels for Stay</h3>
+					@foreach ($hotel as $hotel)
 					<div class="block2">
-						<img src="{{asset('thumbnails/'.$place->thumbnail)}}" alt="" class="card-img-top img-fluid">
+						<img src="{{asset('thumbnails/'.$hotel->thumbnail)}}" alt="" class="card-img-top img-fluid">
 						<div class="extra_wrapper">
-							<div class="text1 col1"><a href="#">{{$place->place_name}}</a></div>
-							<p>{{$place->description}}</p>
-							<a href="{{Route('place.show',$place->id)}}" class="link1">LEARN MORE</a>
+							<div class="text1 col1"><a href="#">{{$hotel->hotel_name}}</a></div>
+                            <div class="text1 col1"><a href="#">{{$hotel->type}}</a></div>
+                            <div class="text1 col1"><a href="#">{{$hotel->city}} {{$hotel->province}}</a></div>
+							<p>{{$hotel->description}}</p>
+							<a href="{{Route('hotel.show',$hotel->id)}}" class="link1">LEARN MORE</a>
 							<br>
 						</div>
 					</div>
@@ -80,35 +84,22 @@
 					
 				</div>
 				<div class="grid_3 prefix_1">
-					<h5>CHOOSE District</h5>
+					<h5>CHOOse the country</h5>
 					<ul class="list">
-						<li><a href="#">Ampara</a></li>
-						<li><a href="#">Anuradhapura</a></li>
-						<li><a href="#">Badhulla</a></li>
-						<li><a href="#">Baticalo</a></li>
-						<li><a href="#">Colombo</a></li>
-						<li><a href="#">Galle</a></li>
-						<li><a href="#">Gampaha</a></li>
-						<li><a href="#">Hambantota</a></li>
-						<li><a href="#">Jaffna</a></li>
-						<li><a href="#">kalutara</a></li>
-						<li><a href="#">Kandy</a></li>
-						<li><a href="#">Kegalle</a></li>
-                        <li><a href="#">Kilinochchi</a></li>
-						<li><a href="#">Kurunegala</a></li>
-						<li><a href="#">Mannar</a></li>
-						<li><a href="#">Matale</a></li>
-						<li><a href="#">Matare</a></li>
-                        <li><a href="#">Monaragala</a></li>
-                        <li><a href="#">Mullaitivu</a></li>
-                        <li><a href="#">Nuwara Eliya</a></li>
-                        <li><a href="#">Polannaruwa</a></li>
-                        <li><a href="#">Puttalam</a></li>
-                        <li><a href="#">Ratnapura</a></li>
-                        <li><a href="#">Trincomalee</a></li>
-                        <li><a href="#">Vavuniya</a></li>
+						<li><a href="#">Albania</a></li>
+						<li><a href="#">American Samoa</a></li>
+						<li><a href="#">Antarctica</a></li>
+						<li><a href="#">Argentina</a></li>
+						<li><a href="#">Armenia</a></li>
+						<li><a href="#">Australia</a></li>
+						<li><a href="#">Austria</a></li>
+						<li><a href="#">Bahrain</a></li>
+						<li><a href="#">Barbados</a></li>
+						<li><a href="#">Belgium</a></li>
+						<li><a href="#">Belize</a></li>
+						<li><a href="#">Bermudas</a></li>
 					</ul>
-					
+					<a href="#" class="link1">VIEW A<span class="low">ll</span></a>
 				</div>
 			</div>
 		</div>

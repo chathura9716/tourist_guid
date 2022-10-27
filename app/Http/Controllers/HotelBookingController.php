@@ -7,6 +7,7 @@ use Session;
 use App\Models\Booking;
 use Illuminate\Support\Facades\Validator;
 use DB;
+use Auth;
 
 class HotelBookingController extends Controller
 {
@@ -26,13 +27,13 @@ class HotelBookingController extends Controller
         if($validator->fails()){
             return redirect()->back()->with('fail','Something is wrong! are you logged in?');
         }
-        elseif( $id= Session::get ('loginId')!=null)
+        else
         {
             
           
             Booking::create([
                   
-                'tourist_id'=>$id,
+                'user_id'=>Auth::user()->id,
                 'tourist_name' => $request->tourist_name,
                 'country' => $request ->country,
                 'email' => $request ->email,
@@ -51,10 +52,7 @@ class HotelBookingController extends Controller
     
     
             ]);
-            return  redirect(route('tourist_dashboard'))->with('success','booking request send successfully!');
-        }else{
-            return redirect()->back()->with('fail',' Are you logged in?');
-
+            return  redirect(route('dashboard'))->with('success','booking request send successfully!');
         }
     }
        
@@ -76,6 +74,6 @@ class HotelBookingController extends Controller
     
     public function delete($bookingId){
         Booking::FindOrFail($bookingId)->delete();
-        return redirect(route('tourist_dashboard'))->with('booking request delete successfully!!');
+        return redirect(route('dashboard'))->with('booking request delete successfully!!');
     }
 }

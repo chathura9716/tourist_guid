@@ -19,48 +19,28 @@ class AdminSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'Admin',
-            'type' => 'admin',
-            'address' => '157/F,hdga,kadg',
-
+       
+            'name'=>'admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt(12345678),
             'role' => 'admin'
         ]);
         User::create([
-            'name' => 'Thushanthan',
-            'type' => 'admin',
-            'address' => '157/F,hdga,kadg',
+      
+            'name'=>'thushanthan',
 
             'email' => 'thushanthan@gmail.com',
             'password' => bcrypt(12345678),
             'role' => 'admin'
         ]);
-        User::create([
-            'name' => 'hotel agent1',
-            'type' => 'agent',
-            'address' => '157/F,hdga,kadg',
-
-            'email' => 'hotel1@gmail.com',
-            'password' => bcrypt(12345678),
-            'role' => 'Hotel Agency'
-        ]);
-        Tourist::create([
-            'user_name' => 'chathura',
-            'age' => '24',
-            'gender' => 'male',
-            'origin' => 'Sri lanka',
-            'passport_no' => 'Sl1214253',
-            'email' => 'lak@gmail.com',
-            'password' => bcrypt(12345678),
-            //hhhhhhhhhhhhhhhhhhh
-        ]);
+    
+    
         Hotel::create([
             'user_id' => '2',
             'hotel_name' => 'Kings Hotel',
             'type' => '5 Star',
             'address' => 'Sri lanka',
-            'city' => 'Kandy',
+            'city' => 'Sigiriya',
             'description' => 'xxfgcgvbmn,',
             'thumbnail' => '1657610839.jpg',
 

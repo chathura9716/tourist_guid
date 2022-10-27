@@ -50,9 +50,14 @@
 						<img src="images/sign-up.png" alt="" class="sign-up-icon">
 					</div>
 					<div class="form-group">
-						<label for="">User Name:</label>
-						<input id="user_name" type="text" class="form-control @error('user_name') is-invalid @enderror" name="user_name" value="{{ old('user_name') }}" required autocomplete="user_name" autofocusdata-validation-length="3-12">
-						<span class="text-danger">@error('user_name'){{$message}} @enderror</span>
+						<label for="">First Name:</label>
+						<input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="user_name" autofocusdata-validation-length="3-12">
+						<span class="text-danger">@error('first_name'){{$message}} @enderror</span>
+					</div>
+					<div class="form-group">
+						<label for="">Last Name:</label>
+						<input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="user_name" autofocusdata-validation-length="3-12">
+						<span class="text-danger">@error('last_name'){{$message}} @enderror</span>
 					</div>
                     <div class="form-group">
 						<label for="">Age :</label>

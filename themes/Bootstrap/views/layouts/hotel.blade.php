@@ -57,7 +57,7 @@ hotel layout
     <div class="container">
 			<div class="row justify-content-between">
 				<div class="col">
-					<a class="navbar-brand" href="{{ url('/') }}">Tourist <span>Guide</span></a>
+					<a class="navbar-brand" href="">Tourist <span>Guide</span></a>
 				</div>
               
                    
@@ -94,7 +94,7 @@ hotel layout
         </form>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav mr-auto">
-	        	<li class="nav-item active"><a href="{{ url('/') }}" class="nav-link">Home</a></li>
+	        	
             <li class="nav-item"><a class ="nav-link" href="{{route('dashboard')}}">Dashboard</a></li>
 	        	<!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Page</a>
@@ -107,12 +107,12 @@ hotel layout
             </li> -->
 	        	<!-- <li class="nav-item"><a class ="nav-link" href="{{route('posts.all')}}">All Blogs</a></li>
 	        	<li class="nav-item"> <a class ="nav-link" href="{{route('addpost')}}">Add Blog</a></li> -->
-            <li class="nav-item"> <a class ="nav-link" href="{{route('places')}}">Places</a></li>
+         
 
-            <li class="nav-item"> <a class ="nav-link" href="">Booking Request</a></li>
+           
 
 
-	          <li class="nav-item"><a href="{{route('hotel')}}" class="nav-link">Hotels</a></li>
+	         
 	        </ul>
             <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->

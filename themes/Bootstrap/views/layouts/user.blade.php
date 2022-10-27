@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  user layout
+   user layout
 <style>
         #customers {
             font-family: Arial, Helvetica, sans-serif;
@@ -51,7 +51,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
-    <title>Tourist Guide</title>
+    <title>Tourist Guid</title>
 
 
  
@@ -82,7 +82,7 @@
     <div class="container">
 			<div class="row justify-content-between">
 				<div class="col">
-					<a class="navbar-brand" href="{{ route('touristWelcome') }}">Tourist <span>Guid</span></a>
+					<a class="navbar-brand" href="{{route('touristWelcome')}}">Tourist <span>Guide</span></a>
 				</div>
               
                    
@@ -97,8 +97,8 @@
 		    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
 		    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
 		    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
-		    			<a href="{{route('create_tourist')}}" class="d-flex align-items-center justify-content-center"><span class="fa fa-sign-in"><i class="sr-only">log in</i></span></a>
-		    			<a href="{{route('loginTourist')}}" class="d-flex align-items-center justify-content-center"><span class="fa fa-user-plus"><i class="sr-only">sign in</i></span></a>
+		    			<a href="{{route('register')}}" class="d-flex align-items-center justify-content-center"><span class="fa fa-sign-in"><i class="sr-only">log in</i></span></a>
+		    			<a href="{{route('login')}}" class="d-flex align-items-center justify-content-center"><span class="fa fa-user-plus"><i class="sr-only">sign in</i></span></a>
 		    		</p>
 	                </div>
 				</div>
@@ -119,34 +119,37 @@
         </form>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav mr-auto">
-	        	<li class="nav-item active"><a href="{{ route('touristWelcome') }}" class="nav-link">Home</a></li>
-            <li class="nav-item"><a class ="nav-link" href="{{route('tourist_dashboard')}}">Dashboard</a></li>
-	        	<!-- <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Page</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown04">
-              	<a class="dropdown-item" href="{{route('dashboard')}}">Dashboard</a>
-                <a class="dropdown-item" href="#">Page 2</a>
-                <a class="dropdown-item" href="#">Page 3</a>
-                <a class="dropdown-item" href="#">Page 4</a>
-              </div>
-            </li> -->
+	        	<li class="nav-item active"><a href="{{route('touristWelcome')}}" class="nav-link">Home</a></li>
+            <li class="nav-item"><a class ="nav-link" href="{{route('dashboard')}}">Dashboard</a></li>
+	
             <li class="nav-item"><a class ="nav-link" href="{{route('touristPlace')}}">Places</a></li>
-	     
+            <li class="nav-item"><a class ="nav-link" href="{{route('touristHotel')}}">Hotels</a></li>
            
 
 	          <li class="nav-item"><a href="{{route('touristContact')}}"class="nav-link">Contact</a></li>
 	        </ul>
             <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
-                      
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{$data->user_name }}
-                                    
+                                 {{$data->first_name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('touristProfile') }}">
+                                <a class="dropdown-item" href="{{ route('profile') }}">
                                       
                                         {{ __('Profile') }}
                                     </a>
@@ -161,14 +164,14 @@
                                     </form>
                                 </div>
                             </li>
-                        
+                        @endguest
                     </ul>
 	      </div>
 	    </div>
 	  </nav>
     <!-- END nav -->
 
-
+	</section>
 
 
 
@@ -182,9 +185,10 @@
     </div>
     </div>
 
+          @yield('content2')
     
 
-
+  </body>
 
 
 </body>

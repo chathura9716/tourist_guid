@@ -189,6 +189,35 @@ text-decoration:none;
             </tbody>
         </table>
         </div>
+               
+ <div>
+<h1>{{$data->first_name}} 's Blogs</h1>
+<table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($posts as $post)
+                <tr>
+                    <th scope="row">{{$post->id}}</th>
+                    <td>{{$post->title}}</td>
+                    <td>{{$post->description}}</td>
+                    <td>
+                        
+                        <a href="{{Route('posts.edit',$post->id)}}" class="btn btn-sm btn-primary">Edit</a>
+                        <a href="{{Route('posts.delete',$post->id)}}" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+                @endforeach
+                
+            </tbody>
+  </table>
+</div>
      
         
 

@@ -45,7 +45,7 @@ Route::get('/place/{placeId}/show', [PlaceController::class, 'show'])->name('pla
 Route::get('/posts/{postId}/show', [PostController::class, 'show'])->name('posts.show');
 
 //only post can be added by admins(admin hotel and travel) so this crud operations only for admins
-Route::group(['middleware'=>'auth'], function(){
+
 
     
 Route::post('/posts/store', [PostController::class, 'store'])->name('posts.store');
@@ -60,28 +60,27 @@ Route::post('/hotel/store', [HotelController::class, 'store'])->name('hotel.stor
 Route::get('/hotel/{hotelId}/edit', [HotelController::class, 'edit'])->name('hotel.edit');
 Route::post('/hotel/{hotelId}/update', [HotelController::class, 'update'])->name('hotel.update');
 Route::get('/hotel/{hotelId}/delete', [HotelController::class, 'delete'])->name('hotel.delete');
-
 Route::get('/addhotelview', [App\Http\Controllers\HotelController::class, 'Addhotelview'])->name('addhotel');
 
 Route::get('/accepthotel/{bookingId}', [App\Http\Controllers\HotelBookingController::class, 'accept'])->name('accepthotel');
 Route::get('/cancelhotel/{bookingId}', [App\Http\Controllers\HotelBookingController::class, 'cancel'])->name('cancelhotel');
 
-});
+
 //places add crud
 
 //this is only for Admin
-Route::group(['middleware'=>'auth'], function(){
+
     Route::post('/place/store', [PlaceController::class, 'store'])->name('place.store');
     Route::get('/place/{placeId}/edit', [PlaceController::class, 'edit'])->name('place.edit');
     Route::post('/place/{placeId}/update', [PlaceController::class, 'update'])->name('place.update');
     Route::get('/place/{placeId}/delete', [PlaceController::class, 'delete'])->name('place.delete');
     Route::get('/addplaces', [DashboardController::class, 'addplacesview'])->name('admin.addplaces');
 
-});
+
 //admin users pages
 
 
-Route::group(['middleware'=>'auth'], function(){
+
     Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
   
     Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
@@ -94,27 +93,27 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/addtravel', [UserController::class, 'addtravel'])->name('admin.addtravel');
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
 
-});
+
    
 //tourist auth routes
   
 Route::get('/create_tourist', [App\Http\Controllers\TouristController::class, 'createTourist'])->name('create_tourist');
 Route::get('/loginTourist', [App\Http\Controllers\TouristController::class, 'loginTourist'])->name('loginTourist');
-Route::group(['middleware'=>'guest:tourist'], function(){
+
 
     
         Route::post('/create', [App\Http\Controllers\TouristregisterController::class, 'create'])->name('create');
-        Route::post('/lTourist', [App\Http\Controllers\TouristregisterController::class, 'lTourist'])->name('lTourist');
 
-        Route::get('/tourist_dashboard', [App\Http\Controllers\TouristController::class, 'dashboardTourist'])->name('tourist_dashboard');
+      //  Route::get('/tourist_dashboard', [App\Http\Controllers\TouristController::class, 'dashboardTourist'])->name('tourist_dashboard');
         Route::get('/touristWelcome', [App\Http\Controllers\TouristController::class, 'touristWelcome'])->name('touristWelcome');
         Route::get('/touristProfile', [App\Http\Controllers\TouristController::class, 'touristProfile'])->name('touristProfile');
         Route::get('/touristBlog', [App\Http\Controllers\TouristController::class, 'touristBlog'])->name('touristBlog');
         Route::get('/touristContact', [App\Http\Controllers\TouristController::class, 'touristContact'])->name('touristContact');
         Route::get('/touristPlaces', [App\Http\Controllers\TouristController::class, 'touristPlace'])->name('touristPlace');
+        Route::get('/touristHotels', [TouristController::class, 'touristHotel'])->name('touristHotel');
 //booking hotel
         Route::post('/bookhotel', [App\Http\Controllers\HotelBookingController::class, 'store'])->name('bookhotel');
         Route::get('/bookhotel/{bookingId}/delete', [HotelBookingController::class, 'delete'])->name('bookhotel.delete');
         Route::get('/hotel/{hotelId}/view', [HotelController::class, 'show'])->name('hotel.show');
-});
+
 

@@ -171,7 +171,9 @@ text-decoration:none;
             <thead class="thead-dark">
                 <tr>
                 <th scope="col">#</th>
-                <th scope="col">Title</th>
+                <th scope="col">Hotel Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">City</th>
                 <th scope="col">Description</th>
                 <th scope="col">Action</th>
                 </tr>
@@ -181,9 +183,12 @@ text-decoration:none;
                 <tr>
                     <th scope="row">{{$hotel->id}}</th>
                     <td>{{$hotel->hotel_name}}</td>
+                    <td>{{$hotel->type}}</td>
+
                     <td>{{$hotel->city}}</td>
+                    <td>{{$hotel->description}}</td>
                     <td>
-                        
+                        <a href="{{Route('hotel.show',$hotel->id)}}" class="btn btn-sm btn-secondary">View</a>
                         <a href="{{Route('hotel.edit',$hotel->id)}}" class="btn btn-sm btn-primary">Edit</a>
                         <a href="{{Route('hotel.delete',$hotel->id)}}" class="btn btn-sm btn-danger">Delete</a>
                     </td>

@@ -9,9 +9,10 @@ use Illuminate\Support\Facades\Auth,Guest;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use DB;
 use App\Models\Tourist;
 use App\Models\Post;
+use App\Models\User;
 
 use Session;
 
@@ -21,22 +22,35 @@ class TouristregisterController extends Controller
     function create(Request $request)
     {
         $request ->validate([
-            'user_name'=>'required',
+            'first_name'=>'required',
+            'last_name'=>'required',
             'age'=>'required',
             'gender'=>'required',
             'origin'=>'required',
             'passport_no'=>'required',
-            'email'=>'required|email|unique:tourists',
+            'email'=>'required|email',
             'password'=>'required',
         ]);
-        $tourist =new Tourist();
-        $tourist -> user_name = $request ->user_name;
-        $tourist -> age = $request ->age;
-        $tourist -> gender = $request ->gender;
-        $tourist -> origin = $request ->origin;
-        $tourist -> passport_no = $request ->passport_no;
-        $tourist -> email = $request ->email;
-        $tourist -> password = Hash::make($request->password);
+        $user =new User([
+            'email'=>$request->get('email'),
+            'password'=>Hash::make($request->get('password')),
+            'role'=>('tourist')
+        ]);
+        $user ->save();
+
+        $tourist =new Tourist([
+            'user_id'=>DB::table('users')->where('email',$request->get('email'))->value('id'),
+            'first_name'=>$request->get('first_name'),
+            'last_name'=>$request->get('last_name'),
+            'age'=>$request->get('age'),
+            'gender'=>$request->get('gender'),
+            'origin'=>$request->get('origin'),
+            'passport_no'=>$request->get('passport_no'),
+
+
+
+        ]);
+      
 
         $res = $tourist ->save();
 

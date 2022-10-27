@@ -327,7 +327,7 @@ Template sidebar
       <h1>{{$hotel->hotel_name}}</h1>
       <p>{{$hotel->description}}</p>
      
-      <button><a  href="{{route('hotel.view',$hotel->id)}}" >Book Now</a></button>
+      <button><a  href="{{route('hotel.show',$hotel->id)}}" >Book Now</a></button>
     </div>
   </div>
 

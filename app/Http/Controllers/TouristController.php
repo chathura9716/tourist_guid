@@ -16,21 +16,7 @@ use Session;
 class TouristController extends Controller
 {
     
-    public function dashboardTourist(){
-        //$posts = Post::where('user_id',Auth::user()->id)->get();
-        $latest_place= Place::orderBy('created_at','DESC')->limit(3)->get();
-        $bookinghotel=Booking::where('tourist_id', '=',Session::get ('loginId'))->get()->all();
-        $data =array();
-        $hotel = Hotel::all();
-        
-        if(Session::has ('loginId')){
-            $data =Tourist::where('id', '=',Session::get ('loginId'))->first();
-            return view('user.tourist.welcome',compact('latest_place','hotel'));
-
-        }else{
-            return redirect(route('dashboard'));
-        }
-    }
+  
     public function createTourist(){
         return view('user.tourist.register');
     }
@@ -56,13 +42,18 @@ class TouristController extends Controller
        
             return view('user.tourist.blog',compact('posts','latest_posts'));
     }
-    public function touristProfile(){
-        $data =array();
-        if(Session::has ('loginId')){
-            $data =Tourist::where('id', '=',Session::get ('loginId'))->first();
-            return view('user.tourist.profile',compact('data'));
-        }
-       
+    public function touristHotel(){
+        $hotel =Hotel::all();
+        return view('user.tourist.hotel',compact('hotel'));
     }
+    
+    // public function touristProfile(){
+    //     $data =array();
+    //     if(Session::has ('loginId')){
+    //         $data =Tourist::where('id', '=',Session::get ('loginId'))->first();
+    //         return view('user.tourist.profile',compact('data'));
+    //     }
+       
+    // }
 
 }

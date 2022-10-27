@@ -10,7 +10,7 @@ class Booking extends Model
     use HasFactory;
     protected $fillable = [
        
-        'tourist_id',
+        'user_id',
         'tourist_name',
         'country',
         'email',
@@ -30,7 +30,7 @@ class Booking extends Model
     //     return $this->belongsTo(User::class,'agent_id');
     // }
     public function tourist(){
-        return $this->belongsTo(Tourist::class,'tourist_id');
+        return $this->belongsTo(User::class,'id');
     }
     public function hotel(){
         return $this->belongsTo(Hotel::class,'hotel_id');

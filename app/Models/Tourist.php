@@ -11,13 +11,14 @@ class Tourist extends Model
 
     protected $fillable = [
 
-        'user_name',
+        'user_id',
+        'first_name',
+        'last_name',
         'age',
         'gender',
         'origin',
         'passport_no',
-        'email',
-        'password',
+       
         
     ];
 
