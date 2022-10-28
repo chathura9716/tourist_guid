@@ -43,7 +43,7 @@ class AdminSeeder extends Seeder
             'address' => 'Sri lanka',
             'city' => 'Sigiriya',
             'description' => 'xxfgcgvbmn,',
-            'thumbnail' => '1657610839.jpg',
+            'thumbnail' => 'hotel-sigiriya.jpg',
 
         ]);
         Place::create([

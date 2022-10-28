@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Hotel;
 use Illuminate\Support\Facades\Validator;
+use DB;
+use Auth;
+
 
 class HotelController extends Controller
 {
@@ -34,7 +37,6 @@ class HotelController extends Controller
                     'type' => $request ->type,
                     'address' => $request ->address,
                     'city' => $request ->city,
-
                     'description'=>$request->description,
                     'thumbnail' =>$imageName
         
@@ -44,8 +46,16 @@ class HotelController extends Controller
             return  redirect(route('dashboard'))->with('status','hotel created successfully!');
     }
      
-    public function welcomehotel(){
-        $hotels = Hotel::all();
+    public function welcomehotel(Request $request){
+
+        $search = $request['search'] ?? "";
+        if($search !=""){
+            $hotels=Hotel::where("city","LIKE","$search%")->get();
+        }else{
+            $hotels = Hotel::all();
+        }
+
+  
         // $latest_posts= Place::orderBy('created_at','DESC')->limit(1)->get();
        
             return view('hotel',compact('hotels'));
@@ -53,13 +63,20 @@ class HotelController extends Controller
     }
     public function Addhotelview()
     {
-        return view('user.hotel.addhotel');
+        $data=array();
+        $data = DB::table('hotels')->where('user_id',Auth::user()->id)->first();
+                
+        return view('user.hotel.addhotel',compact('data'));
     }
 
     public function show($hotelId){
 
+        $data=array();
+        $data = DB::table('hotels')->where('user_id',Auth::user()->id)->first();
+                
         $hotel = Hotel::findOrFail($hotelId);
-        return view('hotel.view',compact('hotel'));
+
+        return view('hotel.view',compact('hotel','data'));
     }
 
     public function edit($hotelId){
@@ -77,4 +94,6 @@ class HotelController extends Controller
         Hotel::FindOrFail($hotelId)->delete();
         return redirect(route('dashboard'));
     }
+
+    
 }

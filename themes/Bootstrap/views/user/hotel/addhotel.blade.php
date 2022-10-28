@@ -1,4 +1,4 @@
-@extends('layouts.hotel')
+@extends('layouts.admin')
 
 @section('content')
 Add hotel

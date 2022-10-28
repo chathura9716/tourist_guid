@@ -1,4 +1,4 @@
-@extends('layouts.hotel')
+@extends('layouts.frontend')
 
 @section('content')
 

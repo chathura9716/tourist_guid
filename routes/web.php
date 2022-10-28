@@ -122,3 +122,4 @@ Route::group(['middleware'=>'auth'], function(){
         Route::get('/hotel/{hotelId}/view', [HotelController::class, 'show'])->name('hotel.show');
 
 
+Route::get('/search' ,[HotelController::class, 'search'])->name('search');

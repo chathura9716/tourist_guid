@@ -40,13 +40,15 @@
 				<div class="grid_12">
 					<div class="menu_block">
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
-						<ul class="sf-menu">
-								<li ><a href="{{route('welcome')}}">Home</a></li>
-								<li><a href="{{route('places')}}">Places</a></li>
-								<li><a href="{{route('blog')}}">BLOG</a></li>
-								<li><a href="{{route('hotel')}}">HOTELS</a></li>
-                			<li><a href="{{route('contact')}}">CONTACTS</a></li>
-					</ul>
+                    	<ul class="sf-menu">
+                                <li class="current"><a href="{{route('touristWelcome')}}">Home</a></li>
+								<li><a href="{{route('dashboard')}}">Dashboard</a></li>
+
+								<li><a href="{{route('touristHotel')}}">Hotels</a></li>
+								<li><a href="{{route('touristPlace')}}">Places</a></li>
+								<li><a href="{{route('touristBlog')}}">BLOG</a></li>
+							</ul>
+                           
 						</nav>
 						<div class="clear"></div>
 					</div>
@@ -61,17 +63,24 @@
 			</div>
 		</header>
 <!--==============================Content=================================-->
-		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
+		<div class="content"><div class="ic">More Website </div>
 			<div class="container_12">
 				<div class="grid_8">
 					<h3>Hotels for Stay</h3>
+				
+			
+
 					@foreach ($hotels as $hotel)
 					<div class="block2">
 						<img src="{{asset('thumbnails/'.$hotel->thumbnail)}}" alt="" class="card-img-top img-fluid">
 						<div class="extra_wrapper">
-							<div class="text1 col1"><a href="#">{{$hotel->hotel_name}}</a></div>
-                            <div class="text1 col1"><a href="#">{{$hotel->type}}</a></div>
-                            <div class="text1 col1"><a href="#">{{$hotel->city}} {{$hotel->province}}</a></div>
+							<div class="text1 col2">Hotel Name:</div>
+							<div class="text1 col1">{{$hotel->hotel_name}}</div>
+							<div class="text1 col2">Hotel Type:</div>
+                            <div class="text1 col1">{{$hotel->type}}</div>
+							<div class="text1 col2">Hotel City:</div>
+                            <div class="text1 col1">{{$hotel->city}} {{$hotel->province}}</div>
+							<div class="text1 col2">Hotel Description:</div>
 							<p>{{$hotel->description}}</p>
 							<a href="{{Route('hotel.show',$hotel->id)}}" class="link1">LEARN MORE</a>
 							<br>
@@ -82,7 +91,11 @@
 					
 				</div>
 				<div class="grid_3 prefix_1">
+					
 					<h5>CHOOse the country</h5>
+					
+					<br>
+
 					<ul class="list">
 						<li><a href="#">Albania</a></li>
 						<li><a href="#">American Samoa</a></li>
@@ -102,16 +115,17 @@
 			</div>
 		</div>
 <!--==============================footer=================================-->
-		<footer>
+<footer>
 			<div class="container_12">
 				<div class="grid_12">
 					<div class="socials">
+					<a href="{{route('touristContact')}}" class="fa fa-phone"></a>
 						<a href="#" class="fa fa-facebook"></a>
 						<a href="#" class="fa fa-twitter"></a>
 						<a href="#" class="fa fa-google-plus"></a>
 					</div>
 					<div class="copy">
-						Your Trip (c) 2014 | <a href="#">Privacy Policy</a> | Website Template Designed by TemplateMonster.com
+						Tourist guid (c) 2022 | <a href="#">Privacy Policy</a> | 
 					</div>
 				</div>
 			</div>

@@ -131,7 +131,7 @@ text-decoration:none;
         <a href="{{Route('addpost')}}" >
             <div class="card bg-c-blue order-card">
                 <div class="card-block">
-                    <h6 class="m-b-20">Add Blogs</h6>
+                    <h6 class="m-b-20">ADD BLOGS</h6>
                     <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>486</span></h2>
                     <p class="m-b-0">Add new Blogs<span class="f-right">351</span></p>
                 </div>
@@ -156,7 +156,7 @@ text-decoration:none;
         <a href="{{Route('admin.addtravel')}}">
             <div class="card bg-c-yellow order-card">
                 <div class="card-block">
-                    <h6 class="m-b-20">ADD TRAVEL AGENCY</h6>
+                    <h6 class="m-b-20">ADD VEHICALS</h6>
                     <h2 class="text-right"><i class="fa fa-taxi f-left"></i><span>535</span></h2>
                     <p class="m-b-0">add new agency here<span class="f-right">351</span>  
                   </p>

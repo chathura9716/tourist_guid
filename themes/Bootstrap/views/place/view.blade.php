@@ -322,14 +322,21 @@ Template sidebar
 <div class="wrapper">
 
 @foreach ($hotel as $hotel) 
-  <div class="card"><img src="{{asset('thumbnails/'.$hotel->thumbnail)}}" />
-    <div class="info">
-      <h1>{{$hotel->hotel_name}}</h1>
-      <p>{{$hotel->description}}</p>
-     
-      <button><a  href="{{route('hotel.show',$hotel->id)}}" >Book Now</a></button>
-    </div>
-  </div>
+<div class="grid_4">
+					<div class="wrapper">
+
+						<div class="card"><img src="{{asset('thumbnails/'.$hotel->thumbnail)}}" />
+							<div class="info">
+                            <p>{{$hotel->hotel_name}}</p>
+                            <p>{{$hotel->city}}</p>
+                            <p>{{$hotel->type}}</p>
+							
+							<button><a  href="{{Route('hotel.show',$place->id)}}" >See more</a></button>
+							</div>
+						</div>
+					</div>
+				</div>
+  
 
   @endforeach
   
