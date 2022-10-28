@@ -140,7 +140,7 @@ text-decoration:none;
         </div>
         
         <div class="col-md-4 col-xl-3">
-        <a href="{{Route('admin.addhotel')}}" >
+        <a href="{{Route('user.createPage')}}" >
             <div class="card bg-c-green order-card">
                 <div class="card-block">
                     <h6 class="m-b-20"> ADD HOTEL AGENCY </h6>

@@ -8,16 +8,27 @@
                 <div class="card-header">{{ __('Add Hotel Agency') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('user.create') }}">
+                    <form method="POST" action="{{ route('user.createHotelAgency') }}">
+                    @if(Session::get('success'))
+                <div class="alert alert-success">
+                    {{Session::get('success')}}
+                    </div>
+                @endif
+              
+                @if(Session::get('fail'))
+                <div class="alert alert-danger">
+                    {{Session::get('fail')}}
+                    </div>
+                @endif
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Hotel Agency Name') }}</label>
+                            <label for="reg_no" class="col-md-4 col-form-label text-md-end">{{ __('Hotel Agency RegNo') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="reg_no" type="text" class="form-control @error('reg_no') is-invalid @enderror" name="reg_no" value="{{ old('reg_no') }}" required autocomplete="reg_no" autofocus>
 
-                                @error('name')
+                                @error('reg_no')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -25,32 +36,45 @@
                             </div>
                         </div>
 
-                        <!-- <div class="row mb-3">
-                            <label for="type" class="col-md-4 col-form-label text-md-end">{{ __('Type Of User ') }}</label>
+                        <div class="row mb-3">
+                            <label for="agency_name" class="col-md-4 col-form-label text-md-end">{{ __('Agency Name ') }}</label>
 
                             <div class="col-md-6">
-                                <input id="type" type="text" class="form-control @error('type') is-invalid @enderror" name="type" value="{{ old('type') }}" required autocomplete="lname" autofocus>
+                                <input id="agency_name" type="text" class="form-control @error('type') is-invalid @enderror" name="agency_name" value="{{ old('agency_name') }}" required autocomplete="agency_name" autofocus>
 
-                                @error('type')
+                                @error('agency_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                        </div> -->
-                        <!-- <div class="row mb-3">
-                            <label for="address" class="col-md-4 col-form-label text-md-end">{{ __('Address') }}</label>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="contact" class="col-md-4 col-form-label text-md-end">{{ __('Contact') }}</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+                                <input id="contact" type="text" class="form-control @error('contact') is-invalid @enderror" name="contact" value="{{ old('contact') }}" required autocomplete="contact" autofocus>
 
-                                @error('address')
+                                @error('contact')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                        </div>  -->
+                        </div> 
+                        <div class="row mb-3">
+                            <label for="location" class="col-md-4 col-form-label text-md-end">{{ __('Location') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="location" type="text" class="form-control @error('contact') is-invalid @enderror" name="location" value="{{ old('location') }}" required autocomplete="location" autofocus>
+
+                                @error('location')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div> 
                         
                         
                       

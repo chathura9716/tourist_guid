@@ -149,8 +149,12 @@ body {
         <div class="firstinfo"><img src="https://bootdey.com/img/Content/avatar/avatar6.png" />
             <div class="profileinfo">
             <div >
-                    <h6>Name</h6>
-                    <p class="text-muted">{{auth()->user()->name}}</p>
+                    <h6>Agency Name</h6>
+                    <p class="text-muted">{{$data->agency_name}}</p>
+                  </div>
+                  <div >
+                    <h6>Agency RegNo</h6>
+                    <p class="text-muted">{{$data->reg_no}}</p>
                   </div>
                 <div >
                     <h6>Email</h6>

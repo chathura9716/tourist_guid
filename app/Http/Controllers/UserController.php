@@ -14,6 +14,7 @@ use App\Models\Place;
 use App\Models\Tourist;
 use App\Models\Hotel;
 use App\Models\Booking;
+use App\Models\Hagency;
 
 
 use Illuminate\Http\Request;
@@ -55,8 +56,11 @@ class UserController extends Controller
                         return view('user.tourist.dashboard',compact('bookinghotel','posts','data','hotel'));
                     }
                  
-                    elseif($role=='Hotel Agency'){
-                       
+                    elseif($role=='Hagency'){
+                        $data=array();
+                        $data = DB::table('hagencies')->where('user_id',Auth::user()->id)->first();
+                        
+
                         $bookinghotel=DB::table('hotels')
                         ->join('bookings', 'hotels.id', '=', 'bookings.hotel_id')
                         ->where('hotels.user_id','=',Auth::user()->id)
@@ -72,7 +76,7 @@ class UserController extends Controller
                        
                         // $bookinghotel=Booking::all();
                         
-                        return view('user.hotel.dashboard',compact('hotels','posts','bookinghotel'));
+                        return view('user.hotel.dashboard',compact('hotels','posts','bookinghotel','data'));
 
                     }elseif($role=='Travel Agency'){
                         return view('user.travel.dashboard');
@@ -105,9 +109,12 @@ class UserController extends Controller
              
                 return view('user.tourist.profile',compact('data'));
 
-            }elseif($role=='Hotel Agency'){
+            }elseif($role=='Hagency'){
+                $data=array();
+                $data = DB::table('hagencies')->where('user_id',Auth::user()->id)->first();
+                        
 
-                return view('user.hotel.profile');
+                return view('user.hotel.profile',compact('data'));
 
             }elseif($role=='Travel Agency'){
 
@@ -194,47 +201,50 @@ class UserController extends Controller
 
         return redirect(route('dashboard'))->with('success','User Added!');
     }
-    // public function createHotelAgency(Request $request)
-    // {
-    //     $request ->validate([
+    public function createHotelAgency(Request $request)
+    {
+        $request ->validate([
      
-    //         'reg_no'=>'required',
-    //         'agency_name'=>'required',
-    //         'contact'=>'required',
-    //         'location'=>'required',
-    //         'email'=>'required|email',
-    //         'password'=>'required',
-    //     ]);
-    //     $user =new User([
-    //         'email'=>$request->get('email'),
-    //         'password'=>Hash::make($request->get('password')),
-    //         'role'=>('tourist')
-    //     ]);
-    //     $user ->save();
+            'reg_no'=>'required',
+            'agency_name'=>'required',
+            'contact'=>'required',
+            'location'=>'required',
+            'email'=>'required|email',
+            'password'=>'required',
+        ]);
+        $user =new User([
+            'email'=>$request->get('email'),
+            'password'=>Hash::make($request->get('password')),
+            'role'=>('Hagency')
+        ]);
+        $user ->save();
 
-    //     $hagency =new Hagency([
-    //         'user_id'=>DB::table('users')->where('email',$request->get('email'))->value('id'),
-    //         'reg_no'=>$request->get('reg_no'),
-    //         'agency_name'=>$request->get('agency_name'),
+        $hagency =new Hagency([
+            'user_id'=>DB::table('users')->where('email',$request->get('email'))->value('id'),
+            'reg_no'=>$request->get('reg_no'),
+            'agency_name'=>$request->get('agency_name'),
             
-    //         'contact'=>$request->get('contact'),
-    //         'location'=>$request->get('location'),
+            'contact'=>$request->get('contact'),
+            'location'=>$request->get('location'),
             
 
 
 
-    //     ]);
+        ]);
       
 
-    //     $res = $hagency ->save();
+        $res = $hagency ->save();
 
-    //     if($res){
-    //         return redirect()->back()->with('success','You are now registered');
-    //     }else{
-    //         return redirect()->back()->with('fail','Fail to register');
+        if($res){
+            return redirect()->back()->with('success','Hotel Agent  now registered!!!');
+        }else{
+            return redirect()->back()->with('fail','Fail to register');
 
-    //     }
-    // }
+        }
+    }
+    public function createUserPage(){
+        return view('admin.addhotel');
+    }
     
 }
 

@@ -89,8 +89,13 @@ Route::group(['middleware'=>'auth'], function(){
     Route::post('/users/{id}/update', [UserController::class, 'update'])->name('user.update');
     Route::post('/users/create', [UserController::class, 'createUser'])->name('user.create');
 
+
+    Route::get('/users/addpage', [UserController::class, 'createUserPage'])->name('user.createPage');
+    Route::post('/users/createHotelAgency', [UserController::class, 'createHotelAgency'])->name('user.createHotelAgency');
+
+
     //views
-    Route::get('/addhotel', [UserController::class, 'addhotel'])->name('admin.addhotel');
+    // Route::get('/addhotel', [UserController::class, 'addhotel'])->name('admin.addhotel');
     Route::get('/addtravel', [UserController::class, 'addtravel'])->name('admin.addtravel');
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
 
