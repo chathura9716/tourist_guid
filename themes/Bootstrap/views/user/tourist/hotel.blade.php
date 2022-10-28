@@ -63,17 +63,24 @@
 			</div>
 		</header>
 <!--==============================Content=================================-->
-		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
+		<div class="content"><div class="ic">More Website </div>
 			<div class="container_12">
 				<div class="grid_8">
 					<h3>Hotels for Stay</h3>
+				
+			
+
 					@foreach ($hotel as $hotel)
 					<div class="block2">
 						<img src="{{asset('thumbnails/'.$hotel->thumbnail)}}" alt="" class="card-img-top img-fluid">
 						<div class="extra_wrapper">
-							<div class="text1 col1"><a href="#">{{$hotel->hotel_name}}</a></div>
-                            <div class="text1 col1"><a href="#">{{$hotel->type}}</a></div>
-                            <div class="text1 col1"><a href="#">{{$hotel->city}} {{$hotel->province}}</a></div>
+							<div class="text1 col2">Hotel Name:</div>
+							<div class="text1 col1">{{$hotel->hotel_name}}</div>
+							<div class="text1 col2">Hotel Type:</div>
+                            <div class="text1 col1">{{$hotel->type}}</div>
+							<div class="text1 col2">Hotel City:</div>
+                            <div class="text1 col1">{{$hotel->city}} {{$hotel->province}}</div>
+							<div class="text1 col2">Hotel Description:</div>
 							<p>{{$hotel->description}}</p>
 							<a href="{{Route('hotel.show',$hotel->id)}}" class="link1">LEARN MORE</a>
 							<br>
@@ -84,7 +91,11 @@
 					
 				</div>
 				<div class="grid_3 prefix_1">
+					
 					<h5>CHOOse the country</h5>
+					
+					<br>
+
 					<ul class="list">
 						<li><a href="#">Albania</a></li>
 						<li><a href="#">American Samoa</a></li>

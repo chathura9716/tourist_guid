@@ -40,12 +40,19 @@ class AdminSeeder extends Seeder
             'user_id' => '2',
             'hotel_name' => 'Kings Hotel',
             'type' => '5 Star',
+<<<<<<< HEAD
             'address' => '1/B, Unique View Road, Nuwara Eliya 22200 Sri Lanka',
             'city' => 'Nuwareliya',
             'description' => 'Kings Court Hotel is an excellent choice for travelers visiting Nuwara Eliya, offering many helpful amenities designed to enhance your stay.
 
             While staying at Kings Court Hotel, visitors can check out International Buddhist Centre (1.1 mi) and Pedro Tea Factory (2.3 mi), some of Nuwara Eliya top attractions.',
             'thumbnail' => '1657610839.jpg',
+=======
+            'address' => 'Sri lanka',
+            'city' => 'Sigiriya',
+            'description' => 'xxfgcgvbmn,',
+            'thumbnail' => 'hotel-sigiriya.jpg',
+>>>>>>> origin
 
         ]);
         Place::create([

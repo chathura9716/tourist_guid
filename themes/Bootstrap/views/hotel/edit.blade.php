@@ -6,7 +6,7 @@ edit Hotel
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('New Hotel') }}</div>
+                <div class="card-header">{{ __('Edit Hotel details') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
