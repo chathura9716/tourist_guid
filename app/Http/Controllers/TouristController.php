@@ -9,6 +9,8 @@ use App\Models\Tourist;
 use App\Models\Place;
 use App\Models\Hotel;
 use App\Models\Booking;
+use DB;
+
 
 use Illuminate\Support\Facades\Hash;
 use Session;
@@ -19,6 +21,13 @@ class TouristController extends Controller
   
     public function createTourist(){
         return view('user.tourist.register');
+    }
+    public function editprofile(){
+        $user = Auth()->user();
+        $data=array();
+        $data = DB::table('tourists')->where('user_id',Auth::user()->id)->first();
+      
+        return view('user.tourist.editprofile',compact('data','user'));
     }
     public function loginTourist(){
         return view('user.tourist.login');

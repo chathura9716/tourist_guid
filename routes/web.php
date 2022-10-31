@@ -49,7 +49,7 @@ Route::group(['middleware'=>'auth'], function(){
 
     
 Route::post('/posts/store', [PostController::class, 'store'])->name('posts.store');
-Route::get('/posts/all', [HomeController::class, 'allPosts'])->name('posts.all');
+Route::get('/posts/all', [HomeController::class, 'allPosts'])->name('allposts');
 Route::get('/posts/{postId}/edit', [PostController::class, 'edit'])->name('posts.edit');
 Route::post('/posts/{postId}/update', [PostController::class, 'update'])->name('posts.update');
 Route::get('/posts/{postId}/delete', [PostController::class, 'delete'])->name('posts.delete');
@@ -123,3 +123,20 @@ Route::group(['middleware'=>'auth'], function(){
 
 
 Route::get('/search' ,[HotelController::class, 'search'])->name('search');
+
+
+
+Route::get('user-management', [UserController::class, 'usermanege'])->name('user-management');
+Route::get('logoutuser', [UserController::class, 'logout'])->name('logoutuser');
+Route::get('placesmanagement', [PlaceController::class, 'placemanage'])->name('placesmanagement');
+Route::get('hotelmanage', [HotelController::class, 'hotelmanage'])->name('hotelmanage');
+
+Route::get('hotelblog', [HomeController::class, 'hotelblog'])->name('hotelblog');
+Route::get('touristblog', [HomeController::class, 'touristblog'])->name('touristblog');
+
+Route::get('/editprofile/{id}', [TouristController::class, 'editprofile'])->name('editprofile');
+Route::post('/updatetourist/{id}/', [TouristregisterController::class, 'updatetourist'])->name('updatetourist');
+
+
+
+Route::get('billing', [HotelBookingController::class,'billing']) ->name('billing');

@@ -23,6 +23,15 @@ class UserController extends Controller
 {
 
     use RegistersUsers;
+    public function usermanege() {
+        $users = User::all();
+        return view('admin/user-management',compact('users'));
+    }
+
+    public function Booking(){
+        
+        return view('admin/booking');
+    }
     public function dashboard()
     {
         //return view('welcome');
@@ -45,6 +54,7 @@ class UserController extends Controller
                         return view('admin.dashboard',compact('users','posts','places'));
                     }
                     if($role=='tourist'){
+                        
                         $data=array();
                         $data = DB::table('tourists')->where('user_id',Auth::user()->id)->first();
                         $posts = Post::where('user_id',Auth::user()->id)->get();
@@ -96,6 +106,7 @@ class UserController extends Controller
     public function profile(){
         {
             $role=Auth::user()->role;
+            $user = Auth::user();
     
             if($role=='admin'){
                 
@@ -107,7 +118,7 @@ class UserController extends Controller
                         
 
              
-                return view('user.tourist.profile',compact('data'));
+                return view('user.tourist.profile',compact('data','user'));
 
             }elseif($role=='Hagency'){
                 $data=array();
@@ -170,6 +181,7 @@ class UserController extends Controller
         }
      
     }
+
   
     public function edit($userId){
         
@@ -183,17 +195,32 @@ class UserController extends Controller
     }
     
     
-    public function update($userId,Request $request){
+    public function update(User $userId,Request $request){
         //dd($request ->all());
-        User::findOrFail($userId)->update($request ->all());
+        
+    
+        $request->validate([
+            
+            'email' => 'required',
+            'password' => 'required',
+          
+            'role' => 'required',
+           
+        ]);
+        
+        $userId->update($request->all());
+        
         return redirect(route('dashboard'))->with('status','user updated!');
     }
     public function createUser(Request $request)
     {
          User::create([
             'name'=>$request->name,
+            'phone'=>$request->phone,
+            'location'=>$request->location,
+            'about'=>$request->about,
+            'thumbnail'=>$request->thumbnail,
             'email' => $request->email,
-           
             'password' => Hash::make($request->password),
             'role'=>$request->role,
           
@@ -245,6 +272,10 @@ class UserController extends Controller
     public function createUserPage(){
         return view('admin.addhotel');
     }
-    
+    public function logout(){
+        Auth::logout();
+        return redirect(route('touristWelcome'));
+    }
+   
 }
 

@@ -76,4 +76,17 @@ class HotelBookingController extends Controller
         Booking::FindOrFail($bookingId)->delete();
         return redirect(route('dashboard'))->with('booking request delete successfully!!');
     }
+    public function billing () {
+        
+        $data=array();
+        $data = DB::table('hagencies')->where('user_id',Auth::user()->id)->first();
+                        
+
+        $bookinghotel=DB::table('hotels')
+                    ->join('bookings', 'hotels.id', '=', 'bookings.hotel_id')
+                    ->where('hotels.user_id','=',Auth::user()->id)
+                    ->get();
+                      
+                    return view('user/hotel/billing',compact('bookinghotel'));
+    }
 }

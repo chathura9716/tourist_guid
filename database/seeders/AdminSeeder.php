@@ -21,15 +21,22 @@ class AdminSeeder extends Seeder
         User::create([
        
             'name'=>'admin',
+            'phone'=>'0768628220',
+            'location'=>'gampaha',
+            'about'=>"hello i'm chathura",
+            'thumbnail'=>"1648767489.jpg",
             'email' => 'admin@gmail.com',
             'password' => bcrypt(12345678),
             'role' => 'admin'
         ]);
         User::create([
-      
-            'name'=>'thushanthan',
-
-            'email' => 'thushanthan@gmail.com',
+       
+            'name'=>'admin',
+            'phone'=>'0768628220',
+            'location'=>'gampaha',
+            'about'=>"hello i'm chathura",
+            'thumbnail'=>"1648767489.jpg",
+            'email' => 'thu@gmail.com',
             'password' => bcrypt(12345678),
             'role' => 'admin'
         ]);

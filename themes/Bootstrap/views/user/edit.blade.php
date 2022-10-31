@@ -29,14 +29,40 @@
                                 @enderror
                             </div>
                         </div>
-
+                        
                         <div class="row mb-3">
-                            <label for="type" class="col-md-4 col-form-label text-md-end">{{ __('first name ') }}</label>
+                            <label for="type" class="col-md-4 col-form-label text-md-end">{{ __('phone number ') }}</label>
 
                             <div class="col-md-6">
-                                <input id="type" type="text" class="form-control @error('type') is-invalid @enderror" name="first_name" value="{{ old('type') }}" required autocomplete="lname" autofocus>
+                                <input id="type" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
 
-                                @error('type')
+                                @error('phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="location" class="col-md-4 col-form-label text-md-end">{{ __('location') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="location" type="text" class="form-control @error('address') is-invalid @enderror" name="location" value="{{ old('location') }}" required autocomplete="address" autofocus>
+
+                                @error('location')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="about" class="col-md-4 col-form-label text-md-end">{{ __('about') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="about" type="text" class="form-control @error('address') is-invalid @enderror" name="about" value="{{ old('about') }}" autofocus>
+
+                                @error('about')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -44,12 +70,12 @@
                             </div>
                         </div>
                         <!-- <div class="row mb-3">
-                            <label for="address" class="col-md-4 col-form-label text-md-end">{{ __('Address') }}</label>
+                            <label for="thumbnail" class="col-md-4 col-form-label text-md-end">{{ __('thumbnail') }}</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+                                <input id="thumbnail" type="text" class="form-control @error('thumbnail') is-invalid @enderror" name="thumbnail" value="{{ old('thumbnail') }}" required autocomplete="address" autofocus>
 
-                                @error('address')
+                                @error('thumbnail')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -78,7 +104,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                        <input type="hidden"  name="role" value="tourist">
+                        <input type="hidden"  name="role" value="admin">
                         </div>
                         
 

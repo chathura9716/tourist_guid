@@ -71,18 +71,19 @@ class HotelController extends Controller
 
     public function show($hotelId){
 
-        $data=array();
-        $data = DB::table('hotels')->where('user_id',Auth::user()->id)->first();
+        // $data=array();
+        // $data = DB::table('hotels')->where('user_id',Auth::user()->id)->first();
                 
         $hotel = Hotel::findOrFail($hotelId);
 
-        return view('hotel.view',compact('hotel','data'));
+        return view('hotel.view',compact('hotel'));
     }
 
     public function edit($hotelId){
         $hotel = Hotel::findOrFail($hotelId);
         return view('hotel.edit',compact('hotel'));
     } 
+   
 
     public function update($hotelId,Request $request){
         //dd($request ->all());
@@ -94,6 +95,11 @@ class HotelController extends Controller
         Hotel::FindOrFail($hotelId)->delete();
         return redirect(route('dashboard'));
     }
-
+    public function hotelmanage(){
+        $hotels = Hotel::where('user_id',Auth::user()->id)->get();
+       
+        return view('user/hotel/hotelmanagement',compact('hotels'));
+    }
+    
     
 }
