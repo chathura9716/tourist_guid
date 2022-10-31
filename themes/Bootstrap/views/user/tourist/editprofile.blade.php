@@ -37,7 +37,7 @@
                 <h6 class="mb-0">{{ __('Profile Information') }}</h6>
             </div>
             <div class="card-body pt-4 p-3">
-                <form action="{{route('updatetourist',$user->id)}}" method="POST" role="form text-left">
+                <form action="{{route('touristprofileupdate')}}" method="POST" role="form text-left">
                     @csrf
                     @if($errors->any())
                         <div class="mt-3  alert alert-primary alert-dismissible fade show" role="alert">
@@ -82,17 +82,37 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="user-email" class="form-control-label">{{ __('Email') }}</label>
-                                <div class="@error('email')border border-danger rounded-3 @enderror">
-                                    <input class="form-control" value="{{ auth()->user()->email }}" type="email" placeholder="@example.com" id="user-email" name="email">
-                                        @error('email')
+                                <label for="age" class="form-control-label">{{ __('Age') }}</label>
+                                <div class="@error('age')border border-danger rounded-3 @enderror">
+                                    <input class="form-control" value=" {{$data->age}}" type="text" placeholder="age" id="age" name="age">
+                                        @error('age')
                                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                         @enderror
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="gender" class="form-control-label">{{ __('gender') }}</label>
+                                <div class="@error('age')border border-danger rounded-3 @enderror">
+                                    <input class="form-control" value=" {{$data->gender}}" type="text" placeholder="gender" id="gender" name="gender">
+                                        @error('gender')
+                                            <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                        @enderror
+                                </div>
+                            </div>
+                        </div>
+                       
                     </div>
                     <div class="row">
+                    <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="user.location" class="form-control-label">{{ __('origin') }}</label>
+                                <div class="@error('user.location') border border-danger rounded-3 @enderror">
+                                    <input class="form-control" type="text" placeholder="origin" id="name" name="origin" value="{{$data->origin}}">
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="user.passport_no" class="form-control-label">{{ __('Passport No') }}</label>
@@ -104,15 +124,19 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        
+                    </div>
+                    <div class="col-md-6">
                             <div class="form-group">
-                                <label for="user.location" class="form-control-label">{{ __('origin') }}</label>
-                                <div class="@error('user.location') border border-danger rounded-3 @enderror">
-                                    <input class="form-control" type="text" placeholder="origin" id="name" name="origin" value="{{$data->origin}}">
+                                <label for="user-email" class="form-control-label">{{ __('Email') }}</label>
+                                <div class="@error('email')border border-danger rounded-3 @enderror">
+                                    <input class="form-control" value="{{ auth()->user()->email }}" type="email" placeholder="@example.com" id="user-email" name="email">
+                                        @error('email')
+                                            <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                        @enderror
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <div class="form-group">
                         <label for="about">{{ 'About Me' }}</label>
                         <div class="@error('user.about')border border-danger rounded-3 @enderror">

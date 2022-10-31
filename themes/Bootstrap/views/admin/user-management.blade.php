@@ -54,7 +54,7 @@
                             <tbody>
                                 <tr>
                                     <td class="ps-4">
-                                        <p class="text-xs font-weight-bold mb-0">1</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{$user->id}}</p>
                                     </td>
                                     <td>
                                         <div>

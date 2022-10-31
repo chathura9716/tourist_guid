@@ -14,15 +14,15 @@
                         </div>
                     @endif
                  
-                    <form method="post" action="{{route('user.update',$user->id)}}">
+                    <form method="post" action="{{route('hotelAgentUpdate',$hagency->id)}}">
                         @csrf
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('User Name') }}</label>
+                            <label for="reg_no" class="col-md-4 col-form-label text-md-end">{{ __('Reg No') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="reg_no" type="text" class="form-control @error('reg_no') is-invalid @enderror" name="reg_no" value="{{ old('reg_no') }}" required autocomplete="reg_no" autofocus>
 
-                                @error('name')
+                                @error('reg_no')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -31,12 +31,25 @@
                         </div>
                         
                         <div class="row mb-3">
-                            <label for="type" class="col-md-4 col-form-label text-md-end">{{ __('phone number ') }}</label>
+                            <label for="agency_name" class="col-md-4 col-form-label text-md-end">{{ __('Agency Name ') }}</label>
 
                             <div class="col-md-6">
-                                <input id="type" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+                                <input id="agency_name" type="text" class="form-control @error('agency_name') is-invalid @enderror" name="agency_name" value="{{ old('agency_name') }}" required autocomplete="agency_name" autofocus>
 
-                                @error('phone')
+                                @error('agency_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="contact" class="col-md-4 col-form-label text-md-end">{{ __('contact') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="contact" type="text" class="form-control @error('contact') is-invalid @enderror" name="contact" value="{{ old('contact') }}" autofocus>
+
+                                @error('contact')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -56,32 +69,8 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label for="about" class="col-md-4 col-form-label text-md-end">{{ __('about') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="about" type="text" class="form-control @error('address') is-invalid @enderror" name="about" value="{{ old('about') }}" autofocus>
-
-                                @error('about')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="thumbnail" class="col-md-4 col-form-label text-md-end">{{ __('thumbnail') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="thumbnail" type="file" class="form-control @error('thumbnail') is-invalid @enderror" name="thumbnail" value="{{ old('thumbnail') }}" required autocomplete="address" autofocus>
-
-                                @error('thumbnail')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                  
+                        
                         
                         
                       
