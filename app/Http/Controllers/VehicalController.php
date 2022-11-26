@@ -45,7 +45,22 @@ class VehicalController extends Controller
     }
     public function update($vehicalId,Request $request){
         //dd($request ->all());
-        Vehical::findOrFail($vehicalId)->update($request ->all());
+        $imageName = time() . ".".$request ->thumbnail->extension();
+        //save image in public folder
+                $request->thumbnail->move(public_path('thumbnails'),$imageName );
+        Vehical::findOrFail($vehicalId)->update([
+            'user_id'=>auth()->user()->id,
+            'model' => $request->model,
+            'driver_name' => $request->driver_name,
+            'contact' => $request->contact,
+            'licence_no' => $request->licence_no,
+            'vehical_no' => $request ->vehical_no,
+            'type' => $request ->type,
+           
+            'city' => $request ->city,
+            'thumbnail' =>$imageName
+
+        ]);
         return redirect(route('dashboard'))->with('status','vehical updated!');
     }
     public function delete($vehicalId){
