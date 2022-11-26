@@ -89,11 +89,9 @@ class UserController extends Controller
                         
                         return view('user.hotel.dashboard',compact('hotels','posts','bookinghotel','data'));
 
-                    }elseif($role=='Travel Agency'){
-                        return view('user.travel.dashboard');
                     }
                     else{
-                        return view('welcome');
+                        return view('/');
                     }
        
 

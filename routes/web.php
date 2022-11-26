@@ -140,6 +140,8 @@ Route::get('/search' ,[HotelController::class, 'search'])->name('search');
 Route::get('user-management', [UserController::class, 'usermanege'])->name('user-management');
 Route::get('logoutuser', [UserController::class, 'logout'])->name('logoutuser');
 Route::get('placesmanagement', [PlaceController::class, 'placemanage'])->name('placesmanagement');
+Route::get('vehicalmanagement', [VehicalController::class, 'vehicalmanage'])->name('vehicalmanagement');
+
 Route::get('hotelmanage', [HotelController::class, 'hotelmanage'])->name('hotelmanage');
 
 Route::get('hotelblog', [HomeController::class, 'hotelblog'])->name('hotelblog');
