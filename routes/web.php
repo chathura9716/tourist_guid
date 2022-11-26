@@ -11,7 +11,6 @@ use App\Http\Controllers\HotelController;
 use App\Http\Controllers\VehicalController;
 use App\Http\Controllers\TouristregisterController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\VehicalController;
 
 
 /*
