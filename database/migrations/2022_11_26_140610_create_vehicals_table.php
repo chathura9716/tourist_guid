@@ -19,6 +19,8 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('vehical_model');
             $table->string('driver_name');
+            $table->string('contact');
+
             $table->string('driver_lno');
             $table->string('vehical_no');
             $table->string('city');
