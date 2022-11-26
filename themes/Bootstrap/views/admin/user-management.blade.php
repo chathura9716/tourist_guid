@@ -54,7 +54,11 @@
                             <tbody>
                                 <tr>
                                     <td class="ps-4">
+<<<<<<< HEAD
                                         <p class="text-xs font-weight-bold mb-0">1</p>
+=======
+                                        <p class="text-xs font-weight-bold mb-0">{{$user->id}}</p>
+>>>>>>> 2d09c08e658a5136ff9f56996128b1b0003f5fb5
                                     </td>
                                     <td>
                                         <div>

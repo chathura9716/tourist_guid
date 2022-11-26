@@ -15,6 +15,7 @@ use App\Models\Tourist;
 use App\Models\Hotel;
 use App\Models\Booking;
 use App\Models\Hagency;
+use App\Models\Vehical;
 
 
 use Illuminate\Http\Request;
@@ -41,7 +42,7 @@ class UserController extends Controller
             $posts = Post::where('user_id',Auth::user()->id)->get();
             $places = Place::all();
             $hotels = Hotel::where('user_id',Auth::user()->id)->get();
-            
+            $vehicals= Vehical::where('user_id',Auth::user()->id)->get();
        
     
         
@@ -51,7 +52,7 @@ class UserController extends Controller
                     
                     if($role=='admin'){
                         
-                        return view('admin.dashboard',compact('users','posts','places'));
+                        return view('admin.dashboard',compact('users','posts','places','vehicals'));
                     }
                     if($role=='tourist'){
                         
@@ -100,9 +101,7 @@ class UserController extends Controller
     }
 
   
-    // public function index(){
-    //     return view('user.profile');
-    // }
+
     public function profile(){
         {
             $role=Auth::user()->role;
@@ -110,7 +109,7 @@ class UserController extends Controller
     
             if($role=='admin'){
                 
-                return view('admin.adminprofile');
+                return view('admin.adminprofile',compact('user'));
             }
             elseif($role=='tourist'){
                 $data=array();
@@ -125,7 +124,7 @@ class UserController extends Controller
                 $data = DB::table('hagencies')->where('user_id',Auth::user()->id)->first();
                         
 
-                return view('user.hotel.profile',compact('data'));
+                return view('user.hotel.profile',compact('data','user'));
 
             }elseif($role=='Travel Agency'){
 
@@ -188,6 +187,13 @@ class UserController extends Controller
         $user = User::findOrFail($userId);
         return view('user.edit',compact('user'));
 
+
+    }
+    public function edithotelagency($userId){
+        
+        $hagency = User::findOrFail($userId);
+        return view('user.edithotel',compact('hagency'));
+
     }
     public function delete($userId){
         User::FindOrFail($userId)->delete();
@@ -195,23 +201,67 @@ class UserController extends Controller
     }
     
     
-    public function update(User $userId,Request $request){
+    public function adminUpdate($userId, Request $request){
         //dd($request ->all());
         
     
-        $request->validate([
+     
+        $user = User::find($userId);
+        $user->name = $request->get('name');
+        $user->phone = $request->get('phone');
+        $user->location = $request->get('location');
+        $user->about = $request->get('about');
+        if($request->file('thumbnail')){
+                    $currentPhoto = User::find($userId)->prophoto;  //fecthing user current photo
             
-            'email' => 'required',
-            'password' => 'required',
-          
-            'role' => 'required',
-           
-        ]);
+                    if($request->thumbnail != $currentPhoto){  //if not matched
+            
+                        $userPhoto = public_path('public/adminImage/').$currentPhoto;
+            
+                        if(file_exists($userPhoto)){
+            
+                            @unlink($userPhoto); // then delete previous photo
+                            
+                        }
+                    
+                        if($request->file('thumbnail')){
+                            $file= $request->file('thumbnail');
+                            $filename= date('YmdHi').$file->getClientOriginalName();
+                            $file-> move(public_path('public/adminImage'), $filename);
+                            $user->prophoto= $filename;
+                        }
+                    }
+                }
+        $user->email = $request->get('email');
+        $user->save();
+
         
-        $userId->update($request->all());
+        
+
+        
+     
         
         return redirect(route('dashboard'))->with('status','user updated!');
     }
+
+    public function hotelAgentUpdate($userId, Request $request){
+        //dd($request ->all());
+        
+        $hagency = Hagency::find($userId);
+        $hagency->reg_no = $request->get('reg_no');
+        $hagency->agency_name = $request->get('agency_name');
+        $hagency->contact = $request->get('contact');
+        $hagency->location = $request->get('location');
+        $user = User::find($userId);
+        $user->email = $request->get('email');
+        $user->save();
+        $hagency->save();
+
+
+        return redirect(route('dashboard'))->with('status','user updated!');
+    }
+
+
     public function createUser(Request $request)
     {
          User::create([

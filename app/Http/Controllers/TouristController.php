@@ -9,6 +9,9 @@ use App\Models\Tourist;
 use App\Models\Place;
 use App\Models\Hotel;
 use App\Models\Booking;
+use App\Models\User;
+
+
 use DB;
 
 
@@ -56,13 +59,48 @@ class TouristController extends Controller
         return view('user.tourist.hotel',compact('hotel'));
     }
     
-    // public function touristProfile(){
-    //     $data =array();
-    //     if(Session::has ('loginId')){
-    //         $data =Tourist::where('id', '=',Session::get ('loginId'))->first();
-    //         return view('user.tourist.profile',compact('data'));
-    //     }
+    public function touristprofileupdate(Request $request){
+        $uid = Auth::user()->id;
+        $tourist = Tourist::find($uid);
+        $tourist->first_name = $request->get('first_name');
+        $tourist->last_name = $request->get('last_name');
+        $tourist->age = $request->get('age');
+        $tourist->gender = $request->get('gender');
+        $tourist->origin = $request->get('origin');
+        $tourist->passport_no = $request->get('passport_no');
+        
+        
        
-    // }
+        //if($request->file('thumbnail')){
+            //         $currentPhoto = User::find($id)->thumbnail;  //fecthing user current photo
+    
+            //         if($request->image != $currentPhoto){  //if not matched
+    
+            //             $userPhoto = public_path('public/userImage/').$currentPhoto;
+    
+            //             if(file_exists($userPhoto)){
+    
+            //                 @unlink($userPhoto); // then delete previous photo
+                            
+            //             }
+                    
+            //             if($request->file('thumbnail')){
+            //                 $file= $request->file('thumbnail');
+            //                 $filename= date('YmdHi').$file->getClientOriginalName();
+            //                 $file-> move(public_path('public/customerImage'), $filename);
+            //                 $user->thumbnail= $filename;
+            //             }
+            //         }
+            //     }
+        $tourist->email = $request->get('email');
+        $tourist->save();
+
+      
+
+        $ids =   Auth::user()->id;
+        return redirect()->route('profile', [$ids]);
+        }
+       
+    
 
 }
