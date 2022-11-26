@@ -45,6 +45,14 @@ class HomeController extends Controller
         
       
     }
+    public function hotelblog(){
+        $posts = Post::where('user_id',Auth::user()->id)->get();
+        return view('user/hotel/posts',compact('posts'));
+    }
+    public function touristblog(){
+        $posts = Post::where('user_id',Auth::user()->id)->get();
+        return view('user/tourist/posts',compact('posts'));
+    }
 
   
     public function allPosts(){

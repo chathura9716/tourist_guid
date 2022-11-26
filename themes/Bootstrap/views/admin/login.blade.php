@@ -1,6 +1,4 @@
-@extends('layouts.register')
 
-@section('content')
 <!DOCTYPE html>
 <html>
 	<head>
@@ -88,5 +86,4 @@
 	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
 
-@endsection
 

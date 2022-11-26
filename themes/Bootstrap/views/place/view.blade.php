@@ -341,6 +341,31 @@ Template sidebar
   @endforeach
   
 </div>
+
+<h1>Nearest Vehicals for rent</h1> 
+   
+<div class="wrapper">
+
+@foreach ($vehical as $vehical) 
+<div class="grid_4">
+					<div class="wrapper">
+
+						<div class="card"><img src="{{asset('thumbnails/'.$vehical->thumbnail)}}" />
+							<div class="info">
+                            <p>{{$vehical->vehical_no}}</p>
+                            <p>{{$vehical->vehical_model}}</p>
+                            <p>{{$vehical->type}}</p>
+							
+							<button><a  href="" >Book now</a></button>
+							</div>
+						</div>
+					</div>
+				</div>
+  
+
+  @endforeach
+  
+</div>
             <!-- post article-->
 
         </div>

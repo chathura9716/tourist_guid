@@ -57,101 +57,11 @@ hotel layout
     <div class="container">
 			<div class="row justify-content-between">
 				<div class="col">
-					<a class="navbar-brand" href="">Tourist <span>Guide</span></a>
+					<a href="{{route('touristWelcome')}}"class="navbar-brand" href="">Tourist <span>Guide</span></a>
 				</div>
               
                    
-                   
-                   
-				<div class="col d-flex justify-content-end">
-                    
-                  
-					<div class="social-media">
-		    		<p class="mb-0 d-flex">
-		    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
-		    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
-		    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
-		    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
-		    			<a href="{{route('register')}}" class="d-flex align-items-center justify-content-center"><span class="fa fa-sign-in"><i class="sr-only">log in</i></span></a>
-		    			<a href="{{route('login')}}" class="d-flex align-items-center justify-content-center"><span class="fa fa-user-plus"><i class="sr-only">sign in</i></span></a>
-		    		</p>
-	                </div>
-				</div>
 
-			</div>
-	</div>
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-	    
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="fa fa-bars"></span> Menu
-	      </button>
-				<form action="#" class="searchform order-lg-last">
-          <div class="form-group d-flex">
-            <input type="text" class="form-control pl-3" placeholder="Search">
-            <button type="submit" placeholder="" class="form-control search"><span class="fa fa-search"></span></button>
-          </div>
-        </form>
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav mr-auto">
-         
-	        	<li class="nav-item active"><a href="{{ url('/') }}" class="nav-link">Home</a></li>
-            <li class="nav-item"><a class ="nav-link" href="{{route('dashboard')}}">Dashboard</a></li>
-	
-            <li class="nav-item"><a class ="nav-link" href="{{route('hotel')}}">Hotels</a></li>
-	     
-           
-
-	          <li class="nav-item"><a href="{{route('contact')}}"class="nav-link">Contact</a></li>
-	  
-
-	         
-	        </ul>
-            <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                    
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('profile') }}">
-                                      
-                                        {{ __('Profile') }}
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-	      </div>
-	    </div>
-	  </nav>
-    <!-- END nav -->
-
-	</section>
 
 
 
@@ -160,11 +70,12 @@ hotel layout
 	
 
 
-    <div class="container">
-            @yield('content')
-    </div>
-    </div>
-
+                <div class="container">
+                        @yield('content')
+                </div>
+            </div>
+</div>
+</div>
     
     
 

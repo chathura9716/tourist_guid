@@ -8,16 +8,16 @@
                 <div class="card-header">{{ __('Add Vehicals') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('user.create') }}">
+                    <form method="POST" action="{{ route('vehical.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Model Of Vehical') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end" >{{ __('Model Of Vehical') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="vehical_model" type="text" class="form-control @error('vehical_model') is-invalid @enderror" name="vehical_model" value="{{ old('vehical_model') }}" required autocomplete="name" autofocus>
 
-                                @error('name')
+                                @error('vehical_model')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -29,9 +29,9 @@
                             <label for="type" class="col-md-4 col-form-label text-md-end">{{ __('Driver Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="type" type="text" class="form-control @error('type') is-invalid @enderror" name="type" value="{{ old('type') }}" required autocomplete="type" autofocus>
+                                <input id="driver_name" type="text" class="form-control @error('driver_name') is-invalid @enderror" name="driver_name" value="{{ old('driver_name') }}"  autofocus>
 
-                                @error('type')
+                                @error('driver_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -39,12 +39,12 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="address" class="col-md-4 col-form-label text-md-end">{{ __('Driver Licence No') }}</label>
+                            <label for="driver_lno" class="col-md-4 col-form-label text-md-end">{{ __('Driver Licence No') }}</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+                                <input id="driver_lno" type="text" class="form-control @error('driver_lno') is-invalid @enderror" name="driver_lno" value="{{ old('driver_lno') }}"  autofocus>
 
-                                @error('Driver Licence No')
+                                @error('driver_lno')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -54,30 +54,28 @@
               
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Vehical No') }}</label>
+                            <label for="vehical_no" class="col-md-4 col-form-label text-md-end">{{ __('Vehical No') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="vehical_no" type="text" class="form-control @error('vehical_no') is-invalid @enderror" name="vehical_no" value="{{ old('vehical_no') }}" >
 
-                                @error('email')
+                                @error('vehical_no')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                         </div>
-                        <div class="row mb-3">
-                        <input type="hidden"  name="role" value="Travel Agency">
-                        </div>
+                    
                         
 
                         <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Type Of vehical') }}</label>
+                            <label for="city" class="col-md-4 col-form-label text-md-end">{{ __('city') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city">
 
-                                @error('password')
+                                @error('city')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -86,13 +84,20 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Photo of vehical') }}</label>
+                            <label for="" class="col-md-4 col-form-label text-md-end">{{ __('Type of vehical') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="file" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="type" type="text" class="form-control" name="type" >
+                                @error('type')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
-
+                        <div class="form-group">
+                            <input class="form-control" name="thumbnail" type="file">
+                        </div>
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

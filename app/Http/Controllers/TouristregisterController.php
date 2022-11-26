@@ -69,5 +69,21 @@ class TouristregisterController extends Controller
       
          
     }
+    public function updatetourist(Tourist $userId,Request $request){
+        //dd($request ->all());
+        
+    
+        $request->validate([
+            
+            'email' => 'required',
+          
+            
+           
+        ]);
+        
+        $userId->update($request->all());
+        
+        return redirect(route('dashboard'))->with('status','user updated!');
+    }
     
 }
