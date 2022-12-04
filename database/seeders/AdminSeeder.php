@@ -24,7 +24,7 @@ class AdminSeeder extends Seeder
             'phone'=>'0768628220',
             'location'=>'gampaha',
             'about'=>"hello i'm chathura",
-            'thumbnail'=>"1648767489.jpg",
+           
             'email' => 'admin@gmail.com',
             'password' => bcrypt(12345678),
             'role' => 'admin'
@@ -35,7 +35,7 @@ class AdminSeeder extends Seeder
             'phone'=>'0768628220',
             'location'=>'gampaha',
             'about'=>"hello i'm chathura",
-            'thumbnail'=>"1648767489.jpg",
+            
             'email' => 'thu@gmail.com',
             'password' => bcrypt(12345678),
             'role' => 'admin'

@@ -54,7 +54,7 @@ register layout
     <div class="container">
 			<div class="row justify-content-between">
           <div class="col">
-            <a class="navbar-brand" href="{{ url('/') }}">Tourist <span>Guid</span></a>
+            <a class="navbar-brand" href="{{ url('') }}">Tourist <span>Guid</span></a>
           </div>
               
                    

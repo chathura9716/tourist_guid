@@ -29,7 +29,7 @@
                   <thead>
                     <tr>
                       <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
-                      <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Title</th>
+                      <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Driver name</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Vehical Type</th>
 
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Vehical model</th>
@@ -58,7 +58,7 @@
                         
                       </td>
                       <td>
-                        <p class="text-center  text-secondary ">{{$vehical->vehical_model}}</p>
+                        <p class="text-center  text-secondary ">{{$vehical->model}}</p>
                         
                       </td>
                       <td class="text-center  text-secondary ">

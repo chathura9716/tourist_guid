@@ -12,6 +12,7 @@
           <div class="col-auto">
             <div class="avatar avatar-xl position-relative">
               <img src="../assets/img/bruce-mars.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+            
             </div>
           </div>
           <div class="col-auto my-auto">
@@ -38,11 +39,7 @@
                   <h6 class="mb-0">Profile Information</h6>
                 </div>
                 <div class="col-md-4 text-end">
-<<<<<<< HEAD
-                  <a href="javascript:;">
-=======
                   <a href="{{route('user.edit',$user->id)}}">
->>>>>>> 2d09c08e658a5136ff9f56996128b1b0003f5fb5
                     <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
                   </a>
                 </div>

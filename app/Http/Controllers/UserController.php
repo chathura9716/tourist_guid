@@ -209,27 +209,27 @@ class UserController extends Controller
         $user->phone = $request->get('phone');
         $user->location = $request->get('location');
         $user->about = $request->get('about');
-        if($request->file('thumbnail')){
-                    $currentPhoto = User::find($userId)->prophoto;  //fecthing user current photo
+        // if($request->file('thumbnail')){
+        //             $currentPhoto = User::find($userId)->prophoto;  //fecthing user current photo
             
-                    if($request->thumbnail != $currentPhoto){  //if not matched
+        //             if($request->thumbnail != $currentPhoto){  //if not matched
             
-                        $userPhoto = public_path('public/adminImage/').$currentPhoto;
+        //                 $userPhoto = public_path('public/adminImage/').$currentPhoto;
             
-                        if(file_exists($userPhoto)){
+        //                 if(file_exists($userPhoto)){
             
-                            @unlink($userPhoto); // then delete previous photo
+        //                     @unlink($userPhoto); // then delete previous photo
                             
-                        }
+        //                 }
                     
-                        if($request->file('thumbnail')){
-                            $file= $request->file('thumbnail');
-                            $filename= date('YmdHi').$file->getClientOriginalName();
-                            $file-> move(public_path('public/adminImage'), $filename);
-                            $user->prophoto= $filename;
-                        }
-                    }
-                }
+        //                 if($request->file('thumbnail')){
+        //                     $file= $request->file('thumbnail');
+        //                     $filename= date('YmdHi').$file->getClientOriginalName();
+        //                     $file-> move(public_path('public/adminImage'), $filename);
+        //                     $user->prophoto= $filename;
+        //                 }
+        //             }
+        //         }
         $user->email = $request->get('email');
         $user->save();
 

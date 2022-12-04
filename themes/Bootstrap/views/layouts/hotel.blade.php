@@ -95,7 +95,7 @@ hotel layout
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav mr-auto">
          
-	        	<li class="nav-item active"><a href="{{ url('/') }}" class="nav-link">Home</a></li>
+	        	<li class="nav-item active"><a href="{{ url('touristWelcome') }}" class="nav-link">Home</a></li>
             <li class="nav-item"><a class ="nav-link" href="{{route('dashboard')}}">Dashboard</a></li>
 	
             <li class="nav-item"><a class ="nav-link" href="{{route('hotel')}}">Hotels</a></li>

@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id();
             
             $table->unsignedBigInteger('user_id');
-            $table->string('vehical_model');
+            $table->string('model');
             $table->string('driver_name');
             $table->string('contact');
 
-            $table->string('driver_lno');
+            $table->string('licence_no');
             $table->string('vehical_no');
             $table->string('city');
 

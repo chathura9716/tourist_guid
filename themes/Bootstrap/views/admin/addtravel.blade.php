@@ -44,12 +44,25 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="driver_lno" class="col-md-4 col-form-label text-md-end">{{ __('Driver Licence No') }}</label>
+                            <label for="contact" class="col-md-4 col-form-label text-md-end">{{ __('Driver Contact no') }}</label>
 
                             <div class="col-md-6">
-                                <input id="driver_lno" type="text" class="form-control @error('driver_lno') is-invalid @enderror" name="driver_lno" value="{{ old('driver_lno') }}"  autofocus>
+                                <input id="contact" type="text" class="form-control @error('contact') is-invalid @enderror" name="contact" value="{{ old('contact') }}"  autofocus>
 
-                                @error('driver_lno')
+                                @error('contact')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="licence_no" class="col-md-4 col-form-label text-md-end">{{ __('Driver Licence No') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="licence_no" type="text" class="form-control @error('licence_no') is-invalid @enderror" name="licence_no" value="{{ old('licence_no') }}"  autofocus>
+
+                                @error('licence_no')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

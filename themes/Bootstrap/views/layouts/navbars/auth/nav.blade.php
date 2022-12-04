@@ -30,7 +30,7 @@
                     <span class="d-sm-inline d-none">Sign Out</span>
                 </a>
             </li>
-            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+            <!-- <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                 <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                 <div class="sidenav-toggler-inner">
                     <i class="sidenav-toggler-line"></i>
@@ -43,13 +43,13 @@
                 <a href="javascript:;" class="nav-link text-body p-0">
                 <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
                 </a>
-            </li>
+            </li> 
             <li class="nav-item dropdown pe-2 d-flex align-items-center">
                 <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa fa-bell cursor-pointer"></i>
                 </a>
                 <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
-                <!-- <li class="mb-2">
+               <li class="mb-2">
                     <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                         <div class="my-auto">
@@ -66,8 +66,8 @@
                         </div>
                     </div>
                     </a>
-                </li> -->
-                <!-- <li class="mb-2">
+                </li> 
+                 <li class="mb-2">
                     <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                         <div class="my-auto">
@@ -84,8 +84,8 @@
                         </div>
                     </div>
                     </a>
-                </li> -->
-                <!-- <li>
+                </li> 
+               <li>
                     <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                         <div class="avatar avatar-sm bg-gradient-secondary  me-3  my-auto">
@@ -114,9 +114,9 @@
                         </div>
                     </div>
                     </a>
-                </li> -->
+                </li>
                 </ul>
-            </li>
+            </li> -->
             </ul>
         </div>
     </div>

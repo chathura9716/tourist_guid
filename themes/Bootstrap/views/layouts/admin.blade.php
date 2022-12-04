@@ -82,7 +82,7 @@
     <div class="container">
 			<div class="row justify-content-between">
 				<div class="col">
-					<a class="navbar-brand" href="{{ url('/') }}">Tourist <span>Guide</span></a>
+					<a class="navbar-brand" href="{{ url('/touristWelcome') }}">Tourist <span>Guide</span></a>
 				</div>
               
                    
