@@ -21,7 +21,7 @@
 
   </head>
   <body class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-header" id="sec-0d38"><div class="u-clearfix u-sheet u-sheet-1"></div></header>
-    <section class="u-align-center u-clearfix u-image u-shading u-section-1" src="{{asset('thumbnails/'.$hotel->thumbnail)}}" data-image-width="1124" data-image-height="1500" id="sec-7fdc">
+    <section class="u-align-center u-clearfix u-image u-shading u-section-1" src="{{asset('thumbnails/'.$hotel->thumbnail)}}" data-image-width="1124" data-image-height="1500" id="">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h1 class="u-text u-text-default u-title u-text-1">{{$hotel->hotel_name}}</h1>
         <p class="u-large-text u-text u-text-variant u-text-2">{{$hotel->type}}</p>
@@ -42,11 +42,12 @@
                 <a href="" class="u-btn u-button-style u-palette-3-base u-btn-2">learn more</a>
               </div>
             </div>
-           >
+           
             
            
           </div>
         </div>
+		
       </div>
     </section>
     <section class="u-clearfix u-section-4" id="sec-f50c">

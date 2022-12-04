@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>RegistrationForm</title>
+		<title>Login form</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- MATERIAL DESIGN ICONIC FONT -->
@@ -63,7 +63,7 @@
                                     </a>
                                 @endif
 					<div class="socials">
-						<p>Sign up with social platforms</p>
+						<p>Don't You have An Account? Register here</p>
 						<a href="" class="socials-icon">
 							<i class="zmdi zmdi-facebook"></i>
 						</a>

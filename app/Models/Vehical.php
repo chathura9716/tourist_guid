@@ -18,7 +18,7 @@ class Vehical extends Model
         'vehical_no',
         'type',
         'city',
-         'thumbnail'
+        'thumbnail'
     ];
     public function user(){
         return $this->belongsTo(User::class,'user_id');

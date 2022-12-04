@@ -16,6 +16,7 @@ use App\Models\Hotel;
 use App\Models\Booking;
 use App\Models\Hagency;
 use App\Models\Vehical;
+use App\Models\VehicalBooking;
 
 
 use Illuminate\Http\Request;
@@ -42,17 +43,19 @@ class UserController extends Controller
             $posts = Post::where('user_id',Auth::user()->id)->get();
             $places = Place::all();
             $hotels = Hotel::where('user_id',Auth::user()->id)->get();
-            $vehicals= Vehical::where('user_id',Auth::user()->id)->get();
+            $vehicals = Vehical::where('user_id',Auth::user()->id)->get();
        
-    
+            $vehicalId=Vehical::where('user_id',Auth::user()->id)->first()->id;
+
         
             $role=Auth::user()->role;
            
           
-                    
+                 
                     if($role=='admin'){
+                        $bookingvehical =VehicalBooking::where('vehical_id','=',$vehicalId)->get();
                         
-                        return view('admin.dashboard',compact('users','posts','places','vehicals'));
+                        return view('admin.dashboard',compact('users','posts','places','vehicals','bookingvehical'));
                     }
                     if($role=='tourist'){
                         
@@ -61,10 +64,11 @@ class UserController extends Controller
                         $posts = Post::where('user_id',Auth::user()->id)->get();
                         $latest_place= Place::orderBy('created_at','DESC')->limit(3)->get();
                         $bookinghotel=Booking::where('user_id',Auth::user()->id)->get();
+                        $bookingvehical =VehicalBooking::where('user_id',Auth::user()->id)->get();
                     
                         $hotel = Hotel::all();
                         
-                        return view('user.tourist.dashboard',compact('bookinghotel','posts','data','hotel'));
+                        return view('user.tourist.dashboard',compact('bookingvehical','bookinghotel','posts','data','hotel'));
                     }
                  
                     elseif($role=='Hagency'){
@@ -188,9 +192,11 @@ class UserController extends Controller
 
     }
     public function edithotelagency($userId){
-        
+        $data=array();
+        $data = DB::table('hagencies')->where('user_id',Auth::user()->id)->first();
+                
         $hagency = User::findOrFail($userId);
-        return view('user.edithotel',compact('hagency'));
+        return view('user.hotel.edithotel',compact('hagency','data'));
 
     }
     public function delete($userId){

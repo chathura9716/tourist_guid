@@ -6,8 +6,8 @@
                     © <script>
                         document.write(new Date().getFullYear())
                     </script>, made with <i class="fa fa-heart"></i> by
-                    <a href="" class="font-weight-bold" target="_blank">SNOW CREATION</a>&amp; <a style="color: #252f40;" href="" class="font-weight-bold ml-1" target="_blank">UPDIVISION</a>
-                    for a better web.
+                    <a href="" class="font-weight-bold" target="_blank">SNOW CREATION</a>&amp; <a style="color: #252f40;" href="" class="font-weight-bold ml-1" target="_blank">All Right Received</a>
+                   
                 </div>
             </div>
             <div class="col-lg-6">
@@ -15,9 +15,7 @@
                     <li class="nav-item">
                         <a href="" class="nav-link text-muted" target="_blank">Snow creation</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link text-muted" target="_blank">UPDIVISION</a>
-                    </li>
+ 
                     <li class="nav-item">
                         <a href="" class="nav-link text-muted" target="_blank">About Us</a>
                     </li>

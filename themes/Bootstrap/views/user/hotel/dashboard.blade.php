@@ -490,7 +490,7 @@ text-decoration:none;
         
         <br><br>
         <h1>Booking Requests</h1>
-<table class="table">
+        <table class="table">
             <thead class="thead-dark">
                 <tr>
                 <th scope="col">#</th>

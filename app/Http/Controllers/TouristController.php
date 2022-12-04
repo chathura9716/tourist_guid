@@ -59,46 +59,30 @@ class TouristController extends Controller
         return view('user.tourist.hotel',compact('hotel'));
     }
     
-    public function touristprofileupdate(Request $request){
-        $uid = Auth::user()->id;
-        $tourist = Tourist::find($uid);
-        $tourist->first_name = $request->get('first_name');
-        $tourist->last_name = $request->get('last_name');
-        $tourist->age = $request->get('age');
-        $tourist->gender = $request->get('gender');
-        $tourist->origin = $request->get('origin');
-        $tourist->passport_no = $request->get('passport_no');
-        
-        
+    public function touristprofileupdate($userId,Request $request){
+         //dd($request ->all());
        
-        //if($request->file('thumbnail')){
-            //         $currentPhoto = User::find($id)->thumbnail;  //fecthing user current photo
-    
-            //         if($request->image != $currentPhoto){  //if not matched
-    
-            //             $userPhoto = public_path('public/userImage/').$currentPhoto;
-    
-            //             if(file_exists($userPhoto)){
-    
-            //                 @unlink($userPhoto); // then delete previous photo
-                            
-            //             }
-                    
-            //             if($request->file('thumbnail')){
-            //                 $file= $request->file('thumbnail');
-            //                 $filename= date('YmdHi').$file->getClientOriginalName();
-            //                 $file-> move(public_path('public/customerImage'), $filename);
-            //                 $user->thumbnail= $filename;
-            //             }
-            //         }
-            //     }
-        $tourist->email = $request->get('email');
-        $tourist->save();
-
-      
-
-        $ids =   Auth::user()->id;
-        return redirect()->route('profile', [$ids]);
+        $imageName = time() . ".".$request ->thumbnail->extension();
+        //save image in public folder
+                $request->thumbnail->move(public_path('thumbnails'),$imageName );
+       
+               
+        Tourist::findOrFail($userId)->update([
+            
+           'user_id'=>auth()->user()->id,
+           'first_name' => $request->first_name,
+           'last_name' => $request ->last_name,
+            'thumbnail' => $imageName,
+            
+            'age' => $request ->age,
+            'gender'=>$request->gender,
+            
+            'origin' => $request ->origin,
+            'passport_no'=>$request->passport_no,
+            
+        
+        ]);
+        return redirect(route('dashboard'))->with('status','user updated!');
         }
        
     

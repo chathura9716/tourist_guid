@@ -21,7 +21,7 @@ class TouristregisterController extends Controller
    
     function create(Request $request)
     {
-        $request ->validate([
+        $validator = Validator::make($request ->all(),[
             'first_name'=>'required',
             'last_name'=>'required',
             'age'=>'required',
@@ -30,7 +30,11 @@ class TouristregisterController extends Controller
             'passport_no'=>'required',
             'email'=>'required|email',
             'password'=>'required',
+            'thumbnail' => 'required|image'
         ]);
+        if($validator->fails()){
+            return back()->with('status','Something is wrong!');
+        }else{
         $user =new User([
             'email'=>$request->get('email'),
             'password'=>Hash::make($request->get('password')),
@@ -38,17 +42,19 @@ class TouristregisterController extends Controller
         ]);
         $user ->save();
 
+                $imageName = time() . ".".$request ->thumbnail->extension();
+        //save image in public folder
+                $request->thumbnail->move(public_path('thumbnails'),$imageName );
+                
         $tourist =new Tourist([
             'user_id'=>DB::table('users')->where('email',$request->get('email'))->value('id'),
             'first_name'=>$request->get('first_name'),
             'last_name'=>$request->get('last_name'),
-            
+            'thumbnail' =>$imageName,
             'age'=>$request->get('age'),
             'gender'=>$request->get('gender'),
             'origin'=>$request->get('origin'),
             'passport_no'=>$request->get('passport_no'),
-
-
 
         ]);
       
@@ -62,28 +68,13 @@ class TouristregisterController extends Controller
 
         }
 
- 
+    }
           
 
        
       
          
     }
-    public function updatetourist(Tourist $userId,Request $request){
-        //dd($request ->all());
-        
     
-        $request->validate([
-            
-            'email' => 'required',
-          
-            
-           
-        ]);
-        
-        $userId->update($request->all());
-        
-        return redirect(route('dashboard'))->with('status','user updated!');
-    }
     
 }

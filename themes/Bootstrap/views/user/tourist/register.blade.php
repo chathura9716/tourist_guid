@@ -32,7 +32,7 @@
 				<img src="images/travel.jpg" alt="">
 			</div>
 			<div class="form-inner">
-            <form method="POST" action="{{ route('create') }}">
+            <form method="POST" action="{{ route('create') }}" enctype="multipart/form-data">
 			@if(Session::get('success'))
                 <div class="alert alert-success">
                     {{Session::get('success')}}
@@ -59,6 +59,10 @@
 						<input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="user_name" autofocusdata-validation-length="3-12">
 						<span class="text-danger">@error('last_name'){{$message}} @enderror</span>
 					</div>
+					<div class="form-group">
+					<label for="">Profile photo :</label>
+                            <input  name="thumbnail" type="file">
+                    </div>
 					
                     <div class="form-group">
 						<label for="">Age :</label>
@@ -113,20 +117,12 @@
 
 					<div class="socials">
 				
-					<a href="{{ route('login') }}"><p>Log in here</p></a>
-						<p>Sign up with social platforms</p>
-						<a href="" class="socials-icon">
-							<i class="zmdi zmdi-facebook"></i>
+				
+						<p>Already Have An Account? Login Here</p>
+						<a href="{{ route('login') }}" class="socials-icon">
+						Login
 						</a>
-						<a href="" class="socials-icon">
-							<i class="zmdi zmdi-instagram"></i>
-						</a>
-						<a href="" class="socials-icon">
-							<i class="zmdi zmdi-twitter"></i>
-						</a>
-						<a href="" class="socials-icon">
-							<i class="zmdi zmdi-tumblr"></i>
-						</a>
+						
 					</div>
 				</form>
 			</div>

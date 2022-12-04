@@ -273,25 +273,31 @@ Template sidebar
     <div class="row">
         <div class="col-md-9 mb40">
             <article>
-                <img src="{{asset('thumbnails/'.$place->thumbnail)}}" alt="" class="img-fluid mb30">
+                <img src="{{asset('thumbnails/'.$vehical->thumbnail)}}" alt="" class="img-fluid mb30">
                 <div class="post-content">
-                    <h3>{{$place->place_name}}</h3>
+                    <h3>{{$vehical->model}}</h3>
                     <ul class="post-meta list-inline">
                         <li class="list-inline-item">
-                            <i class="fa fa-user-circle-o"></i> <a href="#">{{$place->user->name}}</a>
+                            <i class="fa fa-user-circle-o"></i> <a href="#">{{$vehical->driver_name}}</a>
                         </li>
                         <li class="list-inline-item">
-                            <i class="fa fa-calendar-o"></i> <a href="#"> {{ date('Y-m-d',strtotime($place->created_at))}}</a>
+                            <i class="fa fa-calendar-o"></i> <a href="#"> {{ $vehical->licence_no}}</a>
                         </li>
                       
                     </ul>
-                  
-                    <p>{{$place->description}} </p>
+                
+                 
+                    <p>{{$vehical->type}} </p>
+                    <fa-ul>
                     <h3>City</h3>
-                    <p>{{$place->city}} </p>
-                    <h3>Province</h3>
-                    <p>{{$place->province}} </p>
-                    
+                    <p>{{$vehical->city}} </p>
+                    <h3>Vehical number</h3>
+                    <p>{{$vehical->vehical_no}} </p>
+</ul>
+                    <h3>Vehical type</h3>
+                    <p>{{$vehical->type}} </p>
+                    <h3>Driver Contact Number</h3>
+                    <p>{{$vehical->contact}} </p>
                     <ul class="list-inline share-buttons">
                        
                         <li class="list-inline-item">
@@ -317,60 +323,13 @@ Template sidebar
                   
                 </div>
             </article>
-  <h1>Nearest Hotels</h1> 
-   
-<div class="wrapper">
-
-@foreach ($hotel as $hotel) 
-<div class="grid_4">
-					<div class="wrapper">
-
-						<div class="card"><img src="{{asset('thumbnails/'.$hotel->thumbnail)}}" />
-							<div class="info">
-                            <p>{{$hotel->hotel_name}}</p>
-                            <p>{{$hotel->city}}</p>
-                            <p>{{$hotel->type}}</p>
-							
-							<button><a  href="{{Route('hotel.show',$hotel->id)}}" >See more</a></button>
-							</div>
-						</div>
-					</div>
-				</div>
+        </div>
   
-
-  @endforeach
-  
-</div>
-
-<h1>Nearest Vehicals for rent</h1> 
-   
-<div class="wrapper">
-
-@foreach ($vehical as $vehical) 
-<div class="grid_4">
-					<div class="wrapper">
-
-						<div class="card"><img src="{{asset('thumbnails/'.$vehical->thumbnail)}}" />
-							<div class="info">
-                            <p>{{$vehical->vehical_no}}</p>
-                            <p>{{$vehical->model}}</p>
-                            <p>{{$vehical->type}}</p>
-							
-							<button><a  href="{{Route('vehical.show',$vehical->id)}}" >Book now</a></button>
-							</div>
-						</div>
-					</div>
-				</div>
-  
-
-  @endforeach
-  
-</div>
+    </div>
             <!-- post article-->
 
-        </div>
-        
-    </div>
+     
+    
 </div>
 
 <style>
@@ -467,6 +426,116 @@ Template sidebar
 }
 
     </style>
+<section class="u-clearfix u-section-5" id="carousel_d79b">
+      <div class="u-expanded-height-lg u-expanded-height-md u-expanded-height-xl u-expanded-width-sm u-expanded-width-xs u-palette-1-base u-shape u-shape-rectangle u-shape-1"></div>
+      <div class="u-clearfix u-gutter-0 u-layout-wrap u-layout-wrap-1">
+        <div class="u-gutter-0 u-layout">
+          <div class="u-layout-row">
+            <div class="u-size-28">
+              <div class="u-layout-col">
+                <div class="u-align-left u-container-style u-image u-layout-cell u-left-cell u-size-60 u-image-1" data-image-width="150" data-image-height="102">
+                  <div class="u-container-layout u-container-layout-1"></div>
+                </div>
+              </div>
+            </div>
+            <div class="u-size-32">
+              	<div class="u-layout-row">
+                	<div class="u-container-style u-layout-cell u-right-cell u-size-60 u-layout-cell-2">
+                  		<div class="u-container-layout u-valign-top u-container-layout-2">
+                    		<h2 class="u-text u-text-default u-text-1">Make your Trip</h2>
+								<div class="u-expanded-width u-form u-form-1">
+								<div class="container">
+				<div class="">
+					<div class="booking-form">
+						<div class="form-header">
+							
+						</div>
+						<form method="POST" action="{{ route('bookvehical') }}"id="bookingForm">
+						@if(Session::get('success'))
+							<div class="alert alert-success">
+								{{Session::get('success')}}
+								</div>
+							@endif
+						
+							@if(Session::get('fail'))
+							<div class="alert alert-danger">
+								{{Session::get('fail')}}
+								</div>
+							@endif
+						@csrf
+						
+							<div class="form-group">
+							<span class="form-label">Name</span>
+								<input name="tourist_name" class="form-control" type="text" placeholder="Enter your name...">
+								
+							</div>
+							<div class="form-group">
+							<span class="form-label">Country</span>
+								<input name="country"  class="form-control" type="text" placeholder="Country...">
+							
+							</div>
+							
+								
+									<div class="form-group">
+									<span class="form-label">Email</span>
+										<input  name="email" class="form-control" type="email" placeholder="Enter your Email">
+									
+									</div>
+							
+								<input  name="vehical_id" class="form-control" type="hidden" value="{{$vehical->id}}">
+								
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+									<span class="form-label">Pick-Up date</span>
+										<input name="pickup" class="form-control" type="date" required>
+									
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+									<span class="form-label">Drop Off</span>
+										<input name="dropoff" class="form-control" type="date" required>
+								
+									</div>
+								</div>
+							</div>
 
+							<div class="row">
+						
+
+								
+                        <div class="form-group">
+							<span class="form-label">Pick-up Time</span>
+								<input name="pickuptime"  class="form-control" type="text" placeholder="pickup time...">
+							
+							</div>
+							</div>
+							
+							
+							
+							
+							<div class="form-btn">
+								<button class="submit-btn">Rent A Car Now</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> 
+</div>    		
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+					</div>
+				</div>
+			</div>
+			
+			
+    </section>
 
 @endsection

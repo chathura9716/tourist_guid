@@ -262,7 +262,7 @@
 				
 				
 				<div class="clear"></div>
-				<div class="grid_6">
+				<div class="">
 					<h3>Booking Now</h3>
 					<form method="POST" action="{{ route('bookhotel') }}"id="bookingForm">
 						@csrf
@@ -349,7 +349,7 @@
 						<button>submit</button>
 					</form>
 				</div>
-				<div class="grid_5 prefix_1">
+				<!-- <div class="grid_5 prefix_1">
 					<h3>Welcome</h3>
 					<img src="images/page1_img1.jpg" alt="" class="img_inner fleft">
 					<div class="extra_wrapper">
@@ -401,7 +401,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 <!--==============================footer=================================-->
 		<footer>
 			<div class="container_12">
@@ -413,7 +413,7 @@
 						<a href="#" class="fa fa-google-plus"></a>
 					</div>
 					<div class="copy">
-						Tourist guid (c) 2022 | <a href="#">Privacy Policy</a> | 
+						Tourist guid (c) 2022 | <a href="#">Privacy Policy</a> | All Right Received
 					</div>
 				</div>
 			</div>

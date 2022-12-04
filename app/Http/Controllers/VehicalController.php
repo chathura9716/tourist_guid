@@ -76,4 +76,9 @@ class VehicalController extends Controller
         $vehical=Vehical::all();
         return view('admin/vehicalmanagement',compact('vehical'));
     }
+    public function vehicalshow($vehicalId){
+
+        $vehical=Vehical::FindOrFail($vehicalId);
+        return view('vehical.show',compact('vehical'));
+    }
 }

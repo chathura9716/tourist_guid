@@ -88,7 +88,6 @@ class PlaceController extends Controller
             'type' => $request ->type,
             'province' => $request ->province,
             'city' => $request ->city,
-
             'description'=>$request->description,
             'thumbnail' =>$imageName
 

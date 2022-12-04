@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Hotel;
+use App\Models\Vehical;
 
 class HotelSeeder extends Seeder
 {
@@ -17,7 +18,7 @@ class HotelSeeder extends Seeder
     {
         Hotel::create([
             
-            'user_id' => '2',
+            'user_id' => '1',
             'hotel_name' => 'Shangri-La Colombo ',
             'type' => '5 Star',
             'address' => 'galle face beach,Colombo',
@@ -92,6 +93,22 @@ class HotelSeeder extends Seeder
 
             ',
             'thumbnail' => 'fairway-colombo.jpg',
+        ]);
+
+        Vehical::create([
+            
+            'user_id' => '2',
+            'model' => 'Nissan ',
+            'driver_name' => 'Sujith',
+            'contact' => '0765362534',
+            'licence_no' => '145247885',
+            'vehical_no' => 'CA-1478',
+            'type'=>'Van',
+            'city'=>'Sigirya',
+            
+            'thumbnail' => '1670164390.jpg',
+    
+        
         ]);
 
     }

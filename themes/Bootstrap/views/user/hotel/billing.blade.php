@@ -22,7 +22,6 @@
                   <span class="mb-2 text-xs">Rooms: <span class="text-dark font-weight-bold ms-sm-2">{{$book->rooms}}</span></span>
                   <span class="mb-2 text-xs">message: <span class="text-dark font-weight-bold ms-sm-2">{{$book->message}}</span></span>
                   <span class="mb-2 text-xs">Status: <span class="text-dark font-weight-bold ms-sm-2">{{$book->action}}</span></span>
-                  <span class="mb-2 text-xs">action: <span class="text-dark ms-sm-2 font-weight-bold">oliver@burrito.com</span></span>
                   
                 </div>
                 <div class="ms-auto text-end">
@@ -37,52 +36,7 @@
         </div>
       </div>
 </div>
-<!-- <h1>Booking Requests</h1>
-<table class="table">
-            <thead class="thead-dark">
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">Hotel Name</th>
-                <th scope="col">Hotel check In</th>
-                <th scope="col">Hotel check Out</th>
-                <th scope="col">Comfort</th>
 
-                <th scope="col">Rooms</th>
-                <th scope="col">message</th>
-
-                <th scope="col">Status</th>
-                <th scope="col">action</th>
-                
-              
-                </tr>
-            </thead>
-            <tbody>
-            @foreach ($bookinghotel as $book)
-            <tr>
-                
-                
-                <td scope="col">{{$book->tourist_name}}</td>
-                <td scope="col">{{$book->hotel_name}}</td>
-                <td scope="col">{{$book->checkin}}</td>
-                <td scope="col">{{$book->checkout}}</td>
-                <td scope="col">{{$book->comfort}}</td>
-                <td scope="col">{{$book->rooms}}</td>
-                <td scope="col">{{$book->message}}</td>
-                <td scope="col">{{$book->action}}
-                   
-                </td>
-
-
-                <td scope="col">
-                <a href="{{url('accepthotel',$book->id)}}" name="action"  class="btn btn-primary" type="button" value="">accept</a>
-                    <a href="{{url('cancelhotel',$book->id)}}" name="action"  class="btn btn-danger" type="button" value="">cancel</a>
-
-                </td>
-            </tr>
-            @endforeach 
-            </tbody>
-        </table> -->
- 
  
 @endsection
 

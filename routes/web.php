@@ -11,6 +11,8 @@ use App\Http\Controllers\HotelController;
 use App\Http\Controllers\VehicalController;
 use App\Http\Controllers\TouristregisterController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\HotelBookingController;
+use App\Http\Controllers\VehicalBookingController;
 
 
 /*
@@ -39,6 +41,7 @@ Route::get('/places', [App\Http\Controllers\PlaceController::class, 'welcomeplac
 Route::get('/ViewAllPlaces',[PlaceController::class,'ViewAllPlaces']);
 Route::get('/hotels', [HotelController::class, 'welcomehotel'])->name('hotel');
 Route::get('/place/{placeId}/show', [PlaceController::class, 'show'])->name('place.show');
+Route::get('/vehical/{vehicalId}/show', [VehicalController::class, 'vehicalshow'])->name('vehical.show');
 
 
 
@@ -67,6 +70,8 @@ Route::get('/addhotelview', [App\Http\Controllers\HotelController::class, 'Addho
 
 Route::get('/accepthotel/{bookingId}', [App\Http\Controllers\HotelBookingController::class, 'accept'])->name('accepthotel');
 Route::get('/cancelhotel/{bookingId}', [App\Http\Controllers\HotelBookingController::class, 'cancel'])->name('cancelhotel');
+
+
 });
 
 //places add crud
@@ -80,10 +85,11 @@ Route::get('/cancelhotel/{bookingId}', [App\Http\Controllers\HotelBookingControl
     Route::get('/addplaces', [DashboardController::class, 'addplacesview'])->name('admin.addplaces');
 
 //vehical add
-    Route::post('/vehical/store', [VehicalController::class, 'store'])->name('vehical.store');
-    Route::get('/vehical/{vehicalId}/edit', [VehicalController::class, 'edit'])->name('vehical.edit');
-    Route::post('/vehical/{vehicalId}/update', [VehicalController::class, 'update'])->name('vehical.update');
-    Route::get('/vehical/{vehicalId}/delete', [VehicalController::class, 'delete'])->name('vehical.delete');
+    // Route::post('/vehical/store', [VehicalController::class, 'store'])->name('vehical.store');
+    // Route::get('/vehical/{vehicalId}/edit', [VehicalController::class, 'edit'])->name('vehical.edit');
+    // Route::post('/vehical/{vehicalId}/update', [VehicalController::class, 'update'])->name('vehical.update');
+    // Route::get('/vehical/{vehicalId}/delete', [VehicalController::class, 'delete'])->name('vehical.delete');
+    
 
 //admin users pages
 
@@ -110,6 +116,10 @@ Route::group(['middleware'=>'auth'], function(){
     Route::post('/vehical/{vehicalId}/update', [VehicalController::class, 'update'])->name('vehical.update');
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
 
+    Route::get('/acceptvehical/{bookingId}', [App\Http\Controllers\VehicalBookingController::class, 'accept'])->name('acceptvehical');
+Route::get('/cancelvehical/{bookingId}', [App\Http\Controllers\VehicalBookingController::class, 'cancel'])->name('cancelvehical');
+
+
 });
    
 //tourist auth routes
@@ -131,7 +141,9 @@ Route::group(['middleware'=>'auth'], function(){
         Route::post('/bookhotel', [App\Http\Controllers\HotelBookingController::class, 'store'])->name('bookhotel');
         Route::get('/bookhotel/{bookingId}/delete', [HotelBookingController::class, 'delete'])->name('bookhotel.delete');
         Route::get('/hotel/{hotelId}/view', [HotelController::class, 'show'])->name('hotel.show');
-
+//booking vehical
+        Route::post('/bookvehical', [VehicalBookingController::class, 'store'])->name('bookvehical');
+        Route::get('/bookvehical/{bookingId}/delete', [VehicalBookingController::class, 'delete'])->name('bookvehical.delete');
 
 Route::get('/search' ,[HotelController::class, 'search'])->name('search');
 
@@ -141,6 +153,8 @@ Route::get('user-management', [UserController::class, 'usermanege'])->name('user
 Route::get('logoutuser', [UserController::class, 'logout'])->name('logoutuser');
 Route::get('placesmanagement', [PlaceController::class, 'placemanage'])->name('placesmanagement');
 Route::get('vehicalmanagement', [VehicalController::class, 'vehicalmanage'])->name('vehicalmanagement');
+Route::get('vehicalbookingmanage', [VehicalBookingController::class, 'vehicalBookingManage'])->name('vehicalbookingmanage');
+
 
 Route::get('hotelmanage', [HotelController::class, 'hotelmanage'])->name('hotelmanage');
 
@@ -148,7 +162,7 @@ Route::get('hotelblog', [HomeController::class, 'hotelblog'])->name('hotelblog')
 Route::get('touristblog', [HomeController::class, 'touristblog'])->name('touristblog');
 
 Route::get('/editprofile/{id}', [TouristController::class, 'editprofile'])->name('editprofile');
-Route::post('/touristprofileupdate', [TouristController::class, 'touristprofileupdate'])->name('touristprofileupdate');
+Route::post('/touristprofileupdate/{userId}', [TouristController::class, 'touristprofileupdate'])->name('touristprofileupdate');
 
 
 

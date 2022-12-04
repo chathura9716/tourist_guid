@@ -163,7 +163,7 @@ text-decoration:none;
 
 
 <div class="container py-5 h-100">
-<h1>My Booking Requests</h1>
+<h1>Hotel Booking Requests</h1>
 <table class="table">
             <thead class="thead-dark">
                 <tr>
@@ -203,6 +203,47 @@ text-decoration:none;
                
  <div>
 
+ 
+<div class="container py-5 h-100">
+<h1>Vehical Booking Requests</h1>
+<table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Vehical id</th>
+                <th scope="col">pick up</th>
+                <th scope="col">drop off</th>
+                <th scope="col">pickup time</th>
+
+                <th scope="col">Vehical Status</th>
+
+                <th scope="col">Action</th>
+                
+              
+                </tr>
+            </thead>
+            <tbody>
+            @foreach ($bookingvehical as $book)
+            <tr>
+                <td scope="col">{{$book->tourist_id}}</td>
+                <td scope="col">{{$book->vehical_id}}</td>
+                <td scope="col">{{$book->pickup}}</td>
+                <td scope="col">{{$book->dropoff}}</td>
+                <td scope="col">{{$book->pickuptime}}</td>
+                <td scope="col">{{$book->action}}</td>
+
+
+                <td scope="col">
+                <a href="{{Route('bookhotel.delete',$book->id)}}" class="btn btn-sm btn-danger">Delete</a>
+
+                </td>
+            </tr>
+            @endforeach 
+            </tbody>
+        </table>
+        </div>
+               
+ <div>
 
               
 

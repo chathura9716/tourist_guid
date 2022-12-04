@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Session;
-use App\Models\Booking;
+use App\Models\VehicalBooking;
 use Illuminate\Support\Facades\Validator;
 use DB;
 use Auth;
 
-class HotelBookingController extends Controller
+class VehicalBookingController extends Controller
 {
     public function store(Request $request){
 
@@ -17,10 +17,11 @@ class HotelBookingController extends Controller
             
             'tourist_name' => 'required',
             'email' => 'required',
-            'hotel_id' =>'required',
+            'vehical_id' =>'required',
           
-            'checkin' =>'required',
-            'checkout'=>'required',
+            'pickup' =>'required',
+            'dropoff'=>'required',
+            'pickuptime'=>'required'
 
         ]);
         
@@ -31,28 +32,25 @@ class HotelBookingController extends Controller
         {
             
           
-            Booking::create([
+            VehicalBooking::create([
                   
                 'user_id'=>Auth::user()->id,
                 'tourist_name' => $request->tourist_name,
                 'country' => $request ->country,
                 'email' => $request ->email,
                
-                'hotel_id' =>$request ->hotel_id,
+                'vehical_id' =>$request ->vehical_id,
                // 'agent_id'->$request->agent_id,
-                'checkin'=>$request->checkin,
-                'checkout' =>$request->checkout,
-                'comfort' => $request ->comfort,
-                'adults' => $request ->adults,
-                'childrens' => $request ->childrens,
-                'rooms' => $request ->rooms,
-                'message' => $request ->message,
+                'pickup'=>$request->pickup,
+                'dropoff' =>$request->dropoff,
+            
+                'pickuptime' => $request ->pickuptime,
                 
 
     
     
             ]);
-            return  redirect(route('dashboard'))->with('success','booking request send successfully!');
+            return  redirect(route('dashboard'))->with('success','vehical booking request send successfully!');
         }
     }
        
@@ -60,33 +58,33 @@ class HotelBookingController extends Controller
     
     
     public function accept($bookingId){
-        $book = Booking::findOrFail($bookingId);
+        $book = VehicalBooking::findOrFail($bookingId);
         $book ->action = "Accepted";
         $book->save();
         return redirect()->back();
     }
     public function cancel($bookingId){
-        $book = Booking::findOrFail($bookingId);
+        $book = VehicalBooking::findOrFail($bookingId);
         $book ->action = "Cancelled";
         $book->save();
         return redirect()->back();
     }
     
     public function delete($bookingId){
-        Booking::FindOrFail($bookingId)->delete();
+        VehicalBooking::FindOrFail($bookingId)->delete();
         return redirect(route('dashboard'))->with('booking request delete successfully!!');
     }
-    public function billing() {
+    public function vehicalBookingManage() {
         
-        $data=array();
-        $data = DB::table('hagencies')->where('user_id',Auth::user()->id)->first();
+        // $data=array();
+        // $data = DB::table('hagencies')->where('user_id',Auth::user()->id)->first();
                         
 
-        $bookinghotel=DB::table('hotels')
-                    ->join('bookings', 'hotels.id', '=', 'bookings.hotel_id')
-                    ->where('hotels.user_id','=',Auth::user()->id)
+        $bookingvehicals=DB::table('vehicals')
+                    ->join('vehical_bookings', 'vehicals.id', '=', 'vehical_bookings.vehical_id')
+                    ->where('vehicals.user_id','=',Auth::user()->id)
                     ->get();
                       
-                    return view('user.hotel.billing',compact('bookinghotel','data'));
+                    return view('admin.vehicalbookingmanage',compact('bookingvehicals'));
     }
 }
