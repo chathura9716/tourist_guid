@@ -100,7 +100,7 @@
                       </div>
                     @endforeach
 				</div>
-				<div class="grid_3 prefix_1">
+				<!-- <div class="grid_3 prefix_1">
 					<h3 class="head1">CATEGORIES</h3>
 					<ul class="list">
 						<li><a href="#">category 1 </a></li>
@@ -116,7 +116,7 @@
 						<li><a href="#">August 2013</a></li>
 						<li><a href="#">July 2013</a></li>
 					</ul>
-				</div>
+				</div> -->
 			</div>
 		</div>
         <!--==============================footer=================================-->

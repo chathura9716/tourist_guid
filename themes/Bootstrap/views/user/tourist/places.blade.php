@@ -63,8 +63,9 @@
 			</div>
 		</header>
 <!--==============================Content=================================-->
-		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
+		<div class="content"><div class="ic"></div>
 			<div class="container_12">
+				
 				<div class="grid_8">
 					<h3>Places for visit</h3>
 					@foreach ($places as $place)
@@ -81,7 +82,7 @@
 					
 					
 				</div>
-				<div class="grid_3 prefix_1">
+				<!-- <div class="grid_3 prefix_1">
 					<h5>CHOOse the country</h5>
 					<ul class="list">
 						<li><a href="#">Albania</a></li>
@@ -98,7 +99,7 @@
 						<li><a href="#">Bermudas</a></li>
 					</ul>
 					<a href="#" class="link1">VIEW A<span class="low">ll</span></a>
-				</div>
+				</div> -->
 			</div>
 		</div>
 <!--==============================footer=================================-->

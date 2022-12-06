@@ -90,7 +90,7 @@
 					
 					
 				</div>
-				<div class="grid_3 prefix_1">
+				<!-- <div class="grid_3 prefix_1">
 					
 					<h5>CHOOse the country</h5>
 					
@@ -111,7 +111,7 @@
 						<li><a href="#">Bermudas</a></li>
 					</ul>
 					<a href="#" class="link1">VIEW A<span class="low">ll</span></a>
-				</div>
+				</div> -->
 			</div>
 		</div>
 <!--==============================footer=================================-->

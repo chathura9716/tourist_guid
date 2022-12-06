@@ -45,7 +45,7 @@ class UserController extends Controller
             $hotels = Hotel::where('user_id',Auth::user()->id)->get();
             $vehicals = Vehical::where('user_id',Auth::user()->id)->get();
        
-            $vehicalId=Vehical::where('user_id',Auth::user()->id)->first()->id;
+            $vehicalId=Vehical::where('user_id',Auth::user()->id)->first();
 
         
             $role=Auth::user()->role;
