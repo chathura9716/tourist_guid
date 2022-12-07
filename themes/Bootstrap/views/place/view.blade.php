@@ -1,3 +1,4 @@
+
 @extends('layouts.frontend')
 @section('content')
 <style>
@@ -265,6 +266,10 @@ Template sidebar
 .media-body h5 a:hover {
     color: #4782d3;
 }
+.p{
+    color: yellow;
+    font-size: 20px;
+}
 </style>
 <br>
 
@@ -331,7 +336,32 @@ Template sidebar
                             <p>{{$hotel->city}}</p>
                             <p>{{$hotel->type}}</p>
 							
-							<button><a  href="{{Route('hotel.show',$place->id)}}" >See more</a></button>
+							<button><a  href="{{Route('hotel.show',$hotel->id)}}" >See more</a></button>
+							</div>
+						</div>
+					</div>
+				</div>
+  
+
+  @endforeach
+  
+</div>
+
+<h1>Nearest Vehicals for rent</h1> 
+   
+<div class="wrapper">
+
+@foreach ($vehical as $vehical) 
+<div class="grid_4">
+					<div class="wrapper">
+
+						<div class="card"><img src="{{asset('thumbnails/'.$vehical->thumbnail)}}" />
+							<div class="info">
+                            <p>{{$vehical->vehical_no}}</p>
+                            <p>{{$vehical->model}}</p>
+                            <p>{{$vehical->type}}</p>
+							
+							<button><a  href="{{Route('vehical.show',$vehical->id)}}" >Book now</a></button>
 							</div>
 						</div>
 					</div>
@@ -344,29 +374,7 @@ Template sidebar
             <!-- post article-->
 
         </div>
-        <div class="col-md-3 mb40">
-            
-            <!--/col-->
-            <div class="mb40">
-                <h4 class="sidebar-title">Categories</h4>
-                <ul class="list-unstyled categories">
-                    <li><a href="#">Rent</a></li>
-                    <li><a href="#">Sale</a></li>
-                    <li class="active"><a href="#">Apartment</a>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Office</a></li>
-                            <li><a href="#">Godown</a></li>
-                            <li><a href="#">Gerage</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Top Rating</a></li>
-                    <li><a href="#">Trending</a></li>
-                    <li><a href="#">Newest Properties</a></li>
-                </ul>
-            </div>
-            <!--/col-->
-            
-        </div>
+        
     </div>
 </div>
 
