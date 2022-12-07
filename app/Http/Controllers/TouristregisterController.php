@@ -7,15 +7,11 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth,Guest;
-use Illuminate\Support\Facades\DB;
+
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-<<<<<<< HEAD
-
-=======
 //use DB;
->>>>>>> master
 use App\Models\Tourist;
 use App\Models\Post;
 use App\Models\User;

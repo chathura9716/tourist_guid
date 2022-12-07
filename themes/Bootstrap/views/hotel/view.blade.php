@@ -9,16 +9,6 @@
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
     
-    
-    
-    
-    
-    
-    
-    
-    
-
-
   </head>
   <body class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-header" id="sec-0d38"><div class="u-clearfix u-sheet u-sheet-1"></div></header>
     <section class="u-align-center u-clearfix u-image u-shading u-section-1" src="{{asset('thumbnails/'.$hotel->thumbnail)}}" data-image-width="1124" data-image-height="1500" id="">

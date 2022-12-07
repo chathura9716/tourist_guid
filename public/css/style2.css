@@ -49,6 +49,14 @@ body {
     font-size: 20px;
 
 }
+.card-img-top{
+   
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+      
+}
 .heading{
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.2)),url(images/hotelfron.jpeg) center/cover no-repeat;
     min-height: 100vh;

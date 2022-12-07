@@ -266,21 +266,18 @@ Template sidebar
 .media-body h5 a:hover {
     color: #4782d3;
 }
-.p{
-    color: yellow;
-    font-size: 20px;
-}
+
 </style>
 <br>
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<div class="container pb50">
+<div  class="container pb50">
     <div class="row">
-        <div class="col-md-9 mb40">
+        <div class="col-md-12 mb40">
             <article>
-                <img src="{{asset('thumbnails/'.$place->thumbnail)}}" alt="" class="img-fluid mb30">
+            <h3 style="color: #f3aa29 ; font-size:50px; text-align:center;">{{$place->place_name}}</h3>
+                <img src="{{asset('thumbnails/'.$place->thumbnail)}}" alt=""  class="img-fluid mb30">
                 <div class="post-content">
-                    <h3>{{$place->place_name}}</h3>
                     <ul class="post-meta list-inline">
                         <li class="list-inline-item">
                             <i class="fa fa-user-circle-o"></i> <a href="#">{{$place->user->name}}</a>
@@ -291,30 +288,30 @@ Template sidebar
                       
                     </ul>
                   
-                    <p>{{$place->description}} </p>
-                    <h3>City</h3>
-                    <p>{{$place->city}} </p>
-                    <h3>Province</h3>
-                    <p>{{$place->province}} </p>
+                    <p style="font-size:25px ; text-align:justify">{{$place->description}} </p>
+                    <strong style="color:#09052f ; font-size:35px; ">City</strong>
+                    <p style="font-size:25px ;">{{$place->city}} </p>
+                    <strong style="color:#09052f ; font-size:35px; ">Province</strong>
+                    <p style="font-size:25px ;">{{$place->province}} </p>
                     
-                    <ul class="list-inline share-buttons">
+                    <ul  class="list-inline share-buttons">
                        
                         <li class="list-inline-item">
                             <a href="#" class="social-icon-sm si-dark si-colored-facebook si-gray-round">
                                 <i class="fa fa-facebook"></i>
-                                <i class="fa fa-facebook"></i>
+                                
                             </a>
                         </li>
                         <li class="list-inline-item">
                             <a href="#" class="social-icon-sm si-dark si-colored-twitter si-gray-round">
                                 <i class="fa fa-twitter"></i>
-                                <i class="fa fa-twitter"></i>
+                                
                             </a>
                         </li>
                         <li class="list-inline-item">
                             <a href="#" class="social-icon-sm si-dark si-colored-linkedin si-gray-round">
                                 <i class="fa fa-linkedin"></i>
-                                <i class="fa fa-linkedin"></i>
+                               
                             </a>
                         </li>
                     </ul>
@@ -322,7 +319,7 @@ Template sidebar
                   
                 </div>
             </article>
-  <h1>Nearest Hotels</h1> 
+  <strong style="color:#09052f ; font-size:35px; ">Nearest Hotels</strong> 
    
 <div class="wrapper">
 
@@ -347,7 +344,7 @@ Template sidebar
   
 </div>
 
-<h1>Nearest Vehicals for rent</h1> 
+<strong style="color:#09052f ; font-size:35px; ">Nearest Vehicals for rent</strong>
    
 <div class="wrapper">
 
@@ -384,7 +381,12 @@ Template sidebar
 * {
   box-sizing: border-box;
 }
-
+.img-fluid {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 
 
 .wrapper {
