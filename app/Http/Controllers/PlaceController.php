@@ -10,6 +10,7 @@ use DB;
 
 class PlaceController extends Controller
 {
+    
     public function store(Request $request){
 
         $validator = Validator::make($request ->all(),[
@@ -50,6 +51,10 @@ class PlaceController extends Controller
             return view('places',compact('places'));
 
     }
+    public function placemanage(){
+        $places=Place::all();
+        return view('admin/placesmanagement',compact('places'));
+    }
     public function ViewAllPlaces(){
         $places=Place::all();
         return view('ViewAllPlaces',compact('places'));
@@ -60,9 +65,10 @@ class PlaceController extends Controller
         $place = Place::findOrFail($placeId);
 
         $hotel=DB::table('hotels')->where('hotels.city','=', $place->city)->get();
-                    
+        $vehical=DB::table('vehicals')->where('vehicals.city','=', $place->city)->get();
+           
      
-        return view('place.view',compact('place','hotel'));
+        return view('place.view',compact('place','hotel','vehical'));
     }
 
     public function edit($placeId){
@@ -73,8 +79,23 @@ class PlaceController extends Controller
 
     public function update($placeId,Request $request){
         //dd($request ->all());
-        Place::findOrFail($placeId)->update($request ->all());
-        return redirect(route('place.view'))->with('status','Post updated!');
+        $imageName = time() . ".".$request ->thumbnail->extension();
+        $request->thumbnail->move(public_path('thumbnails'),$imageName );
+
+        Place::findOrFail($placeId)->update([
+            'user_id'=>auth()->user()->id,
+            'place_name' => $request->place_name,
+            'type' => $request ->type,
+            'province' => $request ->province,
+            'city' => $request ->city,
+            'description'=>$request->description,
+            'thumbnail' =>$imageName
+
+
+        ]);
+  
+        //save image in public folder
+        return redirect(route('dashboard'))->with('status','place updated!');
     }
 
     public function delete($placeId){

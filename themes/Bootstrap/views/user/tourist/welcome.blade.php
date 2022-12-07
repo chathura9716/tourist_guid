@@ -71,10 +71,10 @@
 					<div class="menu_block">
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 						<ul class="sf-menu">
-                                <li class="current"><a href="{{route('touristWelcome')}}">Home</a></li>
-								<li><a href="{{route('dashboard')}}">Dashboard</a></li>
+                                <li  ><a class="nav-link {{ (Request::is('touristWelcome') ? 'active' : '') }}" href="{{route('touristWelcome')}}">Home</a></li>
+								<li ><a class="nav-link {{ (Request::is('dashboard') ? 'active' : '') }}" href="{{route('dashboard')}}">Dashboard</a></li>
 
-								<li><a href="{{route('touristHotel')}}">Hotels</a></li>
+								<li><a class="nav-link {{ (Request::is('touristHotel') ? 'active' : '') }}" href="{{route('touristHotel')}}">Hotels</a></li>
 								<li><a href="{{route('touristPlace')}}">Places</a></li>
 								<li><a href="{{route('touristBlog')}}">BLOG</a></li>
 							</ul>
@@ -95,7 +95,7 @@
 			<div id="camera_wrap" class="">
 				<div data-src="images/galle.jpg">
 					<div class="caption fadeIn" >
-						<h2><b>Beautiful Beaches</b></h2>
+						<h2 style="color: oriange ;"><b>Beautiful Beaches</b></h2>
 						<!-- <a href="{{ route('dashboard') }}">Dashboard</a><br> -->
 						<!-- <div class="price">
 							FROM
@@ -108,7 +108,7 @@
 				</div>
 				<div data-src="images/HD-wallpaper-sigiriya-sri-lanka-national-rocks.jpg">
 					<div class="caption fadeIn">
-						<h2><b>Historical Places</b></h2>
+						<h2 style="color: black;"><b>Historical Places</b></h2>
 						<!-- <div class="price">
 							FROM
 							<span>$2000</span>s
@@ -120,7 +120,7 @@
 				</div>
 				<div data-src="images/nallur.jpg">
 					<div class="caption fadeIn">
-						<h2><b>Religious Places</b></h2>
+						<h2 style="color: white;"><b>Religious Places</b></h2>
 						<!-- <div class="price">
 							FROM
 							<span>$1600</span>
@@ -133,14 +133,14 @@
 
 				<div data-src="images/sri-lanka-yala.jpeg">
 					<div class="caption fadeIn">
-						<h2><b>Adventures</b></h2>
-						<a href="{{ route('dashboard') }}">Dashboard</a><br>
+						<h2 style="color:blue;"><b>Adventures</b></h2>
+						
 					</div>
 				</div>
 				<div data-src="images/ninearcjpg.jpg">
 					<div class="caption fadeIn">
-						<h2><b>Beauty of Up Country</b></h2>
-						<a href="{{ route('dashboard') }}">Dashboard</a><br>
+						<h2 style="color:aqua ;"><b>Beauty of Up Country</b></h2>
+						
 					</div>
 				</div>
 			</div>
@@ -154,7 +154,10 @@
   box-sizing: border-box;
 }
 
+h2{
+	font-family: "cursive";
 
+}
 
 .wrapper {
   display: flex;
@@ -262,7 +265,7 @@
 				
 				
 				<div class="clear"></div>
-				<div class="grid_6">
+				<div class="">
 					<h3>Booking Now</h3>
 					<form method="POST" action="{{ route('bookhotel') }}"id="bookingForm">
 						@csrf
@@ -349,7 +352,7 @@
 						<button>submit</button>
 					</form>
 				</div>
-				<div class="grid_5 prefix_1">
+				<!-- <div class="grid_5 prefix_1">
 					<h3>Welcome</h3>
 					<img src="images/page1_img1.jpg" alt="" class="img_inner fleft">
 					<div class="extra_wrapper">
@@ -401,19 +404,18 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 <!--==============================footer=================================-->
 		<footer>
 			<div class="container_12">
 				<div class="grid_12">
 					<div class="socials">
 					<a href="{{route('touristContact')}}" class="fa fa-phone"></a>
-						<a href="#" class="fa fa-facebook"></a>
-						<a href="#" class="fa fa-twitter"></a>
-						<a href="#" class="fa fa-google-plus"></a>
+						<a href="https://www.facebook.com/profile.php?id=100066857520486" class="fa fa-facebook"></a>
+						<a href="https://twitter.com/Tuoristss" class="fa fa-twitter"></a>
 					</div>
 					<div class="copy">
-						Tourist guid (c) 2022 | <a href="#">Privacy Policy</a> | 
+						Tourist guid (c) 2022 | <a href="#">Privacy Policy</a> | All Right Received
 					</div>
 				</div>
 			</div>

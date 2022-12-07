@@ -1,7 +1,12 @@
-@extends('layouts.admin')
+@extends('layouts.user_type.auth')
+
 @section('content')
-admindash>>
+
 <style>
+    td {
+  overflow: hidden;
+  max-width: 75ch;
+}
   body{
     background:#eee;    
 }
@@ -190,148 +195,240 @@ text-decoration:none;
 <br><br>
 
 
-<div class="container py-5 h-100">
-  <h1>Places Table</h1>
-   <table class="table">
+
+          <h1>Vehical Booking Requests</h1>
+        <table class="table">
             <thead class="thead-dark">
                 <tr>
-                <th scope="col">#</th>
-                <th scope="col">Title</th>
-                <th scope="col">Description</th>
-                <th scope="col">Action</th>
+                
+                <th scope="col">Tourist Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Pickup date</th>
+                <th scope="col">Drop off date</th>
+                <th scope="col">Pick up time</th>
+
+               
+
+                <th scope="col">Status</th>
+                <th scope="col">action</th>
+                
+              
                 </tr>
             </thead>
             <tbody>
-                @foreach ($places as $place)
-                <tr>
-                    <th scope="row">{{$place->id}}</th>
-                    <td>{{$place->place_name}}</td>
-                    <td>{{$place->description}}</td>
-                    <td>
-                        
-                        <a href="{{Route('place.edit',$place->id)}}" class="btn btn-sm btn-primary">Edit</a>
-                        <a href="{{Route('place.delete',$place->id)}}" class="btn btn-sm btn-danger">Delete</a>
-                    </td>
-                </tr>
-                @endforeach
+            @foreach ($bookingvehical as $book)
+            <tr>
                 
+                
+                <td scope="col">{{$book->tourist_name}}</td>
+                <td scope="col">{{$book->email}}</td>
+                <td scope="col">{{$book->pickup}}</td>
+                <td scope="col">{{$book->dropoff}}</td>
+              
+                <td scope="col">{{$book->pickuptime}}</td>
+                <td scope="col">{{$book->action}}
+                   
+                </td>
+
+
+                <td scope="col">
+                <a href="{{url('acceptvehical',$book->id)}}" name="action"  class="btn btn-primary" type="button" value="">accept</a>
+                    <a href="{{url('cancelvehical',$book->id)}}" name="action"  class="btn btn-danger" type="button" value="">cancel</a>
+
+                </td>
+            </tr>
+            @endforeach 
             </tbody>
         </table>
-        </div>
 
         
-        <br><br>
 
-
-        
- <div>
-<h1>Admin's Blogs</h1>
-<table class="table">
-            <thead class="thead-dark">
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">Title</th>
-                <th scope="col">Description</th>
-                <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($posts as $post)
-                <tr>
-                    <th scope="row">{{$post->id}}</th>
-                    <td>{{$post->title}}</td>
-                    <td>{{$post->description}}</td>
-                    <td>
-                        
-                        <a href="{{Route('posts.edit',$post->id)}}" class="btn btn-sm btn-primary">Edit</a>
-                        <a href="{{Route('posts.delete',$post->id)}}" class="btn btn-sm btn-danger">Delete</a>
-                    </td>
-                </tr>
-                @endforeach
-                
-            </tbody>
-        </table>
-        </div>
-     
-        
-
-        <br><br>
-
-        <section  class="vh-100" style="background-color: #f4f5f7;">
-<h1>User Table</h1>
-<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-<hr>
-<div class="container bootstrap snippets bootdey">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="main-box no-header clearfix">
-                <div class="main-box-body clearfix">
-                    <div class="table-responsive">
-                        <table class="table user-list">
-                            <thead>
-                                <tr>
-                                <th><span>Name</span></th>
-                                <th><span>Email</span></th>
-
-                                <th><span>Address</th>
-                               
-
-                                <th>Action</th>
-                      
-                            
-                                <th>&nbsp;</th>
-                                </tr>
-                            </thead>
-                            @foreach ($users as $user)
-                            <tbody>
-                              
-                           
-        
- 
-                                    <td>
-                                        <img src="images/profile.jpg" alt="">
-                                      
-                                        <span class="user-subhead">{{$user->name}}</span>
-                                    </td>
-                                    <td>{{$user->email}}</td>
-                                   
-                                    <td>{{$user->address}}</td>
-                                  
-                                  
-                                
-                                    <td style="width: 20%;">
-                                        <a href="#" class="table-link  text-warning">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                        <a href="{{Route('user.edit',$user->id)}}" class="table-link  text-info">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                        <a href="{{Route('user.delete',$user->id)}}" class="table-link danger">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            @endforeach
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
    
 
+        
+                           
     
-    </section>
-    <br>
+       
+
+   
+
+
 @endsection
+@push('dashboard')
+  <script>
+    window.onload = function() {
+      var ctx = document.getElementById("chart-bars").getContext("2d");
+
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+          datasets: [{
+            label: "Sales",
+            tension: 0.4,
+            borderWidth: 0,
+            borderRadius: 4,
+            borderSkipped: false,
+            backgroundColor: "#fff",
+            data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
+            maxBarThickness: 6
+          }, ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            }
+          },
+          interaction: {
+            intersect: false,
+            mode: 'index',
+          },
+          scales: {
+            y: {
+              grid: {
+                drawBorder: false,
+                display: false,
+                drawOnChartArea: false,
+                drawTicks: false,
+              },
+              ticks: {
+                suggestedMin: 0,
+                suggestedMax: 500,
+                beginAtZero: true,
+                padding: 15,
+                font: {
+                  size: 14,
+                  family: "Open Sans",
+                  style: 'normal',
+                  lineHeight: 2
+                },
+                color: "#fff"
+              },
+            },
+            x: {
+              grid: {
+                drawBorder: false,
+                display: false,
+                drawOnChartArea: false,
+                drawTicks: false
+              },
+              ticks: {
+                display: false
+              },
+            },
+          },
+        },
+      });
+
+
+      var ctx2 = document.getElementById("chart-line").getContext("2d");
+
+      var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+      gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
+      gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+      gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
+
+      var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+      gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
+      gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+      gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
+
+      new Chart(ctx2, {
+        type: "line",
+        data: {
+          labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+          datasets: [{
+              label: "Mobile apps",
+              tension: 0.4,
+              borderWidth: 0,
+              pointRadius: 0,
+              borderColor: "#cb0c9f",
+              borderWidth: 3,
+              backgroundColor: gradientStroke1,
+              fill: true,
+              data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+              maxBarThickness: 6
+
+            },
+            {
+              label: "Websites",
+              tension: 0.4,
+              borderWidth: 0,
+              pointRadius: 0,
+              borderColor: "#3A416F",
+              borderWidth: 3,
+              backgroundColor: gradientStroke2,
+              fill: true,
+              data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
+              maxBarThickness: 6
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            }
+          },
+          interaction: {
+            intersect: false,
+            mode: 'index',
+          },
+          scales: {
+            y: {
+              grid: {
+                drawBorder: false,
+                display: true,
+                drawOnChartArea: true,
+                drawTicks: false,
+                borderDash: [5, 5]
+              },
+              ticks: {
+                display: true,
+                padding: 10,
+                color: '#b2b9bf',
+                font: {
+                  size: 11,
+                  family: "Open Sans",
+                  style: 'normal',
+                  lineHeight: 2
+                },
+              }
+            },
+            x: {
+              grid: {
+                drawBorder: false,
+                display: false,
+                drawOnChartArea: false,
+                drawTicks: false,
+                borderDash: [5, 5]
+              },
+              ticks: {
+                display: true,
+                color: '#b2b9bf',
+                padding: 20,
+                font: {
+                  size: 11,
+                  family: "Open Sans",
+                  style: 'normal',
+                  lineHeight: 2
+                },
+              }
+            },
+          },
+        },
+      });
+    }
+  </script>
+@endpush
+
+
+
+

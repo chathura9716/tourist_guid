@@ -14,7 +14,7 @@ class Tourist extends Model
         'user_id',
         'first_name',
         'last_name',
-        
+        'thumbnail',
         'age',
         'gender',
         'origin',

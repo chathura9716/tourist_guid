@@ -38,9 +38,7 @@ class HotelController extends Controller
                     'address' => $request ->address,
                     'city' => $request ->city,
                     'description'=>$request->description,
-                    'thumbnail' =>$imageName
-        
-        
+                    'thumbnail' =>$imageName,
                 ]);
             }
             return  redirect(route('dashboard'))->with('status','hotel created successfully!');
@@ -71,22 +69,37 @@ class HotelController extends Controller
 
     public function show($hotelId){
 
-        $data=array();
-        $data = DB::table('hotels')->where('user_id',Auth::user()->id)->first();
+        // $data=array();
+        // $data = DB::table('hotels')->where('user_id',Auth::user()->id)->first();
                 
         $hotel = Hotel::findOrFail($hotelId);
 
-        return view('hotel.view',compact('hotel','data'));
+        return view('hotel.view',compact('hotel'));
     }
 
     public function edit($hotelId){
         $hotel = Hotel::findOrFail($hotelId);
         return view('hotel.edit',compact('hotel'));
     } 
+   
 
     public function update($hotelId,Request $request){
         //dd($request ->all());
-        Hotel::findOrFail($hotelId)->update($request ->all());
+        $imageName = time() . ".".$request ->thumbnail->extension();
+        $request->thumbnail->move(public_path('thumbnails'),$imageName );
+
+        Hotel::findOrFail($hotelId)->update([
+        //save image in public folder
+                
+              
+                    'user_id'=>auth()->user()->id,
+                    'hotel_name' => $request->hotel_name,
+                    'type' => $request ->type,
+                    'address' => $request ->address,
+                    'city' => $request ->city,
+                    'description'=>$request->description,
+                    'thumbnail' =>$imageName,
+                ]);
         return redirect(route('dashboard'))->with('status','hotel updated!');
     }
 
@@ -94,6 +107,11 @@ class HotelController extends Controller
         Hotel::FindOrFail($hotelId)->delete();
         return redirect(route('dashboard'));
     }
-
+    public function hotelmanage(){
+        $hotels = Hotel::where('user_id',Auth::user()->id)->get();
+       
+        return view('user/hotel/hotelmanagement',compact('hotels'));
+    }
+    
     
 }

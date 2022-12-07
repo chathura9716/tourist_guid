@@ -7,6 +7,13 @@
 		<link rel="icon" href="images/favicon.ico">
 		<link rel="shortcut icon" href="images/favicon.ico" />
 		<link rel="stylesheet" href="css/style1.css">
+
+		
+		<link rel="icon" href="images/logo.png" type="image/png">
+
+
+		<script src="https://kit.fontawesome.com/9054737d4b.js" crossorigin="anonymous"></script>
+
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery-migrate-1.2.1.js"></script>
 		<script src="js/script.js"></script>
@@ -41,12 +48,11 @@
 					<div class="menu_block">
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
                     	<ul class="sf-menu">
-                                <li class="current"><a href="{{route('touristWelcome')}}">Home</a></li>
-								<li><a href="{{route('dashboard')}}">Dashboard</a></li>
-
-								<li><a href="{{route('touristHotel')}}">Hotels</a></li>
-								<li><a href="{{route('touristPlace')}}">Places</a></li>
-								<li><a href="{{route('touristBlog')}}">BLOG</a></li>
+						<li ><a href="{{route('welcome')}}">Home</a></li>
+								<li><a href="{{route('places')}}">Places</a></li>
+								<li><a href="{{route('blog')}}">BLOG</a></li>
+								<li><a href="{{route('hotel')}}">HOTELS</a></li>
+                			<li><a href="{{route('contact')}}">CONTACTS</a></li>
 							</ul>
                            
 						</nav>
@@ -90,7 +96,7 @@
 					
 					
 				</div>
-				<div class="grid_3 prefix_1">
+				<!-- <div class="grid_3 prefix_1">
 					
 					<h5>CHOOse the country</h5>
 					
@@ -111,7 +117,7 @@
 						<li><a href="#">Bermudas</a></li>
 					</ul>
 					<a href="#" class="link1">VIEW A<span class="low">ll</span></a>
-				</div>
+				</div> -->
 			</div>
 		</div>
 <!--==============================footer=================================-->

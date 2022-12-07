@@ -8,8 +8,10 @@
 @import url(//fonts.googleapis.com/css?family=Open+Sans:600);
 @import url(//fonts.googleapis.com/css?family=PT+Sans+Narrow);
 
+
 html {
 	width: 100%;
+    scroll-behavior: smooth;
 
 }
 a[href^="tel:"] {
@@ -66,6 +68,7 @@ input {
 
 img {
 	max-width: 100%;
+    display: block;
 }
 
 
@@ -74,6 +77,7 @@ img {
 
 
 h1, h2, h3, h4, h5, h6 {
+    padding: 8px 0;
     font-weight: normal;
 	color: #3e454c;
     text-transform: uppercase;
@@ -81,7 +85,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 h2 {
-    font-size: 72px;
+    font-size: 65px;
     line-height: 30px;
     color: #f3aa29;
     font-weight: 300;

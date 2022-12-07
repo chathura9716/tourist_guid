@@ -9,6 +9,11 @@ use App\Models\Tourist;
 use App\Models\Place;
 use App\Models\Hotel;
 use App\Models\Booking;
+use App\Models\User;
+
+
+use DB;
+
 
 use Illuminate\Support\Facades\Hash;
 use Session;
@@ -19,6 +24,13 @@ class TouristController extends Controller
   
     public function createTourist(){
         return view('user.tourist.register');
+    }
+    public function editprofile(){
+        $user = Auth()->user();
+        $data=array();
+        $data = DB::table('tourists')->where('user_id',Auth::user()->id)->first();
+      
+        return view('user.tourist.editprofile',compact('data','user'));
     }
     public function loginTourist(){
         return view('user.tourist.login');
@@ -47,13 +59,32 @@ class TouristController extends Controller
         return view('user.tourist.hotel',compact('hotel'));
     }
     
-    // public function touristProfile(){
-    //     $data =array();
-    //     if(Session::has ('loginId')){
-    //         $data =Tourist::where('id', '=',Session::get ('loginId'))->first();
-    //         return view('user.tourist.profile',compact('data'));
-    //     }
+    public function touristprofileupdate($userId,Request $request){
+         //dd($request ->all());
        
-    // }
+        $imageName = time() . ".".$request ->thumbnail->extension();
+        //save image in public folder
+                $request->thumbnail->move(public_path('thumbnails'),$imageName );
+       
+               
+        Tourist::findOrFail($userId)->update([
+            
+           'user_id'=>auth()->user()->id,
+           'first_name' => $request->first_name,
+           'last_name' => $request ->last_name,
+            'thumbnail' => $imageName,
+            
+            'age' => $request ->age,
+            'gender'=>$request->gender,
+            
+            'origin' => $request ->origin,
+            'passport_no'=>$request->passport_no,
+            
+        
+        ]);
+        return redirect(route('dashboard'))->with('status','user updated!');
+        }
+       
+    
 
 }

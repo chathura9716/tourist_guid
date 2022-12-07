@@ -1,11 +1,9 @@
-@extends('layouts.register')
 
-@section('content')
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>RegistrationForm</title>
+		<title>login form</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- MATERIAL DESIGN ICONIC FONT -->
@@ -65,19 +63,11 @@
                                     </a>
                                 @endif
 					<div class="socials">
-						<p>Sign up with social platforms</p>
-						<a href="" class="socials-icon">
-							<i class="zmdi zmdi-facebook"></i>
+						<p>Don't You have An Account? Register here..</p>
+						<a href="{{ route('create_tourist')}}" class="socials-icon">
+							Register here
 						</a>
-						<a href="" class="socials-icon">
-							<i class="zmdi zmdi-instagram"></i>
-						</a>
-						<a href="" class="socials-icon">
-							<i class="zmdi zmdi-twitter"></i>
-						</a>
-						<a href="" class="socials-icon">
-							<i class="zmdi zmdi-tumblr"></i>
-						</a>
+						
 					</div>
 				</form>
 			</div>
@@ -88,5 +78,4 @@
 	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
 
-@endsection
 

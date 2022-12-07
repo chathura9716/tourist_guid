@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-edit Hotel
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -19,27 +19,27 @@ edit Hotel
                         @csrf
                         <div class="mb-3">
                             <label class="form-label" >Hotel Name</label>
-                            <input  name="hotel_name" type="text" class="form-control"  placeholder="Enter Place Name" required >
+                            <input  value="{{ $hotel->hotel_name }}" name="hotel_name" type="text" class="form-control"  placeholder="Enter hotel Name" required >
                             
                         </div>
                         <div class="mb-3">
                             <label class="form-label" >Type of Hotel </label>
-                            <input  name="type" type="text" class="form-control"  placeholder="Enter Place type" required >
+                            <input value="{{ $hotel->type }}"  name="type" type="text" class="form-control"  placeholder="Enter hotel type" required >
                             
                         </div>
                         <div class="mb-3">
                             <label class="form-label" >Address</label>
-                            <input  name="address" type="text" class="form-control"  placeholder="Enter address " required >
+                            <input  value="{{ $hotel->address }}"  name="address" type="text" class="form-control"  placeholder="Enter address " required >
                             
                         </div>
                         <div class="mb-3">
                             <label class="form-label" >City </label>
-                            <input  name="city" type="text" class="form-control"  placeholder="Enter City" required >
+                            <input value="{{ $hotel->city }}"  name="city" type="text" class="form-control"  placeholder="Enter City" required >
                             
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Description</label>
-                            <textarea name="description"  class="form-control"   placeholder="Enter post description" rows="10" required ></textarea >
+                            <textarea  value="{{ $hotel->description }}" name="description"  class="form-control"   placeholder="Enter Hotel description" rows="10" required ></textarea >
                         </div>
                         <div class="form-group">
                             <input class="form-control" name="thumbnail" type="file">

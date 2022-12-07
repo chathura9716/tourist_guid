@@ -1,7 +1,12 @@
-@extends('layouts.user')
+@extends('layouts.user_type.touristsidebar')
+
 @section('content')
-User dashboard>>
+
 <style>
+    td {
+  overflow: hidden;
+  max-width: 75ch;
+}
   body{
     background:#eee;    
 }
@@ -124,48 +129,41 @@ text-decoration:none;
 }
 </style>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<div class="container">
 
-    <div class="row">
-        <div class="col-md-4 col-xl-3">
-        <a href="{{Route('touristWelcome')}}" >
-            <div class="card bg-c-blue order-card">
-                <div class="card-block">
-                    <h6 class="m-b-20">Book Hotel</h6>
-                    <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>486</span></h2>
-                    <p class="m-b-0">Book your hotel in here<span class="f-right">351</span></p>
-                </div>
+
+
+</div><div class="container">
+
+<div class="row">
+    <div class="col-md-4 col-xl-3">
+    <a href="{{Route('touristWelcome')}}" >
+        <div class="card bg-c-blue order-card">
+            <div class="card-block">
+                <h6 class="m-b-20">Book Hotel</h6>
+                <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>486</span></h2>
+                <p class="m-b-0">Book your hotel in here<span class="f-right">351</span></p>
             </div>
-            </a>
         </div>
-        <div class="col-md-4 col-xl-3">
-        <a href="{{Route('addpost')}}" >
-            <div class="card bg-c-green order-card">
-                <div class="card-block">
-                    <h6 class="m-b-20">Add Blogs</h6>
-                    <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>486</span></h2>
-                    <p class="m-b-0">Add new Blogs<span class="f-right">351</span></p>
-                </div>
+        </a>
+    </div>
+    <div class="col-md-4 col-xl-3">
+    <a href="{{Route('addpost')}}" >
+        <div class="card bg-c-green order-card">
+            <div class="card-block">
+                <h6 class="m-b-20">Add Blogs</h6>
+                <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>486</span></h2>
+                <p class="m-b-0">Add new Blogs<span class="f-right">351</span></p>
             </div>
-            </a>
         </div>
-        
-        
-	</div>
-    <div class="row">
-        
-</div>
+        </a>
+    </div>
+    
+    
 </div>
 
-
-              
-
-<br><br>
-
-<br><br>
 
 <div class="container py-5 h-100">
-<h1>My Booking Requests</h1>
+<h1>Hotel Booking Requests</h1>
 <table class="table">
             <thead class="thead-dark">
                 <tr>
@@ -204,36 +202,242 @@ text-decoration:none;
         </div>
                
  <div>
-<h1>{{$data->first_name}} 's Blogs</h1>
+
+ 
+<div class="container py-5 h-100">
+<h1>Vehical Booking Requests</h1>
 <table class="table">
             <thead class="thead-dark">
                 <tr>
                 <th scope="col">#</th>
-                <th scope="col">Title</th>
-                <th scope="col">Description</th>
+                <th scope="col">Vehical id</th>
+                <th scope="col">pick up</th>
+                <th scope="col">drop off</th>
+                <th scope="col">pickup time</th>
+
+                <th scope="col">Vehical Status</th>
+
                 <th scope="col">Action</th>
+                
+              
                 </tr>
             </thead>
             <tbody>
-                @foreach ($posts as $post)
-                <tr>
-                    <th scope="row">{{$post->id}}</th>
-                    <td>{{$post->title}}</td>
-                    <td>{{$post->description}}</td>
-                    <td>
-                        
-                        <a href="{{Route('posts.edit',$post->id)}}" class="btn btn-sm btn-primary">Edit</a>
-                        <a href="{{Route('posts.delete',$post->id)}}" class="btn btn-sm btn-danger">Delete</a>
-                    </td>
-                </tr>
-                @endforeach
-                
+            @foreach ($bookingvehical as $book)
+            <tr>
+                <td scope="col">{{$book->tourist_id}}</td>
+                <td scope="col">{{$book->vehical_id}}</td>
+                <td scope="col">{{$book->pickup}}</td>
+                <td scope="col">{{$book->dropoff}}</td>
+                <td scope="col">{{$book->pickuptime}}</td>
+                <td scope="col">{{$book->action}}</td>
+
+
+                <td scope="col">
+                <a href="{{Route('bookhotel.delete',$book->id)}}" class="btn btn-sm btn-danger">Delete</a>
+
+                </td>
+            </tr>
+            @endforeach 
             </tbody>
-  </table>
-</div>
+        </table>
+        </div>
+               
+ <div>
+
+              
+
+
+        
+ 
      
         
 
-        <br><br>
-      
+   
+
+        
+                           
+  
+       
+
 @endsection
+@push('dashboard')
+  <script>
+    window.onload = function() {
+      var ctx = document.getElementById("chart-bars").getContext("2d");
+
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+          datasets: [{
+            label: "Sales",
+            tension: 0.4,
+            borderWidth: 0,
+            borderRadius: 4,
+            borderSkipped: false,
+            backgroundColor: "#fff",
+            data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
+            maxBarThickness: 6
+          }, ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            }
+          },
+          interaction: {
+            intersect: false,
+            mode: 'index',
+          },
+          scales: {
+            y: {
+              grid: {
+                drawBorder: false,
+                display: false,
+                drawOnChartArea: false,
+                drawTicks: false,
+              },
+              ticks: {
+                suggestedMin: 0,
+                suggestedMax: 500,
+                beginAtZero: true,
+                padding: 15,
+                font: {
+                  size: 14,
+                  family: "Open Sans",
+                  style: 'normal',
+                  lineHeight: 2
+                },
+                color: "#fff"
+              },
+            },
+            x: {
+              grid: {
+                drawBorder: false,
+                display: false,
+                drawOnChartArea: false,
+                drawTicks: false
+              },
+              ticks: {
+                display: false
+              },
+            },
+          },
+        },
+      });
+
+
+      var ctx2 = document.getElementById("chart-line").getContext("2d");
+
+      var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+      gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
+      gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+      gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
+
+      var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+      gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
+      gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+      gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
+
+      new Chart(ctx2, {
+        type: "line",
+        data: {
+          labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+          datasets: [{
+              label: "Mobile apps",
+              tension: 0.4,
+              borderWidth: 0,
+              pointRadius: 0,
+              borderColor: "#cb0c9f",
+              borderWidth: 3,
+              backgroundColor: gradientStroke1,
+              fill: true,
+              data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+              maxBarThickness: 6
+
+            },
+            {
+              label: "Websites",
+              tension: 0.4,
+              borderWidth: 0,
+              pointRadius: 0,
+              borderColor: "#3A416F",
+              borderWidth: 3,
+              backgroundColor: gradientStroke2,
+              fill: true,
+              data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
+              maxBarThickness: 6
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            }
+          },
+          interaction: {
+            intersect: false,
+            mode: 'index',
+          },
+          scales: {
+            y: {
+              grid: {
+                drawBorder: false,
+                display: true,
+                drawOnChartArea: true,
+                drawTicks: false,
+                borderDash: [5, 5]
+              },
+              ticks: {
+                display: true,
+                padding: 10,
+                color: '#b2b9bf',
+                font: {
+                  size: 11,
+                  family: "Open Sans",
+                  style: 'normal',
+                  lineHeight: 2
+                },
+              }
+            },
+            x: {
+              grid: {
+                drawBorder: false,
+                display: false,
+                drawOnChartArea: false,
+                drawTicks: false,
+                borderDash: [5, 5]
+              },
+              ticks: {
+                display: true,
+                color: '#b2b9bf',
+                padding: 20,
+                font: {
+                  size: 11,
+                  family: "Open Sans",
+                  style: 'normal',
+                  lineHeight: 2
+                },
+              }
+            },
+          },
+        },
+      });
+    }
+  </script>
+@endpush
+
+
+
+  
+
+    

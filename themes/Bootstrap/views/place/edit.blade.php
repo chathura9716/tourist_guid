@@ -25,7 +25,7 @@ Add places
                         <div class="mb-3">
                             <label class="form-label" >Type of place </label>
                             <!-- <input  name="type" type="text" class="form-control"  placeholder="Enter Place type" required >  -->
-                            <select name="type-of-place"> 
+                            <select name="type"> 
                                 <option value="tropical">Tropical</option>
                                 <option value="upcountry">Up Country</option>
                                 <option value="Historical">Historical</option>
@@ -38,7 +38,7 @@ Add places
                         <div class="mb-3">
                             <label class="form-label" >Province</label>
                             <!-- <input  name="province" type="text" class="form-control"  placeholder="Enter province " required > -->
-                            <select name="Province"> 
+                            <select name="province"> 
                                 <option value="Eastern">Eastern Province</option>
                                 <option value="Northern">Northern Province</option>
                                 <option value="North-Western">North-Western Province</option>

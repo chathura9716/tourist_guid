@@ -7,6 +7,9 @@
 		<link rel="icon" href="images/favicon.ico">
 		<link rel="shortcut icon" href="images/favicon.ico" />
 		<link rel="stylesheet" href="css/style1.css">
+		<link rel="stylesheet" href="css/style2.css">
+		<script src="https://kit.fontawesome.com/9054737d4b.js" crossorigin="anonymous"></script>
+
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery-migrate-1.2.1.js"></script>
 		<script src="js/script.js"></script>
@@ -41,10 +44,10 @@
 					<div class="menu_block">
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
                     	<ul class="sf-menu">
-                                <li class="current"><a href="{{route('touristWelcome')}}">Home</a></li>
+                                <li ><a href="{{route('touristWelcome')}}">Home</a></li>
 								<li><a href="{{route('dashboard')}}">Dashboard</a></li>
 
-								<li><a href="{{route('touristHotel')}}">Hotels</a></li>
+								<li class="current"><a  href="{{route('touristHotel')}}">Hotels</a></li>
 								<li><a href="{{route('touristPlace')}}">Places</a></li>
 								<li><a href="{{route('touristBlog')}}">BLOG</a></li>
 							</ul>
@@ -59,38 +62,58 @@
 							<img src="images/logo.png" alt="Your Happy Family">
 						</a>
 					</h1>
+ 
 				</div>
 			</div>
 		</header>
 <!--==============================Content=================================-->
 		<div class="content"><div class="ic">More Website </div>
 			<div class="container_12">
-				<div class="grid_8">
-					<h3>Hotels for Stay</h3>
+				<div class="heading">
+					<h2>confortable place to stay</h2>
 				
-			
-
 					@foreach ($hotel as $hotel)
 					<div class="block2">
 						<img src="{{asset('thumbnails/'.$hotel->thumbnail)}}" alt="" class="card-img-top img-fluid">
 						<div class="extra_wrapper">
-							<div class="text1 col2">Hotel Name:</div>
-							<div class="text1 col1">{{$hotel->hotel_name}}</div>
-							<div class="text1 col2">Hotel Type:</div>
-                            <div class="text1 col1">{{$hotel->type}}</div>
-							<div class="text1 col2">Hotel City:</div>
-                            <div class="text1 col1">{{$hotel->city}} {{$hotel->province}}</div>
-							<div class="text1 col2">Hotel Description:</div>
+							<article class="service">
+								<div class="service-icon">
+								
+									<span>	Service <i class="fas fa-utensils"></i>   &nbsp;&nbsp;&nbsp;|&nbsp;</span>
+									<span>  Swimming pool <i class="fas fa-swimming-pool"></i> &nbsp;&nbsp;  &nbsp;|&nbsp;&nbsp;&nbsp;</span>
+									<span>  Cleaning <i class="fas fa-broom"></i>   </span>
+								</div>
+							</article>
+						
+								
+							<strong class="text1 col2">Hotel Name: </strong>
+							<label class="text1 col1">{{$hotel->hotel_name}}</label>	</br></br>
+							<strong class="text1 col2">Hotel Type:</strong>
+                            <label class="text1 col1">{{$hotel->type}}</label></br></br>
+							<strong class="text1 col2">Hotel City:</strong>
+                            <label class="text1 col1">{{$hotel->city}} {{$hotel->province}}</label></br></br>
+							<strong class="text1 col2">Hotel Description:</strong>
 							<p>{{$hotel->description}}</p>
+							<p class="rate">
+								<span>$99.00 /</span>per Night
+							</p>
+							<div class="rating">
+								<span><i class="fas fa-star"></i></span>
+								<span><i class="fas fa-star"></i></span>
+								<span><i class="fas fa-star"></i></span>
+								<span><i class="fas fa-star"></i></span>
+								<span><i class="far fa-star"></i></span>
+							</div>
+
 							<a href="{{Route('hotel.show',$hotel->id)}}" class="link1">LEARN MORE</a>
-							<br>
+		</br></br>
 						</div>
 					</div>
 					@endforeach
 					
 					
 				</div>
-				<div class="grid_3 prefix_1">
+				<!-- <div class="grid_3 prefix_1">
 					
 					<h5>CHOOse the country</h5>
 					
@@ -111,7 +134,7 @@
 						<li><a href="#">Bermudas</a></li>
 					</ul>
 					<a href="#" class="link1">VIEW A<span class="low">ll</span></a>
-				</div>
+				</div> -->
 			</div>
 		</div>
 <!--==============================footer=================================-->
