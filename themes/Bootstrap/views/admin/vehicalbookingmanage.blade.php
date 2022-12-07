@@ -1,4 +1,4 @@
-@extends('layouts.user_type.hotelsidebar')
+@extends('layouts.user_type.auth')
 
 @section('content')
 
