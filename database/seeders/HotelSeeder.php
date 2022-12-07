@@ -104,9 +104,24 @@ class HotelSeeder extends Seeder
             'licence_no' => '145247885',
             'vehical_no' => 'CA-1478',
             'type'=>'Van',
-            'city'=>'Sigirya',
+            'city'=>'Sigiriya',
             
-            'thumbnail' => '1670164390.jpg',
+            'thumbnail' => 'nissan.jpg',
+    
+        
+        ]);
+        Vehical::create([
+            
+            'user_id' => '2',
+            'model' => 'Nissan ',
+            'driver_name' => 'Sujith',
+            'contact' => '0765362534',
+            'licence_no' => '145247885',
+            'vehical_no' => 'CA-1478',
+            'type'=>'Van',
+            'city'=>'kandy',
+            
+            'thumbnail' => 'nissan.jpg',
     
         
         ]);

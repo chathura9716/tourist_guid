@@ -48,13 +48,16 @@ class UserController extends Controller
        
             $vehicalId=Vehical::where('user_id',Auth::user()->id)->first();
 
-        
+            $bookingvehical=DB::table('vehicals')
+            ->join('vehical_bookings', 'vehicals.id', '=', 'vehical_bookings.vehical_id')
+            ->where('vehicals.user_id','=',Auth::user()->id)
+            ->get();
             $role=Auth::user()->role;
            
           
                  
                     if($role=='admin'){
-                        $bookingvehical =VehicalBooking::where('vehical_id','=',$vehicalId)->get();
+                       
                         
                         return view('admin.dashboard',compact('users','posts','places','vehicals','bookingvehical'));
                     }

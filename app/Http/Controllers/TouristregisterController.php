@@ -63,7 +63,7 @@ class TouristregisterController extends Controller
         $res = $tourist ->save();
 
         if($res){
-            return redirect()->back()->with('success','You are now registered');
+            return redirect(route('login'))->with('success','You are now registered');
         }else{
             return redirect()->back()->with('fail','Fail to register');
 
