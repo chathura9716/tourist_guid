@@ -22,11 +22,12 @@
   </head>
   <body class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-header" id="sec-0d38"><div class="u-clearfix u-sheet u-sheet-1"></div></header>
     <section class="u-align-center u-clearfix u-image u-shading u-section-1" src="{{asset('thumbnails/'.$hotel->thumbnail)}}" data-image-width="1124" data-image-height="1500" id="">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <h1 class="u-text u-text-default u-title u-text-1">{{$hotel->hotel_name}}</h1>
-        <p class="u-large-text u-text u-text-variant u-text-2">{{$hotel->type}}</p>
+      <div class="u-clearfix u-sheet u-sheet-1"> 
+        <h1 class="u-text u-text-default u-title u-text-1" style="font-size: 100px; font-family:Arial, Helvetica, sans-serif" >{{$hotel->hotel_name}}</h1>
+        <p class="u-large-text u-text u-text-variant u-text-2" style="font-size :50px; color:antiquewhite;">{{$hotel->type}}</p>
       </div>
     </section>
+	<!--
     
     <section class="u-clearfix u-grey-15 u-lightbox u-section-3" id="sec-3915">
       <div class="u-clearfix u-sheet u-sheet-1">
@@ -50,6 +51,7 @@
 		
       </div>
     </section>
+-->
     <section class="u-clearfix u-section-4" id="sec-f50c">
       <div class="u-expanded u-grey-10 u-map">
         <div class="embed-responsive">
@@ -58,9 +60,9 @@
       </div>
       <div class="u-align-left u-container-style u-group u-white u-group-1">
         <div class="u-container-layout u-valign-middle u-container-layout-1">
-          <h2 class="u-text u-text-1">{{$hotel->address}}</h2>
+          <h2 class="u-text u-text-1" style="font-family:'Times New Roman', Times, serif ;">{{$hotel->address}}</h2>
         
-          <p class="u-text u-text-3">1 212-736-3100</p>
+          <p class="u-text u-text-3">+94776345334</p>
           <p class="u-text u-text-4">
             
           </p>
@@ -196,7 +198,7 @@
 								<span class="form-label">Message</span>
 							</div>
 							
-							<div class="form-btn">
+							<div class="form-btn " style=" background:transparent; transition: yellow; font-weight: bold;" >
 								<button class="submit-btn">Book Now</button>
 							</div>
 						</form>
@@ -229,15 +231,15 @@
     
     
     <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="" target="_blank">
-        <span>Tourist Guid</span>
+      <a class="u-link" href="/touristHotels" >
+        <button type="submit-btn" style="color: black;">Back</button>
       </a>
       <p class="u-text">
         <span></span>
       </p>
       <a class="u-link" href="" target="_blank">
         <span></span>
-      </a>. 
+      </a>
     </section>
   
 </body></html>

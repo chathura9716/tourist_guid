@@ -7,6 +7,13 @@
 		<link rel="icon" href="images/favicon.ico">
 		<link rel="shortcut icon" href="images/favicon.ico" />
 		<link rel="stylesheet" href="css/style1.css">
+
+		
+		<link rel="icon" href="images/logo.png" type="image/png">
+
+
+		<script src="https://kit.fontawesome.com/9054737d4b.js" crossorigin="anonymous"></script>
+
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery-migrate-1.2.1.js"></script>
 		<script src="js/script.js"></script>

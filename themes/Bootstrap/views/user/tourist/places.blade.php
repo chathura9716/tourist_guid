@@ -7,6 +7,9 @@
 		<link rel="icon" href="images/favicon.ico">
 		<link rel="shortcut icon" href="images/favicon.ico" />
 		<link rel="stylesheet" href="css/style1.css">
+		<link rel="stylesheet" href="css/style2.css">
+		<script src="https://kit.fontawesome.com/9054737d4b.js" crossorigin="anonymous"></script>
+
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery-migrate-1.2.1.js"></script>
 		<script src="js/script.js"></script>
@@ -41,10 +44,10 @@
 					<div class="menu_block">
 					<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 					<ul class="sf-menu">
-                                <li class="current"><a href="{{route('touristWelcome')}}">Home</a></li>
+                                <li ><a href="{{route('touristWelcome')}}">Home</a></li>
 								<li><a href="{{route('dashboard')}}">Dashboard</a></li>
 								<li><a href="{{route('touristHotel')}}">Hotels</a></li>
-								<li><a href="{{route('touristPlace')}}">Places</a></li>
+								<li class="current"><a href="{{route('touristPlace')}}">Places</a></li>
 								<li><a href="{{route('touristBlog')}}">BLOG</a></li>
 							</ul>
                             
@@ -63,14 +66,14 @@
 			</div>
 		</header>
 <!--==============================Content=================================-->
-		<div class="content"><div class="ic"></div>
+		<div class="content"><div class="ic">vdv</div>
 			<div class="container_12">
 				
-				<div class="grid_8">
-					<h3>Places for visit</h3>
+				<div class="heading">
+					<h2>Places for visit</h2>
 					@foreach ($places as $place)
 					<div class="block2">
-						<img src="{{asset('thumbnails/'.$place->thumbnail)}}" alt="" class="card-img-top img-fluid">
+						<img style="width: cover; height:400px;" src="{{asset('thumbnails/'.$place->thumbnail)}}" alt="" class="card-img-top img-fluid">
 						<div class="extra_wrapper">
 							<div class="text1 col1"><a href="#">{{$place->place_name}}</a></div>
 							<p>{{$place->description}}</p>
