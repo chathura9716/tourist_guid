@@ -127,7 +127,7 @@ class UserController extends Controller
 
             }elseif($role=='Hagency'){
                 $data=array();
-                $data = DB::table('hagencies')->where('user_id',Auth::user()->id)->first();
+                $data = DB::table('hagencies')->where('agency_id',Auth::user()->id)->first();
                         
 
                 return view('user.hotel.profile',compact('data','user'));
@@ -243,11 +243,7 @@ class UserController extends Controller
         $user->email = $request->get('email');
         $user->save();
 
-        
-        
-
-        
-     
+ 
         
         return redirect(route('dashboard'))->with('status','user updated!');
     }

@@ -51,18 +51,18 @@ class AdminSeeder extends Seeder
             'location'=>'gampaha',
             'about'=>"hotel agency 1 profile",
            
-            'email' => 'hacency1@gmail.com',
+            'email' => 'hagency1@gmail.com',
             'password' => bcrypt(12345678),
             'role' => 'Hagency'
         ]);
         Hagency::create([
           'agency_id'=>'3',
             'user_id'=>'1',
-            'reg_no'=>'0768628220',
-            'agency_name'=>'gampaha',
-            'contact'=>"hotel agency 1 profile",
+            'reg_no'=>'redg4567',
+            'agency_name'=>'Hela diwa',
+            'contact'=>"0763813865",
            
-            'location' => 'hacency1@gmail.com',
+            'location' => 'gampaha',
           
         ]);
     

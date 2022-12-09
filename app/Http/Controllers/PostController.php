@@ -47,7 +47,7 @@ class PostController extends Controller
 
         ]);
     }
-        return  redirect(route('posts.all'))->with('status','Post created successfully!');
+        return  redirect(route('dashboard'))->with('status','Post created successfully!');
     
     }
 

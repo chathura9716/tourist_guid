@@ -7,6 +7,9 @@
 		<link rel="icon" href="images/favicon.ico">
 		<link rel="shortcut icon" href="images/favicon.ico" />
 		<link rel="stylesheet" href="css/style1.css">
+		<link rel="stylesheet" href="css/style2.css">
+		<script src="https://kit.fontawesome.com/9054737d4b.js" crossorigin="anonymous"></script>
+
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery-migrate-1.2.1.js"></script>
 		<script src="js/script.js"></script>
@@ -39,14 +42,14 @@
 			<div class="container_12">
 				<div class="grid_12">
 					<div class="menu_block">
-						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
-						<ul class="sf-menu">
+					<nav class="horizontal-nav full-width horizontalNav-notprocessed">
+					<ul class="sf-menu">
 								<li ><a href="{{route('welcome')}}">Home</a></li>
 								<li><a href="{{route('places')}}">Places</a></li>
 								<li><a href="{{route('blog')}}">BLOG</a></li>
 								<li><a href="{{route('hotel')}}">HOTELS</a></li>
                 			<li><a href="{{route('contact')}}">CONTACTS</a></li>
-					</ul>
+
 						</nav>
 						<div class="clear"></div>
 					</div>
@@ -61,13 +64,14 @@
 			</div>
 		</header>
 <!--==============================Content=================================-->
-		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
+		<div class="content"><div class="ic">vdv</div>
 			<div class="container_12">
-				<div class="grid_8">
-					<h3>Places for visit</h3>
+				
+				<div class="heading">
+					<h2>Places for visit</h2>
 					@foreach ($places as $place)
 					<div class="block2">
-						<img src="{{asset('thumbnails/'.$place->thumbnail)}}" alt="" class="card-img-top img-fluid">
+						<img style="width: cover; height:400px;" src="{{asset('thumbnails/'.$place->thumbnail)}}" alt="" class="card-img-top img-fluid">
 						<div class="extra_wrapper">
 							<div class="text1 col1"><a href="#">{{$place->place_name}}</a></div>
 							<p>{{$place->description}}</p>
@@ -79,28 +83,28 @@
 					
 					
 				</div>
-				<div class="grid_3 prefix_1">
-					<h5>CHOOSE District</h5>
+				<!-- <div class="grid_3 prefix_1">
+					<h5>CHOOse the country</h5>
 					<ul class="list">
-						<li><a href="#">Ampara</a></li>
-						<li><a href="#">Anuradhapura</a></li>
-						<li><a href="#">Badhulla</a></li>
-						<li><a href="#">Baticalo</a></li>
-						<li><a href="#">Colombo</a></li>
-						<li><a href="#">Galle</a></li>
-						<li><a href="#">Gampaha</a></li>
-						<li><a href="#">Hambantota</a></li>
-						<li><a href="#">Jaffna</a></li>
-						<li><a href="#">kalutara</a></li>
-						<li><a href="#">Kandy</a></li>
-						<li><a href="#">Kegalle</a></li>
+						<li><a href="#">Albania</a></li>
+						<li><a href="#">American Samoa</a></li>
+						<li><a href="#">Antarctica</a></li>
+						<li><a href="#">Argentina</a></li>
+						<li><a href="#">Armenia</a></li>
+						<li><a href="#">Australia</a></li>
+						<li><a href="#">Austria</a></li>
+						<li><a href="#">Bahrain</a></li>
+						<li><a href="#">Barbados</a></li>
+						<li><a href="#">Belgium</a></li>
+						<li><a href="#">Belize</a></li>
+						<li><a href="#">Bermudas</a></li>
 					</ul>
-					<a href="/ViewAllPlaces" class="link1">VIEW All<span class="low">ll</span></a>
-				</div>
+					<a href="#" class="link1">VIEW A<span class="low">ll</span></a>
+				</div> -->
 			</div>
 		</div>
 <!--==============================footer=================================-->
-		<footer>
+<footer>
 			<div class="container_12">
 				<div class="grid_12">
 					<div class="socials">
@@ -109,7 +113,7 @@
 						<a href="#" class="fa fa-google-plus"></a>
 					</div>
 					<div class="copy">
-						Your Trip (c) 2014 | <a href="#">Privacy Policy</a> | Website Template Designed by TemplateMonster.com
+						Tourist guid (c) 2022 | <a href="#">Privacy Policy</a> | 
 					</div>
 				</div>
 			</div>

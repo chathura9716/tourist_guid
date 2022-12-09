@@ -42,16 +42,14 @@ Route::get('/ViewAllPlaces',[PlaceController::class,'ViewAllPlaces']);
 Route::get('/hotels', [HotelController::class, 'welcomehotel'])->name('hotel');
 Route::get('/place/{placeId}/show', [PlaceController::class, 'show'])->name('place.show');
 Route::get('/vehical/{vehicalId}/show', [VehicalController::class, 'vehicalshow'])->name('vehical.show');
-
-
+Route::get('/create_tourist', [App\Http\Controllers\TouristController::class, 'createTourist'])->name('create_tourist');
+Route::post('/create', [App\Http\Controllers\TouristregisterController::class, 'create'])->name('create');
 
 
 //posts
 Route::get('/posts/{postId}/show', [PostController::class, 'show'])->name('posts.show');
 
 Route::group(['middleware'=>'auth'], function(){
-
-
     
 Route::post('/posts/store', [PostController::class, 'store'])->name('posts.store');
 Route::get('/posts/all', [HomeController::class, 'allPosts'])->name('allposts');
@@ -71,18 +69,18 @@ Route::get('/addhotelview', [App\Http\Controllers\HotelController::class, 'Addho
 Route::get('/accepthotel/{bookingId}', [App\Http\Controllers\HotelBookingController::class, 'accept'])->name('accepthotel');
 Route::get('/cancelhotel/{bookingId}', [App\Http\Controllers\HotelBookingController::class, 'cancel'])->name('cancelhotel');
 
-
+Route::post('/place/store', [PlaceController::class, 'store'])->name('place.store');
+Route::get('/place/{placeId}/edit', [PlaceController::class, 'edit'])->name('place.edit');
+Route::post('/place/{placeId}/update', [PlaceController::class, 'update'])->name('place.update');
+Route::get('/place/{placeId}/delete', [PlaceController::class, 'delete'])->name('place.delete');
+Route::get('/addplaces', [DashboardController::class, 'addplacesview'])->name('admin.addplaces');
 });
 
 //places add crud
 
 //this is only for Admin
 
-    Route::post('/place/store', [PlaceController::class, 'store'])->name('place.store');
-    Route::get('/place/{placeId}/edit', [PlaceController::class, 'edit'])->name('place.edit');
-    Route::post('/place/{placeId}/update', [PlaceController::class, 'update'])->name('place.update');
-    Route::get('/place/{placeId}/delete', [PlaceController::class, 'delete'])->name('place.delete');
-    Route::get('/addplaces', [DashboardController::class, 'addplacesview'])->name('admin.addplaces');
+
 
 //vehical add
     // Route::post('/vehical/store', [VehicalController::class, 'store'])->name('vehical.store');
@@ -117,36 +115,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
 
     Route::get('/acceptvehical/{bookingId}', [App\Http\Controllers\VehicalBookingController::class, 'accept'])->name('acceptvehical');
-Route::get('/cancelvehical/{bookingId}', [App\Http\Controllers\VehicalBookingController::class, 'cancel'])->name('cancelvehical');
-
-
-});
-   
-//tourist auth routes
-  
-        Route::get('/create_tourist', [App\Http\Controllers\TouristController::class, 'createTourist'])->name('create_tourist');
-
-
-    
-        Route::post('/create', [App\Http\Controllers\TouristregisterController::class, 'create'])->name('create');
-
-      //  Route::get('/tourist_dashboard', [App\Http\Controllers\TouristController::class, 'dashboardTourist'])->name('tourist_dashboard');
-        Route::get('/touristWelcome', [App\Http\Controllers\TouristController::class, 'touristWelcome'])->name('touristWelcome');
-        Route::get('/touristProfile', [App\Http\Controllers\TouristController::class, 'touristProfile'])->name('touristProfile');
-        Route::get('/touristBlog', [App\Http\Controllers\TouristController::class, 'touristBlog'])->name('touristBlog');
-        Route::get('/touristContact', [App\Http\Controllers\TouristController::class, 'touristContact'])->name('touristContact');
-        Route::get('/touristPlaces', [App\Http\Controllers\TouristController::class, 'touristPlace'])->name('touristPlace');
-        Route::get('/touristHotels', [TouristController::class, 'touristHotel'])->name('touristHotel');
-//booking hotel
-        Route::post('/bookhotel', [App\Http\Controllers\HotelBookingController::class, 'store'])->name('bookhotel');
-        Route::get('/bookhotel/{bookingId}/delete', [HotelBookingController::class, 'delete'])->name('bookhotel.delete');
-        Route::get('/hotel/{hotelId}/view', [HotelController::class, 'show'])->name('hotel.show');
-//booking vehical
-        Route::post('/bookvehical', [VehicalBookingController::class, 'store'])->name('bookvehical');
-        Route::get('/bookvehical/{bookingId}/delete', [VehicalBookingController::class, 'delete'])->name('bookvehical.delete');
-
-Route::get('/search' ,[HotelController::class, 'search'])->name('search');
-
+    Route::get('/cancelvehical/{bookingId}', [App\Http\Controllers\VehicalBookingController::class, 'cancel'])->name('cancelvehical');
 
 
 Route::get('user-management', [UserController::class, 'usermanege'])->name('user-management');
@@ -163,12 +132,31 @@ Route::get('touristblog', [HomeController::class, 'touristblog'])->name('tourist
 
 Route::get('/editprofile/{id}', [TouristController::class, 'editprofile'])->name('editprofile');
 Route::post('/touristprofileupdate/{userId}', [TouristController::class, 'touristprofileupdate'])->name('touristprofileupdate');
-
-
-
 Route::get('billing', [HotelBookingController::class,'billing']) ->name('billing');
-
-
 Route::get('/hagency/{id}/edit', [UserController::class, 'edithotelagency'])->name('edithotelagency');
 Route::post('/hagency/{id}/update', [UserController::class, 'hotelAgentUpdate'])->name('hotelAgentUpdate');
+
+// Route::get('/tourist_dashboard', [App\Http\Controllers\TouristController::class, 'dashboardTourist'])->name('tourist_dashboard');
+Route::get('/touristWelcome', [App\Http\Controllers\TouristController::class, 'touristWelcome'])->name('touristWelcome');
+Route::get('/touristProfile', [App\Http\Controllers\TouristController::class, 'touristProfile'])->name('touristProfile');
+Route::get('/touristBlog', [App\Http\Controllers\TouristController::class, 'touristBlog'])->name('touristBlog');
+Route::get('/touristContact', [App\Http\Controllers\TouristController::class, 'touristContact'])->name('touristContact');
+Route::get('/touristPlaces', [App\Http\Controllers\TouristController::class, 'touristPlace'])->name('touristPlace');
+Route::get('/touristHotels', [TouristController::class, 'touristHotel'])->name('touristHotel');
+//booking hotel
+Route::post('/bookhotel', [App\Http\Controllers\HotelBookingController::class, 'store'])->name('bookhotel');
+Route::get('/bookhotel/{bookingId}/delete', [HotelBookingController::class, 'delete'])->name('bookhotel.delete');
+Route::get('/hotel/{hotelId}/view', [HotelController::class, 'show'])->name('hotel.show');
+//booking vehical
+Route::post('/bookvehical', [VehicalBookingController::class, 'store'])->name('bookvehical');
+Route::get('/bookvehical/{bookingId}/delete', [VehicalBookingController::class, 'delete'])->name('bookvehical.delete');
+});
+   
+//tourist auth routes
+  
+
+Route::get('/search' ,[HotelController::class, 'search'])->name('search');
+
+
+
 
