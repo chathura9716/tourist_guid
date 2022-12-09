@@ -23,10 +23,11 @@ body {
     font-weight: 600;
     border: none;
     padding: 10px;
-    width: 140px;
+    width: 150px;
     display: block;
     margin: 15px auto;
     cursor: pointer;
+    
     transition: var(--transition);
 }
 .head-btn.hover{
@@ -48,6 +49,14 @@ body {
     padding: 8px 0;
     font-size: 20px;
 
+}
+.card-img-top{
+   
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+      
 }
 .heading{
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.2)),url(images/hotelfron.jpeg) center/cover no-repeat;
@@ -92,4 +101,3 @@ h1 .u-text{
     font-family: 'playfair Display',serif;
     color: white;
 }
- 

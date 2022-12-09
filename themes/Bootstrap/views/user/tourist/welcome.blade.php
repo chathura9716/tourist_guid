@@ -285,7 +285,7 @@ h2{
 						</div>
 						<div class="fl1 fl2">
 							<em>Select Hotel</em>
-
+ 
 							<select name="hotel_id" class="tmSelect2" data-class="tmSelect tmSelect2" data-constraints="">
 							@foreach ($hotel as $hotel )
 								<option value="{{$hotel->id}}">{{$hotel->hotel_name}}</option>
