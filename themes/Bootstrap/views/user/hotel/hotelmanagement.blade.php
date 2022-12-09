@@ -25,7 +25,7 @@
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Description</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">City</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created Date</th>
-                      <th class="text-secondary opacity-7">Action</th>
+                      <th class="text-secondary opacity-7">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
