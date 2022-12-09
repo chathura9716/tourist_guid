@@ -77,15 +77,7 @@
 						<a href="" class="socials-icon">
 							<i class="zmdi zmdi-facebook"></i>
 						</a>
-						<a href="" class="socials-icon">
-							<i class="zmdi zmdi-instagram"></i>
-						</a>
-						<a href="" class="socials-icon">
-							<i class="zmdi zmdi-twitter"></i>
-						</a>
-						<a href="" class="socials-icon">
-							<i class="zmdi zmdi-tumblr"></i>
-						</a>
+						
 					</div>
 				</form>
 			</div>

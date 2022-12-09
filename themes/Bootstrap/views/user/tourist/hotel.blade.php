@@ -80,7 +80,7 @@
 								<div class="service-icon">
 								
 									<span>	Service <i class="fas fa-utensils"></i>   &nbsp;&nbsp;&nbsp;|&nbsp;</span>
-									<span>  Swimming pool <i class="fas fa-swimming-pool"></i> &nbsp;&nbsp;  &nbsp;|&nbsp;&nbsp;&nbsp;</span>
+									<span>  Swimming Pool <i class="fas fa-swimming-pool"></i> &nbsp;&nbsp;  &nbsp;|&nbsp;&nbsp;&nbsp;</span>
 									<span>  Cleaning <i class="fas fa-broom"></i>   </span>
 								</div>
 							</article>
