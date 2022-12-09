@@ -22,9 +22,21 @@
 
 		<div class="wrapper">
 			<div class="image-holder">
+
 				<img src="images/registration-form-8" alt="">
+				</a>
 			</div>
+			
 			<div class="form-inner">
+			
+	
+              
+                   
+                   
+               
+			
+<button  class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="on">	<a class="navbar-brand" href="{{ url('/') }}">Back</a></button>
+<br><br>
             <form method="POST" action="{{ route('login') }}">
                         @csrf
 					<div class="form-header">
@@ -63,7 +75,7 @@
                                     </a>
                                 @endif
 					<div class="socials">
-						<p>Don't You have An Account? Register here..</p>
+						<p>Don't You have An Account? Register In Here..</p>
 						<a href="{{ route('create_tourist')}}" class="socials-icon">
 							Register here
 						</a>

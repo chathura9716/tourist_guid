@@ -46,7 +46,7 @@
 								<li><a href="{{route('places')}}">Places</a></li>
 								<li><a href="{{route('blog')}}">BLOG</a></li>
 								<li><a href="{{route('hotel')}}">HOTELS</a></li>
-                			<li><a href="{{route('contact')}}">CONTACTS</a></li>
+                			<li><a class="current" href="{{route('contact')}}">CONTACTS</a></li>
 						</nav>
 						<div class="clear"></div>
 					</div>
@@ -61,7 +61,7 @@
 			</div>
 		</header>
 <!--==============================Content=================================-->
-		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
+		<div class="content"><div class="ic"></div>
 			<div class="container_12">
 				<div class="grid_5">
 					<h3>CONTACT INFO</h3>
@@ -132,7 +132,7 @@
 						<a href="#" class="fa fa-google-plus"></a>
 					</div>
 					<div class="copy">
-						Your Trip (c) 2014 | <a href="#">Privacy Policy</a> | Website Template Designed by TemplateMonster.com
+						Tourist Guide (c) 2022 | <a href="#">Privacy Policy</a> | All Right Recieved
 					</div>
 				</div>
 			</div>

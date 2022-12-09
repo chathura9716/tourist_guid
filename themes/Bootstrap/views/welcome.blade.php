@@ -71,7 +71,7 @@
 					<div class="menu_block">
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 							<ul class="sf-menu">
-								<li ><a href="{{route('welcome')}}">Home</a></li>
+								<li ><a class="current" href="{{route('welcome')}}">Home</a></li>
 								<li><a href="{{route('places')}}">Places</a></li>
 								<li><a href="{{route('blog')}}">BLOG</a></li>
 								<li><a href="{{route('hotel')}}">HOTELS</a></li>
