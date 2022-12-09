@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth,Guest;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth,Guest;
+
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;

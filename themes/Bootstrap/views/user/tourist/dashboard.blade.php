@@ -200,8 +200,6 @@ text-decoration:none;
                 <td scope="col">{{$book->checkout}}</td>
                 <td scope="col">{{$book->comfort}}</td>
                 <td scope="col">{{$book->action}}</td>
-
-
                 <td scope="col">
                 <a href="{{Route('bookhotel.delete',$book->id)}}" class="btn btn-sm btn-danger">Delete</a>
 

@@ -273,37 +273,36 @@ Template sidebar
     <div class="row">
         <div class="col-md-9 mb40">
             <article>
+            <h3 style="color:#f3aa29 ; font-size:40px; text-align:center;">{{$post->title}}</h3>
                 <img src="{{asset('thumbnails/'.$post->thumbnail)}}" alt="" class="img-fluid mb30">
                 <div class="post-content">
-                    <h3>{{$post->title}}</h3>
+                    
                     <ul class="post-meta list-inline">
                         <li class="list-inline-item">
-                            <i class="fa fa-user-circle-o"></i> <a href="#">{{$post->user->name}}</a>
+                            <i class="fa fa-user-circle-o"></i> <a  href="#">{{$post->user->name}}</a>
                         </li>
                         <li class="list-inline-item">
                             <i class="fa fa-calendar-o"></i> <a href="#"> {{ date('Y-m-d',strtotime($post->created_at))}}</a>
                         </li>
                       
                     </ul>
-                    <p>{{$post->description}} </p>
+                    <p style="text-align:justify ; ">{{$post->description}} </p>
                     
                     <ul class="list-inline share-buttons">
-                        <li class="list-inline-item">Share Post:</li>
+                        <li class="list-inline-item" style="color:#09052f ; font-size:30px;">Share Post:</li>
                         <li class="list-inline-item">
-                            <a href="#" class="social-icon-sm si-dark si-colored-facebook si-gray-round">
+                            <a href="https://www.facebook.com/profile.php?id=100066857520486" class="social-icon-sm si-dark si-colored-facebook si-gray-round">
                                 <i class="fa fa-facebook"></i>
-                                <i class="fa fa-facebook"></i>
+                                
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#" class="social-icon-sm si-dark si-colored-twitter si-gray-round">
-                                <i class="fa fa-twitter"></i>
-                                <i class="fa fa-twitter"></i>
+                            <a href="https://twitter.com/Tuoristss" class="social-icon-sm si-dark si-colored-twitter si-gray-round">
+                                <i class="fa fa-twitter"></i>  
                             </a>
                         </li>
                         <li class="list-inline-item">
                             <a href="#" class="social-icon-sm si-dark si-colored-linkedin si-gray-round">
-                                <i class="fa fa-linkedin"></i>
                                 <i class="fa fa-linkedin"></i>
                             </a>
                         </li>

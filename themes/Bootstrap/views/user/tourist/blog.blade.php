@@ -7,6 +7,9 @@
 		<link rel="icon" href="images/favicon.ico">
 		<link rel="shortcut icon" href="images/favicon.ico" />
 		<link rel="stylesheet" href="css/style1.css">
+		<link rel="stylesheet" href="css/style2.css">
+		<script src="https://kit.fontawesome.com/9054737d4b.js" crossorigin="anonymous"></script>
+
        
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery-migrate-1.2.1.js"></script>
@@ -41,12 +44,12 @@
 					<div class="menu_block">
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 						<ul class="sf-menu">
-                                <li class="current"><a href="{{route('touristWelcome')}}">Home</a></li>
+                                <li ><a href="{{route('touristWelcome')}}">Home</a></li>
 								<li><a href="{{route('dashboard')}}">Dashboard</a></li>
 
 								<li><a href="{{route('touristHotel')}}">Hotels</a></li>
 								<li><a href="{{route('touristPlace')}}">Places</a></li>
-								<li><a href="{{route('touristBlog')}}">BLOG</a></li>
+								<li class="current"><a href="{{route('touristBlog')}}">BLOG</a></li>
 							</ul>
                             
 
@@ -68,9 +71,9 @@
 <!--==============================Content=================================-->
 		<div class="content"><div class="ic"></div>
 			<div class="container_12">
-				<div class="grid_7">
+				<div class="heading">
              
-					<h3>Recent Posts</h3>
+					<h2 style="text-align: center;">Recent Posts</h2>
                     @foreach ($latest_posts as $latest)
                       <div class="blog">
                         <time datetime="2014-10-01">{{ date('Y-m-d',strtotime($latest->created_at))}}<span></span></time>
@@ -125,8 +128,8 @@
 				<div class="grid_12">
 					<div class="socials">
 					<a href="{{route('touristContact')}}" class="fa fa-phone"></a>
-						<a href="#" class="fa fa-facebook"></a>
-						<a href="#" class="fa fa-twitter"></a>
+						<a href="https://www.facebook.com/profile.php?id=100066857520486" class="fa fa-facebook"></a>
+						<a href="https://twitter.com/Tuoristss" class="fa fa-twitter"></a>
 						<a href="#" class="fa fa-google-plus"></a>
 					</div>
 					<div class="copy">
