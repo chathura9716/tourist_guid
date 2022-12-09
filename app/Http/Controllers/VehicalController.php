@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Vehical;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Auth;
 
 class VehicalController extends Controller
 {
@@ -73,7 +74,7 @@ class VehicalController extends Controller
         return view('admin.editvehical',compact('vehical'));
     } 
     public function vehicalmanage(){
-        $vehical=Vehical::all();
+        $vehical=Vehical::where('user_id',Auth::user()->id)->get();;
         return view('admin/vehicalmanagement',compact('vehical'));
     }
     public function vehicalshow($vehicalId){

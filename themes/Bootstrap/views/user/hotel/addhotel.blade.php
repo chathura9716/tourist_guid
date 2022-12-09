@@ -38,6 +38,11 @@ Add hotel
                             
                         </div>
                         <div class="mb-3">
+                            <label class="form-label" >Starting Price </label>
+                            <input  name="price" type="text" class="form-control"  placeholder="Enter price" required >
+                            
+                        </div>
+                        <div class="mb-3">
                             <label class="form-label">Description</label>
                             <textarea name="description"  class="form-control"   placeholder="Enter post description" rows="10" required ></textarea >
                         </div>

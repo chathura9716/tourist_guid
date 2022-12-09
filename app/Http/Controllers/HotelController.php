@@ -18,7 +18,7 @@ class HotelController extends Controller
             'type' => 'required',
             'address'=>'required',
             'city' => 'required',
-
+            
             'description' =>'required',
             'thumbnail' => 'required|image'
 
@@ -37,6 +37,8 @@ class HotelController extends Controller
                     'type' => $request ->type,
                     'address' => $request ->address,
                     'city' => $request ->city,
+                    'price'=>$request->price,
+
                     'description'=>$request->description,
                     'thumbnail' =>$imageName,
                 ]);

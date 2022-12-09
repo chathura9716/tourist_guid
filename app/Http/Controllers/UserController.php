@@ -303,9 +303,10 @@ class UserController extends Controller
             'role'=>('Hagency')
         ]);
         $user ->save();
-
+        $userid=Auth::user()->id;
         $hagency =new Hagency([
-            'user_id'=>DB::table('users')->where('email',$request->get('email'))->value('id'),
+            'agency_id'=>DB::table('users')->where('users.email','=',$request->get('email'))->value('id'),
+            'user_id'=>$userid,
             'reg_no'=>$request->get('reg_no'),
             'agency_name'=>$request->get('agency_name'),
             

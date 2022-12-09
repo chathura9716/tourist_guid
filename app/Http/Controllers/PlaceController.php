@@ -7,6 +7,7 @@ use App\Models\Hotel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use DB;
+use Auth;
 
 class PlaceController extends Controller
 {
@@ -52,7 +53,7 @@ class PlaceController extends Controller
 
     }
     public function placemanage(){
-        $places=Place::all();
+        $places=Place::where('user_id',Auth::user()->id)->get();
         return view('admin/placesmanagement',compact('places'));
     }
     public function ViewAllPlaces(){

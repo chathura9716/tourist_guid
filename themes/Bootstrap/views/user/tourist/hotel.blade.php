@@ -95,7 +95,7 @@
 							<strong class="text1 col2">Hotel Description:</strong>
 							<p>{{$hotel->description}}</p>
 							<p class="rate">
-								<span>$99.00 /</span>per Night
+								<span>${{$hotel->price}} /</span>per Night
 							</p>
 							<div class="rating">
 								<span><i class="fas fa-star"></i></span>

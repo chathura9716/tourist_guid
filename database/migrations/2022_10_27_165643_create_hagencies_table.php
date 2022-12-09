@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('hagencies', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('agency_id');
+            $table->foreign('agency_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('reg_no');

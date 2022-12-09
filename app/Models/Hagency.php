@@ -10,6 +10,7 @@ class Hagency extends Model
     use HasFactory;
     protected $fillable = [
 
+        'agency_id',
         'user_id',
         'reg_no',
         'agency_name',

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('type');
             $table->string('address');
             $table->string('city');
+            $table->string('price');
             $table->text('description');
             $table->string('thumbnail');
             

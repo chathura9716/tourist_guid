@@ -16,7 +16,7 @@ class PlaceSeeder extends Seeder
     public function run()
     {
         Place::create([
-            'user_id' => '2',
+            'user_id' => '1',
             'place_name' => 'Knuckles Mountain Range',
             'type' => 'hill',
             'province' => 'Center Province',
@@ -38,7 +38,7 @@ class PlaceSeeder extends Seeder
             'thumbnail' => 'KnucklesMountainRange.jpg',
         ]);
         Place::create([
-            'user_id' => '2',
+            'user_id' => '1',
             'place_name' => 'Ambuluwawa',
             'type' => 'hill',
             'province' => 'Center Province',
@@ -69,7 +69,7 @@ class PlaceSeeder extends Seeder
         ]);
 
         Place::create([
-            'user_id' => '2',
+            'user_id' => '1',
             'place_name' => 'Nine arches ',
             'type' => 'Bridge',
             'province' => 'Center Province',
@@ -109,7 +109,7 @@ class PlaceSeeder extends Seeder
             'thumbnail' => 'Nilaveli-Beach-Trincomalee-1140x530.jpg',
         ]);
         Place::create([
-            'user_id' => '2',
+            'user_id' => '1',
             'place_name' => 'Sri Thirukoneshwaram Kowil',
             'type' => 'Hindu Temple',
             'province' => 'Eastern Province',
@@ -131,7 +131,7 @@ class PlaceSeeder extends Seeder
             'thumbnail' => 'Nallur-Kandaswamy-Temple-Nallur-Kovil1.jpg',
         ]);
         Place::create([
-            'user_id' => '2',
+            'user_id' => '1',
             'place_name' => 'Jaffna fort',
             'type' => 'Fort',
             'province' => 'Northern Province',
@@ -152,7 +152,7 @@ class PlaceSeeder extends Seeder
             'thumbnail' => '2019-10-23.jpg',
         ]);
         Place::create([
-            'user_id' => '2',
+            'user_id' => '1',
             'place_name' => 'casuarina beach',
             'type' => 'Beach',
             'province' => 'Northern Province',
@@ -173,7 +173,45 @@ class PlaceSeeder extends Seeder
             'thumbnail' => 'z_jun-p02-The.jpg',
         ]);
 
+        Place::create([
+            'user_id' => '1',
+            'place_name' => 'Sigiriya',
+            'type' => 'hill',
+            'province' => 'Center Province',
+            'city' => 'Sigiriya',
+            
+            'description' => 'Sigiriya or Sinhagiri is an ancient rock fortress located in the northern Matale District near the town of Dambulla in the Central Province, Sri Lanka.
+            ',
+            'thumbnail' => '1666684220.jpg',
 
+        ]);
+        Place::create([
+            'user_id' => '2',
+            'place_name' => 'Ella',
+            'type' => 'upcountry',
+            'province' => 'Central Province',
+            'city' => 'Ella',
+            'description' => 'Ella has all the best parts of Sri Lanka rolled into one: 
+                                beautiful jungle mountains, rolling tea plantations, 
+                                and epic waterfalls. As one of the biggest tea producers, 
+                                travelers can look forward to spending their days among the greenest surroundings, enjoying the views from hilltop houses and adventurous hiking trails. Even the train ride to Ella is one of life’s most remarkable experiences, as you travel by iconic blue train through bamboo forests and tropical mist. Enjoy all the top things to do in Ella with this complete travel guide.
+
+            ',
+            'thumbnail' => '1666780536.jpg',
+
+        ]);
+        Place::create([
+            'user_id' => '2',
+            'place_name' => 'Galle',
+            'type' => 'Beach',
+            'province' => 'Southern Province',
+            'city' => 'Galle',
+            'description' => 'The city of Galle is located on the Southwestern Coast 
+                            of Sri Lanka and is nothing less than a place of wonders 
+                            and exquisite beauty. The city was first fortified by the Portuguese, then colonised by the Dutch and finally ruled by the British. So, as a result, you will witness a beautiful blend of all the cultures. Thus, a visit to Sri Lanka is incomplete till you spend some time at Galle. It is known for the Galle Fort, the Lighthouse and the beaches in Galle. When you are done with exploring all the attractions, go to the beaches for refreshing and rejuvenating your soul!',
+            'thumbnail' => '1657035958.jpg',
+
+        ]);
 
 
 
