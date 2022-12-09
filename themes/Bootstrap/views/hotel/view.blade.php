@@ -14,7 +14,7 @@
     <section class="u-align-center u-clearfix u-image u-shading u-section-1" src="{{asset('thumbnails/'.$hotel->thumbnail)}}" data-image-width="1124" data-image-height="1500" id="">
       <div class="u-clearfix u-sheet u-sheet-1"> 
         <h1 class="u-text u-text-default u-title u-text-1" style="font-size: 100px; font-family:Arial, Helvetica, sans-serif" >{{$hotel->hotel_name}}</h1>
-        <p class="u-large-text u-text u-text-variant u-text-2" style="font-size :50px; color:antiquewhite;">{{$hotel->type}}</p>
+        <p class="u-large-text u-text u-text-variant u-text-2" style="font-size :50px; color:antiquewhite;">{{$hotel->type}} Star</p>
       </div>
     </section>
 	<!--
@@ -42,17 +42,22 @@
       </div>
     </section>
 -->
+
+<?php $address= $hotel->address ?>
+							
     <section class="u-clearfix u-section-4" id="sec-f50c">
       <div class="u-expanded u-grey-10 u-map">
+
         <div class="embed-responsive">
-          <iframe class="embed-responsive-item" src="//maps.google.com/maps?output=embed&amp;q=Manhattan&amp;t=m" data-map="JTdCJTIycG9zaXRpb25UeXBlJTIyJTNBJTIybWFwLWFkZHJlc3MlMjIlMkMlMjJhZGRyZXNzJTIyJTNBJTIyTWFuaGF0dGFuJTIyJTJDJTIyem9vbSUyMiUzQW51bGwlMkMlMjJ0eXBlSWQlMjIlM0ElMjJyb2FkJTIyJTJDJTIybGFuZyUyMiUzQW51bGwlMkMlMjJhcGlLZXklMjIlM0FudWxsJTJDJTIybWFya2VycyUyMiUzQSU1QiU1RCU3RA=="></iframe>
+		<iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=University {{$address}} Oxford&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://mcpedls.com/">minecraft download</a>
+
         </div>
       </div>
       <div class="u-align-left u-container-style u-group u-white u-group-1">
         <div class="u-container-layout u-valign-middle u-container-layout-1">
           <h2 class="u-text u-text-1" style="font-family:'Times New Roman', Times, serif ;">{{$hotel->address}}</h2>
         
-          <p class="u-text u-text-3">+94776345334</p>
+          <p class="u-text u-text-3">{{$hotel->city}}</p>
           <p class="u-text u-text-4">
             
           </p>
