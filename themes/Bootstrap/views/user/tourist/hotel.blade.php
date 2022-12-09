@@ -89,7 +89,7 @@
 							<strong class="text1 col2">Hotel Name: </strong>
 							<label class="text1 col1">{{$hotel->hotel_name}}</label>	</br></br>
 							<strong class="text1 col2">Hotel Type:</strong>
-                            <label class="text1 col1">{{$hotel->type}}</label></br></br>
+                            <label class="text1 col1">{{$hotel->type}} Star</label></br></br>
 							<strong class="text1 col2">Hotel City:</strong>
                             <label class="text1 col1">{{$hotel->city}} {{$hotel->province}}</label></br></br>
 							<strong class="text1 col2">Hotel Description:</strong>
@@ -97,12 +97,17 @@
 							<p class="rate">
 								<span>${{$hotel->price}} /</span>per Night
 							</p>
+							<?php $type= $hotel->type ?>
 							<div class="rating">
+							@for ($i =0; $i < $type ; $i++)
+							<span><i class="fas fa-star"></i></span>
+
+     						@endfor       
+								<!-- <span><i class="fas fa-star"></i></span>
 								<span><i class="fas fa-star"></i></span>
 								<span><i class="fas fa-star"></i></span>
 								<span><i class="fas fa-star"></i></span>
-								<span><i class="fas fa-star"></i></span>
-								<span><i class="far fa-star"></i></span>
+								<span><i class="far fa-star"></i></span> -->
 							</div>
 
 							<a href="{{Route('hotel.show',$hotel->id)}}" class="link1">LEARN MORE</a>

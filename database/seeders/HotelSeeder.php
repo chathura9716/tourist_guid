@@ -20,7 +20,7 @@ class HotelSeeder extends Seeder
             
             'user_id' => '3',
             'hotel_name' => 'Shangri-La Colombo ',
-            'type' => '5 Star',
+            'type' => '5',
             'address' => 'galle face beach,Colombo',
             'city' => 'Colombo',
             'price' => '99',
@@ -35,7 +35,7 @@ class HotelSeeder extends Seeder
             
             'user_id' => '3',
             'hotel_name' => 'jetwing kandy gallery',
-            'type' => '5 Star',
+            'type' => '5',
             'address' => 'De Soysa Estate Gonawatta Maligathanne Gurudeniya, Haragama',
             'city' => 'Kandy',
             'price' => '99',
@@ -55,7 +55,7 @@ class HotelSeeder extends Seeder
             
             'user_id' => '3',
             'hotel_name' => 'Kaminrich Cottage',
-            'type' => '5 Star',
+            'type' => '5',
             'address' => 'Hotel in Polhena Beach, Matara',
             'city' => 'Matara',
             'price' => '79',
@@ -67,7 +67,7 @@ class HotelSeeder extends Seeder
             
             'user_id' => '2',
             'hotel_name' => 'The Valampuri',
-            'type' => '5 Star',
+            'type' => '4',
             'address' => '200 metres from Jaffna Railway Station,Jaffna',
             'city' => 'Jaffna',
             'price' => '59',
@@ -79,7 +79,7 @@ class HotelSeeder extends Seeder
             
             'user_id' => '3',
             'hotel_name' => 'Marino Beach Colombo ',
-            'type' => '5 Star',
+            'type' => '7',
             'address' => 'Colombo',
             'city' => 'Colombo',
             'price' => '89',
@@ -91,7 +91,7 @@ class HotelSeeder extends Seeder
             
             'user_id' => '3',
             'hotel_name' => 'Fairway Colombo',
-            'type' => '5 Star',
+            'type' => '5',
             'address' => 'fort,Colombo',
             'city' => 'Colombo',
             'price' => '85',
@@ -104,7 +104,7 @@ class HotelSeeder extends Seeder
         Hotel::create([
             'user_id' => '3',
             'hotel_name' => 'Kings Hotel',
-            'type' => '5 Star',
+            'type' => '5',
             'address' => '1/B, Unique View Road, Nuwara Eliya 22200 Sri Lanka',
             'city' => 'Nuwareliya',
             'price' => '69',
