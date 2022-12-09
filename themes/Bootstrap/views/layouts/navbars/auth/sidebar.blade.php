@@ -51,7 +51,7 @@
         </a>
       </li>
       <li class="nav-item mt-2">
-        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Laravel Examples</h6>
+        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">User pages</h6>
       </li>
       <li class="nav-item">
         <a class="nav-link {{ (Request::is('profile') ? 'active' : '') }} " href="{{ url('profile') }}">
@@ -83,7 +83,7 @@
         </a>
       </li>
       <li class="nav-item mt-2">
-        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Action pages</h6>
+        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Management pages</h6>
       </li>
       <li class="nav-item">
         <a class="nav-link {{ (Request::is('placesmanagement') ? 'active' : '') }}" href="{{ url('placesmanagement') }}">
@@ -145,14 +145,14 @@
               </g>
             </svg>
           </div>
-          <span class="nav-link-text ms-1">Vehical management</span>
+          <span class="nav-link-text ms-1">Vehicle management</span>
         </a>
       </li>
       <!-- <li class="nav-item mt-3">
         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
       </li> -->
       <li class="nav-item">
-        <a class="nav-link " href="{{ url('vehicalbookingmanage') }}">
+        <a class="nav-link {{ (Request::is('vehicalbookingmanage') ? 'active' : '') }}" href="{{ url('vehicalbookingmanage') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>customer-support</title>
@@ -169,7 +169,7 @@
               </g>
             </svg>
           </div>
-          <span class="nav-link-text ms-1">Vehical Booking Manage</span>
+          <span class="nav-link-text ms-1">Vehicle Booking Manage</span>
         </a>
       </li>
       <!-- <li class="nav-item">

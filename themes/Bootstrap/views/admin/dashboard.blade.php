@@ -161,9 +161,9 @@ text-decoration:none;
         <a href="{{Route('admin.addtravel')}}">
             <div class="card bg-c-yellow order-card">
                 <div class="card-block">
-                    <h6 class="m-b-20">ADD VEHICALS</h6>
+                    <h6 class="m-b-20">ADD VEHICLES</h6>
                     <h2 class="text-right"><i class="fa fa-taxi f-left"></i><span>535</span></h2>
-                    <p class="m-b-0">add new agency here<span class="f-right">351</span>  
+                    <p class="m-b-0">add new Vehicle here<span class="f-right">351</span>  
                   </p>
                 </div>
             </div>
@@ -196,7 +196,7 @@ text-decoration:none;
 
 
 
-          <h1>Vehical Booking Requests</h1>
+          <h1>Vehicle Booking Requests</h1>
         <table class="table">
             <thead class="thead-dark">
                 <tr>

@@ -97,7 +97,7 @@ class HotelSeeder extends Seeder
 
         Vehical::create([
             
-            'user_id' => '2',
+            'user_id' => '1',
             'model' => 'Nissan ',
             'driver_name' => 'Sujith',
             'contact' => '0765362534',
@@ -112,16 +112,106 @@ class HotelSeeder extends Seeder
         ]);
         Vehical::create([
             
-            'user_id' => '2',
+            'user_id' => '1',
             'model' => 'Nissan ',
-            'driver_name' => 'Sujith',
+            'driver_name' => 'Ajith',
             'contact' => '0765362534',
             'licence_no' => '145247885',
-            'vehical_no' => 'CA-1478',
+            'vehical_no' => 'CA-1474',
             'type'=>'Van',
             'city'=>'kandy',
             
-            'thumbnail' => 'nissan.jpg',
+            'thumbnail' => 'baleno.jpg',
+    
+        
+        ]);
+        Vehical::create([
+            
+            'user_id' => '1',
+            'model' => 'Toyota ',
+            'driver_name' => 'sarath',
+            'contact' => '0765362534',
+            'licence_no' => '198145247885',
+            'vehical_no' => 'CA-1474',
+            'type'=>'Van',
+            'city'=>'kandy',
+            
+            'thumbnail' => 'civic.jpg',
+    
+        
+        ]);
+        Vehical::create([
+            
+            'user_id' => '1',
+            'model' => 'Nissan ',
+            'driver_name' => 'Selva',
+            'contact' => '0765362534',
+            'licence_no' => '9287647885',
+            'vehical_no' => 'CA-1474',
+            'type'=>'Van',
+            'city'=>'kandy',
+            
+            'thumbnail' => 'force.jpg',
+    
+        
+        ]);
+        Vehical::create([
+            
+            'user_id' => '2',
+            'model' => 'Toyota ',
+            'driver_name' => 'John',
+            'contact' => '0765362534',
+            'licence_no' => '14543247885',
+            'vehical_no' => 'CA-1474',
+            'type'=>'Van',
+            'city'=>'kandy',
+            
+            'thumbnail' => 'hiace.jpg',
+    
+        
+        ]);
+        Vehical::create([
+            
+            'user_id' => '2',
+            'model' => 'Nissan ',
+            'driver_name' => 'Thiva',
+            'contact' => '0765362534',
+            'licence_no' => '145247885',
+            'vehical_no' => 'CA-1474',
+            'type'=>'Van',
+            'city'=>'Sigiriya',
+            
+            'thumbnail' => 'innova.png',
+    
+        
+        ]);
+        Vehical::create([
+            
+            'user_id' => '1',
+            'model' => 'Suzuki ',
+            'driver_name' => 'Nisal',
+            'contact' => '0765362534',
+            'licence_no' => '145247885',
+            'vehical_no' => 'CA-1474',
+            'type'=>'Car',
+            'city'=>'kandy',
+            
+            'thumbnail' => 'swift.jpg',
+    
+        
+        ]);
+        Vehical::create([
+            
+            'user_id' => '1',
+            'model' => 'Toyota ',
+            'driver_name' => 'Kumara',
+            'contact' => '0765362534',
+            'licence_no' => '145247885',
+            'vehical_no' => 'CA-1474',
+            'type'=>'Van',
+            'city'=>'Colombo',
+            
+            'thumbnail' => 'Toyotajiace.png',
     
         
         ]);

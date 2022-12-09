@@ -6,7 +6,7 @@ Add places
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Edit Vehicals') }}</div>
+                <div class="card-header">{{ __('Edit Vehicles') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -18,7 +18,7 @@ Add places
                     <form method="post" action="{{route('vehical.update',$vehical->id)}}" enctype="multipart/form-data">
                         @csrf
                         <div class="row mb-3">
-                            <label for="model" class="col-md-4 col-form-label text-md-end">{{ __('Model Of Vehical') }}</label>
+                            <label for="model" class="col-md-4 col-form-label text-md-end">{{ __('Model Of Vehicle') }}</label>
 
                             <div class="col-md-6">
                                 <input id="model" type="text" class="form-control @error('model') is-invalid @enderror" name="model" value="{{ old('model') }}" required autocomplete="name" autofocus>
@@ -73,7 +73,7 @@ Add places
               
 
                         <div class="row mb-3">
-                            <label for="vehical_no" class="col-md-4 col-form-label text-md-end">{{ __('Vehical No') }}</label>
+                            <label for="vehical_no" class="col-md-4 col-form-label text-md-end">{{ __('Vehicle No') }}</label>
 
                             <div class="col-md-6">
                                 <input id="vehical_no" type="text" class="form-control @error('vehical_no') is-invalid @enderror" name="vehical_no" value="{{ old('vehical_no') }}" required autocomplete="vehical_no">
@@ -89,7 +89,7 @@ Add places
                         
 
                         <div class="row mb-3">
-                            <label for="type" class="col-md-4 col-form-label text-md-end">{{ __('Type Of vehical') }}</label>
+                            <label for="type" class="col-md-4 col-form-label text-md-end">{{ __('Type Of vehicle') }}</label>
 
                             <div class="col-md-6">
                                 <input id="type" type="text" class="form-control @error('type') is-invalid @enderror" name="type" required autocomplete="type">
@@ -121,7 +121,7 @@ Add places
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Update Vehical') }}
+                                    {{ __('Update Vehicle') }}
                                 </button>
                             </div>
                         </div>

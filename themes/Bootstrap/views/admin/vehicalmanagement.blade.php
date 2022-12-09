@@ -10,7 +10,7 @@
   <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
     <div class="container-fluid py-4">
     <div class="col-12">
-      <a href="{{Route('admin.addtravel')}}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Add vehical">Add vehicals
+      <a href="{{Route('admin.addtravel')}}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Add vehical">Add vehicles
                                             <i class="fas fa-plus text-secondary"></i>
                                         </a>
 </div> 
@@ -19,7 +19,7 @@
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
-              <h6>Vehicals </h6>
+              <h6>Vehicles </h6>
               
             </div>
             
@@ -30,9 +30,9 @@
                     <tr>
                       <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
                       <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Driver name</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Vehical Type</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Vehicle Type</th>
 
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Vehical model</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Vehicle model</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">City</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created Date</th>
                       <th class="text-secondary opacity-7">Action</th>
