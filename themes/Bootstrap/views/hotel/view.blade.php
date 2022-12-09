@@ -189,7 +189,7 @@
 							</div>
 							
 							<div class="form-btn " style=" background:transparent; transition: yellow; font-weight: bold;" >
-								<button class="submit-btn">Book Now</button>
+								<button class="btn btn-dark">Book Now</button>
 							</div>
 						</form>
 					</div>

@@ -136,7 +136,7 @@ text-decoration:none;
 
 <div class="row">
     <div class="col-md-4 col-xl-3">
-    <a href="{{Route('touristWelcome')}}" >
+    <a href="{{Route('touristHotel')}}" >
         <div class="card bg-c-blue order-card">
             <div class="card-block">
                 <h6 class="m-b-20">Book Hotel</h6>
@@ -147,8 +147,8 @@ text-decoration:none;
         </a>
     </div>
     <div class="col-md-4 col-xl-3">
-    <a href="" >
-        <div class="card bg-c-red order-card">
+    <a href="{{Route('touristPlace')}}" >
+        <div class="card bg-c-blue order-card">
             <div class="card-block">
                 <h6 class="m-b-20">Book Vehicles</h6>
                 <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>486</span></h2>
@@ -214,7 +214,7 @@ text-decoration:none;
 
  
 <div class="container py-5 h-100">
-<h1>Vehical Booking Requests</h1>
+<h1>Vehicle Booking Requests</h1>
 <table class="table">
             <thead class="thead-dark">
                 <tr>
@@ -224,7 +224,7 @@ text-decoration:none;
                 <th scope="col">drop off</th>
                 <th scope="col">pickup time</th>
 
-                <th scope="col">Vehical Status</th>
+                <th scope="col">Vehicle Status</th>
 
                 <th scope="col">Action</th>
                 

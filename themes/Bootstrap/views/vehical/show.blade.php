@@ -291,7 +291,7 @@ Template sidebar
                     <fa-ul>
                     <h3>City</h3>
                     <p>{{$vehical->city}} </p>
-                    <h3>Vehical number</h3>
+                    <h3>Vehicle number</h3>
                     <p>{{$vehical->vehical_no}} </p>
 </ul>
                     <h3>Vehical type</h3>
@@ -431,18 +431,18 @@ Template sidebar
       <div class="u-clearfix u-gutter-0 u-layout-wrap u-layout-wrap-1">
         <div class="u-gutter-0 u-layout">
           <div class="u-layout-row">
-            <div class="u-size-28">
+            <!-- <div class="u-size-28">
               <div class="u-layout-col">
                 <div class="u-align-left u-container-style u-image u-layout-cell u-left-cell u-size-60 u-image-1" data-image-width="150" data-image-height="102">
                   <div class="u-container-layout u-container-layout-1"></div>
                 </div>
               </div>
-            </div>
+            </div> -->
             <div class="u-size-32">
               	<div class="u-layout-row">
                 	<div class="u-container-style u-layout-cell u-right-cell u-size-60 u-layout-cell-2">
                   		<div class="u-container-layout u-valign-top u-container-layout-2">
-                    		<h2 class="u-text u-text-default u-text-1">Make your Trip</h2>
+                    		<h2 class="u-text u-text-default u-text-1">Book Vehicle</h2>
 								<div class="u-expanded-width u-form u-form-1">
 								<div class="container">
 				<div class="">
@@ -516,7 +516,7 @@ Template sidebar
 							
 							
 							<div class="form-btn">
-								<button class="submit-btn">Rent A Car Now</button>
+								<button class="btn btn-dark">Book Now</button>
 							</div>
 						</form>
 					</div>
