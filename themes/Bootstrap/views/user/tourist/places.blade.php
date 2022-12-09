@@ -8,8 +8,9 @@
 		<link rel="shortcut icon" href="images/favicon.ico" />
 		<link rel="stylesheet" href="css/style1.css">
 		<link rel="stylesheet" href="css/style2.css">
+		
 		<script src="https://kit.fontawesome.com/9054737d4b.js" crossorigin="anonymous"></script>
-
+		<script src="js/placemain.js"></script>
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery-migrate-1.2.1.js"></script>
 		<script src="js/script.js"></script>
