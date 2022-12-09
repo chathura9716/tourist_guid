@@ -7,11 +7,7 @@
 		<link rel="icon" href="images/favicon.ico">
 		<link rel="shortcut icon" href="images/favicon.ico" />
 		<link rel="stylesheet" href="css/style1.css">
-
-		
-		<link rel="icon" href="images/logo.png" type="image/png">
-
-
+		<link rel="stylesheet" href="css/style2.css">
 		<script src="https://kit.fontawesome.com/9054737d4b.js" crossorigin="anonymous"></script>
 
 		<script src="js/jquery.js"></script>
@@ -47,14 +43,12 @@
 				<div class="grid_12">
 					<div class="menu_block">
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
-                    	<ul class="sf-menu">
-						<li ><a href="{{route('welcome')}}">Home</a></li>
+						<ul class="sf-menu">
+								<li ><a href="{{route('welcome')}}">Home</a></li>
 								<li><a href="{{route('places')}}">Places</a></li>
 								<li><a href="{{route('blog')}}">BLOG</a></li>
 								<li><a href="{{route('hotel')}}">HOTELS</a></li>
                 			<li><a href="{{route('contact')}}">CONTACTS</a></li>
-							</ul>
-                           
 						</nav>
 						<div class="clear"></div>
 					</div>
@@ -65,31 +59,57 @@
 							<img src="images/logo.png" alt="Your Happy Family">
 						</a>
 					</h1>
+ 
 				</div>
 			</div>
 		</header>
 <!--==============================Content=================================-->
 		<div class="content"><div class="ic">More Website </div>
 			<div class="container_12">
-				<div class="grid_8">
-					<h3>Hotels for Stay</h3>
+				<div class="heading">
+					<h2>confortable place to stay</h2>
 				
-			
-
 					@foreach ($hotels as $hotel)
 					<div class="block2">
 						<img src="{{asset('thumbnails/'.$hotel->thumbnail)}}" alt="" class="card-img-top img-fluid">
 						<div class="extra_wrapper">
-							<div class="text1 col2">Hotel Name:</div>
-							<div class="text1 col1">{{$hotel->hotel_name}}</div>
-							<div class="text1 col2">Hotel Type:</div>
-                            <div class="text1 col1">{{$hotel->type}}</div>
-							<div class="text1 col2">Hotel City:</div>
-                            <div class="text1 col1">{{$hotel->city}} {{$hotel->province}}</div>
-							<div class="text1 col2">Hotel Description:</div>
+							<article class="service">
+								<div class="service-icon">
+								
+									<span>	Service <i class="fas fa-utensils"></i>   &nbsp;&nbsp;&nbsp;|&nbsp;</span>
+									<span>  Swimming pool <i class="fas fa-swimming-pool"></i> &nbsp;&nbsp;  &nbsp;|&nbsp;&nbsp;&nbsp;</span>
+									<span>  Cleaning <i class="fas fa-broom"></i>   </span>
+								</div>
+							</article>
+						
+								
+							<strong class="text1 col2">Hotel Name: </strong>
+							<label class="text1 col1">{{$hotel->hotel_name}}</label>	</br></br>
+							<strong class="text1 col2">Hotel Type:</strong>
+                            <label class="text1 col1">{{$hotel->type}} Star</label></br></br>
+							<strong class="text1 col2">Hotel City:</strong>
+                            <label class="text1 col1">{{$hotel->city}} {{$hotel->province}}</label></br></br>
+							<strong class="text1 col2">Hotel Description:</strong>
 							<p>{{$hotel->description}}</p>
+							<p class="rate">
+								<span>${{$hotel->price}} /</span>per Night
+							</p>
+							<?php $type= $hotel->type ?>
+							<div class="rating">
+							@for ($i =0; $i < $type ; $i++)
+							<span><i class="fas fa-star"></i></span>
+
+     						@endfor   
+							 <span><i class="far fa-star"></i></span>    
+								<!-- <span><i class="fas fa-star"></i></span>
+								<span><i class="fas fa-star"></i></span>
+								<span><i class="fas fa-star"></i></span>
+								<span><i class="fas fa-star"></i></span>
+								<span><i class="far fa-star"></i></span> -->
+							</div>
+
 							<a href="{{Route('hotel.show',$hotel->id)}}" class="link1">LEARN MORE</a>
-							<br>
+		</br></br>
 						</div>
 					</div>
 					@endforeach

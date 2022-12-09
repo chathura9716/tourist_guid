@@ -102,7 +102,8 @@
 							@for ($i =0; $i < $type ; $i++)
 							<span><i class="fas fa-star"></i></span>
 
-     						@endfor       
+     						@endfor   
+							 <span><i class="far fa-star"></i></span>    
 								<!-- <span><i class="fas fa-star"></i></span>
 								<span><i class="fas fa-star"></i></span>
 								<span><i class="fas fa-star"></i></span>
